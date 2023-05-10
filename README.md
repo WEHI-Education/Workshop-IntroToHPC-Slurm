@@ -9,9 +9,10 @@ This course will be delivered mostly using live-coding demonstrations and exerci
 [![Build Status][badge-img]][badge-lnk]
 
 This course is maintained by [WEHI Research computing](mailto:research.computing@wehi.edu.au)
-*[@jIskCoder](https://github.com/jIskCoder)
-*[@edoyango](https://github.com/edoyango)
-*[@multimeric](https://github.com/multimeric)
+* [@jIskCoder](https://github.com/jIskCoder)
+* [@edoyango](https://github.com/edoyango)
+* [@multimeric](https://github.com/multimeric)
+
 ## Lesson Outlines
 
 [User profiles](_extras/learner-profiles.md) of people approaching
