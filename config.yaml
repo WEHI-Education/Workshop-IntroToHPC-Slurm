@@ -35,25 +35,10 @@ branch: 'main'
 # Who to contact if there are any issues
 contact: 'iskander.j@wehi.edu.au' # FIXME
 
-# Navigation ------------------------------------------------
-#
-# Use the following menu items to specify the order of
-# individual pages in each dropdown section. Leave blank to
-# include all pages in the folder.
-#
+
 # Order of episodes in your lesson
 episodes: 
-- 01-introduction.md
-- 02-milton.md
-- 03-modules.md
 
-# Information for Learners
-learners:
-- setup.md
-
-# Learner Profiles
-profiles:
-- learner-profiles.md
 
 # Customisation ---------------------------------------------
 #
