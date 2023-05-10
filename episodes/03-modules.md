@@ -1,7 +1,7 @@
 ---
 title: "Environment Modules"
 teaching: 20
-exercises: 15
+exercises: 0
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
