@@ -6,15 +6,15 @@ exercises: 5
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- "Why would I be interested in High Performance Computing (HPC)?"
-- "What can I expect to learn from this course?"
+- Why would I be interested in High Performance Computing (HPC)?
+- What can I expect to learn from this course?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- "Describe what an HPC system is"
-- "Identify how an HPC system could benefit you."
+- Describe what an HPC system is
+- Identify how an HPC system could benefit you.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -98,10 +98,6 @@ separate window, then press `P` to toggle **p**resentation mode.
 [dijkstra]: https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
 [hyperscale]: https://en.wikipedia.org/wiki/Hyperscale_computing
 [mapreduce]: https://en.wikipedia.org/wiki/MapReduce
-
-
-:::::::::::::::::::::::::::::::::::::::
-
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
