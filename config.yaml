@@ -41,20 +41,6 @@ contact: 'iskander.j@wehi.edu.au' # FIXME
 # individual pages in each dropdown section. Leave blank to
 # include all pages in the folder.
 #
-# Example -------------
-#
-# episodes:
-# - introduction.md
-# - first-steps.md
-#
-
-#
-# instructors:
-# - instructor-notes.md
-#
-
-# - another-learner.md
-
 # Order of episodes in your lesson
 episodes: 
 - 01-introduction.md
@@ -65,13 +51,9 @@ episodes:
 learners:
 - setup.md
 
+# Learner Profiles
 profiles:
 - learner-profiles.md
-# Information for Instructors
-instructors: 
-
-# Learner Profiles
-profiles: 
 
 # Customisation ---------------------------------------------
 #
