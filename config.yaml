@@ -21,7 +21,7 @@ keywords: 'hpc, cluster, scheduling, batch, SLURM, parallel, lesson, The Carpent
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'alpha' # FIXME
+life_cycle: 'stable' # FIXME
 
 # License of the lesson
 license: 'CC-BY 4.0'
@@ -41,34 +41,19 @@ contact: 'iskander.j@wehi.edu.au' # FIXME
 # individual pages in each dropdown section. Leave blank to
 # include all pages in the folder.
 #
-# Example -------------
-#
-# episodes:
-# - introduction.md
-# - first-steps.md
-#
-# learners:
-# - setup.md
-#
-# instructors:
-# - instructor-notes.md
-#
-# profiles:
-# - one-learner.md
-# - another-learner.md
-
 # Order of episodes in your lesson
 episodes: 
-- introduction.md
+- 01-introduction.md
+- 02-milton.md
+- 03-modules.md
 
 # Information for Learners
-learners: 
-
-# Information for Instructors
-instructors: 
+learners:
+- setup.md
 
 # Learner Profiles
-profiles: 
+profiles:
+- learner-profiles.md
 
 # Customisation ---------------------------------------------
 #
