@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/01-introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/02-milton.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/03-modules.html</loc>
+  </url>
+  <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/404.html</loc>
   </url>
   <url>
@@ -17,6 +26,15 @@
   </url>
   <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/index.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/01-introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/02-milton.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html</loc>
   </url>
   <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/404.html</loc>
