@@ -47,14 +47,12 @@ contact: 'iskander.j@wehi.edu.au' # FIXME
 # - introduction.md
 # - first-steps.md
 #
-learners:
-- setup.md
+
 #
 # instructors:
 # - instructor-notes.md
 #
-profiles:
-- learner-profiles.md
+
 # - another-learner.md
 
 # Order of episodes in your lesson
@@ -64,8 +62,11 @@ episodes:
 - 03-modules.md
 
 # Information for Learners
-learners: 
+learners:
+- setup.md
 
+profiles:
+- learner-profiles.md
 # Information for Instructors
 instructors: 
 
