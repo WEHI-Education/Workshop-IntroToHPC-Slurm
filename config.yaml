@@ -36,8 +36,19 @@ branch: 'main'
 contact: 'iskander.j@wehi.edu.au' # FIXME
 
 
-# Order of episodes in your lesson
-episodes: 
+episodes:
+
+# Information for Learners
+learners:
+- setup.md
+- reference.md
+
+# Information for Instructors
+instructors:
+
+# Learner Profiles
+profiles:
+- learner-profiles.md
 
 
 # Customisation ---------------------------------------------
