@@ -77,11 +77,11 @@
   Introduction to HPC and SLURM
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 16%" class="percentage">
-    16%
+<aside class="col-md-12 lesson-progress"><div style="width: 8%" class="percentage">
+    8%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 16%" aria-valuenow="16" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 8%" aria-valuenow="8" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -156,7 +156,9 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#milton-cluster">Milton Cluster</a></li>
-<li><a href="#looking-around-your-remote-home">Looking Around Your Remote Home</a></li>
+<li><a href="#connect-to-milton">Connect to Milton</a></li>
+<li><a href="#milton-filesystems">Milton FileSystems</a></li>
+<li><a href="#looking-around-your-home">Looking Around Your Home</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -175,7 +177,70 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="episode_example.html">4. Using Markdown</a>
+        <a href="04-break.html">4. Part 1 Break</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="05-slurm.html">5. Introducing SLURM</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="06-submit.html">6. Submitting a Job</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="07-monitor.html">7. Monitoring Jobs</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="08-break.html">8. Part 2 Break</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush10">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading10">
+        <a href="09-evaluate.html">9. Evaluate Jobs</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush11">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading11">
+        <a href="10-commands.html">10. SLURM Commands</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush12">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading12">
+        <a href="11-interactive.html">11. Interactive SLURM Job</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -232,13 +297,13 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Accessing Milton</h1>
-        <p> Last updated on 2023-05-10 | 
+        <p> Last updated on 2023-05-11 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/02-milton.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
         
         
-        <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 20 minutes </p>
+        <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 15 minutes </p>
         
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
@@ -254,7 +319,7 @@
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul><li>How do I log in to <code>Milton</code>?</li>
-<li>How to use softwares on <code>Milton</code>?</li>
+<li>Where can I store my data?</li>
 </ul></div>
 </div>
 </div>
@@ -263,8 +328,7 @@
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul><li>Connect to <code>Milton</code>.</li>
-<li>Access the <code>Modules</code> System.</li>
-<li>Load and remove modules.</li>
+<li>Identify where to save your data</li>
 </ul></div>
 </div>
 </div>
@@ -273,11 +337,19 @@
 <section id="milton-cluster"><h2 class="section-heading">Milton Cluster<a class="anchor" aria-label="anchor" href="#milton-cluster"></a>
 </h2>
 <hr class="half-width"><p>Milton is linux-based cluster, that is made up of two login nodes and
-many computer nodes in addition to the filesystems.</p>
-<figure><img src="../images/SLURM.png" alt="" class="figure mx-auto d-block"><figcaption>SLURM Schematic</figcaption></figure><p>The first step in using a cluster is to establish a connection from
+many computer nodes in addition to the file systems.</p>
+<div class="section level3">
+<h3 id="what-is-a-nodes-made-up-of">What is a nodes made up of?<a class="anchor" aria-label="anchor" href="#what-is-a-nodes-made-up-of"></a></h3>
+<ul><li>Physical cores</li>
+<li>Memory</li>
+<li>Local storage</li>
+</ul><figure><img src="../fig/node_anatomy.png" alt="" class="figure mx-auto d-block"><figcaption>Node</figcaption></figure></div>
+</section><section id="connect-to-milton"><h2 class="section-heading">Connect to Milton<a class="anchor" aria-label="anchor" href="#connect-to-milton"></a>
+</h2>
+<hr class="half-width"><p>The first step in using a cluster is to establish a connection from
 your laptop to the cluster.</p>
 <p>You need a Windows Command Prompt or macOS Terminal, to connect to a
-login node and access the commande line (CLI).</p>
+login node and access the command line (CLI).</p>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -307,7 +379,7 @@ login to vc7-shared.</p>
 <li>Type your password</li>
 </ul></li>
 <li>For MS-Windows users
-<ul><li>Download and install the free <a href="http://putty.org" class="external-link">PuTTY
+<ul><li>Download and install the free <a href="https://putty.org" class="external-link">PuTTY
 client</a>.</li>
 </ul></li>
 <li>You can also use <a href="https://ondemand.hpc.wehi.edu.au/pun/sys/shell/ssh/slurm-login.hpc.wehi.edu.au" class="external-link">Cluster
@@ -322,7 +394,14 @@ type after the password prompt are not displayed on the screen. Normal
 output will resume once you press <code>Enter</code>.</p>
 <p>You will notice that the prompt changed when you logged into the
 remote system using the terminal.</p>
-<figure><img src="../images/ssh-vc7.png" alt="" class="figure mx-auto d-block"><figcaption>Login to vc7-shared</figcaption></figure></section><section id="looking-around-your-remote-home"><h2 class="section-heading">Looking Around Your Remote Home<a class="anchor" aria-label="anchor" href="#looking-around-your-remote-home"></a>
+<figure><img src="../fig/ssh-vc7.png" alt="" class="figure mx-auto d-block"><figcaption>Login to vc7-shared</figcaption></figure></section><section id="milton-filesystems"><h2 class="section-heading">Milton FileSystems<a class="anchor" aria-label="anchor" href="#milton-filesystems"></a>
+</h2>
+<hr class="half-width"><figure><img src="../fig/M_FS.png" alt="" class="figure mx-auto d-block"><figcaption>Milton FileSystems</figcaption></figure><figure><img src="../fig/FSdetails.png" alt="" class="figure mx-auto d-block"><figcaption>Managed Versus UnManaged File Systems</figcaption></figure><div class="section level3">
+<h3 id="how-data-move-between-file-system-according-to-requirements">How data move between File System according to requirements?<a class="anchor" aria-label="anchor" href="#how-data-move-between-file-system-according-to-requirements"></a></h3>
+<figure><img src="../fig/dataretention.png" alt="" class="figure mx-auto d-block"><figcaption>Case 1: Data from external collaborators and needs
+long term retention</figcaption></figure><figure><img src="../fig/datadelete.png" alt="" class="figure mx-auto d-block"><figcaption>Case 2: Data from publicly available source, or with
+delete on-completion constraint</figcaption></figure></div>
+</section><section id="looking-around-your-home"><h2 class="section-heading">Looking Around Your Home<a class="anchor" aria-label="anchor" href="#looking-around-your-home"></a>
 </h2>
 <hr class="half-width"><p>We will now run through some linux commands to look around the login
 node.</p>
@@ -334,7 +413,7 @@ node.</p>
 <h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge2"></a>
 </h3>
 <div class="callout-content">
-<p>Exercise: To check the name of the current node we are logged</p>
+<p>Exercise: Check the name of the current node we are logged into</p>
 </div>
 </div>
 </div>
@@ -347,8 +426,8 @@ node.</p>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<pre><code>$ hostname</code></pre>
-<pre><code><span><span class="va">vc7</span><span class="op">-</span><span class="va">shared.hpc.wehi.edu.au</span></span></code></pre>
+<pre><code>$ hostname
+vc7-shared.hpc.wehi.edu.au</code></pre>
 <p>So, we’re definitely on the remote machine.</p>
 </div>
 </div>
@@ -377,8 +456,8 @@ node.</p>
 <div class="accordion-body">
 <p>Run <code>pwd</code> (<strong>p</strong>rint the
 <strong>w</strong>orking <strong>d</strong>irectory.)</p>
-<pre><code>$ pwd</code></pre>
-<pre><code>/home/users/allstaff/&lt;username&gt;</code></pre>
+<pre><code>$ pwd
+/home/users/allstaff/&lt;username&gt;</code></pre>
 <p>Instead of <code>&lt;username&gt;</code>, your username will appear.
 This is your HOME directory ($HOME)</p>
 </div>
@@ -440,6 +519,8 @@ This is your HOME directory ($HOME)</p>
 </div>
 </div>
 </div>
+<p>For more on Linux commands, visit <a href="https://wehieduau.sharepoint.com/sites/rc2/SitePages/Linux.aspx" class="external-link">our
+guide</a> or watch the recording of the workshops <a href="https://wehieduau.sharepoint.com/sites/rc2/SitePages/RCP-Training.aspx" class="external-link">here</a></p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -448,9 +529,14 @@ This is your HOME directory ($HOME)</p>
 <h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
-<ul><li>“HPC systems typically provide login nodes and a set of compute
-nodes.”</li>
-<li>“Files saved on one node are available on all nodes.”</li>
+<ul><li>HPC systems typically provide login nodes and a set of compute
+nodes.</li>
+<li>Files saved on one node are available on all nodes.</li>
+<li>Milton has multiple different file systems that have different
+policies.</li>
+<li>Throughout a research project, research data may move between file
+systems according to backup and retention requirements, and to improve
+performance.</li>
 </ul></div>
 </div>
 </div>
@@ -510,9 +596,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/02-milton.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/02-milton.html",
-  "dateCreated": "2023-05-10",
-  "dateModified": "2023-05-10",
-  "datePublished": "2023-05-10"
+  "dateCreated": "2023-05-11",
+  "dateModified": "2023-05-11",
+  "datePublished": "2023-05-11"
 }
 
   </script><script>

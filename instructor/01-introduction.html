@@ -178,7 +178,70 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="episode_example.html">4. Using Markdown</a>
+        <a href="04-break.html">4. Part 1 Break</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="05-slurm.html">5. Introducing SLURM</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="06-submit.html">6. Submitting a Job</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="07-monitor.html">7. Monitoring Jobs</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="08-break.html">8. Part 2 Break</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush10">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading10">
+        <a href="09-evaluate.html">9. Evaluate Jobs</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush11">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading11">
+        <a href="10-commands.html">10. SLURM Commands</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush12">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading12">
+        <a href="11-interactive.html">11. Interactive SLURM Job</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -235,13 +298,13 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>What is a HPC?</h1>
-        <p> Last updated on 2023-05-10 | 
+        <p> Last updated on 2023-05-11 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/01-introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
         
         
-        <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 10 minutes </p>
+        <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 15 minutes </p>
         
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
@@ -257,7 +320,6 @@
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul><li>Why would I be interested in High Performance Computing (HPC)?</li>
-<li>What can I expect to learn from this course?</li>
 </ul></div>
 </div>
 </div>
@@ -352,13 +414,13 @@ parallelism;</li>
 reliable and regularly backed up.</li>
 </ul></section><section id="what-is-milton"><h2 class="section-heading">What is Milton?<a class="anchor" aria-label="anchor" href="#what-is-milton"></a>
 </h2>
-<hr class="half-width"><figure><img src="../images/milton.png" alt="" class="figure mx-auto d-block"><figcaption>WEHI Milton HPC cluster</figcaption></figure><p>In 2016, WEHI purchased an on-premise HPC cluster called Milton,
+<hr class="half-width"><figure><img src="../fig/milton.png" class="figure mx-auto d-block"></figure><p>In 2016, WEHI purchased an on-premise HPC cluster called Milton,
 Milton includes &gt;4500-cores (2 hyperthreads per core), &gt;60TB
 memory, ~ 58 GPUs, &gt;10 petabytes of tiered-storage. All details are
 available <a href="https://wehieduau.sharepoint.com/sites/rc2/SitePages/Milton-hardware.aspx" class="external-link">here</a>.</p>
 <p>Milton contains a mix of Skylake, Broadwell, Icelake and Cooperlake
 Intel processors.</p>
-<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><tbody><tr class="odd"><figure><img src="../images/miltonschematic.png" alt="WEHI Milton Nodes" class="figure mx-auto d-block"></figure><figure><img src="../images/nodesnew.png" alt="WEHI Milton Nodes" class="figure mx-auto d-block"></figure></tr></tbody></table><div id="keypoints1" class="callout keypoints">
+<figure><img src="../fig/miltonschematic.png" class="figure mx-auto d-block"></figure><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -366,17 +428,17 @@ Intel processors.</p>
 <h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
-<ul><li>“High Performance Computing (HPC) typically involves connecting to
+<ul><li>High Performance Computing (HPC) typically involves connecting to
 very large computing systems that provides a high computational
-power.”</li>
-<li>“These systems can be used to do work that would either be
-impossible or much slower on smaller systems.”</li>
-<li>“HPC resources are shared by multiple users.”</li>
-<li>“The resources found on independent compute nodes can vary in volume
+power.</li>
+<li>These systems can be used to do work that would either be impossible
+or much slower on smaller systems.</li>
+<li>HPC resources are shared by multiple users.</li>
+<li>The resources found on independent compute nodes can vary in volume
 and type (amount of RAM, processor architecture, availability of network
-mounted filesystems, etc.).”</li>
-<li>“The standard method of interacting with such systems is via a
-command line interface.”</li>
+mounted filesystems, etc.).</li>
+<li>The standard method of interacting with such systems is via a
+command line interface.</li>
 </ul></div>
 </div>
 </div>
@@ -436,9 +498,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/01-introduction.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/01-introduction.html",
-  "dateCreated": "2023-05-10",
-  "dateModified": "2023-05-10",
-  "datePublished": "2023-05-10"
+  "dateCreated": "2023-05-11",
+  "dateModified": "2023-05-11",
+  "datePublished": "2023-05-11"
 }
 
   </script><script>

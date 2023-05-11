@@ -77,11 +77,11 @@
   Introduction to HPC and SLURM
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 48%" class="percentage">
-    48%
+<aside class="col-md-12 lesson-progress"><div style="width: 15%" class="percentage">
+    15%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 48%" aria-valuenow="48" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 15%" aria-valuenow="15" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -165,8 +165,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#why-do-we-need-environment-modules">Why do we need Environment Modules?</a></li>
-<li><a href="#environment-modules">Environment Modules</a></li>
-<li><a href="#loading-and-unloading-software">Loading and Unloading Software</a></li>
+<li><a href="#what-is-path">What is $PATH?</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -176,7 +175,70 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="episode_example.html">4. Using Markdown</a>
+        <a href="04-break.html">4. Part 1 Break</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="05-slurm.html">5. Introducing SLURM</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="06-submit.html">6. Submitting a Job</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="07-monitor.html">7. Monitoring Jobs</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="08-break.html">8. Part 2 Break</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush10">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading10">
+        <a href="09-evaluate.html">9. Evaluate Jobs</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush11">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading11">
+        <a href="10-commands.html">10. SLURM Commands</a>
+    </div><!--/div.accordion-header-->
+        
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush12">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading12">
+        <a href="11-interactive.html">11. Interactive SLURM Job</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -224,16 +286,16 @@
   <div class="col-xl-8 col-lg-12 primary-content">
     <nav class="lesson-content mx-md-4" aria-label="Previous and Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/02-milton.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="../instructor/episode_example.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="../instructor/04-break.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="../instructor/02-milton.html" rel="prev"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous: Accessing Milton</a>
-        <a class="chapter-link float-end" href="../instructor/episode_example.html" rel="next">Next: Using Markdown... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="../instructor/04-break.html" rel="next">Next: Part 1 Break... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Environment Modules</h1>
-        <p> Last updated on 2023-05-10 | 
+        <p> Last updated on 2023-05-11 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/03-modules.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -284,8 +346,7 @@ others that depend on it.</p>
 versions. Python 3 famously provides a <code>python</code> command that
 conflicts with that provided by Python 2. Software compiled against a
 newer version of the C libraries and then used when they are not present
-will result in a nasty <code>'GLIBCXX_3.4.20' not found</code> error,
-for instance.</p>
+will result in errors, for instance.</p>
 <p>Software versioning is another common issue. A team might depend on a
 certain package version for their research project - if the software
 version was to change (for instance, if a package was updated), it might
@@ -294,30 +355,17 @@ a set of researchers to prevent software versioning issues from
 affecting their results.</p>
 <p>Dependencies are where a particular software package (or even a
 particular version) depends on having access to another software package
-(or even a particular version of another software package). For example,
-the VASP materials science software may depend on having a particular
-version of the FFTW (Fastest Fourier Transform in the West) software
-library available for it to work.</p>
-</section><section id="environment-modules"><h2 class="section-heading">Environment Modules<a class="anchor" aria-label="anchor" href="#environment-modules"></a>
-</h2>
-<hr class="half-width"><p>Environment modules are the solution to these problems. A
+(or even a particular version of another software package).</p>
+<p>Environment modules are the solution to these problems. A
 <em>module</em> is a self-contained description of a software package –
 it contains the settings required to run a software package and,
 usually, encodes required dependencies on other software packages.</p>
-<p>There are a number of different environment module implementations
-commonly used on HPC systems: the two most common are <em>TCL
-modules</em> and <em>Lmod</em>. Both of these use similar syntax and the
-concepts are the same so learning to use one will allow you to use
-whichever is installed on the system you are using. In both
-implementations the <code>module</code> command is used to interact with
-environment modules. An additional subcommand is usually added to the
-command to specify what you want to do. For a list of subcommands you
-can use <code>module -h</code> or <code>module help</code>. As for all
-commands, you can access the full help on the <em>man</em> pages with
+<p>The <code>module</code> command is used to interact with environment
+modules. An additional subcommand is usually added to the command to
+specify what you want to do. For a list of subcommands you can use
+<code>module -h</code> or <code>module help</code>. As for all commands,
+you can access the full help on the <em>man</em> pages with
 <code>man module</code>.</p>
-<p>On login you may start out with a default set of modules loaded or
-you may start out with an empty environment; this depends on the setup
-of the system you are using.</p>
 <div class="section level3">
 <h3 id="listing-available-modules">Listing Available Modules<a class="anchor" aria-label="anchor" href="#listing-available-modules"></a></h3>
 <p>To see available software modules, use <code>module avail</code>:</p>
@@ -364,9 +412,9 @@ loaded, you will see a message telling you so</p>
 <pre><code>$ module list</code></pre>
 <pre><code>No Modulefiles Currently Loaded.</code></pre>
 </div>
-</section><section id="loading-and-unloading-software"><h2 class="section-heading">Loading and Unloading Software<a class="anchor" aria-label="anchor" href="#loading-and-unloading-software"></a>
-</h2>
-<hr class="half-width"><p>To load a software module, use <code>module load</code>. In this
+<div class="section level3">
+<h3 id="loading-and-unloading-software">Loading and Unloading Software<a class="anchor" aria-label="anchor" href="#loading-and-unloading-software"></a></h3>
+<p>To load a software module, use <code>module load</code>. In this
 example we will use Python 3.</p>
 <p>Initially, Python 3 is not loaded. We can test this by using the
 <code>which</code> command. <code>which</code> looks for programs the
@@ -401,9 +449,77 @@ of <code>module load</code>.</p>
 module list
 Currently Loaded Modulefiles:
  1) python/3.8.8</code></pre>
-</section><div class="section level1">
-<h1 id="what-is-path">What is $PATH?<a class="anchor" aria-label="anchor" href="#what-is-path"></a></h1>
-<p><code>$PATH</code> is a special environment variable that controls
+<div id="challenge1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+</h3>
+<div class="callout-content">
+<p>Exercise: What does <code>module whatis Python</code> do?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>Print information of modulefile(s)</p>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+</h3>
+<div class="callout-content">
+<p>Exercise: What does <code>module show Python</code> do?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<p>Show the changes loading the module does to your environment</p>
+<pre><code>-------------------------------------------------------------------
+/stornext/System/data/modulefiles/bioinf/its/python/3.8.8:
+
+module-whatis   {Python is a widely used high-level, general-purpose, interpreted, dynamic programming language. (v3.8.8)}
+conflict        python
+conflict        caffe2
+conflict        anaconda2
+conflict        anaconda3
+conflict        CUDA8/caffe2
+unsetenv        PYTHONHOME
+setenv          PYTHON_INCLUDE_DIR /stornext/System/data/apps/python/python-3.8.8/include/python3.8
+prepend-path    PATH /stornext/System/data/apps/python/python-3.8.8/bin
+prepend-path    CPATH /stornext/System/data/apps/python/python-3.8.8/include/python3.8
+prepend-path    MANPATH :/stornext/System/data/apps/python/python-3.8.8/share/man
+prepend-path    LD_LIBRARY_PATH /stornext/System/data/apps/python/python-3.8.8/lib</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="what-is-path"><h2 class="section-heading">What is $PATH?<a class="anchor" aria-label="anchor" href="#what-is-path"></a>
+</h2>
+<hr class="half-width"><p><code>$PATH</code> is a special environment variable that controls
 where a UNIX system looks for software. Specifically <code>$PATH</code>
 is a list of directories (separated by <code>:</code>) that the OS
 searches through for a command before giving up and telling us it can’t
@@ -419,6 +535,23 @@ the system looks for software libraries, and sometimes variables which
 tell commercial software packages where to find license servers.</p>
 <p>The module command also restores these shell environment variables to
 their previous state when a module is unloaded.</p>
+<div id="callout1" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="note" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#callout1"></a>
+</h3>
+<div class="callout-content">
+<p>The login nodes are a <em>shared resource</em>. All users access a
+login node in order to check their files, submit jobs etc. If one or
+more users start to run computationally or I/O intensive tasks on the
+login node (such as forwarding of graphics, copying large files, running
+multicore jobs), then that will make operations difficult for
+everyone.</p>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -439,19 +572,15 @@ for you automatically.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
-</div>
-
-
-
-      </div> <!-- / div.lesson-content -->
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/02-milton.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="../instructor/episode_example.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="../instructor/04-break.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="../instructor/02-milton.html" rel="prev"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous: Accessing Milton</a>
-        <a class="chapter-link float-end" href="../instructor/episode_example.html" rel="next">Next: Using Markdown... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="../instructor/04-break.html" rel="next">Next: Part 1 Break... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
     </nav></div> <!-- / div.primary-content.col-xs-12 -->
 <!-- END:   inst/pkgdown/templates/content-instructor.html-->
@@ -495,9 +624,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html",
-  "dateCreated": "2023-05-10",
-  "dateModified": "2023-05-10",
-  "datePublished": "2023-05-10"
+  "dateCreated": "2023-05-11",
+  "dateModified": "2023-05-11",
+  "datePublished": "2023-05-11"
 }
 
   </script><script>

@@ -206,7 +206,91 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="episode_example.html">4. Using Markdown</a>
+        <a href="04-break.html">4. Part 1 Break</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="05-slurm.html">5. Introducing SLURM</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="06-submit.html">6. Submitting a Job</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="07-monitor.html">7. Monitoring Jobs</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="08-break.html">8. Part 2 Break</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush10">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading10">
+        <a href="09-evaluate.html">9. Evaluate Jobs</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush11">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading11">
+        <a href="10-commands.html">10. SLURM Commands</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush12">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading12">
+        <a href="11-interactive.html">11. Interactive SLURM Job</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -271,24 +355,29 @@
 <section id="01-introduction"><h2 class="section-heading"><a href="01-introduction.html">What is a HPC?</a></h2>
 <hr class="half-width">
 <ul>
-<li>“High Performance Computing (HPC) typically involves connecting to
+<li>High Performance Computing (HPC) typically involves connecting to
 very large computing systems that provides a high computational
-power.”</li>
-<li>“These systems can be used to do work that would either be
-impossible or much slower on smaller systems.”</li>
-<li>“HPC resources are shared by multiple users.”</li>
-<li>“The resources found on independent compute nodes can vary in volume
+power.</li>
+<li>These systems can be used to do work that would either be impossible
+or much slower on smaller systems.</li>
+<li>HPC resources are shared by multiple users.</li>
+<li>The resources found on independent compute nodes can vary in volume
 and type (amount of RAM, processor architecture, availability of network
-mounted filesystems, etc.).”</li>
-<li>“The standard method of interacting with such systems is via a
-command line interface.”</li>
+mounted filesystems, etc.).</li>
+<li>The standard method of interacting with such systems is via a
+command line interface.</li>
 </ul></section><section id="02-milton"><h2 class="section-heading"><a href="02-milton.html">Accessing Milton</a></h2>
 <hr class="half-width">
 <ul>
-<li>“HPC systems typically provide login nodes and a set of compute
-nodes.”</li>
-<li>“Files saved on one node are available on all nodes.”</li>
-</ul></section><section id="03-modules"><h2 class="section-heading"><a href="03-modules.html">Environment ModulesWhat is $PATH?<a class="anchor" aria-label="anchor" href="#what-is-path"></a></a></h2>
+<li>HPC systems typically provide login nodes and a set of compute
+nodes.</li>
+<li>Files saved on one node are available on all nodes.</li>
+<li>Milton has multiple different file systems that have different
+policies.</li>
+<li>Throughout a research project, research data may move between file
+systems according to backup and retention requirements, and to improve
+performance.</li>
+</ul></section><section id="03-modules"><h2 class="section-heading"><a href="03-modules.html">Environment Modules</a></h2>
 <hr class="half-width">
 <ul>
 <li>Load software with <code>module load softwareName</code>.</li>
@@ -296,7 +385,56 @@ nodes.”</li>
 </li>
 <li>The module system handles software versioning and package conflicts
 for you automatically.</li>
-</ul></section><section id="episode_example"><h2 class="section-heading"><a href="episode_example.html">Using Markdown</a></h2>
+</ul></section><section id="04-break"><h2 class="section-heading"><a href="04-break.html">Part 1 Break</a></h2>
+<hr class="half-width"></section><section id="05-slurm"><h2 class="section-heading"><a href="05-slurm.html">Introducing SLURM</a></h2>
+<hr class="half-width">
+<ul>
+<li>The scheduler handles how compute resources are shared between
+users.</li>
+<li>A job is just a shell script.</li>
+<li>Request <em>slightly</em> more resources than you will need.</li>
+<li>Backfilling improves system utilisation and maximises job
+throughput</li>
+<li>Milton SLURM has multiple partitions with different specification
+that fit the different types of jobs.</li>
+</ul></section><section id="06-submit"><h2 class="section-heading"><a href="06-submit.html">Submitting a JobRunning a Batch Job<a class="anchor" aria-label="anchor" href="#running-a-batch-job"></a></a></h2>
+<hr class="half-width">
+<ul><li>
+</li></ul></section><section id="07-monitor"><h2 class="section-heading"><a href="07-monitor.html">Monitoring Jobs</a></h2>
+<hr class="half-width">
+<ul>
+<li>Use <code>.md</code> files for episodes when you want static
+content</li>
+<li>Use <code>.Rmd</code> files for episodes when you need to generate
+output</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
+with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
+locally</li>
+</ul></section><section id="08-break"><h2 class="section-heading"><a href="08-break.html">Part 2 Break</a></h2>
+<hr class="half-width"></section><section id="09-evaluate"><h2 class="section-heading"><a href="09-evaluate.html">Evaluate Jobs</a></h2>
+<hr class="half-width">
+<ul>
+<li>Use <code>.md</code> files for episodes when you want static
+content</li>
+<li>Use <code>.Rmd</code> files for episodes when you need to generate
+output</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
+with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
+locally</li>
+</ul></section><section id="10-commands"><h2 class="section-heading"><a href="10-commands.html">SLURM Commands</a></h2>
+<hr class="half-width">
+<ul>
+<li>Use <code>.md</code> files for episodes when you want static
+content</li>
+<li>Use <code>.Rmd</code> files for episodes when you need to generate
+output</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
+with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
+locally</li>
+</ul></section><section id="11-interactive"><h2 class="section-heading"><a href="11-interactive.html">Interactive SLURM Job</a></h2>
 <hr class="half-width">
 <ul>
 <li>Use <code>.md</code> files for episodes when you want static
@@ -355,9 +493,9 @@ locally</li>
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/key-points.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/key-points.html",
-  "dateCreated": "2023-05-10",
-  "dateModified": "2023-05-10",
-  "datePublished": "2023-05-10"
+  "dateCreated": "2023-05-11",
+  "dateModified": "2023-05-11",
+  "datePublished": "2023-05-11"
 }
 
   </script><script>
