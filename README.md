@@ -6,8 +6,6 @@ This course is for scientists who have no experience with high performance compu
 
 This course will be delivered mostly using live-coding demonstrations and exercises. The entire workshop is delivered in approximately 3 1-hour chunks with breaks in between. 
 
-[![Build Status][badge-img]][badge-lnk]
-
 This course is maintained by [WEHI Research computing](mailto:research.computing@wehi.edu.au)
 * [@jIskCoder](https://github.com/jIskCoder)
 * [@edoyango](https://github.com/edoyango)
@@ -15,67 +13,44 @@ This course is maintained by [WEHI Research computing](mailto:research.computing
 
 ## Lesson Outlines
 
-[User profiles](_extras/learner-profiles.md) of people approaching
+[User profiles](leaners/learner-profiles.md) of people approaching
 high-performance computing from an academic and/or commercial background are
-provided to help guide planning and decision-making.
+provided to help guide planning and decision-makingguidence on how to make use of Milton.
 
-1. [Why use a cluster?](_episodes/11-hpc-intro.md) (20 minutes)
+1. [What is High Performance Computing?](episodes/01-introduction.md) (15 minutes)
 
-   * Brief, concentrate on the concepts not details like interconnect type, etc.
-   * Be able to describe what a compute cluster (HPC/HTC system) is
-   * Explain how a cluster differs from a laptop, desktop, cloud, or "server"
+   * Brief on the concepts and terms.
    * Identify how an compute cluster could benefit you.
-   * Jargon busting
+   * Introduce Milton 
 
-1. [Working on a remote HPC system](_episodes/12-cluster.md) (35 minutes)
+2. [Accessing Milton](episodes/02-milton.md) (10 minutes)
 
-   * Understand the purpose of using a terminal program and SSH
-   * Learn the basics of working on a remote system
-   * Know the differences of between login and compute nodes
-   * Objectives: Connect to a cluster using ssh; Transfer files to and from the
-     cluster; Run the hostname command on a compute node of the cluster.
-   * Potential tools: `ssh`, `ls`, `hostname`, `logout`, `nproc`, `free`,
-     `scp`, `man`, `wget`
+   * Learn how to connect to Milton
+   * Milton file systems
+   * Know the differences between login and compute nodes
+   
+3. [Accessing Environment Modules](episodes/03-modules.md) (20 minutes)
 
-1. [Working with the scheduler](_episodes/13-scheduler.md) (1 hour 15 minutes)
+  * Brief on Environment Modules and why we need them
+  * Learn how to load, unload and purge modules
+  * Learn how to switch between modules
 
-   * Know how to submit a program and batch script to the cluster (interactive &
-     batch)
+4. [Introducing SLURM](episodes/05-slurm.md) (20 minutes)
+
+  * Learn about a scheduler, fair share and backfilling
+  * Learn about the design of Milton SLURM
+
+
+5. [Submitting a Job](episodes/06-submit.md) (40 minutes)
+
+   * Know how to submit a program and batch script to the cluster 
    * Use the batch system command line tools to monitor the execution of your
      job.
    * Inspect the output and error files of your jobs.
    * Potential tools: shell script, `sbatch`, `squeue -u`, `watch`, `-N`, `-n`,
-     `-c`, `--mem`, `--time`, `scancel`, `srun`, `--x11 --pty`,
+     `-c`, `--mem`, `--time`, `scancel`
    * Extras: `--mail-user`, `--mail-type`,
-   * Remove? `watch`
-   * Later lessons? `-N` `-n` `-c`
 
-1. [Accessing software via Modules](_episodes/14-modules.md) (45 minutes)
-
-   * Understand the runtime environment at login
-   * Learn how software modules can modify your environment
-   * Learn how modules prevent problems and promote reproducibility
-   * Objectives: how to load and use a software package.
-   * Tools: `module avail`, `module load`, `which`, `echo $PATH`, `module
-     list`, `module unload`, `module purge`, `.bashrc`, `.bash_profile`, `git
-     clone`, `make`
-   * Remove: `make`, `git clone`,
-   * Extras: `.bashrc`, `.bash_profile`
-
-1. [Transferring files with remote computers](
-   _episodes/15-transferring-files.md) (30 minutes)
-
-   * Understand the (cognitive) limitations that remote systems don't
-     necessarily have local Finder/Explorer windows
-   * Be mindful of network and speed restrictions (e.g. cannot push from
-     cluster; many files vs one archive)
-   * Know what tools can be used for file transfers, and transfer modes (binary
-     vs text)
-   * Objective: Be able to transfer files to and from a computing cluster.
-   * Tools: `wget`, `scp`, `rsync` (callout), `mkdir`, FileZilla,
-   * Remove: `dos2unix`, `unix2dos`,
-   * Bonus: `gzip`, `tar`, `dos2unix`, `cat`, `unix2dos`, `sftp`, `pwd`,
-     `lpwd`, `put`, `get`
 
 1. [Running a parallel job](_episodes/16-parallel.md) (1 hour)
 
