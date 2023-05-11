@@ -32,8 +32,7 @@ it.
 Two of the most famous examples are Python 2 and 3 and C compiler versions.
 Python 3 famously provides a `python` command that conflicts with that provided
 by Python 2. Software compiled against a newer version of the C libraries and
-then used when they are not present will result in a nasty `'GLIBCXX_3.4.20'
-not found` error, for instance.
+then used when they are not present will result in errors, for instance.
 
 Software versioning is another common issue. A team might depend on a certain
 package version for their research project - if the software version was to
@@ -43,31 +42,18 @@ prevent software versioning issues from affecting their results.
 
 Dependencies are where a particular software package (or even a particular
 version) depends on having access to another software package (or even a
-particular version of another software package). For example, the VASP
-materials science software may depend on having a particular version of the
-FFTW (Fastest Fourier Transform in the West) software library available for it
-to work.
-
-## Environment Modules
+particular version of another software package). 
 
 Environment modules are the solution to these problems. A _module_ is a
 self-contained description of a software package -- it contains the
 settings required to run a software package and, usually, encodes required
 dependencies on other software packages.
 
-There are a number of different environment module implementations commonly
-used on HPC systems: the two most common are _TCL modules_ and _Lmod_. Both of
-these use similar syntax and the concepts are the same so learning to use one
-will allow you to use whichever is installed on the system you are using. In
-both implementations the `module` command is used to interact with environment
+The `module` command is used to interact with environment
 modules. An additional subcommand is usually added to the command to specify
 what you want to do. For a list of subcommands you can use `module -h` or
 `module help`. As for all commands, you can access the full help on the _man_
 pages with `man module`.
-
-On login you may start out with a default set of modules loaded or you may
-start out with an empty environment; this depends on the setup of the system
-you are using.
 
 ### Listing Available Modules
 
@@ -126,7 +112,7 @@ No Modulefiles Currently Loaded.
 ```
 
 
-## Loading and Unloading Software
+### Loading and Unloading Software
 
 To load a software module, use `module load`. In this example we will use
 Python 3.
@@ -176,7 +162,46 @@ Currently Loaded Modulefiles:
  1) python/3.8.8
 ```
 
-# What is $PATH?
+::: challenge
+
+Exercise: What does `module whatis Python` do?
+
+:::::: solution
+
+Print information of modulefile(s)
+
+::::::
+:::
+
+::: challenge
+
+Exercise: What does `module show Python` do?
+
+:::::: solution
+
+Show the changes loading the module does to your environment
+```
+-------------------------------------------------------------------
+/stornext/System/data/modulefiles/bioinf/its/python/3.8.8:
+
+module-whatis   {Python is a widely used high-level, general-purpose, interpreted, dynamic programming language. (v3.8.8)}
+conflict        python
+conflict        caffe2
+conflict        anaconda2
+conflict        anaconda3
+conflict        CUDA8/caffe2
+unsetenv        PYTHONHOME
+setenv          PYTHON_INCLUDE_DIR /stornext/System/data/apps/python/python-3.8.8/include/python3.8
+prepend-path    PATH /stornext/System/data/apps/python/python-3.8.8/bin
+prepend-path    CPATH /stornext/System/data/apps/python/python-3.8.8/include/python3.8
+prepend-path    MANPATH :/stornext/System/data/apps/python/python-3.8.8/share/man
+prepend-path    LD_LIBRARY_PATH /stornext/System/data/apps/python/python-3.8.8/lib
+```
+
+::::::
+:::
+
+## What is $PATH?
 
 `$PATH` is a special environment variable that controls where a UNIX system looks for software. Specifically `$PATH` is a list of directories (separated by `:`) that the OS searches through for a command before giving up and telling us it can't find it. As with all environment variables we can print it out using `echo`.
 
@@ -190,6 +215,14 @@ tell commercial software packages where to find license servers.
 
 The module command also restores these shell environment variables to their previous state when a module is unloaded.
 
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Note
+
+The login nodes are a _shared resource_. All users access a login node in order to check their files, submit jobs etc. If one or more users start to run computationally or I/O intensive tasks on the login node (such as forwarding of graphics, copying large files, running multicore jobs), then that will make operations difficult for everyone.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
 - Load software with `module load softwareName`.

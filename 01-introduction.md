@@ -1,13 +1,12 @@
 ---
 title: "What is a HPC?"
-teaching: 10
+teaching: 15
 exercises: 0
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
 - Why would I be interested in High Performance Computing (HPC)?
-- What can I expect to learn from this course?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -75,27 +74,29 @@ Therefore, HPCs are userful when you have:
 
 ## What is Milton?
 
-![WEHI Milton HPC cluster](images/milton.png)
+![](fig/milton.png)
 
 In 2016, WEHI purchased an on-premise HPC cluster called Milton, Milton includes >4500-cores (2 hyperthreads per core), >60TB memory, ~ 58 GPUs, >10 petabytes of tiered-storage. All details are available [here](https://wehieduau.sharepoint.com/sites/rc2/SitePages/Milton-hardware.aspx).
 
 Milton contains a mix of Skylake, Broadwell, Icelake and Cooperlake Intel processors.
 
-|||
-|---|---|
-|![WEHI Milton Nodes](images/miltonschematic.png)|![WEHI Milton Nodes](images/nodesnew.png)|
+
+![](fig/miltonschematic.png)
+
+
+
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- "High Performance Computing (HPC) typically involves connecting to very large
-  computing systems that provides a high computational power."
-- "These systems can be used to do work that would either be impossible
-  or much slower on smaller systems."
-- "HPC resources are shared by multiple users."
-- "The resources found on independent compute nodes can vary in volume and
+- High Performance Computing (HPC) typically involves connecting to very large
+  computing systems that provides a high computational power.
+- These systems can be used to do work that would either be impossible
+  or much slower on smaller systems.
+- HPC resources are shared by multiple users.
+- The resources found on independent compute nodes can vary in volume and
   type (amount of RAM, processor architecture, availability of network mounted
-  filesystems, etc.)."
-- "The standard method of interacting with such systems is via a command line
-  interface."
+  filesystems, etc.).
+- The standard method of interacting with such systems is via a command line
+  interface.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::

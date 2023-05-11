@@ -8,14 +8,13 @@ This course is for scientists who have no experience with high performance compu
 
 This course will be delivered mostly using live-coding demonstrations and exercises. The entire workshop is delivered in approximately 3 1-hour chunks with breaks in between. 
 
-[![Build Status][badge-img]][badge-lnk]
-
 This course is maintained by [WEHI Research computing](mailto:research.computing@wehi.edu.au)
-* [@jIskCoder](https://github.com/jIskCoder)
-* [@edoyango](https://github.com/edoyango)
-* [@multimeric](https://github.com/multimeric) 
+* Julie Iskander [@jIskCoder](https://github.com/jIskCoder)
+* Edward Yang [@edoyango](https://github.com/edoyango)
+* Michael Milton [@multimeric](https://github.com/multimeric) 
 
 ## Course Prerequisites
+
 * Attending Introduction to Linux workshop or watching recording that will be available [here](https://wehieduau.sharepoint.com/sites/rc2/SitePages/RCP-Training.aspx) 
 * Read [this page](https://wehieduau.sharepoint.com/sites/rc2/SitePages/Linux.aspx) as a refresher to Linux commands 
 * Access to Milton is required and can be done by sending email to [support@wehi.edu.au](mailto:support@wehi.edu.au)
