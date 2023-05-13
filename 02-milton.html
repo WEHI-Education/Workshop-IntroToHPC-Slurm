@@ -78,11 +78,11 @@
   Introduction to HPC and SLURM
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 8%" class="percentage">
-    8%
+<aside class="col-md-12 lesson-progress"><div style="width: 7%" class="percentage">
+    7%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 8%" aria-valuenow="8" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 7%" aria-valuenow="7" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -205,7 +205,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="07-monitor.html">7. Monitoring Jobs</a>
+        <a href="07-monitor.html">7. Evaluating Jobs</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -298,7 +298,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Accessing Milton</h1>
-        <p> Last updated on 2023-05-11 | 
+        <p> Last updated on 2023-05-13 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/02-milton.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -353,11 +353,10 @@ login node and access the command line (CLI).</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<div id="exercise-1-can-you-login-to-milton" class="callout-inner">
+<h3 class="callout-title">Exercise 1: Can you login to Milton?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
 </h3>
 <div class="callout-content">
-<p>Exercise: Can you login to Milton?</p>
 <p>If not in WEHI, make sure you are on the VPN. Open your terminal and
 login to vc7-shared.</p>
 <p>More details are available <a href="https://wehieduau.sharepoint.com/sites/rc2/SitePages/using-milton.aspx#ssh-(command-line)-sessions-(slurm)" class="external-link">here</a>.</p>
@@ -371,7 +370,7 @@ login to vc7-shared.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul><li>For Mac OSX users
 <ul><li><code>ssh vc7-shared</code></li>
@@ -408,11 +407,11 @@ node.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<div id="exercise-2check-the-name-of-the-current" class="callout-inner">
+<h3 class="callout-title">Exercise 2:Check the name of the current<a class="anchor" aria-label="anchor" href="#challenge2"></a>
 </h3>
 <div class="callout-content">
-<p>Exercise: Check the name of the current node we are logged into</p>
+<p>node we are logged into</p>
 </div>
 </div>
 </div>
@@ -423,7 +422,7 @@ node.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <pre><code>$ hostname
 vc7-shared.hpc.wehi.edu.au</code></pre>
@@ -436,11 +435,12 @@ vc7-shared.hpc.wehi.edu.au</code></pre>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<div id="exercise-3-find-out-which-directory-we-are-in." class="callout-inner">
+<h3 class="callout-title">Exercise 3: Find out which directory we are
+in.<a class="anchor" aria-label="anchor" href="#challenge3"></a>
 </h3>
 <div class="callout-content">
-<p>Exercise: Find out which directory we are in.</p>
+
 </div>
 </div>
 </div>
@@ -451,7 +451,7 @@ vc7-shared.hpc.wehi.edu.au</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Run <code>pwd</code> (<strong>p</strong>rint the
 <strong>w</strong>orking <strong>d</strong>irectory.)</p>
@@ -467,11 +467,12 @@ This is your HOME directory ($HOME)</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<div id="exercise-4-list-all-files-and-folders-in-your-home-directory" class="callout-inner">
+<h3 class="callout-title">Exercise 4: List all files and folders in your
+Home directory<a class="anchor" aria-label="anchor" href="#challenge4"></a>
 </h3>
 <div class="callout-content">
-<p>Exercise: List all files and folders in your Home directory</p>
+
 </div>
 </div>
 </div>
@@ -482,7 +483,7 @@ This is your HOME directory ($HOME)</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <pre><code>$ ls</code></pre>
 <p>will print a list of files/directories in the directory.</p>
@@ -494,11 +495,14 @@ This is your HOME directory ($HOME)</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<div id="exercise-5-copy-exercise-examples-to-your-vast-scratch-or-home-directory" class="callout-inner">
+<h3 class="callout-title">Exercise 5: Copy Exercise examples to your
+vast scratch or home directory<a class="anchor" aria-label="anchor" href="#challenge5"></a>
 </h3>
 <div class="callout-content">
-<p>Exercise: Disconnect your session</p>
+<p>copy exercise examples from
+<code>/stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm</code>
+to current directory,</p>
 </div>
 </div>
 </div>
@@ -509,7 +513,35 @@ This is your HOME directory ($HOME)</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div class="accordion-body">
+<pre><code>cd &lt;dir&gt;
+cp -r  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .
+ls</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge6" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-6-disconnect-your-session" class="callout-inner">
+<h3 class="callout-title">Exercise 6: Disconnect your session<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+</h3>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
+  <h4 class="accordion-header" id="headingSolution6">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <pre><code>$ exit</code></pre>
 <p>or</p>
@@ -595,9 +627,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/02-milton.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/02-milton.html",
-  "dateCreated": "2023-05-11",
-  "dateModified": "2023-05-11",
-  "datePublished": "2023-05-11"
+  "dateCreated": "2023-05-13",
+  "dateModified": "2023-05-13",
+  "datePublished": "2023-05-13"
 }
 
   </script><script>

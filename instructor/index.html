@@ -201,7 +201,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="07-monitor.html">7. Monitoring Jobs</a>
+        <a href="07-monitor.html">7. Evaluating Jobs</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -297,6 +297,9 @@
 Workbench</a> and is based on <a href="https://carpentries-incubator.github.io/hpc-intro/" class="external-link">Introduction
 to High-Performance Compting</a>. It has been customised to fit users of
 WEHI Milton.</p>
+<p>Some of the examples used in this lesson are based on material
+developed by Lev Lafayette from Research Platform Services at the
+University of Melbourne.</p>
 <p>This course is for scientists who have no experience with high
 performance computing (HPC) and want to learn how to start using WEHI
 HPC, Milton. The course teaches basics of interacting with HPC and what
@@ -341,7 +344,7 @@ Why would I be interested in High Performance Computing (HPC)?
 How do I log in to <code>Milton</code>?<br>Where can I store my data?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>00h 30m
+<span class="visually-hidden">Duration: </span>00h 31m
 </td>
 <td>
  3. <a href="03-modules.html">Environment Modules</a>
@@ -350,7 +353,7 @@ How do I log in to <code>Milton</code>?<br>Where can I store my data?
 How do we load and unload software packages?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>00h 50m
+<span class="visually-hidden">Duration: </span>00h 51m
 </td>
 <td>
  4. <a href="04-break.html">Part 1 Break</a>
@@ -358,7 +361,7 @@ How do we load and unload software packages?
 <td>
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>00h 50m
+<span class="visually-hidden">Duration: </span>00h 51m
 </td>
 <td>
  5. <a href="05-slurm.html">Introducing SLURM</a>
@@ -368,7 +371,7 @@ What is a scheduler and why does a cluster need one?<br>What is a
 partition?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>01h 10m
+<span class="visually-hidden">Duration: </span>01h 11m
 </td>
 <td>
  6. <a href="06-submit.html">Submitting a Job</a>
@@ -376,19 +379,21 @@ partition?
 <td>
 How do I launch a program to run on a compute node in the
 cluster?<br>How do I capture the output of a program that is run on a
-node in the<br>cluster?
+node in the<br>cluster?<br>How do I change resource requested or
+time-limit
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>01h 52m
+<span class="visually-hidden">Duration: </span>01h 53m
 </td>
 <td>
- 7. <a href="07-monitor.html">Monitoring Jobs</a>
+ 7. <a href="07-monitor.html">Evaluating Jobs</a>
 </td>
 <td>
-How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?
+How do to evaluate a completed job?<br>How to set event notification
+for your jobs?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>02h 14m
+<span class="visually-hidden">Duration: </span>02h 15m
 </td>
 <td>
  8. <a href="08-break.html">Part 2 Break</a>
@@ -396,7 +401,7 @@ How do you write a lesson using Markdown and <a href="https://carpentries.github
 <td>
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>02h 14m
+<span class="visually-hidden">Duration: </span>02h 15m
 </td>
 <td>
  9. <a href="09-evaluate.html">Evaluate Jobs</a>
@@ -405,7 +410,7 @@ How do you write a lesson using Markdown and <a href="https://carpentries.github
 How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>02h 36m
+<span class="visually-hidden">Duration: </span>02h 37m
 </td>
 <td>
 10. <a href="10-commands.html">SLURM Commands</a>
@@ -414,7 +419,7 @@ How do you write a lesson using Markdown and <a href="https://carpentries.github
 How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>02h 58m
+<span class="visually-hidden">Duration: </span>02h 59m
 </td>
 <td>
 11. <a href="11-interactive.html">Interactive SLURM Job</a>
@@ -423,7 +428,7 @@ How do you write a lesson using Markdown and <a href="https://carpentries.github
 How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>03h 20m
+<span class="visually-hidden">Duration: </span>03h 21m
 </td>
 <td>
 Finish
@@ -438,12 +443,10 @@ any links that you are not going to use.
       </p>
       </section><section id="setup"><section id="excercise-sets"><h2 class="section-heading">Excercise Sets<a class="anchor" aria-label="anchor" href="#excercise-sets"></a>
 </h2>
-<hr class="half-width"><!--
-FIXME: place any data you want learners to use in `episodes/data` and then use
-       a relative link ( [data zip file](data/lesson-data.zip) ) to provide a
-       link to it, replacing the example.com link.
-       Download the [data zip file](https://example.com/FIXME) and unzip it to your Desktop
---></section><section id="software-setup"><h2 class="section-heading">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a>
+<hr class="half-width"><p>Copy exercise files to your directory</p>
+<pre><code>cd &lt;dir&gt;
+cp -r  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .</code></pre>
+</section><section id="software-setup"><h2 class="section-heading">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a>
 </h2>
 <hr class="half-width"><div id="discussion1" class="callout discussion">
 <div class="callout-square">
@@ -466,7 +469,7 @@ sending an email to <a href="../mailto:support@wehi.edu.au">support@wehi.edu.au<
   Windows
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Use <a href="https://putty.org/" class="external-link">PuTTY</a> or <a href="https://mobaxterm.mobatek.net/" class="external-link">MobiXterm</a></p>
 </div>
@@ -480,7 +483,7 @@ sending an email to <a href="../mailto:support@wehi.edu.au">support@wehi.edu.au<
   MacOS
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Use Terminal.app</p>
 </div>
@@ -494,7 +497,7 @@ sending an email to <a href="../mailto:support@wehi.edu.au">support@wehi.edu.au<
   Linux
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Use Terminal</p>
 </div>
@@ -554,9 +557,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/index.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/index.html",
-  "dateCreated": "2023-05-11",
-  "dateModified": "2023-05-11",
-  "datePublished": "2023-05-11"
+  "dateCreated": "2023-05-13",
+  "dateModified": "2023-05-13",
+  "datePublished": "2023-05-13"
 }
 
   </script><script>

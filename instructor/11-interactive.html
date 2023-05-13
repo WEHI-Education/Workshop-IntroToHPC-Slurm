@@ -190,7 +190,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="07-monitor.html">7. Monitoring Jobs</a>
+        <a href="07-monitor.html">7. Evaluating Jobs</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -236,7 +236,8 @@
         
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#introduction">Introduction</a></li>
+        <ul><li><a href="#interactive-jobs">Interactive jobs</a></li>
+<li><a href="#creating-remote-graphics">Creating remote graphics</a></li>
 <li><a href="#figures">Figures</a></li>
 <li><a href="#math">Math</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -296,7 +297,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Interactive SLURM Job</h1>
-        <p> Last updated on 2023-05-11 | 
+        <p> Last updated on 2023-05-13 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/11-interactive.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -334,26 +335,42 @@ challenge blocks</li>
 </div>
 </div>
 </div>
-<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+<section id="interactive-jobs"><h2 class="section-heading">Interactive jobs<a class="anchor" aria-label="anchor" href="#interactive-jobs"></a>
 </h2>
-<hr class="half-width"><p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.txt" class="external-link">Pandoc-flavored Markdown</a>
-for static files and <a href="https://rmarkdown.rstudio.com/" class="external-link">R
-Markdown</a> for dynamic files that can render code into output. Please
-refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson:</p>
-<ol style="list-style-type: decimal"><li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
-</ol><div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<hr class="half-width"><p>Up to this point, we’ve focused on running jobs in batch mode. {{
+site.sched.name }} also provides the ability to start an interactive
+session.</p>
+<p>There are very frequently tasks that need to be done interactively.
+Creating an entire job script might be overkill, but the amount of
+resources required is too much for a login node to handle. A good
+example of this might be building a genome index for alignment with a
+tool like [HISAT2][hisat]. Fortunately, we can run these types of tasks
+as a one-off with <code>{{ site.sched.interactive }}</code>.</p>
+<p>Sometimes, you will need a lot of resource for interactive use.
+Perhaps it’s our first time running an analysis or we are attempting to
+debug something that went wrong with a previous job. Fortunately, Slurm
+makes it easy to start an interactive job with srun:</p>
+<pre><code>$ srun --pty bash</code></pre>
+<p>You should be presented with a bash prompt. Note that the prompt will
+likely change to reflect your new location, in this case the compute
+node we are logged on. You can also verify this with hostname.</p>
+</section><section id="creating-remote-graphics"><h2 class="section-heading">Creating remote graphics<a class="anchor" aria-label="anchor" href="#creating-remote-graphics"></a>
+</h2>
+<hr class="half-width"><p>To see graphical output inside your jobs, you need to use X11
+forwarding. To connect with this feature enabled, use the -Y option when
+you login with the ssh command, e.g.,</p>
+<pre><code>ssh -Y yourUsername@graham.computecanada.ca.</code></pre>
+<p>To demonstrate what happens when you create a graphics window on the
+remote node, use the xeyes command. A relatively adorable pair of eyes
+should pop up (press Ctrl-C to stop). If you are using a Mac, you must
+have installed XQuartz (and restarted your computer) for this to
+work.</p>
+<p>If your cluster has the slurm-spank-x11 plugin installed, you can
+ensure X11 forwarding within interactive jobs by using the –x11 option
+for srun with the command srun –x11 –pty bash.</p>
+<p>When you are done with the interactive job, type exit to quit your
+session.</p>
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">
@@ -361,7 +378,7 @@ reinforce the objectives.</li>
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Inline instructor notes can help inform instructors of timing
 challenges associated with the lessons. They appear in the “Instructor
@@ -379,7 +396,7 @@ View”</p>
 </h3>
 <div class="callout-content">
 <p>What is the output of this command?</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -395,7 +412,7 @@ View”</p>
   Output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -426,7 +443,7 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a
 <code>solution</code> tag.</p>
@@ -521,9 +538,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/11-interactive.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/11-interactive.html",
-  "dateCreated": "2023-05-11",
-  "dateModified": "2023-05-11",
-  "datePublished": "2023-05-11"
+  "dateCreated": "2023-05-13",
+  "dateModified": "2023-05-13",
+  "datePublished": "2023-05-13"
 }
 
   </script><script>
