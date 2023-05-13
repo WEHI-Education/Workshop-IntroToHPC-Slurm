@@ -93,11 +93,10 @@ Partitions in Slurm group nodes into logical (possibly overlapping) sets. A part
 ### The main parameters to set for any job script
 
 * time: the maximum time for the job execution.
-* cpus-per-task: number of CPUs per task, such that the number of requested processing units per node is (ntasks*cpus-per-task). 
-* nodes: the number of nodes used. default = 1
-* partition: the partition (queue) in which your job is placed. default = regular
-* mem, mem-per-cpu: the amount of physical memory. default = 10MB
-* gres: special resources such as GPUs.
+* cpus: number of CPUs
+* partition: the partition (queue) in which your job is placed
+* memory: the amount of physical memory
+* special resources such as GPUs.
 
 We will discuss this more in the next episode.
 

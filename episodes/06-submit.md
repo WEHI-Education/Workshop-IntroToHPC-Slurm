@@ -9,6 +9,7 @@ exercises: 2
 - How do I launch a program to run on a compute node in the cluster?
 - How do I capture the output of a program that is run on a node in the
   cluster?
+- How do I change resource requested or time-limit 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -19,22 +20,35 @@ exercises: 2
 - Inspect the output and error files of your jobs.
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-# Running a Batch Job
+## Running a Batch Job
 
 The most basic use of the scheduler is to run a command non-interactively. Any
 command (or series of commands) that you want to run on the cluster is called a
 _job_, and the process of using a scheduler to run the job is called _batch job
 submission_.
 
+Basic steps are:
+  
+  * Develop a submission script, a text file of commands, to perform the work
+  * Submit the script to the batch system with enough resource specification
+  * Monitor your jobs
+  * Check script and command output
+  * Evaluate your job
+  
+In this episode we will focus on the first 4 steps.
+
+### Preparing a job script
+
 In this case, the job we want to run is a shell script -- essentially a
 text file containing a list of UNIX commands to be executed in a sequential
-manner. Our shell script will have three parts:
+manner. 
+
+Our first shell script will have three parts:
 
 * On the very first line, add `/bin/bash`. The `#!`
   (pronounced "hash-bang" or "shebang") tells the computer what program is
   meant to process the contents of this file. In this case, we are telling it
-  that the commands that follow are written for the command-line shell (what
-  we've been doing everything in so far).
+  that the commands that follow are written for the command-line shell.
 * Anywhere below the first line, we'll add an `echo` command with a friendly
   greeting. When run, the shell script will print whatever comes after `echo`
   in the terminal.
@@ -52,287 +66,342 @@ echo -n "This script is running on "
 hostname
 ```
 
-> ## Creating Our Test Job
->
-> Run the script. Does it execute on the cluster or just our login node?
->
-> > ## Solution
-> >
-> > ```
-> > {{ site.remote.prompt }} bash example-job.sh
-> > ```
-> > {: .language-bash}
-> > ```
-> > This script is running on {{ site.remote.host }}
-> > ```
-> > {: .output}
-> {: .solution}
-{: .challenge}
+::: challenge
 
-This script ran on the login node, but we want to take advantage of
-the compute nodes: we need the scheduler to queue up `example-job.sh`
-to run on a compute node.
+### Exercise 1: Run example-job.sh
 
-To submit this task to the scheduler, we use the
-`{{ site.sched.submit.name }}` command.
+Run the script. Does it execute on the cluster or just our login node?
+
+:::::: solution
+```
+$ bash example-job.sh
+This script is running on slurm-login01.hpc.wehi.edu.au
+```
+
+`slurm-login01.hpc.wehi.edu.au` may change depending on which node you sshed into to run the script.
+
+::::::
+:::
+
+This script ran on the login node, but we want to take advantage of the compute nodes, we need the scheduler to queue up `example-job.sh` to run on a compute node.
+
+### Submit a batch job
+
+To submit this task to the scheduler, we use the `sbatch` command.
 This creates a _job_ which will run the _script_ when _dispatched_ to
 a compute node which the queuing system has identified as being
 available to perform the work.
 
 ```
-{{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
+$ sbatch example-job.sh
+Submitted batch job 11783863
 ```
-{: .language-bash}
-
-{% include {{ site.snippets }}/scheduler/basic-job-script.snip %}
 
 And that's all we need to do to submit a job. Our work is done -- now the
-scheduler takes over and tries to run the job for us. While the job is waiting
+scheduler takes over and tries to run the job for us. 
+
+### Monitor your batch job
+
+While the job is waiting
 to run, it goes into a list of jobs called the _queue_. To check on our job's
 status, we check the queue using the command
-`{{ site.sched.status }} {{ site.sched.flag.user }}`.
+`squeue -u $USER`.
 
 ```
-{{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
+$ squeue -u $USER
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          11783909   regular example- iskander  R       0:06      1 sml-n02
 ```
-{: .language-bash}
 
-{% include {{ site.snippets }}/scheduler/basic-job-status.snip %}
+ST is status and can be R (RUNNING), PD (PENDING), CA (CANCELLED).
+If the job is stuck in pending, REASON column will reflect the reason.
 
-> ## Where's the Output?
->
-> On the login node, this script printed output to the terminal -- but
-> now, when `{{ site.sched.status }}` shows the job has finished,
-> nothing was printed to the terminal.
->
-> Cluster job output is typically redirected to a file in the directory you
-> launched it from. Use `ls` to find and `cat` to read the file.
-{: .discussion}
+* Priority: There are higher priority jobs than yours
+* Resources: Job is waiting for resources
+* Dependency: Job is waiting for a dependend job to complete
+* QOSMaxCpuPerUserLimit: User has used CPUs limit of partition already
+* QOSMaxMemPerUserLimit: User has used memory limit of partition already
 
-## Customising a Job
+### Where's the Output?
+On the login node, this script printed output to the terminal -- but now, when the job has finished, nothing was printed to the terminal.
+Cluster job output is typically redirected to a file in the directory you launched it from. 
 
-The job we just ran used all of the scheduler's default options. In a
-real-world scenario, that's probably not what we want. The default options
-represent a reasonable minimum. Chances are, we will need more cores, more
-memory, more time, among other special considerations. To get access to these
-resources we must customize our job script.
+By default, the output file is called _slurm-<jobid>.out_
 
-Comments in UNIX shell scripts (denoted by `#`) are typically ignored, but
-there are exceptions. For instance the special `#!` comment at the beginning of
-scripts specifies what program should be used to run it (you'll typically see
-`{{ site.local.bash_shebang }}`). Schedulers like {{ site.sched.name }} also
-have a special comment used to denote special scheduler-specific options.
-Though these comments differ from scheduler to scheduler,
-{{ site.sched.name }}'s special comment is `{{ site.sched.comment }}`. Anything
-following the `{{ site.sched.comment }}` comment is interpreted as an
-instruction to the scheduler.
+Use `ls` to find and `cat` to read the file.
 
-Let's illustrate this by example. By default, a job's name is the name of the
-script, but the `{{ site.sched.flag.name }}` option can be used to change the
-name of a job. Add an option to the script:
+::: challenge
 
+### Exercise 2: Get output of running example-job.sh in SLURM
+
+List files in your currrent working directory and look for a file `slurm-11783909.out`, `11783909` will change according to your job id.
+And cat the file to see output. 
+
+What is the hostname of your job?
+
+:::::: solution
 ```
-{{ site.remote.prompt }} cat example-job.sh
+$ cat slurm-11783863.out
+This script is running on sml-n02.hpc.wehi.edu.au
 ```
-{: .language-bash}
+::::::
+:::
 
+
+### Customising a Job
+
+The job we just ran used all of the scheduler's default options. In a real-world scenario, that's probably not what we want. The default options represent a reasonable minimum. Chances are, we will need more cores, more memory, more time, among other special considerations. To get access to these resources we must customize our job script.
+
+The default parameters on Milton is 2 CPU, 10MB Ram, 48-hours time-limit and runs on the regular partition
+
+You can get details of the job using `sacct` command.
 ```
-{{ site.remote.bash_shebang }}
-{{ site.sched.comment }} {{ site.sched.flag.name }} hello-world
-
-echo -n "This script is running on "
-hostname
+$ sacct -j 11783909 -ojobid,jobname,ncpus,reqmem,timelimit,partition -X
+JobID           JobName      NCPUS     ReqMem  Timelimit  Partition
+------------ ---------- ---------- ---------- ---------- ----------
+11783909     example-j+          2        10M 2-00:00:00    regular
 ```
-{: .output}
 
-Submit the job and monitor its status:
+More on SLURM commands in later. 
 
-```
-{{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
-{{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
-```
-{: .language-bash}
+We can change the resource specification of the job by two ways:
 
-{% include {{ site.snippets }}/scheduler/job-with-name-status.snip %}
+>1- Adding extra options to the sbatch command
+  ```
+  sbatch --job-name hello-world --mem 1G --cpus-per-task 1 --time >>1:00:00 example-job.sh
+  ```
 
-Fantastic, we've successfully changed the name of our job!
+>2-Modifying the submission script
+    ```
+    $ cat example-job.sh
+    ```
+    ```
+    #!/bin/bash
+    #SBATCH --job-name hello-world
+    #SBATCH --mem 1G
+    #SBATCH --cpus-per-task 1
+    #SBATCH  --time 1:00:00
+    echo -n "This script is running on "
+    hostname
+    ```
+    Submit the job and monitor its status:
+    ```
+    $ sbatch example-job.sh
+    Submitted batch job 11785584
+    $ squeue -u $USER
+                 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+              11785584   regular hello-wo iskander  R       0:01      1 sml-n20
+    ```
 
+Comments in UNIX shell scripts (denoted by `#`) are typically ignored, but there are exceptions. For instance, the special `#!` comment at the beginning of scripts specifies what program should be used to run it. Schedulers like SLURM also have a special comment used to denote special scheduler-specific options. Though these comments differ from scheduler to scheduler, SLURM's special comment is `#SBATCH`. Anything following the `#SBATCH` comment is interpreted as an instruction to the scheduler.
+
+**Remember** SLURM directives must be at the top of the script, no command can come before them, nor in between them.
 
 ### Resource Requests
 
-What about more important changes, such as the number of cores and memory for
-our jobs? One thing that is absolutely critical when working on an HPC system
-is specifying the resources required to run a job. This allows the scheduler to
-find the right time and place to schedule our job. If you do not specify
-requirements (such as the amount of time you need), you will likely be stuck
-with your site's default resources, which is probably not what you want.
+One thing that is absolutely critical when working on an HPC system is specifying the resources required to run a job. This allows the scheduler to find the right time and place to schedule our job. As we have seen before, if you do not specify requirements, you will be stuck with default resources, which is probably not what you want.
 
 The following are several key resource requests:
 
-{% include {{ site.snippets }}/scheduler/option-flags-list.snip %}
+* --ntasks or -n : Number of tasks (used for distributed processing, e.g. MPI workers). There is also --ntasks-per-node. default = 1		
+* --time or or -t : Time (wall-time) required for a job to run. The <days> part can be omitted. default = 48 hours on the regular queue
+* --mem : Memory requested per node in MiB. Add G to specify GiB (e.g. 10G). There is also --mem-per-cpu. default = 10M
+* --nodes or -N: Number of nodes your job needs to run on. Note that if you set ntasks to a number greater than what one machine can offer, Slurm will set this value automatically. default = 1 
+* --cpus-per-task  or	-c	Number of CPUs for each task. Use this for threads/cores in single-node jobs.
+* partition: the partition (queue) in which your job is placed. default = regular
+* gres: special resources such as GPUs. To specify gpus, use gpu:<type>:<number>, for example, gres=gpu:P100:1, and **you must specify the correct queue (gpuq or gpuq_large)**
 
-Note that just _requesting_ these resources does not make your job run faster,
-nor does it necessarily mean that you will consume all of these resources. It
-only means that these are made available to you. Your job may end up using less
-memory, or less time, or fewer nodes than you have requested, and it will still
-run.
+Note that just _requesting_ these resources does not make your job run faster, nor does it necessarily mean that you will consume all of these resources. It only means that these are made available to you. Your job may end up using less
+memory, or less time, or fewer nodes than you have requested, and it will still run.
 
-It's best if your requests accurately reflect your job's requirements. We'll
-talk more about how to make sure that you're using resources effectively in a
-later episode of this lesson.
+It's best if your requests accurately reflect your job's requirements. We'll talk more about how to make sure that you're using resources effectively in a later episode of this lesson.
 
-> ## Submitting Resource Requests
->
-> Modify our `hostname` script so that it runs for a minute, then submit a job
-> for it on the cluster.
->
-> > ## Solution
-> >
-> > ```
-> > {{ site.remote.prompt }} cat example-job.sh
-> > ```
-> > {: .language-bash}
-> >
-> > ```
-> > {{ site.remote.bash_shebang }}
-> > {{ site.sched.comment }} {{ site.sched.flag.time }} 00:01 # timeout in HH:MM
-> >
-> > echo -n "This script is running on "
-> > sleep 20 # time in seconds
-> > hostname
-> > ```
-> > {: .output}
-> >
-> > ```
-> > {{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
-> > ```
-> > {: .language-bash}
-> >
-> > Why are the {{ site.sched.name }} runtime and `sleep` time not identical?
-> {: .solution}
-{: .challenge}
 
-{% include {{ site.snippets }}/scheduler/print-sched-variables.snip %}
 
-Resource requests are typically binding. If you exceed them, your job will be
-killed. Let's use wall time as an example. We will request 1 minute of
-wall time, and attempt to run a job for two minutes.
+::: challenge
 
+### Exercise 3: Setting appropriate wall-time
+
+List then run Exercises/job1.sh script in the batch system? What is the output?
+Is there an error? How to fix it?
 ```
-{{ site.remote.prompt }} cat example-job.sh
-```
-{: .language-bash}
+#!/bin/bash
+#SBATCH -t 00:01:00 # timeout in HH:MM
 
-```
-{{ site.remote.bash_shebang }}
-{{ site.sched.comment }} {{ site.sched.flag.name }} long_job
-{{ site.sched.comment }} {{ site.sched.flag.time }} 00:01 # timeout in HH:MM
-
-echo "This script is running on ... "
-sleep 240 # time in seconds
+echo -n "This script is running on "
+sleep 70 # time in seconds
 hostname
 ```
-{: .output}
 
-Submit the job and wait for it to finish. Once it is has finished, check the
-log file.
+:::::: solution
 
+After 1 minute the job ends and the output is similar to this
 ```
-{{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
-{{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
+cat slurm-11792811.out 
+This script is running on slurmstepd: error: *** JOB 11792811 ON sml-n24 CANCELLED AT 2023-05-13T20:41:10 DUE TO TIME LIMIT ***
 ```
-{: .language-bash}
+To fix it, change the script to 
+```
+#!/bin/bash
+#SBATCH -t 00:01:20 # timeout in HH:MM
 
-{% include {{ site.snippets }}/scheduler/runtime-exceeded-job.snip %}
+echo -n "This script is running on "
+sleep 70 # time in seconds
+hostname
+```
+Try running again.
+::::::
+:::
 
-{% include {{ site.snippets }}/scheduler/runtime-exceeded-output.snip %}
+Resource requests are typically binding. If you exceed them, your job will be killed. 
 
-Our job was killed for exceeding the amount of resources it requested. Although
-this appears harsh, this is actually a feature. Strict adherence to resource
-requests allows the scheduler to find the best possible place for your jobs.
-Even more importantly, it ensures that another user cannot use more resources
-than they've been given. If another user messes up and accidentally attempts to
-use all of the cores or memory on a node, {{ site.sched.name }} will either
-restrain their job to the requested resources or kill the job outright. Other
-jobs on the node will be unaffected. This means that one user cannot mess up
-the experience of others, the only jobs affected by a mistake in scheduling
-will be their own.
+The job was killed for exceeding the amount of resources it requested. Although this appears harsh, this is actually a feature. Strict adherence to resource requests allows the scheduler to find the best possible place for your jobs. Even more importantly, it ensures that another user cannot use more resources than they've been given. If another user messes up and accidentally attempts to use all of the cores or memory on a node, SLURM will either restrain their job to the requested resources or kill the job outright. Other jobs on the node will be unaffected. This means that one user cannot mess up the experience of others, the only jobs affected by a mistake in scheduling will be their own.
 
+
+
+::: challenge
+
+### Exercise 4: Setting appropriate SLURM directives
+
+List then run Exercises/job2.sh script in the batch system? What is the output?
+Is there an error? How to fix it?
+```
+#!/bin/bash
+#SBATCH -t 00:01:00
+#SBATCH --gres gpu:P100:1
+#SBATCH  --mem 1G
+#SBATCH --cpus-per-task 1
+
+#This is  a job that needs GPUs
+echo -n "This script is running on "
+hostname
+```
+
+:::::: solution
+
+When submitting to SLURM, you get an error
+```
+$ sbatch job2.sh
+sbatch: error: Batch job submission failed: Requested node configuration is not available
+## Cancelling a Job
+```
+
+This is because a GPU was requested without specifying the correct GPU queue, so regular queue was used which has no GPUs. To fix it, change the script to 
+```
+#!/bin/bash
+#SBATCH -t 00:01:00
+#SBATCH -p gpuq
+#SBATCH --gres gpu:P100:1
+#SBATCH  --mem 1G
+#SBATCH --cpus-per-task 1
+
+#This is  a job that needs GPUs
+echo -n "This script is running on "
+hostname
+```
+Try running again.
+::::::
+:::
+
+$ sbatch job2.sh
+sbatch: error: Batch job submission failed: Requested node configuration is not available
 ## Cancelling a Job
 
-Sometimes we'll make a mistake and need to cancel a job. This can be done with
-the `{{ site.sched.del }}` command. Let's submit a job and then cancel it using
-its job number (remember to change the walltime so that it runs long enough for
-you to cancel it before it is killed!).
+Sometimes we'll make a mistake and need to cancel a job. This can be done with the `scancel` command. Let's submit a job and then cancel it using its job number.
 
 ```
-{{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
-{{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
-```
-{: .language-bash}
-
-{% include {{ site.snippets }}/scheduler/terminate-job-begin.snip %}
-
-Now cancel the job with its job number (printed in your terminal). A clean
-return of your command prompt indicates that the request to cancel the job was
-successful.
-
-```
-{{ site.remote.prompt }} {{site.sched.del }} 38759
-# It might take a minute for the job to disappear from the queue...
-{{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
-```
-{: .language-bash}
-
-{% include {{ site.snippets }}/scheduler/terminate-job-cancel.snip %}
-
-{% include {{ site.snippets }}/scheduler/terminate-multiple-jobs.snip %}
-
-## Other Types of Jobs
-
-Up to this point, we've focused on running jobs in batch mode.
-{{ site.sched.name }} also provides the ability to start an interactive session.
-
-There are very frequently tasks that need to be done interactively. Creating an
-entire job script might be overkill, but the amount of resources required is
-too much for a login node to handle. A good example of this might be building a
-genome index for alignment with a tool like [HISAT2][hisat]. Fortunately, we
-can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
-
-{% include {{ site.snippets }}/scheduler/using-nodes-interactively.snip %}
-
-{% include links.md %}
-
-
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge 1: Can you do it?
-
-What is the output of this command?
-
-```r
-paste("This", "new", "lesson", "looks", "good")
+sbatch example-jobwithsleep.sh
+Submitted batch job 11785772
+$ squeue -u $USER
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          11785772   regular example- iskander  R       0:10      1 sml-n20
+$ scancel 11785772
+$ squeue -u $USER
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+$
 ```
 
-:::::::::::::::::::::::: solution 
+We can also cancel all of our jobs at once using the -u option. This will delete all jobs for a specific user (in this case, yourself). Note that you can only delete your own jobs.
 
-## Output
- 
-```output
-[1] "This new lesson looks good"
+Try submitting multiple jobs and then cancelling them all.
+
+::: challenge
+
+### Exercise 5: Make alignment job (job3.sh) work.
+:::::: solution
+Add the correct SLURM directives to the start of the script
+```
+#SBATCH --job-name=Bowtie-test.slurm
+#SBATCH --ntasks=1
+#SBATCH -t 0:15:00
+#SBATCH --mem 20G
+```
+::::::
+:::
+
+::: challenge
+
+### Exercise 3: Run job3.sh again and monitor progress on the node .
+
+
+:::::: solution
+Run the job
+get which node it is running on from `squeue -u $USER`
+ssh into the node 
+use `top -u $USER`
+::::::
+:::
+
+::: challenge
+
+### Exercise 5: Submit multiple jobs and then cancelling them all.
+:::::: solution
+```
+$ sbatch job1.sh
+$ sbatch job1.sh
+$ sbatch job1.sh
+$ sbatch job1.sh
+```
+Check what you have in the queueu
+
+```
+squeue -u $USER
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          11792908   regular  job1.sh iskander  R       0:13      1 sml-n23
+          11792909   regular  job1.sh iskander  R       0:13      1 sml-n23
+          11792906   regular  job1.sh iskander  R       0:16      1 sml-n23
+          11792907   regular  job1.sh iskander  R       0:16      1 sml-n23
+```
+Cancel the jobs
+
+```
+$ scancel -u $USER
 ```
 
-:::::::::::::::::::::::::::::::::
+Recheck the queue
+
+```
+$ squeue -u $USER
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+```
+
+And the queue is empty.
+
+::::::
+:::
 
 
-## Challenge 2: how do you nest solutions within challenge blocks?
+You can check how bust the queue is through the [Milton dashboards](http://dashboards.hpc.wehi.edu.au/d/main/main?orgId=1)
 
-:::::::::::::::::::::::: solution 
+## SLURM Event notification
 
-You can add a line with at least three colons and a `solution` tag.
+You can use `--mail-type` and `--mail-user` to set SLURM to send you emails when certain evenmts occurs, e.g. BEGIN, END, FAIL, REQUEUE, ALL 
 
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
+```
+#SBATCH --mail-type BEGIN
+#SBATCH --mail-user iskander.j@wehi.edu.au
+```
+Adding the above two lines to a submission script will make SLURM send me an email when my job starts running.
 
 
 

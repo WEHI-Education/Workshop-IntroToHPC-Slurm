@@ -2,6 +2,8 @@
 
 This lesson is created using [The Carpentries Workbench](https://carpentries.github.io/sandpaper-docs/) and is based on [Introduction to High-Performance Compting](https://carpentries-incubator.github.io/hpc-intro/). It has been customised to work for users of WEHI Milton.
 
+Some of the examples used in this lesson are based on material developed by Lev Lafayette from Research Platform Services at the University of Melbourne.
+
 This course is for scientists who have no experience with high performance computing (HPC) and want to learn how to start using WEHI HPC, Milton. The course teaches basics of interacting with HPC and what it means to use a batch system (scheduling system) like SLURM. Scientists will learn how to login into Milton, prepare their scripts and submit jobs. It will also cover, estimating resources and job efficiency. 
 
 This course will be delivered mostly using live-coding demonstrations and exercises. The entire workshop is delivered in approximately 3 1-hour chunks with breaks in between. 

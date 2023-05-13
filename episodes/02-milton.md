@@ -1,7 +1,7 @@
 ---
 title: "Accessing Milton"
 teaching: 10
-exercises: 5
+exercises: 6
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -39,7 +39,7 @@ You need a Windows Command Prompt or macOS Terminal, to connect to a login node 
 
 ::: challenge
 
-Exercise: Can you login to Milton?
+### Exercise 1: Can you login to Milton?
 
 If not in WEHI, make sure you are on the VPN. Open your terminal and login to vc7-shared.
 
@@ -88,7 +88,7 @@ We will now run through some linux commands to look around the login node.
 
 ::: challenge
 
-Exercise: Check the name of the current
+### Exercise 2:Check the name of the current
 node we are logged into
 
 :::::: solution
@@ -103,7 +103,7 @@ So, we're definitely on the remote machine.
 
 ::: challenge
 
-Exercise: Find out which directory we are in.
+### Exercise 3: Find out which directory we are in.
 
 :::::: solution
 Run `pwd`  (**p**rint the **w**orking **d**irectory.)
@@ -118,7 +118,7 @@ Instead of `<username>`, your username will appear. This is your HOME directory 
 
 ::: challenge
 
-Exercise: List all files and folders in your Home directory
+### Exercise 4: List all files and folders in your Home directory
 
 :::::: solution
 
@@ -133,7 +133,26 @@ will print a list of files/directories in the directory.
 
 ::: challenge
 
-Exercise: Disconnect your session
+### Exercise 5: Copy Exercise examples to your vast scratch or home directory
+
+copy exercise examples from `/stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm` to current directory,
+
+
+
+:::::: solution
+
+```
+cd <dir>
+cp -r  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .
+ls
+```
+
+::::::
+:::
+
+::: challenge
+
+### Exercise 6: Disconnect your session
 
 :::::: solution
 
