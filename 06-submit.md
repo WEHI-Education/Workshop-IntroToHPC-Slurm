@@ -109,8 +109,8 @@ status, we check the queue using the command
 
 ```
 $ squeue -u $USER
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-          11783909   regular example- iskander  R       0:06      1 sml-n02
+     JOBID    PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+    11783909   regular example- iskander  R       0:06      1 sml-n02
 ```
 
 ST is status and can be R (RUNNING), PD (PENDING), CA (CANCELLED).
@@ -155,6 +155,7 @@ The job we just ran used all of the scheduler's default options. In a real-world
 The default parameters on Milton is 2 CPU, 10MB Ram, 48-hours time-limit and runs on the regular partition
 
 You can get details of the job using `sacct` command.
+
 ```
 $ sacct -j 11783909 -ojobid,jobname,ncpus,reqmem,timelimit,partition -X
 JobID           JobName      NCPUS     ReqMem  Timelimit  Partition
@@ -166,15 +167,13 @@ More on SLURM commands in later.
 
 We can change the resource specification of the job by two ways:
 
->1- Adding extra options to the sbatch command
+1- Adding extra options to the sbatch command
+
   ```
   sbatch --job-name hello-world --mem 1G --cpus-per-task 1 --time >>1:00:00 example-job.sh
   ```
+2- Modifying the submission script
 
->2-Modifying the submission script
-    ```
-    $ cat example-job.sh
-    ```
     ```
     #!/bin/bash
     #SBATCH --job-name hello-world
@@ -184,7 +183,10 @@ We can change the resource specification of the job by two ways:
     echo -n "This script is running on "
     hostname
     ```
-    Submit the job and monitor its status:
+    
+
+Submit the job and monitor its status:
+    
     ```
     $ sbatch example-job.sh
     Submitted batch job 11785584
@@ -216,7 +218,47 @@ memory, or less time, or fewer nodes than you have requested, and it will still 
 
 It's best if your requests accurately reflect your job's requirements. We'll talk more about how to make sure that you're using resources effectively in a later episode of this lesson.
 
+**Main parts of a _SLURM_ submission script**
 
+1- **#! line**: 
+  
+  This must be the first line of your SBATCH/Slurm script.
+  
+  ```
+  #!/bin/bash
+  ```
+  
+2-**Resource Request**:
+
+  This section is used to set the amount of resources required for the job. This informs Slurm about the name of the job, output filename, amount of RAM, Nos. of CPUs, nodes, tasks, time, and other parameters to be used for processing the job. These SBATCH commands are also know as SBATCH directives 
+  
+  ```
+  #SBATCH --job-name=TestJob
+  #SBATCH --output=TestJob.out
+  #SBATCH --time=1-00:10:00
+  #SBATCH --ntasks=1
+  #SBATCH --cpus-per-task=1
+  #SBATCH --mem=500M
+  ```
+  
+3- **Dependencies**: 
+
+  Load all the software that the project depends on to execute. For example, if you are working on a python project, you’d definitely require the python software or module to interpret and run your code.
+  
+  ```
+  module load python
+  ```
+  
+4- **Job Steps** 
+
+  Specify the list of tasks to be carried out.
+
+  ```
+  echo "Start process"
+  hostname
+  sleep 30
+  echo "End"
+  ```
 
 ::: challenge
 
@@ -226,7 +268,7 @@ List then run Exercises/job1.sh script in the batch system? What is the output?
 Is there an error? How to fix it?
 ```
 #!/bin/bash
-#SBATCH -t 00:01:00 # timeout in HH:MM
+#SBATCH -t 00:01:00 
 
 echo -n "This script is running on "
 sleep 70 # time in seconds
@@ -403,11 +445,35 @@ You can use `--mail-type` and `--mail-user` to set SLURM to send you emails when
 ```
 Adding the above two lines to a submission script will make SLURM send me an email when my job starts running.
 
+## SLURM Output files
+
+By default both standard output and standard error are directed to a file of the name "slurm-%j.out", where the "%j" is replaced with the job id. The file will be saved in the submission directory as we saw before.
+on the first node of the job allocation. Other than the batch script itself, Slurm does no movement of user files.
+
+
+You can choose where the output files is saved and also separate standard output from standard error using `--output` and `--error`
+
+* `--output` can be used to change the standard output filename and location.
+* `--error` can be used to specify where the standard output file shall be saved. If not specified, it will be directed to the standard output file.
+
+In the file names you can use:
+
+* %j for Job Id
+* %N for Host name
+* %u User name
+* %x Job name
+
+For example, running the following 
+`sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh`
 
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- 
+- `sbatch` is used to submit the job
+- `squeue` is used to list jobs in the SLURM queue
+- `sacct` is used to show job details
+- `#SBATCH` is used in submission scripts to set SLURM directives
+- Setting up job resources is a challenge and you might not get the first time
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

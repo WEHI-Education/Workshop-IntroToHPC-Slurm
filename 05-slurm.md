@@ -37,7 +37,7 @@ The user describes the work to be done and resources required in a script or at 
 
 ### [Simple Linux Utility for Resource Management](https://slurm.schedmd.com/documentation.html)
 
-Slurm development has been a joint effort of many companies and organizations around the world. Over 200 individuals have contributed to Slurm. Its development is lead by [SchedMD](https://www.schedmd.com/). It's staff of developers and support personnel maintain the canonical Slurm releases, and are responsible for the majority of the development work for each new Slurm release. SLURM's design is very modular with about 100 optional plugins.
+SLURM development has been a joint effort of many companies and organizations around the world. Over 200 individuals have contributed to SLURM. Its development is lead by [SchedMD](https://www.schedmd.com/). It's staff of developers and support personnel maintain the canonical SLURM releases, and are responsible for the majority of the development work for each new SLURM release. SLURM's design is very modular with about 100 optional plugins.
 
 It is used at Spartan, Massive, Pawsey, Peter Mac and Milton.
 
@@ -80,8 +80,9 @@ With back filling, when Job 1 has been allocated and Job 2 pending for resources
 
 Partitions in Slurm group nodes into logical (possibly overlapping) sets. A partition configuration defines job limits or access controls for a group of nodes. Slurm allocates resources to jobs within the selected partition by taking into consideration the resources you request for your job and the partition's available resources and restrictions.
 
+
 | Partition | Use | Max submitted jobs/user |	Max CPUs |	Max mem (GB) |	Max wall time	| GPUs  |
-|:---------:|:------------:|:---------:|:------------:|:---------:|:------------:|
+|:---------:|:------------:|:---------:|:------------:|:---------:|:------------:|:------:|
 | interactive | interactive jobs | 1 | 16 | 64| 24 hours | 0|
 | regular	| most of the batch work | 5000 | 454 | 3000 | 48 hours | 0|
 |long	| long-running jobs |  | 96 | 500 | 14-days | 0|
@@ -89,6 +90,7 @@ Partitions in Slurm group nodes into logical (possibly overlapping) sets. A part
 | gpuq_large | jobs that require A100 GPUs | | 96 | 1000| 48 hours | 1 A100 |
 | bigmem | jobs that require large amounts of memory | 500 | 128 | 1400| 48 hours| 0|
 
+---
 
 ### The main parameters to set for any job script
 
