@@ -242,7 +242,43 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="08-break.html">7. Part 2 Break</a>
+        <a href="07-evaluate.html">7. Evaluating Jobs</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="08-break.html">8. Part 2 Break</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush10">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading10">
+        <a href="09-commands.html">9. SLURM Commands</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush11">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading11">
+        <a href="10-interactive.html">10. Interactive SLURM Job</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -543,7 +579,7 @@ login to vc7-shared.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>For Mac OSX users
@@ -605,7 +641,7 @@ node.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <pre><code>$ hostname
 vc7-shared.hpc.wehi.edu.au</code></pre>
@@ -634,7 +670,7 @@ in.<a class="anchor" aria-label="anchor" href="#challenge3"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Run <code>pwd</code> (<strong>p</strong>rint the
 <strong>w</strong>orking <strong>d</strong>irectory.)</p>
@@ -666,7 +702,7 @@ Home directory<a class="anchor" aria-label="anchor" href="#challenge4"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <pre><code>$ ls</code></pre>
 <p>will print a list of files/directories in the directory.</p>
@@ -696,7 +732,7 @@ to current directory,</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <pre><code>cd &lt;dir&gt;
 cp -r  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .
@@ -724,7 +760,7 @@ ls</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <pre><code>$ exit</code></pre>
 <p>or</p>
@@ -1412,7 +1448,7 @@ node?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <pre><code>$ bash example-job.sh
 This script is running on slurm-login01.hpc.wehi.edu.au</code></pre>
@@ -1492,7 +1528,7 @@ according to your job id. And cat the file to see output.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <pre><code>$ cat slurm-11783863.out
 This script is running on sml-n02.hpc.wehi.edu.au</code></pre>
@@ -1650,7 +1686,7 @@ hostname</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>After 1 minute the job ends and the output is similar to this</p>
 <pre><code>cat slurm-11792811.out 
@@ -1710,7 +1746,7 @@ hostname</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>When submitting to SLURM, you get an error</p>
 <pre><code>$ sbatch job2.sh
@@ -1772,7 +1808,7 @@ work.<a class="anchor" aria-label="anchor" href="#challenge5"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>Add the correct SLURM directives to the start of the script</p>
 <pre><code><span><span class="co">#SBATCH --job-name=Bowtie-test.slurm</span></span>
@@ -1803,7 +1839,7 @@ progress on the node .<a class="anchor" aria-label="anchor" href="#challenge6"><
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>Run the job get which node it is running on from
 <code>squeue -u $USER</code> ssh into the node use
@@ -1832,7 +1868,7 @@ cancelling them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <pre><code>$ sbatch job1.sh
 $ sbatch job1.sh
@@ -1925,6 +1961,206 @@ first time</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
+</section></section><section id="aio-07-evaluate"><p>Content from <a href="07-evaluate.html">Evaluating Jobs</a></p>
+<hr>
+<p> Last updated on 2023-05-14 | 
+        
+        <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/07-evaluate.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 22 minutes </p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How to evaluate a completed job?</li>
+<li>How to set event notification for your jobs?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Explain SLURM env variables.</li>
+<li>Demonstrate how to evaluate jobs and make use of multiple threads
+options.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="evaluating-your-job"><h2 class="section-heading">Evaluating your Job<a class="anchor" aria-label="anchor" href="#evaluating-your-job"></a>
+</h2>
+<hr class="half-width">
+<p>After a job has completed, you will need to evaluate how efficient it
+was if it ran successfully, or investigate why it failed.</p>
+<p>The <code>seff</code> command provides a summary of any job.</p>
+<pre><code>seff &lt;jobid&gt;</code></pre>
+<div id="challenge1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-1-run-and-evaluate-job4.sh-." class="callout-inner">
+<h3 class="callout-title">Exercise 1: Run and evaluate job4.sh .<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+</h3>
+<div class="callout-content">
+<p>job4.sh is similar to job3.sh with only the bowtie2 command. Try
+submitting it. Is there an error? How to fix it?</p>
+<p>And after it completed successfully, evaluate the job.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>The jobs completes fast but not successfully</p>
+<pre><code>seff 11793501
+Job ID: 11793501
+Cluster: milton
+User/Group: iskander.j/allstaff
+State: OUT_OF_MEMORY (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 00:00:01
+CPU Efficiency: 50.00% of 00:00:02 core-walltime
+Job Wall-clock time: 00:00:01
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 20.00 MB (10.00 MB/core)</code></pre>
+<p>Also, checking output</p>
+<pre><code>$ cat slurm-11793501.out
+.........................&lt;other output&gt;
+slurmstepd: error: Detected 1 oom_kill event in StepId=11793501.batch. Some of the step tasks have been OOM Killed.</code></pre>
+<p>This shows that the memory given was not enough, increase memory and
+try again until job finishes successfully.</p>
+<pre><code><span><span class="co">#SBATCH --job-name=Bowtie-test.slurm</span></span>
+<span><span class="co">#SBATCH --ntasks=1</span></span>
+<span><span class="co">#SBATCH -t 0:15:00</span></span>
+<span><span class="co">#SBATCH --mem 1G</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-2-run-and-evaluate-job4.sh-." class="callout-inner">
+<h3 class="callout-title">Exercise 2: Run and evaluate job4.sh .<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+</h3>
+<div class="callout-content">
+<p>Now that the job works fine can we make it faster.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>Investigate whether bowtie2 can make use of multiple threads to
+accelerate run. Some tools does.</p>
+<pre><code><span><span class="va">bowtie2</span> <span class="op">-</span><span class="op">-</span><span class="va">help</span></span></code></pre>
+<p>Indeed bowtie, has a <code>-p</code> option that specifies number of
+threads to use. Update script ro use 6 threads and also increase
+cpus-per-tasks to reflect the increase in threads.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="slurm-environment-variables"><h2 class="section-heading">SLURM Environment Variables<a class="anchor" aria-label="anchor" href="#slurm-environment-variables"></a>
+</h2>
+<hr class="half-width">
+<p>Slurm passes information about the running job e.g what is it’s
+working directory, or what nodes were allocated for it, to the job via
+environmental variables. In addition to being available to your job,
+these are also used by programs to set options like number of threads to
+run based on the cpus available.</p>
+<p>The following is a list of commonly used variables that are set by
+Slurm for each job</p>
+<ul>
+<li>
+<code>$SLURM_JOBID</code>: Job id</li>
+<li>
+<code>$SLURM_SUBMIT_DIR</code>: Submission directory</li>
+<li>
+<code>$SLURM_SUBMIT_HOST</code>: Host submitted from</li>
+<li>
+<code>$SLURM_JOB_NODELIST</code>: list of nodes where cores are
+allocated</li>
+<li>
+<code>$SLURM_CPUS_PER_TASK</code>: number of cores per task
+allocated</li>
+<li>
+<code>$SLURM_NTASKS</code>: number of tasks assigned to job</li>
+</ul>
+<div id="challenge3" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3-run-job5.sh-." class="callout-inner">
+<h3 class="callout-title">Exercise 3: Run job5.sh .<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+</h3>
+<div class="callout-content">
+<p>Can we make use on of SLURM env variable in job4.sh?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div class="accordion-body">
+<p>use $SLURM_CPUS_PER_TASK with -p option instead of setting a
+number.</p>
+</div>
+</div>
+</div>
+</div>
+<p>We can have a live-demo on how to monitor a running job on the
+compute node, using <code>top</code>, <code>iotop</code> and
+<code>nvtop</code> for GPU nodes</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
+<div class="callout-content">
+<ul>
+<li>Use <code>seff</code> to evaluate completed jobs</li>
+<li>SLURM Environment variables are handy to use in your script</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use. 
+ -->
 </section></section><section id="aio-08-break"><p>Content from <a href="08-break.html">Part 2 Break</a></p>
 <hr>
 <p> Last updated on 2023-05-11 | 
@@ -1935,7 +2171,404 @@ any links that you are not going to use.
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 <p>Take a break. If you can, move around and look at something away from
-your screen to give your eyes a rest.</p></section>
+your screen to give your eyes a rest.</p></section><section id="aio-09-commands"><p>Content from <a href="09-commands.html">SLURM Commands</a></p>
+<hr>
+<p> Last updated on 2023-05-14 | 
+        
+        <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/09-commands.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 22 minutes </p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How to use SLURM commands?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Explain how to use the other SLURM commands?</li>
+<li>Demonstrate different options for SLURM commands like
+<code>squeue</code> and <code>sinfo</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="slurm-commands-summary"><h2 class="section-heading">SLURM Commands Summary<a class="anchor" aria-label="anchor" href="#slurm-commands-summary"></a>
+</h2>
+<hr class="half-width">
+<table class="table">
+<colgroup>
+<col width="41%">
+<col width="58%">
+</colgroup>
+<thead><tr class="header">
+<th>Command</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>sbatch &lt;script&gt;</code></td>
+<td>Submit a batch script</td>
+</tr>
+<tr class="even">
+<td><code>sacct</code></td>
+<td>Display job details (accounting data)</td>
+</tr>
+<tr class="odd">
+<td><code>sacctmgr</code></td>
+<td>View account information</td>
+</tr>
+<tr class="even">
+<td><code>squeue</code></td>
+<td>View information of jobs currently in queue</td>
+</tr>
+<tr class="odd">
+<td><code>squeue -j &lt;jobid&gt;</code></td>
+<td>Get specific job details, job should be in the queue</td>
+</tr>
+<tr class="even">
+<td><code>squeue -u &lt;userid&gt;</code></td>
+<td>Get all queued job details for specified user</td>
+</tr>
+<tr class="odd">
+<td><code>scancel</code></td>
+<td>Job delete</td>
+</tr>
+<tr class="even">
+<td><code>sinfo</code></td>
+<td>View information about nodes and partitions</td>
+</tr>
+<tr class="odd">
+<td><code>sinfo -N</code></td>
+<td>View list of nodes</td>
+</tr>
+<tr class="even">
+<td><code>scontrol</code></td>
+<td>View and modify configuration and state</td>
+</tr>
+<tr class="odd">
+<td><code>sinfo -s</code></td>
+<td>Provides summary information the partitions</td>
+</tr>
+<tr class="even">
+<td><code>sinfo -p &lt;partition&gt;</code></td>
+<td>Provides information about the specified partition</td>
+</tr>
+</tbody>
+</table>
+<div id="challenge1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-1-sinfo-with-options" class="callout-inner">
+<h3 class="callout-title">Exercise 1: sinfo with options<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+</h3>
+<div class="callout-content">
+<p>What output does the following command produce?</p>
+<p><code>sinfo -p gpuq -s</code></p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>Provides summary information of only the specified partition</p>
+<pre><code>PARTITION AVAIL  TIMELIMIT   NODES(A/I/O/T) NODELIST
+gpuq         up 2-00:00:00        2/10/0/12 gpu-a30-n[01-07],gpu-p100-n[01-05]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-2-sinfo-with-options" class="callout-inner">
+<h3 class="callout-title">Exercise 2: sinfo with options<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+</h3>
+<div class="callout-content">
+<p>What output does the following command produce?</p>
+<p><code>sinfo -p gpuq -n sml-n02</code></p>
+<p>Is there something missing in the output? How can we fix it</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>Provides information of the specified node in the specified
+partition</p>
+<pre><code>PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
+gpuq         up 2-00:00:00      0    n/a</code></pre>
+<p>The results says that node is not available, this is because there is
+no node called sml-n02 in the regular partition. To fix it, we can
+either change the partition to <code>regular</code> or the node to
+something like <code>gpu-a30-n01</code></p>
+<pre><code>sinfo -p regular -n sml-n02
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
+regular*     up 2-00:00:00      1    mix sml-n02</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge3" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3-squeue-with-formatting-option-." class="callout-inner">
+<h3 class="callout-title">Exercise 3: squeue with formatting option
+.<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+</h3>
+<div class="callout-content">
+<p>What output does the following command produce?</p>
+<p><code>squeue --format "%.18i %.9P %.8j %.8u %.8T %.10M %.6C %.13l %.7D %.14r %.12m %.18N %.8Q"</code></p>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div class="accordion-body">
+<pre><code>JOBID      PARTITION   NAME    USER    STATE       TIME    CPUS    TIME_LIMIT    NODES      REASON        MIN_MEMORY        NODELIST      PRIORITY
+11774748      gpuq    guppy    luo.q  PENDING       0:00     20    2-00:00:00       1 QOSMaxNodePerU         400G                        2060
+11774747      gpuq    guppy    luo.q  PENDING       0:00     20    2-00:00:00       1 QOSMaxNodePerU         400G                        2060
+11774746      gpuq    guppy    luo.q  PENDING       0:00     20    2-00:00:00       1 QOSMaxNodePerU         400G                        2060
+11774744      gpuq    guppy    luo.q  RUNNING 1-05:28:48     20    2-00:00:00       1           None         400G        gpu-a30-n01     1366
+11774745      gpuq    guppy    luo.q  RUNNING 1-05:41:49     20    2-00:00:00       1           None         400G        gpu-a30-n03     1360
+          </code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge4" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-4-sinfo-with-formatting-option-." class="callout-inner">
+<h3 class="callout-title">Exercise 4: sinfo with formatting option
+.<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+</h3>
+<div class="callout-content">
+<p>What output does the following command produce?</p>
+<p><code>sinfo --Node --Format "NodeList:21,Partition:11,StateLong:.11,CPUS:.5,Memory:.9,AllocMem:.9,Features:.20,CpusState:.14,GresUsed:.15"</code></p>
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div class="accordion-body">
+<pre><code>
+NODELIST             PARTITION        STATE CPUS   MEMORY ALLOCMEM      AVAIL_FEATURES CPUS(A/I/O/T)      GRES_USED
+cl-n01               bigmem            idle  192  3093716        0   Cooperlake,AVX512   0/192/0/192          gpu:0
+gpu-a10-n01          gpuq_intera       idle   48   256215        0GPU,Icelake,A10,AVX5     0/48/0/48.     gpu:A10:0
+gpu-a30-n01          gpuq             mixed   96   511362   409600GPU,Icelake,A30,AVX5    20/76/0/96.     gpu:A30:1 
+gpu-a30-n02          gpuq              idle   96   511362        0GPU,Icelake,A30,AVX5     0/96/0/96.     gpu:A30:0
+gpu-a30-n03          gpuq             mixed   96   511362   409600GPU,Icelake,A30,AVX5    20/76/0/96.     gpu:A30:0
+gpu-a30-n05          gpuq              idle   96   511362        0GPU,Icelake,A30,AVX5     0/96/0/96      gpu:A30:0
+gpu-a30-n06          gpuq              idle   96   511362        0GPU,Icelake,A30,AVX5     0/96/0/96.     gpu:A30:0
+gpu-a30-n07          gpuq              idle   96   511362        0GPU,Icelake,A30,AVX5     0/96/0/96.     gpu:A30:0
+gpu-a100-n01         gpuq_large       mixed   96  1027457   819200GPU,Icelake,A100,AVX     2/94/0/96.     gpu:A100:1
+gpu-a100-n02         gpuq_large       mixed   96  1027457   819200GPU,Icelake,A100,AVX     2/94/0/96.     gpu:A100:1
+gpu-a100-n03         gpuq_large       mixed   96  1027457   819200GPU,Icelake,A100,AVX     2/94/0/96.     gpu:A100:1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
+<div class="callout-content">
+<ul>
+<li>SLURM commands are handy to view information about queued jobs,
+nodes and partitions</li>
+<li>You will commonly uses <code>sbatch</code>, <code>squeue</code>,
+<code>salloc</code>, <code>sinfo</code> and <code>sacct</code>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use. 
+ -->
+</section></section><section id="aio-10-interactive"><p>Content from <a href="10-interactive.html">Interactive SLURM Job</a></p>
+<hr>
+<p> Last updated on 2023-05-14 | 
+        
+        <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/10-interactive.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 10 minutes </p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How to start and exit an interactive SLURM job?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Explain how to use <code>salloc</code> to run interactive jobs</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="interactive-jobs"><h2 class="section-heading">Interactive jobs<a class="anchor" aria-label="anchor" href="#interactive-jobs"></a>
+</h2>
+<hr class="half-width">
+<p>Up to this point, we’ve focused on running jobs in batch mode. There
+are frequently tasks that need to be done interactively. Creating an
+entire job script might be overkill, but the amount of resources
+required is too much for a login node to handle. To solve this, SLURM
+provides the ability to start an interactive session.</p>
+<p>Interactive sessions are <strong>commonly used</strong> for:</p>
+<ul>
+<li>Data management, eg. organising files, truncation and recall of
+files, downloading datasets</li>
+<li>Software/workflow preparation/testing, eg. developing/debugging
+scripts, downloading/building software</li>
+<li>Interactive data analysis</li>
+<li>Long-running processes such as workflow managers or simple web
+services.</li>
+<li>Rapid analysis cycles</li>
+<li>Running n application with a GUI.</li>
+</ul>
+<p>On Milton, you can easily start an interactive job with
+<code>salloc</code>.</p>
+<pre><code>salloc --time 1:00:00 --cpus-per-task 1 --mem 1G  -p interactive</code></pre>
+<figure><img src="../fig/salloc_ex.png" alt="" class="figure mx-auto d-block"><figcaption>salloc command example</figcaption></figure><p>You will be presented with a bash prompt. Note that the prompt will
+change to reflect your new location (sml-n02 in the example), which is
+the compute node we are logged on. You can also verify this with
+hostname.</p>
+<p><strong>Remember</strong> that, you may have to wait resources,
+depending on the status of the queue you are requesting. We have design
+the interactive partition to provide high availability, but only one job
+per user.</p>
+<p>The interactive job will be cancelled and removed from the queue, if
+your terminal session is terminated or closed, and/or internet
+connection is lost (connection with the slurm node lost). It is
+recommended to use <code>screen</code> or <code>tmux</code></p>
+<p>When you have finished your task, please remember to close the
+session using <code>exit</code> or <code>^D</code>.</p>
+<p>You can also cancel the session usig <code>scancel</code>.</p>
+<p>If you need more resources you can run interactive sessions in the
+other queues.</p>
+</section><section id="creating-remote-graphics"><h2 class="section-heading">Creating remote graphics<a class="anchor" aria-label="anchor" href="#creating-remote-graphics"></a>
+</h2>
+<hr class="half-width">
+<p>To see graphical output inside your jobs, you need to use <em>X11
+forwarding</em>. To connect with this feature enabled, use the
+<code>-Y</code>/<code>-X</code> option when you login to the login nodes
+or vc7-shared.</p>
+<pre><code>ssh -Y vc7-shared</code></pre>
+<p>To use it in an interactive session add it to <code>--x11</code> to
+your <code>salloc</code> command</p>
+<pre><code>$ salloc --time 1:00:00 --cpus-per-task 1 --mem 1G  -p interactive --x11
+salloc: Pending job allocation 11803274
+salloc: job 11803274 queued and waiting for resources
+salloc: job 11803274 has been allocated resources
+salloc: Granted job allocation 11803274
+salloc: Nodes sml-n03 are ready for job
+
+$ module load relion
+Loading Relion 3.1.3 using CUDA 11.2
+Using MotionCor2 1.5.0 at /stornext/System/data/nvidia/motioncor2/motioncor2-1.5.0cu11.2/bin/motioncor2
+No matching version of Gctf exists for CUDA 11.2
+Using CTFFIND 4.1.14 at /stornext/System/data/nvidia/ctffind/ctffind-4.1.14/bin/ctffind
+
+        WARNING: verify that the area where Relion will be used
+        is not over its storage quota. If Relion is unable to write
+        files this might cause severe corruption in the Relion
+        pipeline star files.
+
+
+Loading relion/3.1.3-cu11.2
+  Loading requirement: cuda/11.2 mpich-slurm/3.4.2
+$ relion</code></pre>
+<figure><img src="../fig/relion.png" class="figure mx-auto d-block"> To demonstrate what happens when you
+create a graphics window on the remote node, use the xeyes command. A
+relatively adorable pair of eyes should pop up (press Ctrl-C to stop).
+If you are using a Mac, you must have installed XQuartz (and restarted
+your computer) for this to work.</figure><p>If your cluster has the slurm-spank-x11 plugin installed, you can
+ensure X11 forwarding within interactive jobs by using the –x11 option
+for srun with the command srun –x11 –pty bash.</p>
+<p>We will now have a live demo for more interactive options on
+Milton.</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
+<div class="callout-content">
+<ul>
+<li>Use <code>salloc</code> to start a new interactive SLURM job.</li>
+<li>Use <code>--x11</code> with <code>salloc</code> to run remote
+graphics in your interactive job.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use. 
+ -->
+</section></section>
 </div>
     </main>
 </div>

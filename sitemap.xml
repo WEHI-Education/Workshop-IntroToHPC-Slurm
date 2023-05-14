@@ -19,16 +19,25 @@
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/06-submit.html</loc>
   </url>
   <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/07-evaluate.html</loc>
+  </url>
+  <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/07-monitor.html</loc>
   </url>
   <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/08-break.html</loc>
   </url>
   <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/09-commands.html</loc>
+  </url>
+  <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/09-evaluate.html</loc>
   </url>
   <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/10-commands.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/10-interactive.html</loc>
   </url>
   <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/11-interactive.html</loc>
@@ -73,16 +82,25 @@
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/06-submit.html</loc>
   </url>
   <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/07-evaluate.html</loc>
+  </url>
+  <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/07-monitor.html</loc>
   </url>
   <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/08-break.html</loc>
   </url>
   <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/09-commands.html</loc>
+  </url>
+  <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/09-evaluate.html</loc>
   </url>
   <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/10-commands.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/10-interactive.html</loc>
   </url>
   <url>
     <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/11-interactive.html</loc>
