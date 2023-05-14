@@ -78,11 +78,11 @@
   Introduction to HPC and SLURM
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 35%" class="percentage">
-    35%
+<aside class="col-md-12 lesson-progress"><div style="width: 63%" class="percentage">
+    63%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 35%" aria-valuenow="35" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 63%" aria-valuenow="63" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -194,6 +194,7 @@
       <div class="accordion-body">
         <ul><li><a href="#running-a-batch-job">Running a Batch Job</a></li>
 <li><a href="#slurm-event-notification">SLURM Event notification</a></li>
+<li><a href="#slurm-output-files">SLURM Output files</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -203,43 +204,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="07-monitor.html">7. Evaluating Jobs</a>
-    </div><!--/div.accordion-header-->
-        
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush9">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading9">
-        <a href="08-break.html">8. Part 2 Break</a>
-    </div><!--/div.accordion-header-->
-        
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush10">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading10">
-        <a href="09-evaluate.html">9. Evaluate Jobs</a>
-    </div><!--/div.accordion-header-->
-        
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush11">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading11">
-        <a href="10-commands.html">10. SLURM Commands</a>
-    </div><!--/div.accordion-header-->
-        
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush12">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading12">
-        <a href="11-interactive.html">11. Interactive SLURM Job</a>
+        <a href="08-break.html">7. Part 2 Break</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -287,16 +252,16 @@
   <div class="col-xl-8 col-lg-12 primary-content">
     <nav class="lesson-content mx-md-4" aria-label="Previous and Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="05-slurm.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="07-monitor.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="08-break.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="05-slurm.html" rel="prev"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous: Introducing SLURM</a>
-        <a class="chapter-link float-end" href="07-monitor.html" rel="next">Next: Evaluating Jobs... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="08-break.html" rel="next">Next: Part 2 Break... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Submitting a Job</h1>
-        <p> Last updated on 2023-05-13 | 
+        <p> Last updated on 2023-05-14 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/06-submit.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -395,7 +360,7 @@ node?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <pre><code>$ bash example-job.sh
 This script is running on slurm-login01.hpc.wehi.edu.au</code></pre>
@@ -426,8 +391,8 @@ the scheduler takes over and tries to run the job for us.</p>
 the <em>queue</em>. To check on our job’s status, we check the queue
 using the command <code>squeue -u $USER</code>.</p>
 <pre><code>$ squeue -u $USER
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-          11783909   regular example- iskander  R       0:06      1 sml-n02</code></pre>
+     JOBID    PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+    11783909   regular example- iskander  R       0:06      1 sml-n02</code></pre>
 <p>ST is status and can be R (RUNNING), PD (PENDING), CA (CANCELLED). If
 the job is stuck in pending, REASON column will reflect the reason.</p>
 <ul><li>Priority: There are higher priority jobs than yours</li>
@@ -470,7 +435,7 @@ according to your job id. And cat the file to see output.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre><code>$ cat slurm-11783863.out
 This script is running on sml-n02.hpc.wehi.edu.au</code></pre>
@@ -495,27 +460,34 @@ JobID           JobName      NCPUS     ReqMem  Timelimit  Partition
 11783909     example-j+          2        10M 2-00:00:00    regular</code></pre>
 <p>More on SLURM commands in later.</p>
 <p>We can change the resource specification of the job by two ways:</p>
-<blockquote>
 <p>1- Adding extra options to the sbatch command</p>
 <pre><code>sbatch --job-name hello-world --mem 1G --cpus-per-task 1 --time &gt;&gt;1:00:00 example-job.sh</code></pre>
-</blockquote>
-<blockquote>
-<p>2-Modifying the submission script</p>
-<pre><code>$ cat example-job.sh</code></pre>
-<pre><code>#!/bin/bash
-#SBATCH --job-name hello-world
-#SBATCH --mem 1G
-#SBATCH --cpus-per-task 1
-#SBATCH  --time 1:00:00
-echo -n "This script is running on "
-hostname</code></pre>
+<p>2- Modifying the submission script</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --job-name hello-world</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem 1G</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH  --time 1:00:00</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span></code></pre>
+</div>
 <p>Submit the job and monitor its status:</p>
-<pre><code>$ sbatch example-job.sh
-Submitted batch job 11785584
-$ squeue -u $USER
-JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-11785584   regular hello-wo iskander  R       0:01      1 sml-n20</code></pre>
-</blockquote>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sbatch example-job.sh</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitted</span> batch job 11785584</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>          <span class="ex">11785584</span>   regular hello-wo iskander  R       0:01      1 sml-n20</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span></code></pre>
+</div>
 <p>Comments in UNIX shell scripts (denoted by <code>#</code>) are
 typically ignored, but there are exceptions. For instance, the special
 <code>#!</code> comment at the beginning of scripts specifies what
@@ -560,6 +532,34 @@ you have requested, and it will still run.</p>
 <p>It’s best if your requests accurately reflect your job’s
 requirements. We’ll talk more about how to make sure that you’re using
 resources effectively in a later episode of this lesson.</p>
+<p><strong>Main parts of a <em>SLURM</em> submission script</strong></p>
+<p>1- <strong>#! line</strong>:</p>
+<p>This must be the first line of your SBATCH/Slurm script.</p>
+<pre><code><span><span class="co">#!/bin/bash</span></span></code></pre>
+<p>2-<strong>Resource Request</strong>:</p>
+<p>This section is used to set the amount of resources required for the
+job. This informs Slurm about the name of the job, output filename,
+amount of RAM, Nos. of CPUs, nodes, tasks, time, and other parameters to
+be used for processing the job. These SBATCH commands are also know as
+SBATCH directives</p>
+<pre><code><span><span class="co">#SBATCH --job-name=TestJob</span></span>
+<span><span class="co">#SBATCH --output=TestJob.out</span></span>
+<span><span class="co">#SBATCH --time=1-00:10:00</span></span>
+<span><span class="co">#SBATCH --ntasks=1</span></span>
+<span><span class="co">#SBATCH --cpus-per-task=1</span></span>
+<span><span class="co">#SBATCH --mem=500M</span></span></code></pre>
+<p>3- <strong>Dependencies</strong>:</p>
+<p>Load all the software that the project depends on to execute. For
+example, if you are working on a python project, you’d definitely
+require the python software or module to interpret and run your
+code.</p>
+<pre><code>module load python</code></pre>
+<p>4- <strong>Job Steps</strong></p>
+<p>Specify the list of tasks to be carried out.</p>
+<pre><code>echo "Start process"
+hostname
+sleep 30
+echo "End"</code></pre>
 <div id="challenge3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -571,7 +571,7 @@ resources effectively in a later episode of this lesson.</p>
 <p>List then run Exercises/job1.sh script in the batch system? What is
 the output? Is there an error? How to fix it?</p>
 <pre><code>#!/bin/bash
-#SBATCH -t 00:01:00 # timeout in HH:MM
+#SBATCH -t 00:01:00 
 
 echo -n "This script is running on "
 sleep 70 # time in seconds
@@ -586,7 +586,7 @@ hostname</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>After 1 minute the job ends and the output is similar to this</p>
 <pre><code>cat slurm-11792811.out 
@@ -646,7 +646,7 @@ hostname</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>When submitting to SLURM, you get an error</p>
 <pre><code>$ sbatch job2.sh
@@ -708,7 +708,7 @@ work.<a class="anchor" aria-label="anchor" href="#challenge5"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Add the correct SLURM directives to the start of the script</p>
 <pre><code><span><span class="co">#SBATCH --job-name=Bowtie-test.slurm</span></span>
@@ -739,7 +739,7 @@ progress on the node .<a class="anchor" aria-label="anchor" href="#challenge6"><
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>Run the job get which node it is running on from
 <code>squeue -u $USER</code> ssh into the node use
@@ -768,7 +768,7 @@ cancelling them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <pre><code>$ sbatch job1.sh
 $ sbatch job1.sh
@@ -803,6 +803,30 @@ END, FAIL, REQUEUE, ALL</p>
 <span><span class="co">#SBATCH --mail-user iskander.j@wehi.edu.au</span></span></code></pre>
 <p>Adding the above two lines to a submission script will make SLURM
 send me an email when my job starts running.</p>
+</section><section id="slurm-output-files"><h2 class="section-heading">SLURM Output files<a class="anchor" aria-label="anchor" href="#slurm-output-files"></a>
+</h2>
+<hr class="half-width"><p>By default both standard output and standard error are directed to a
+file of the name “slurm-%j.out”, where the “%j” is replaced with the job
+id. The file will be saved in the submission directory as we saw before.
+on the first node of the job allocation. Other than the batch script
+itself, Slurm does no movement of user files.</p>
+<p>You can choose where the output files is saved and also separate
+standard output from standard error using <code>--output</code> and
+<code>--error</code></p>
+<ul><li>
+<code>--output</code> can be used to change the standard output
+filename and location.</li>
+<li>
+<code>--error</code> can be used to specify where the standard
+output file shall be saved. If not specified, it will be directed to the
+standard output file.</li>
+</ul><p>In the file names you can use:</p>
+<ul><li>%j for Job Id</li>
+<li>%N for Host name</li>
+<li>%u User name</li>
+<li>%x Job name</li>
+</ul><p>For example, running the following
+<code>sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh</code></p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -812,7 +836,17 @@ send me an email when my job starts running.</p>
 </h3>
 <div class="callout-content">
 <ul><li>
-</li></ul></div>
+<code>sbatch</code> is used to submit the job</li>
+<li>
+<code>squeue</code> is used to list jobs in the SLURM queue</li>
+<li>
+<code>sacct</code> is used to show job details</li>
+<li>
+<code>#SBATCH</code> is used in submission scripts to set SLURM
+directives</li>
+<li>Setting up job resources is a challenge and you might not get the
+first time</li>
+</ul></div>
 </div>
 </div>
 <!-- 
@@ -822,12 +856,12 @@ any links that you are not going to use.
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="05-slurm.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="07-monitor.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="08-break.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="05-slurm.html" rel="prev"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous: Introducing SLURM</a>
-        <a class="chapter-link float-end" href="07-monitor.html" rel="next">Next: Evaluating Jobs... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="08-break.html" rel="next">Next: Part 2 Break... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
     </nav></div> <!-- / div.primary-content.col-xs-12 -->
 <!-- END:   inst/pkgdown/templates/content-instructor.html-->
@@ -871,9 +905,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/06-submit.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/06-submit.html",
-  "dateCreated": "2023-05-13",
-  "dateModified": "2023-05-13",
-  "datePublished": "2023-05-13"
+  "dateCreated": "2023-05-14",
+  "dateModified": "2023-05-14",
+  "datePublished": "2023-05-14"
 }
 
   </script><script>

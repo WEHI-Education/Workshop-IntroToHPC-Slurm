@@ -77,11 +77,11 @@
   Introduction to HPC and SLURM
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 25%" class="percentage">
-    25%
+<aside class="col-md-12 lesson-progress"><div style="width: 45%" class="percentage">
+    45%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 25%" aria-valuenow="25" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 45%" aria-valuenow="45" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -202,43 +202,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="07-monitor.html">7. Evaluating Jobs</a>
-    </div><!--/div.accordion-header-->
-        
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush9">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading9">
-        <a href="08-break.html">8. Part 2 Break</a>
-    </div><!--/div.accordion-header-->
-        
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush10">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading10">
-        <a href="09-evaluate.html">9. Evaluate Jobs</a>
-    </div><!--/div.accordion-header-->
-        
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush11">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading11">
-        <a href="10-commands.html">10. SLURM Commands</a>
-    </div><!--/div.accordion-header-->
-        
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush12">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading12">
-        <a href="11-interactive.html">11. Interactive SLURM Job</a>
+        <a href="08-break.html">7. Part 2 Break</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -295,7 +259,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Introducing SLURM</h1>
-        <p> Last updated on 2023-05-13 | 
+        <p> Last updated on 2023-05-14 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/05-slurm.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -357,11 +321,11 @@ consistent with policy set by administrators.</p>
 <hr class="half-width"><div class="section level3">
 <h3 id="simple-linux-utility-for-resource-management"><a href="https://slurm.schedmd.com/documentation.html" class="external-link">Simple Linux
 Utility for Resource Management</a><a class="anchor" aria-label="anchor" href="#simple-linux-utility-for-resource-management"></a></h3>
-<p>Slurm development has been a joint effort of many companies and
+<p>SLURM development has been a joint effort of many companies and
 organizations around the world. Over 200 individuals have contributed to
-Slurm. Its development is lead by <a href="https://www.schedmd.com/" class="external-link">SchedMD</a>. It’s staff of developers
-and support personnel maintain the canonical Slurm releases, and are
-responsible for the majority of the development work for each new Slurm
+SLURM. Its development is lead by <a href="https://www.schedmd.com/" class="external-link">SchedMD</a>. It’s staff of developers
+and support personnel maintain the canonical SLURM releases, and are
+responsible for the majority of the development work for each new SLURM
 release. SLURM’s design is very modular with about 100 optional
 plugins.</p>
 <p>It is used at Spartan, Massive, Pawsey, Peter Mac and Milton.</p>
@@ -417,49 +381,56 @@ for a group of nodes. Slurm allocates resources to jobs within the
 selected partition by taking into consideration the resources you
 request for your job and the partition’s available resources and
 restrictions.</p>
-<table style="width:100%;" class="table"><colgroup><col width="14%"><col width="18%"><col width="14%"><col width="18%"><col width="14%"><col width="18%"></colgroup><thead><tr class="header"><th align="center">Partition</th>
+<table style="width:100%;" class="table"><colgroup><col width="13%"><col width="16%"><col width="13%"><col width="16%"><col width="13%"><col width="16%"><col width="9%"></colgroup><thead><tr class="header"><th align="center">Partition</th>
 <th align="center">Use</th>
 <th align="center">Max submitted jobs/user</th>
 <th align="center">Max CPUs</th>
 <th align="center">Max mem (GB)</th>
 <th align="center">Max wall time</th>
+<th align="center">GPUs</th>
 </tr></thead><tbody><tr class="odd"><td align="center">interactive</td>
 <td align="center">interactive jobs</td>
 <td align="center">1</td>
 <td align="center">16</td>
 <td align="center">64</td>
 <td align="center">24 hours</td>
+<td align="center">0</td>
 </tr><tr class="even"><td align="center">regular</td>
 <td align="center">most of the batch work</td>
 <td align="center">5000</td>
 <td align="center">454</td>
 <td align="center">3000</td>
 <td align="center">48 hours</td>
+<td align="center">0</td>
 </tr><tr class="odd"><td align="center">long</td>
 <td align="center">long-running jobs</td>
 <td align="center"></td>
 <td align="center">96</td>
 <td align="center">500</td>
 <td align="center">14-days</td>
+<td align="center">0</td>
 </tr><tr class="even"><td align="center">gpuq</td>
 <td align="center">jobs that require GPUs</td>
 <td align="center"></td>
 <td align="center">192</td>
 <td align="center">998</td>
 <td align="center">48 hours</td>
+<td align="center">8 GPUs on 2 nodes</td>
 </tr><tr class="odd"><td align="center">gpuq_large</td>
 <td align="center">jobs that require A100 GPUs</td>
 <td align="center"></td>
 <td align="center">96</td>
 <td align="center">1000</td>
 <td align="center">48 hours</td>
+<td align="center">1 A100</td>
 </tr><tr class="even"><td align="center">bigmem</td>
 <td align="center">jobs that require large amounts of memory</td>
 <td align="center">500</td>
 <td align="center">128</td>
 <td align="center">1400</td>
 <td align="center">48 hours</td>
-</tr></tbody></table></div>
+<td align="center">0</td>
+</tr></tbody></table><hr></div>
 <div class="section level3">
 <h3 id="the-main-parameters-to-set-for-any-job-script">The main parameters to set for any job script<a class="anchor" aria-label="anchor" href="#the-main-parameters-to-set-for-any-job-script"></a></h3>
 <ul><li>time: the maximum time for the job execution.</li>
@@ -544,9 +515,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/05-slurm.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/05-slurm.html",
-  "dateCreated": "2023-05-13",
-  "dateModified": "2023-05-13",
-  "datePublished": "2023-05-13"
+  "dateCreated": "2023-05-14",
+  "dateModified": "2023-05-14",
+  "datePublished": "2023-05-14"
 }
 
   </script><script>
