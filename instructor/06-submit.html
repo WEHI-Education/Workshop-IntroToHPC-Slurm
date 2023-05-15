@@ -389,7 +389,7 @@ node?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <pre><code>$ bash example-job.sh
 This script is running on slurm-login01.hpc.wehi.edu.au</code></pre>
@@ -465,7 +465,7 @@ according to your job id. And cat the file to see output.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre><code>$ cat slurm-11783863.out
 This script is running on sml-n02.hpc.wehi.edu.au</code></pre>
@@ -608,7 +608,7 @@ hostname</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>After 1 minute the job ends and the output is similar to this</p>
 <pre><code>cat slurm-11792811.out 
@@ -668,7 +668,7 @@ hostname</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>When submitting to SLURM, you get an error</p>
 <pre><code>$ sbatch job2.sh
@@ -712,7 +712,7 @@ work.<a class="anchor" aria-label="anchor" href="#challenge5"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Add the correct SLURM directives to the start of the script</p>
 <pre><code><span><span class="co">#SBATCH --job-name=Bowtie-test.slurm</span></span>
@@ -743,7 +743,7 @@ progress on the node .<a class="anchor" aria-label="anchor" href="#challenge6"><
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>Run the job get which node it is running on from
 <code>squeue -u $USER</code> ssh into the node use
@@ -791,7 +791,7 @@ cancelling them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <pre><code>$ sbatch job1.sh
 $ sbatch job1.sh
