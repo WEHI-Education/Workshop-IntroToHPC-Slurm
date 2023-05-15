@@ -1,5 +1,5 @@
 ---
-title: "Introducing SLURM"
+title: "Introducing Slurm"
 teaching: 20
 exercises: 0
 ---
@@ -14,7 +14,7 @@ exercises: 0
 ::::::::::::::::::::::::::::::::::::: objectives
 
 - Explain what is a scheduler
-- Explain how does Milton SLURM works
+- Explain how Milton's Slurm works
 - Identify the essential options to set for a job
 
 
@@ -29,37 +29,36 @@ The following illustration compares these tasks of a job scheduler to a waiter i
 
 ![Compare a job scheduler to a waiter in a restaurant](fig/restaurant_queue_manager.svg)
 
-Milton uses a scheduler (batch system) called SLURM. WEHI has 3500 physical cores, 44TB of memory, 58 GPUs and 90 nodes connected to the SLURM. 
+Milton uses a scheduler (batch system) called Slurm. WEHI has 3500 physical cores, 44TB of memory, 58 GPUs and 90 nodes accessible by Slurm. 
 
 The user describes the work to be done and resources required in a script or at the command line, then submits the script to the batch system. The work is scheduled when resources are available and consistent with policy set by administrators.
 
-## SLURM 
+## Slurm 
 
-### [Simple Linux Utility for Resource Management](https://slurm.schedmd.com/documentation.html)
+### [Simple Linux Utility for Resource Management](https://Slurm.schedmd.com/documentation.html)
 
-SLURM development has been a joint effort of many companies and organizations around the world. Over 200 individuals have contributed to SLURM. Its development is lead by [SchedMD](https://www.schedmd.com/). It's staff of developers and support personnel maintain the canonical SLURM releases, and are responsible for the majority of the development work for each new SLURM release. SLURM's design is very modular with about 100 optional plugins.
+Slurm development has been a joint effort of many companies and organizations around the world. Over 200 individuals have contributed to Slurm. Its development is lead by [SchedMD](https://www.schedmd.com/). Its staff of developers and support personnel maintain the canonical Slurm releases, and are responsible for the majority of the development work for each new Slurm release. Slurm's design is very modular with about 100 optional plugins.
 
-It is used at Spartan, Massive, Pawsey, Peter Mac and Milton.
+It is used at Spartan, Massive, Pawsey, Peter Mac and Milton, as well as HPC facilities world-wide.
 
-![Compare a job scheduler to a waiter in a restaurant](fig/SLURMImg.gif)
+![Slurm architecture diagram](fig/SlurmImg.gif)
 
 ### Fair Share
-A cluster is a shared environment, when there is more work than resources available there needs to be a mechanism to resolve contention. Policies ensure that everyone has a "fair share" of the resources.
+A cluster is a shared environment and when there is more work than resources available, there needs to be a mechanism to resolve contention. Policies ensure that everyone has a "fair share" of the resources.
 
-Milton uses a [multifactor job priority policy](https://slurm.schedmd.com/priority_multifactor.html#mfjppintro). It uses nine factors that influence job priority.
+Milton uses a [multifactor job priority policy](https://Slurm.schedmd.com/priority_multifactor.html#mfjppintro). It uses nine factors that influence job priority.
 
 It is set such that:
 
 * age: as the length of time a job has been waiting in the queue increases, the job priority increases.
-* job size: the number of nodes or CPUs a job is allocated,
-* fair-share: the difference between the portion of the computing resource that has been requested and the amount of resources that has been consumed, i.e. the more resources your jobs are already using, the lower the priority of your next jobs.
-* Resources requested: the more resources (cpus, gpus and memory) requested, the higher the priority.
+* job size: the more resources (CPUs, GPUs, and/or memory), the higher priority.
+* fair-share: the difference between the portion of the computing resource that has been requested and the amount of resources that has been consumed, i.e. the more resources your jobs have already used, the lower the priority of your next jobs.
 
-In addition no single user can have more than 8% of total CPUs or memory, which is **450 cpus** and **3TB memory**.
+In addition, no single user can have more than 8% of total CPUs or memory, which is **450 CPUs** and **3TB memory**.
 
 ### Backfilling
 
-Milton uses a backfilling algorithm to improve system utilisation and maximise job throughput.
+Milton uses a back-filling algorithm to improve system utilisation and maximise job throughput.
 
 When more resource intensive jobs are running it is possible that gaps ends up in the resource allocation. To fill these gaps a best effort is made for low-resource jobs to slot into these spaces.
 
@@ -72,16 +71,16 @@ if we have 2 8-core nodes, we receive:
 * Job 3 request 4-cores and 4 hours limit
 
 Without back filling, Job 2 will block the queue and Job 3 will have to wait until Job 2 is completed.
-With back filling, when Job 1 has been allocated and Job 2 pending for resources, SLURM will look through the queue, searching for jobs that are small enough to fill the idle node.
+With back filling, when Job 1 has been allocated and Job 2 pending for resources, Slurm will look through the queue, searching for jobs that are small enough to fill the idle node. In this example, this means that Job 3 will start before Job 2 to "back-fill" the 4 CPUs that will be available for 5 hours while Job 1 is running.
 
 ![Backfilling Algorithm](fig/backfill.png)
 
-### SLURM Partitions
+### Slurm Partitions
 
 Partitions in Slurm group nodes into logical (possibly overlapping) sets. A partition configuration defines job limits or access controls for a group of nodes. Slurm allocates resources to jobs within the selected partition by taking into consideration the resources you request for your job and the partition's available resources and restrictions.
 
 
-| Partition | Use | Max submitted jobs/user |	Max CPUs |	Max mem (GB) |	Max wall time	| GPUs  |
+| Partition | Purpose | Max submitted jobs/user |	Max CPUs/user |	Max mem (GB)/user |	Max wall time/job	| Max GPUs/user  |
 |:---------:|:------------:|:---------:|:------------:|:---------:|:------------:|:------:|
 | interactive | interactive jobs | 1 | 16 | 64| 24 hours | 0|
 | regular	| most of the batch work | 5000 | 454 | 3000 | 48 hours | 0|
@@ -95,9 +94,9 @@ Partitions in Slurm group nodes into logical (possibly overlapping) sets. A part
 ### The main parameters to set for any job script
 
 * time: the maximum time for the job execution.
-* cpus: number of CPUs
-* partition: the partition (queue) in which your job is placed
-* memory: the amount of physical memory
+* cpus: number of CPUs.
+* partition: the partition (queue) in which your job is placed.
+* memory: the amount of physical memory.
 * special resources such as GPUs.
 
 We will discuss this more in the next episode.
@@ -107,7 +106,7 @@ We will discuss this more in the next episode.
 - The scheduler handles how compute resources are shared between users.
 - A job is just a shell script.
 - Request _slightly_ more resources than you will need.
-- Backfilling improves system utilisation and maximises job throughput
-- Milton SLURM has multiple partitions with different specification that fit the different types of jobs.
+- Backfilling improves system utilisation and maximises job throughput. You can take advantage of backfilling by requesting only what you need.
+- Milton Slurm has multiple partitions with different specification that fit the different types of jobs.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
