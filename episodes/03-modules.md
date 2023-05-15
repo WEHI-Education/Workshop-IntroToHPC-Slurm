@@ -50,7 +50,7 @@ Environment modules are the solution to these problems. A _module_ is a
 self-contained description of a software package -- it contains the
 settings required to run a software package and, usually, encodes required
 dependencies on other software packages. HPC facilities will often have their
-own optimised versions of some software, os modules also make it easier to use
+own optimised versions of some software, so modules also make it easier to use
 these versions.
 
 The `module` command is used to interact with environment
