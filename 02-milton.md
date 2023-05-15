@@ -27,21 +27,22 @@ Milton is linux-based cluster, that is made up of two login nodes and many compu
 * Physical cores
 * Memory
 * Local storage
+* Maybe GPU(s)
 
-![Node](fig/node_anatomy.png)
+![Node diagram](fig/node_anatomy.png)
 
 
 ## Connect to Milton
 
 The first step in using a cluster is to establish a connection from your laptop to the cluster. 
+You need a Windows Command Prompt or macOS Terminal, to connect to a login node and access the command line interface (CLI). 
 
-You need a Windows Command Prompt or MacOS Terminal, to connect to a login node and access the command line (CLI). 
 
 ::: challenge
 
 ### Exercise 1: Can you login to Milton?
 
-If not in WEHI, make sure you are on the VPN. Open your terminal and login to vc7-shared.
+If not in WEHI, make sure you are on the VPN. While on a WEHI device, open your terminal and login to vc7-shared.
 
 More details are available [here](https://wehieduau.sharepoint.com/sites/rc2/SitePages/using-milton.aspx#ssh-(command-line)-sessions-(slurm)).
 
@@ -53,7 +54,8 @@ More details are available [here](https://wehieduau.sharepoint.com/sites/rc2/Sit
 * For MS-Windows users
    * Download and install the free [PuTTY client](https://putty.org).
 
-* You can also use [Cluster Access on OpenOnDemand](https://ondemand.hpc.wehi.edu.au/pun/sys/shell/ssh/slurm-login.hpc.wehi.edu.au)
+* You can also use [Cluster Access on Open OnDemand](https://ondemand.hpc.wehi.edu.au/pun/sys/shell/ssh/slurm-login.hpc.wehi.edu.au)
+
 
 ::::::
 :::
@@ -74,7 +76,9 @@ You will notice that the prompt changed when you logged into the remote system u
 
 ![Managed Versus UnManaged File Systems](fig/FSdetails.png)
 
-### How data is moved between file systems according to project requirements?
+
+### How data should be moved between file systems according to project requirements?
+
 
 <br />
 <br />
@@ -88,7 +92,7 @@ You will notice that the prompt changed when you logged into the remote system u
 
 ## Looking Around Your Home
 
-We will now run through some linux commands to look around the login node.
+We will now revise some linux commands to look around the login node.
 
 ::: challenge
 
@@ -111,11 +115,13 @@ So, we're definitely on the remote machine.
 
 :::::: solution
 Run `pwd`  (**p**rint the **w**orking **d**irectory.)
+```bash
+pwd
 ```
-$ pwd
+```output
 /home/users/allstaff/<username>
 ```
-Instead of `<username>`, your username will appear. This is your HOME directory ($HOME)
+Instead of `<username>`, your username will appear. This is your HOME directory (`$HOME`)
 ::::::
 
 :::
@@ -126,8 +132,8 @@ Instead of `<username>`, your username will appear. This is your HOME directory 
 
 :::::: solution
 
-```
-$ ls
+```bash
+ls
 ```
 will print a list of files/directories in the directory.
 
@@ -145,7 +151,7 @@ copy exercise examples from `/stornext/System/data/apps/sample-scripts/Workshop-
 
 :::::: solution
 
-```
+```bash
 cd <dir>
 cp -r  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .
 ls
@@ -160,12 +166,12 @@ ls
 
 :::::: solution
 
-```
-$ exit
+```bash
+exit
 ```
 or
-```
-$ logout
+```bash
+logout
 ```
 ::::::
 
@@ -178,6 +184,6 @@ For more on Linux commands, visit [our guide](https://wehieduau.sharepoint.com/s
 
 - HPC systems typically provide login nodes and a set of compute nodes.
 - Files saved on one node are available on all nodes.
-- Milton has multiple different file systems that have different policies.
+- Milton has multiple different file systems that have different policies and characteristics.
 - Throughout a research project, research data may move between file systems according to backup and retention requirements, and to improve performance.
 ::::::::::::::::::::::::::::::::::::::::::::::::
