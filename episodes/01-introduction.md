@@ -82,7 +82,7 @@ Therefore, HPCs are userful when you have:
 ## How to interact with HPC clusters?
 Researchers usually interact with HPC clusters by connecting remotely to the HPC cluster via the Linux command line.
 This is because of its low cost and setup as well as most research HPC software being written for the
-Linux command line. 
+Linux command line. Microsoft Windows HPC facilities exist, but usually serve specific niches like corporate finance.
 
 However, graphical interfaces have become popular and have helped lower the barrier
 to learning how to use HPC. [Open OnDemand](https://openondemand.org/) being the most popular example of software
