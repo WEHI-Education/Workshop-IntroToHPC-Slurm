@@ -21,7 +21,7 @@ exercises: 2
 
 ## Evaluating your Job
 
-After a job has completed, you will need to evaluate how efficient it was if it ran successfully, or investigate why it failed.
+After a job has completed, you will need to evaluate how efficient it was, if it ran successfully, or investigate why it failed.
 
 The `seff` command provides a summary of any job.
 ```
@@ -85,7 +85,7 @@ bowtie2 --help
 ```
 
 Indeed bowtie, has a `-p` option that specifies number of threads to use.
-Update script ro use 6 threads and also increase cpus-per-tasks to reflect the increase in threads.
+Update script to use 6 threads and also increase cpus-per-tasks to reflect the increase in threads.
 
 ::::::
 :::

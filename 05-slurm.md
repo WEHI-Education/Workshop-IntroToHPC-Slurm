@@ -37,11 +37,11 @@ The user describes the work to be done and resources required in a script or at 
 
 ### [Simple Linux Utility for Resource Management](https://slurm.schedmd.com/documentation.html)
 
-SLURM development has been a joint effort of many companies and organizations around the world. Over 200 individuals have contributed to SLURM. Its development is lead by [SchedMD](https://www.schedmd.com/). It's staff of developers and support personnel maintain the canonical SLURM releases, and are responsible for the majority of the development work for each new SLURM release. SLURM's design is very modular with about 100 optional plugins.
+SLURM development has been a joint effort of many companies and organizations around the world. Over 200 individuals have contributed to SLURM. Its development is led by [SchedMD](https://www.schedmd.com/). It's staff of developers and support personnel maintain the canonical SLURM releases, and are responsible for the majority of the development work for each new SLURM release. SLURM's design is very modular with about 100 optional plugins.
 
 It is used at Spartan, Massive, Pawsey, Peter Mac and Milton.
 
-![Compare a job scheduler to a waiter in a restaurant](fig/SLURMImg.gif)
+![SLURM](fig/SLURMImg.gif)
 
 ### Fair Share
 A cluster is a shared environment, when there is more work than resources available there needs to be a mechanism to resolve contention. Policies ensure that everyone has a "fair share" of the resources.
@@ -96,7 +96,7 @@ Partitions in Slurm group nodes into logical (possibly overlapping) sets. A part
 
 * time: the maximum time for the job execution.
 * cpus: number of CPUs
-* partition: the partition (queue) in which your job is placed
+* partition: the partition in which your job is placed
 * memory: the amount of physical memory
 * special resources such as GPUs.
 
