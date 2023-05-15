@@ -77,11 +77,11 @@
   Introduction to HPC and SLURM
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 43%" class="percentage">
-    43%
+<aside class="col-md-12 lesson-progress"><div style="width: 42%" class="percentage">
+    42%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 43%" aria-valuenow="43" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 42%" aria-valuenow="42" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -163,7 +163,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-break.html">4. Part 1 Break</a>
+        <a href="04-break.html">4. Lunch Break</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -192,6 +192,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#running-a-batch-job">Running a Batch Job</a></li>
+<li><a href="#cancelling-a-job">Cancelling a Job</a></li>
 <li><a href="#slurm-event-notification">SLURM Event notification</a></li>
 <li><a href="#slurm-output-files">SLURM Output files</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -212,7 +213,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="08-break.html">8. Part 2 Break</a>
+        <a href="08-break.html">8. Break</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -287,13 +288,13 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Submitting a Job</h1>
-        <p> Last updated on 2023-05-14 | 
+        <p> Last updated on 2023-05-15 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/06-submit.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
         
         
-        <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 42 minutes </p>
+        <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 47 minutes </p>
         
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
@@ -342,7 +343,7 @@ specification</li>
 <li>Monitor your jobs</li>
 <li>Check script and command output</li>
 <li>Evaluate your job</li>
-</ul><p>In this episode we will focus on the first 4 steps.</p>
+</ul><p>In this episode, we will focus on the first 4 steps.</p>
 <div class="section level3">
 <h3 id="preparing-a-job-script">Preparing a job script<a class="anchor" aria-label="anchor" href="#preparing-a-job-script"></a></h3>
 <p>In this case, the job we want to run is a shell script – essentially
@@ -422,7 +423,8 @@ using the command <code>squeue -u $USER</code>.</p>
      JOBID    PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
     11783909   regular example- iskander  R       0:06      1 sml-n02</code></pre>
 <p>ST is status and can be R (RUNNING), PD (PENDING), CA (CANCELLED). If
-the job is stuck in pending, REASON column will reflect the reason.</p>
+the job is stuck in pending, REASON column will reflect the reason,
+which can be any of the following.</p>
 <ul><li>Priority: There are higher priority jobs than yours</li>
 <li>Resources: Job is waiting for resources</li>
 <li>Dependency: Job is waiting for a dependend job to complete</li>
@@ -436,8 +438,8 @@ already</li>
 <p>On the login node, this script printed output to the terminal – but
 now, when the job has finished, nothing was printed to the terminal.
 Cluster job output is typically redirected to a file in the directory
-you launched it from.</p>
-<p>By default, the output file is called <em>slurm-<jobid>.out</jobid></em></p>
+you launched it from. By default, the output file is called
+<code>slurm-&lt;jobid&gt;.out</code></p>
 <p>Use <code>ls</code> to find and <code>cat</code> to read the
 file.</p>
 <div id="challenge2" class="callout challenge">
@@ -488,43 +490,30 @@ JobID           JobName      NCPUS     ReqMem  Timelimit  Partition
 11783909     example-j+          2        10M 2-00:00:00    regular</code></pre>
 <p>More on SLURM commands in later.</p>
 <p>We can change the resource specification of the job by two ways:</p>
-<p>1- Adding extra options to the sbatch command</p>
-<pre><code>sbatch --job-name hello-world --mem 1G --cpus-per-task 1 --time &gt;&gt;1:00:00 example-job.sh</code></pre>
-<p>2- Modifying the submission script</p>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --job-name hello-world</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem 1G</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH  --time 1:00:00</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span></code></pre>
-</div>
+<p>Adding extra options to the sbatch command</p>
+<pre><code>sbatch --job-name hello-world --mem 1G --cpus-per-task 1 --time 1:00:00 example-job.sh</code></pre>
+<p>Modifying the submission script</p>
+<pre><code>#!/bin/bash
+#SBATCH --job-name hello-world
+#SBATCH --mem 1G
+#SBATCH --cpus-per-task 1
+#SBATCH  --time 1:00:00
+echo -n "This script is running on "
+hostname</code></pre>
 <p>Submit the job and monitor its status:</p>
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sbatch example-job.sh</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitted</span> batch job 11785584</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>          <span class="ex">11785584</span>   regular hello-wo iskander  R       0:01      1 sml-n20</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span></code></pre>
-</div>
+<pre><code>$ sbatch example-job.sh
+Submitted batch job 11785584
+$ squeue -u $USER
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          11785584   regular hello-wo iskander  R       0:01      1 sml-n20</code></pre>
 <p>Comments in UNIX shell scripts (denoted by <code>#</code>) are
-typically ignored, but there are exceptions. For instance, the special
-<code>#!</code> comment at the beginning of scripts specifies what
-program should be used to run it. Schedulers like SLURM also have a
-special comment used to denote special scheduler-specific options.
+typically ignored, but there are exceptions. Schedulers like SLURM have
+a special comment used to denote special scheduler-specific options.
 Though these comments differ from scheduler to scheduler, SLURM’s
 special comment is <code>#SBATCH</code>. Anything following the
 <code>#SBATCH</code> comment is interpreted as an instruction to the
-scheduler.</p>
+scheduler. These SBATCH commands are also know as
+<code>SBATCH directives</code>.</p>
 <p><strong>Remember</strong> SLURM directives must be at the top of the
 script, no command can come before them, nor in between them.</p>
 </div>
@@ -536,51 +525,54 @@ scheduler to find the right time and place to schedule our job. As we
 have seen before, if you do not specify requirements, you will be stuck
 with default resources, which is probably not what you want.</p>
 <p>The following are several key resource requests:</p>
-<ul><li>–ntasks or -n : Number of tasks (used for distributed processing,
-e.g. MPI workers). There is also –ntasks-per-node. default = 1<br></li>
-<li>–time or or -t : Time (wall-time) required for a job to run. The
-<days> part can be omitted. default = 48 hours on the regular queue</days></li>
-<li>–mem : Memory requested per node in MiB. Add G to specify GiB
-(e.g. 10G). There is also –mem-per-cpu. default = 10M</li>
-<li>–nodes or -N: Number of nodes your job needs to run on. Note that if
-you set ntasks to a number greater than what one machine can offer,
-Slurm will set this value automatically. default = 1</li>
-<li>–cpus-per-task or -c Number of CPUs for each task. Use this for
-threads/cores in single-node jobs.</li>
-<li>partition: the partition (queue) in which your job is placed.
-default = regular</li>
-<li>gres: special resources such as GPUs. To specify gpus, use
-gpu:<type>:<number>, for example, gres=gpu:P100:1, and <strong>you must
-specify the correct queue (gpuq or gpuq_large)</strong></number></type></li>
+<ul><li>
+<code>--time</code> or <code>-t</code> : Time (wall-time) required
+for a job to run. The <days> part can be omitted. default = 48 hours on
+the regular queue</days></li>
+<li>
+<code>--mem</code>: Memory requested per node in MiB. Add G to
+specify GiB (e.g. 10G). There is also <code>--mem-per-cpu</code>.
+default = 10M</li>
+<li>
+<code>--nodes</code> or <code>-N</code>: Number of nodes your job
+needs to run on. default = 1</li>
+<li>
+<code>--cpus-per-task</code> or <code>-c</code> Number of CPUs for
+each task. Use this for threads/cores in single-node jobs.</li>
+<li>
+<code>--partition</code> or <code>-p</code>: the partition in which
+your job is placed. default = regular</li>
+<li>
+<code>--ntasks</code> or <code>-n</code> : Number of tasks
+(u<code>sed for distributed processing, e.g. MPI workers). There is also</code>–ntasks-per-node`.
+default = 1<br></li>
+<li>
+<code>--gres</code>: special resources such as GPUs. To specify
+gpus, use gpu:<type>:<number>, for example, gres=gpu:P100:1, and
+<strong>you must specify the correct queue (gpuq or
+gpuq_large)</strong></number></type></li>
 </ul><p>Note that just <em>requesting</em> these resources does not make your
 job run faster, nor does it necessarily mean that you will consume all
 of these resources. It only means that these are made available to you.
 Your job may end up using less memory, or less time, or fewer nodes than
-you have requested, and it will still run.</p>
-<p>It’s best if your requests accurately reflect your job’s
-requirements. We’ll talk more about how to make sure that you’re using
-resources effectively in a later episode of this lesson.</p>
-<p><strong>Main parts of a <em>SLURM</em> submission script</strong></p>
+you have requested, and it will still run. It’s best if your requests
+accurately reflect your job’s requirements.</p>
+<p>In summary, the <strong>main parts of a <em>SLURM</em> submission
+script</strong></p>
 <p>1- <strong>#! line</strong>:</p>
 <p>This must be the first line of your SBATCH/Slurm script.</p>
-<pre><code><span><span class="co">#!/bin/bash</span></span></code></pre>
+<p><code>#!/bin/bash</code></p>
 <p>2-<strong>Resource Request</strong>:</p>
-<p>This section is used to set the amount of resources required for the
-job. This informs Slurm about the name of the job, output filename,
-amount of RAM, Nos. of CPUs, nodes, tasks, time, and other parameters to
-be used for processing the job. These SBATCH commands are also know as
-SBATCH directives</p>
+<p>This is to set the amount of resources required for the job.</p>
 <pre><code><span><span class="co">#SBATCH --job-name=TestJob</span></span>
-<span><span class="co">#SBATCH --output=TestJob.out</span></span>
-<span><span class="co">#SBATCH --time=1-00:10:00</span></span>
+<span><span class="co">#SBATCH --time=00:10:00</span></span>
 <span><span class="co">#SBATCH --ntasks=1</span></span>
 <span><span class="co">#SBATCH --cpus-per-task=1</span></span>
 <span><span class="co">#SBATCH --mem=500M</span></span></code></pre>
 <p>3- <strong>Dependencies</strong>:</p>
-<p>Load all the software that the project depends on to execute. For
+<p>Load all the modules that the project depends on to execute. For
 example, if you are working on a python project, you’d definitely
-require the python software or module to interpret and run your
-code.</p>
+require the python module to run your code.</p>
 <pre><code>module load python</code></pre>
 <p>4- <strong>Job Steps</strong></p>
 <p>Specify the list of tasks to be carried out.</p>
@@ -588,6 +580,8 @@ code.</p>
 hostname
 sleep 30
 echo "End"</code></pre>
+<p>All the next exercises will use scripts saved in the exercise folder
+which you should have moved to your current directory.</p>
 <div id="challenge3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -596,13 +590,13 @@ echo "End"</code></pre>
 <h3 class="callout-title">Exercise 3: Setting appropriate wall-time<a class="anchor" aria-label="anchor" href="#challenge3"></a>
 </h3>
 <div class="callout-content">
-<p>List then run Exercises/job1.sh script in the batch system? What is
-the output? Is there an error? How to fix it?</p>
+<p>List then run job1.sh script in the batch system? What is the output?
+Is there an error? How to fix it?</p>
 <pre><code>#!/bin/bash
 #SBATCH -t 00:01:00 
 
 echo -n "This script is running on "
-sleep 70 # time in seconds
+sleep 80 # time in seconds
 hostname</code></pre>
 </div>
 </div>
@@ -679,7 +673,7 @@ hostname</code></pre>
 <p>When submitting to SLURM, you get an error</p>
 <pre><code>$ sbatch job2.sh
 sbatch: error: Batch job submission failed: Requested node configuration is not available
-## Cancelling a Job</code></pre>
+</code></pre>
 <p>This is because a GPU was requested without specifying the correct
 GPU queue, so regular queue was used which has no GPUs. To fix it,
 change the script to</p>
@@ -698,24 +692,6 @@ hostname</code></pre>
 </div>
 </div>
 </div>
-<p>$ sbatch job2.sh sbatch: error: Batch job submission failed:
-Requested node configuration is not available ## Cancelling a Job</p>
-<p>Sometimes we’ll make a mistake and need to cancel a job. This can be
-done with the <code>scancel</code> command. Let’s submit a job and then
-cancel it using its job number.</p>
-<pre><code>sbatch example-jobwithsleep.sh
-Submitted batch job 11785772
-$ squeue -u $USER
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-          11785772   regular example- iskander  R       0:10      1 sml-n20
-$ scancel 11785772
-$ squeue -u $USER
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-$</code></pre>
-<p>We can also cancel all of our jobs at once using the -u option. This
-will delete all jobs for a specific user (in this case, yourself). Note
-that you can only delete your own jobs.</p>
-<p>Try submitting multiple jobs and then cancelling them all.</p>
 <div id="challenge5" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -751,8 +727,8 @@ work.<a class="anchor" aria-label="anchor" href="#challenge5"></a>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-3-run-job3.sh-again-and-monitor-progress-on-the-node-." class="callout-inner">
-<h3 class="callout-title">Exercise 3: Run job3.sh again and monitor
+<div id="exercise-6-run-job3.sh-again-and-monitor-progress-on-the-node-." class="callout-inner">
+<h3 class="callout-title">Exercise 6: Run job3.sh again and monitor
 progress on the node .<a class="anchor" aria-label="anchor" href="#challenge6"></a>
 </h3>
 <div class="callout-content">
@@ -776,12 +752,31 @@ progress on the node .<a class="anchor" aria-label="anchor" href="#challenge6"><
 </div>
 </div>
 </div>
+</div>
+</section><section id="cancelling-a-job"><h2 class="section-heading">Cancelling a Job<a class="anchor" aria-label="anchor" href="#cancelling-a-job"></a>
+</h2>
+<hr class="half-width"><p>Sometimes we’ll make a mistake and need to cancel a job. This can be
+done with the <code>scancel</code> command. Let’s submit a job and then
+cancel it using its job number.</p>
+<pre><code>sbatch example-jobwithsleep.sh
+Submitted batch job 11785772
+$ squeue -u $USER
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          11785772   regular example- iskander  R       0:10      1 sml-n20
+$ scancel 11785772
+$ squeue -u $USER
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+$</code></pre>
+<p>We can also cancel all of our jobs at once using the -u option. This
+will delete all jobs for a specific user (in this case, yourself). Note
+that you can only delete your own jobs.</p>
+<p>Try submitting multiple jobs and then cancelling them all.</p>
 <div id="challenge7" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-5-submit-multiple-jobs-and-then-cancelling-them-all." class="callout-inner">
-<h3 class="callout-title">Exercise 5: Submit multiple jobs and then
+<div id="exercise-7-submit-multiple-jobs-and-then-cancelling-them-all." class="callout-inner">
+<h3 class="callout-title">Exercise 7: Submit multiple jobs and then
 cancelling them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a>
 </h3>
 <div class="callout-content">
@@ -802,7 +797,7 @@ cancelling them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a
 $ sbatch job1.sh
 $ sbatch job1.sh
 $ sbatch job1.sh</code></pre>
-<p>Check what you have in the queueu</p>
+<p>Check what you have in the queue</p>
 <pre><code>squeue -u $USER
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
           11792908   regular  job1.sh iskander  R       0:13      1 sml-n23
@@ -819,13 +814,12 @@ $ sbatch job1.sh</code></pre>
 </div>
 </div>
 </div>
-<p>You can check how bust the queue is through the <a href="http://dashboards.hpc.wehi.edu.au/d/main/main?orgId=1" class="external-link">Milton
+<p>You can check how busy the queue is through the <a href="http://dashboards.hpc.wehi.edu.au/d/main/main?orgId=1" class="external-link">Milton
 dashboards</a></p>
-</div>
 </section><section id="slurm-event-notification"><h2 class="section-heading">SLURM Event notification<a class="anchor" aria-label="anchor" href="#slurm-event-notification"></a>
 </h2>
 <hr class="half-width"><p>You can use <code>--mail-type</code> and <code>--mail-user</code> to
-set SLURM to send you emails when certain evenmts occurs, e.g. BEGIN,
+set SLURM to send you emails when certain events occurs, e.g. BEGIN,
 END, FAIL, REQUEUE, ALL</p>
 <pre><code><span><span class="co">#SBATCH --mail-type BEGIN</span></span>
 <span><span class="co">#SBATCH --mail-user iskander.j@wehi.edu.au</span></span></code></pre>
@@ -836,9 +830,7 @@ send me an email when my job starts running.</p>
 <hr class="half-width"><p>By default both standard output and standard error are directed to a
 file of the name “slurm-%j.out”, where the “%j” is replaced with the job
 id. The file will be saved in the submission directory as we saw before.
-on the first node of the job allocation. Other than the batch script
-itself, Slurm does no movement of user files.</p>
-<p>You can choose where the output files is saved and also separate
+You can choose where the output files is saved and also separate
 standard output from standard error using <code>--output</code> and
 <code>--error</code></p>
 <ul><li>
@@ -854,8 +846,14 @@ standard output file.</li>
 <li>%u User name</li>
 <li>%x Job name</li>
 </ul><p>For example, running the following
-<code>sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh</code></p>
-<div id="keypoints1" class="callout keypoints">
+<code>sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh</code>
+will create these files</p>
+<ul><li>a standard output file
+<code>/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.out</code>
+and</li>
+<li>an error files
+<code>/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.err</code>.</li>
+</ul><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -933,9 +931,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/06-submit.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/06-submit.html",
-  "dateCreated": "2023-05-14",
-  "dateModified": "2023-05-14",
-  "datePublished": "2023-05-14"
+  "dateCreated": "2023-05-15",
+  "dateModified": "2023-05-15",
+  "datePublished": "2023-05-15"
 }
 
   </script><script>

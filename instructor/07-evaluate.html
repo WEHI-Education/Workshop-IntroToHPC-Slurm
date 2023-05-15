@@ -77,11 +77,11 @@
   Introduction to HPC and SLURM
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 68%" class="percentage">
-    68%
+<aside class="col-md-12 lesson-progress"><div style="width: 69%" class="percentage">
+    69%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 68%" aria-valuenow="68" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 69%" aria-valuenow="69" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -163,7 +163,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-break.html">4. Part 1 Break</a>
+        <a href="04-break.html">4. Lunch Break</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -211,7 +211,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="08-break.html">8. Part 2 Break</a>
+        <a href="08-break.html">8. Break</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -282,11 +282,11 @@
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="../instructor/06-submit.html" rel="prev"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous: Submitting a Job</a>
-        <a class="chapter-link float-end" href="../instructor/08-break.html" rel="next">Next: Part 2 Break... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="../instructor/08-break.html" rel="next">Next: Break... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Evaluating Jobs</h1>
-        <p> Last updated on 2023-05-14 | 
+        <p> Last updated on 2023-05-15 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/07-evaluate.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -327,7 +327,7 @@ options.</li>
 <section id="evaluating-your-job"><h2 class="section-heading">Evaluating your Job<a class="anchor" aria-label="anchor" href="#evaluating-your-job"></a>
 </h2>
 <hr class="half-width"><p>After a job has completed, you will need to evaluate how efficient it
-was if it ran successfully, or investigate why it failed.</p>
+was, if it ran successfully, or investigate why it failed.</p>
 <p>The <code>seff</code> command provides a summary of any job.</p>
 <pre><code>seff &lt;jobid&gt;</code></pre>
 <div id="challenge1" class="callout challenge">
@@ -351,7 +351,7 @@ submitting it. Is there an error? How to fix it?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The jobs completes fast but not successfully</p>
 <pre><code>seff 11793501
@@ -399,13 +399,13 @@ try again until job finishes successfully.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Investigate whether bowtie2 can make use of multiple threads to
 accelerate run. Some tools does.</p>
 <pre><code><span><span class="va">bowtie2</span> <span class="op">-</span><span class="op">-</span><span class="va">help</span></span></code></pre>
 <p>Indeed bowtie, has a <code>-p</code> option that specifies number of
-threads to use. Update script ro use 6 threads and also increase
+threads to use. Update script to use 6 threads and also increase
 cpus-per-tasks to reflect the increase in threads.</p>
 </div>
 </div>
@@ -453,7 +453,7 @@ allocated</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>use $SLURM_CPUS_PER_TASK with -p option instead of setting a
 number.</p>
@@ -489,7 +489,7 @@ any links that you are not going to use.
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="../instructor/06-submit.html" rel="prev"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous: Submitting a Job</a>
-        <a class="chapter-link float-end" href="../instructor/08-break.html" rel="next">Next: Part 2 Break... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="../instructor/08-break.html" rel="next">Next: Break... <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
     </nav></div> <!-- / div.primary-content.col-xs-12 -->
 <!-- END:   inst/pkgdown/templates/content-instructor.html-->
@@ -533,9 +533,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/07-evaluate.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/07-evaluate.html",
-  "dateCreated": "2023-05-14",
-  "dateModified": "2023-05-14",
-  "datePublished": "2023-05-14"
+  "dateCreated": "2023-05-15",
+  "dateModified": "2023-05-15",
+  "datePublished": "2023-05-15"
 }
 
   </script><script>

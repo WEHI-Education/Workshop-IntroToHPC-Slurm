@@ -163,7 +163,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-break.html">4. Part 1 Break</a>
+        <a href="04-break.html">4. Lunch Break</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -199,7 +199,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="08-break.html">8. Part 2 Break</a>
+        <a href="08-break.html">8. Break</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -286,7 +286,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Interactive SLURM Job</h1>
-        <p> Last updated on 2023-05-14 | 
+        <p> Last updated on 2023-05-15 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/10-interactive.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -346,18 +346,17 @@ change to reflect your new location (sml-n02 in the example), which is
 the compute node we are logged on. You can also verify this with
 hostname.</p>
 <p><strong>Remember</strong> that, you may have to wait resources,
-depending on the status of the queue you are requesting. We have design
-the interactive partition to provide high availability, but only one job
-per user.</p>
+depending on the status of the queue you are requesting. We have
+designed the interactive partition to provide high availability, but
+only one job per user.</p>
 <p>The interactive job will be cancelled and removed from the queue, if
 your terminal session is terminated or closed, and/or internet
-connection is lost (connection with the slurm node lost). It is
-recommended to use <code>screen</code> or <code>tmux</code></p>
-<p>When you have finished your task, please remember to close the
-session using <code>exit</code> or <code>^D</code>.</p>
-<p>You can also cancel the session usig <code>scancel</code>.</p>
-<p>If you need more resources you can run interactive sessions in the
-other queues.</p>
+connection is lost (connection with the slurm node lost). That’s why it
+is recommended to use <code>screen</code> or <code>tmux</code>. When you
+have finished your task, please remember to close the session using
+<code>exit</code> or <code>^D</code>. You can also cancel the session
+using <code>scancel</code>. If you need more resources you can run
+interactive sessions in queues other than <code>interactive</code>.</p>
 </section><section id="creating-remote-graphics"><h2 class="section-heading">Creating remote graphics<a class="anchor" aria-label="anchor" href="#creating-remote-graphics"></a>
 </h2>
 <hr class="half-width"><p>To see graphical output inside your jobs, you need to use <em>X11
@@ -389,13 +388,7 @@ Using CTFFIND 4.1.14 at /stornext/System/data/nvidia/ctffind/ctffind-4.1.14/bin/
 Loading relion/3.1.3-cu11.2
   Loading requirement: cuda/11.2 mpich-slurm/3.4.2
 $ relion</code></pre>
-<figure><img src="../fig/relion.png" class="figure mx-auto d-block"> To demonstrate what happens when you
-create a graphics window on the remote node, use the xeyes command. A
-relatively adorable pair of eyes should pop up (press Ctrl-C to stop).
-If you are using a Mac, you must have installed XQuartz (and restarted
-your computer) for this to work.</figure><p>If your cluster has the slurm-spank-x11 plugin installed, you can
-ensure X11 forwarding within interactive jobs by using the –x11 option
-for srun with the command srun –x11 –pty bash.</p>
+<figure><img src="../fig/relion.png" class="figure mx-auto d-block"></figure><p><br></p>
 <p>We will now have a live demo for more interactive options on
 Milton.</p>
 <div id="keypoints1" class="callout keypoints">
@@ -468,9 +461,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/10-interactive.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/10-interactive.html",
-  "dateCreated": "2023-05-14",
-  "dateModified": "2023-05-14",
-  "datePublished": "2023-05-14"
+  "dateCreated": "2023-05-15",
+  "dateModified": "2023-05-15",
+  "datePublished": "2023-05-15"
 }
 
   </script><script>

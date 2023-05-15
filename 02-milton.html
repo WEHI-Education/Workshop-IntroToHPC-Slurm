@@ -158,7 +158,7 @@
       <div class="accordion-body">
         <ul><li><a href="#milton-cluster">Milton Cluster</a></li>
 <li><a href="#connect-to-milton">Connect to Milton</a></li>
-<li><a href="#milton-filesystems">Milton FileSystems</a></li>
+<li><a href="#milton-file-systems">Milton File Systems</a></li>
 <li><a href="#looking-around-your-home">Looking Around Your Home</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -178,7 +178,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-break.html">4. Part 1 Break</a>
+        <a href="04-break.html">4. Lunch Break</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -214,7 +214,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="08-break.html">8. Part 2 Break</a>
+        <a href="08-break.html">8. Break</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -289,7 +289,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Accessing Milton</h1>
-        <p> Last updated on 2023-05-13 | 
+        <p> Last updated on 2023-05-15 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/02-milton.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -338,7 +338,7 @@ many computer nodes in addition to the file systems.</p>
 </h2>
 <hr class="half-width"><p>The first step in using a cluster is to establish a connection from
 your laptop to the cluster.</p>
-<p>You need a Windows Command Prompt or macOS Terminal, to connect to a
+<p>You need a Windows Command Prompt or MacOS Terminal, to connect to a
 login node and access the command line (CLI).</p>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
@@ -372,7 +372,7 @@ login to vc7-shared.</p>
 client</a>.</li>
 </ul></li>
 <li>You can also use <a href="https://ondemand.hpc.wehi.edu.au/pun/sys/shell/ssh/slurm-login.hpc.wehi.edu.au" class="external-link">Cluster
-Access on Ope nOnDemand</a>
+Access on OpenOnDemand</a>
 </li>
 </ul></div>
 </div>
@@ -383,12 +383,15 @@ type after the password prompt are not displayed on the screen. Normal
 output will resume once you press <code>Enter</code>.</p>
 <p>You will notice that the prompt changed when you logged into the
 remote system using the terminal.</p>
-<figure><img src="fig/ssh-vc7.png" alt="" class="figure mx-auto d-block"><figcaption>Login to vc7-shared</figcaption></figure></section><section id="milton-filesystems"><h2 class="section-heading">Milton FileSystems<a class="anchor" aria-label="anchor" href="#milton-filesystems"></a>
+<figure><img src="fig/ssh-vc7.png" alt="" class="figure mx-auto d-block"><figcaption>Login to vc7-shared</figcaption></figure></section><section id="milton-file-systems"><h2 class="section-heading">Milton File Systems<a class="anchor" aria-label="anchor" href="#milton-file-systems"></a>
 </h2>
-<hr class="half-width"><figure><img src="fig/M_FS.png" alt="" class="figure mx-auto d-block"><figcaption>Milton FileSystems</figcaption></figure><figure><img src="fig/FSdetails.png" alt="" class="figure mx-auto d-block"><figcaption>Managed Versus UnManaged File Systems</figcaption></figure><div class="section level3">
-<h3 id="how-data-move-between-file-system-according-to-requirements">How data move between File System according to requirements?<a class="anchor" aria-label="anchor" href="#how-data-move-between-file-system-according-to-requirements"></a></h3>
+<hr class="half-width"><figure><img src="fig/M_FS.png" alt="" class="figure mx-auto d-block"><figcaption>Milton File Systems</figcaption></figure><figure><img src="fig/FSdetails.png" alt="" class="figure mx-auto d-block"><figcaption>Managed Versus UnManaged File Systems</figcaption></figure><div class="section level3">
+<h3 id="how-data-is-moved-between-file-systems-according-to-project-requirements">How data is moved between file systems according to project
+requirements?<a class="anchor" aria-label="anchor" href="#how-data-is-moved-between-file-systems-according-to-project-requirements"></a></h3>
+<p><br><br></p>
 <figure><img src="fig/dataretention.png" alt="" class="figure mx-auto d-block"><figcaption>Case 1: Data from external collaborators and needs
-long term retention</figcaption></figure><figure><img src="fig/datadelete.png" alt="" class="figure mx-auto d-block"><figcaption>Case 2: Data from publicly available source, or with
+long term retention</figcaption></figure><p><br><br></p>
+<figure><img src="fig/datadelete.png" alt="" class="figure mx-auto d-block"><figcaption>Case 2: Data from publicly available source, or with
 delete on-completion constraint</figcaption></figure></div>
 </section><section id="looking-around-your-home"><h2 class="section-heading">Looking Around Your Home<a class="anchor" aria-label="anchor" href="#looking-around-your-home"></a>
 </h2>
@@ -398,11 +401,12 @@ node.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-2check-the-name-of-the-current" class="callout-inner">
-<h3 class="callout-title">Exercise 2:Check the name of the current<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<div id="exercise-2check-the-name-of-the-current-node" class="callout-inner">
+<h3 class="callout-title">Exercise 2:Check the name of the current
+node<a class="anchor" aria-label="anchor" href="#challenge2"></a>
 </h3>
 <div class="callout-content">
-<p>node we are logged into</p>
+<p>Get node name where you are logged into</p>
 </div>
 </div>
 </div>
@@ -618,9 +622,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/02-milton.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/02-milton.html",
-  "dateCreated": "2023-05-14",
-  "dateModified": "2023-05-13",
-  "datePublished": "2023-05-14"
+  "dateCreated": "2023-05-15",
+  "dateModified": "2023-05-15",
+  "datePublished": "2023-05-15"
 }
 
   </script><script>
