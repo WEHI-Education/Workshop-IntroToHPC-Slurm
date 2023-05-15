@@ -23,22 +23,25 @@ in a new tab for an introduction to the course and Research Computing.
 
 ## Defining common terms
 
+
 ### What is cluster computing?
 Cluster computing refers to two or more computers that are networked together to provide solutions as required. 
 
 A cluster of computers joins computational powers of the individual computers (called "compute nodes") to provide a more combined computational power.
 
-In its simplest structure, HPC clusters are intended to utilize parallel processors to apply more computing force to solve a problem.
-
 ### What is a HPC cluster?
 HPC stands for High Performance Computing, which is the ability to process data and perform complex calculations at high speeds. 
 
-HPC clusters are a kind of compute clusters that typically have a large number of compute nodes, which share a file system designed for parallel reading and writing, and use a high-speed network for communication with each other. 
+In its simplest structure, HPC clusters are intended to utilize parallel processors to apply more computing force to solve a problem. HPC clusters are a kind of compute clusters that typically have a large number of compute nodes, which share a file system designed for parallel reading and writing, and use a high-speed network for communication with each other. 
+
 
 ### What is a supercomputer?
-Supercomputer used to refer to any single computer system that has exceptional processing power for its time. But recently, it refers to the best-known types of HPC solutions. A supercomputer contains thousands of compute nodes that work together to complete one or more tasks in parallel. 
+Supercomputer used to refer to any single computer system that has exceptional processing power for its time. But recently, it refers to the best-known types of HPC solutions. A supercomputer contains thousands of compute nodes that work together to complete one or more tasks in parallel. 
 
->`supercomputers` and `high-performance computers` are often used interchangeably.
+::: callout
+`supercomputers` and `high-performance computers` are often used interchangeably.
+::: 
+
 
 ## How is supercomputing performance measured?
 The most popular benchmark is the [LINPACK benchmark](https://www.top500.org/project/linpack/) which is used for the [TOP500](https://www.top500.org/lists/top500). The LINPACK benchmark solves a very large system of equations on all its compute resources. It uses the number of floating point operations per second (FLOPS) as the metric. The [GREEN500](https://www.top500.org/lists/green500/) ranking has also risen in popularity as it ranks HPC systems based on FLOPS per Watt of power (higher the better).
@@ -109,9 +112,7 @@ Milton contains a mix of Skylake, Broadwell, Icelake and Cooperlake Intel proces
 - These systems can be used to do work that would either be impossible
   or much slower on smaller systems.
 - HPC resources are shared by multiple users.
-- The resources found on independent compute nodes can vary in volume and
-  type (amount of RAM, processor architecture, availability of shared filesystems, etc.).
-- The standard method of interacting with HPC systems is via a command line
-  interface.
+- The resources found on independent compute nodes can vary in volume and type (amount of RAM, processor architecture, availability of shared filesystems, etc.).
+- The standard method of interacting with HPC systems is via a command line interface.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::

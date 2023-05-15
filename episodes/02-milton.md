@@ -1,6 +1,6 @@
 ---
 title: "Accessing Milton"
-teaching: 10
+teaching: 15
 exercises: 6
 ---
 
@@ -35,8 +35,8 @@ Milton is linux-based cluster, that is made up of two login nodes and many compu
 ## Connect to Milton
 
 The first step in using a cluster is to establish a connection from your laptop to the cluster. 
-
 You need a Windows Command Prompt or macOS Terminal, to connect to a login node and access the command line interface (CLI). 
+
 
 ::: challenge
 
@@ -56,6 +56,7 @@ More details are available [here](https://wehieduau.sharepoint.com/sites/rc2/Sit
 
 * You can also use [Cluster Access on Open OnDemand](https://ondemand.hpc.wehi.edu.au/pun/sys/shell/ssh/slurm-login.hpc.wehi.edu.au)
 
+
 ::::::
 :::
 
@@ -68,18 +69,24 @@ You will notice that the prompt changed when you logged into the remote system u
 
 ![Login to vc7-shared](fig/ssh-vc7.png)
 
-## Milton FileSystems
+## Milton File Systems
 
-![Milton FileSystems](fig/M_FS.png)
+![Milton File Systems](fig/M_FS.png)
 
 
 ![Managed Versus UnManaged File Systems](fig/FSdetails.png)
 
-### How to move data between File Systems according to requirements?
 
+### How data should be moved between file systems according to project requirements?
+
+
+<br />
+<br />
 
 ![Case 1: Data from external collaborators and needs long term retention](fig/dataretention.png)
 
+<br />
+<br />
 
 ![Case 2: Data from publicly available source, or with delete on-completion constraint](fig/datadelete.png)
 
@@ -89,8 +96,8 @@ We will now revise some linux commands to look around the login node.
 
 ::: challenge
 
-### Exercise 2:Check the name of the current
-node we are logged into
+### Exercise 2:Check the name of the current node
+Get node name where you are logged into
 
 :::::: solution
 ```

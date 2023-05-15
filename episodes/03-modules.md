@@ -1,7 +1,7 @@
 ---
 title: "Environment Modules"
-teaching: 20
-exercises: 0
+teaching: 15
+exercises: 2
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -34,7 +34,7 @@ it.
 Two of the most famous examples are Python 2 and 3 and C compiler versions.
 Python 3 famously provides a `python` command that conflicts with that provided
 by Python 2. Software compiled against a newer version of the C libraries and
-then used when they are not present will result in errors, for instance.
+then used when they are not present will result in errors.
 
 Software versioning is another common issue. A team might depend on a certain
 package version for their research project - if the software version was to
@@ -182,7 +182,8 @@ Currently Loaded Modulefiles:
 
 ::: challenge
 
-Exercise: What does `module whatis python` do?
+
+### Exercise 1: What does `module whatis python` do?
 
 :::::: solution
 
@@ -193,7 +194,7 @@ Print information of modulefile(s)
 
 ::: challenge
 
-Exercise: What does `module show python` do?
+### Exercise 2: What does `module show python` do?
 
 :::::: solution
 
@@ -227,23 +228,21 @@ prepend-path    LD_LIBRARY_PATH /stornext/System/data/apps/python/python-3.8.8/l
 `$PATH` is a special environment variable that controls where a UNIX system looks for software. Specifically `$PATH` is a list of directories (separated by `:`) that the OS searches through for a command before giving up and telling us it can't find it. As with all environment variables we can print it out using `echo`.
 
 When we ran the `module load` command, it adds a directory to the beginning of our
-`$PATH`. 
-
-`module load` will add software to your `$PATH`. It "loads" software and also loads required software dependencies. The module loading process manipulates other special environment
-variables as well, including variables that influence where the
+`$PATH`. That is the way it "loads" software and also loads required software dependencies. The module loading process manipulates other special environment variables as well, including variables that influence where the
 system looks for software libraries, and sometimes variables which
 tell commercial software packages where to find license servers.
 
 The module command also restores these shell environment variables to their previous state when a module is unloaded.
 
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+:::  callout
 
 ## Note
 
 The login nodes are a _shared resource_. All users access a login node in order to check their files, submit jobs etc. If one or more users start to run computationally or I/O intensive tasks on the login node (such as forwarding of graphics, copying large files, running multicore jobs), then that will make operations difficult for everyone.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
+
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
 - Load software with `module load softwareName`.

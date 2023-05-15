@@ -52,7 +52,7 @@ If you need more resources you can run interactive sessions in the other partiti
 
 ::: callout
 
-# These instructions are specific Milton!
+### These instructions are specific Milton!
 
 `salloc` is setup slightly differently to its default behaviour. Not all HPC facilities
 have Slurm to start interactive jobs like in Milton! Be aware of this when using
@@ -100,10 +100,8 @@ Loading relion/3.1.3-cu11.2
 ```bash
 relion
 ```
-![](fig/relion.png)
-To demonstrate what happens when you create a graphics window on the remote node, use the xeyes command. An adorable pair of eyes should pop up (press Ctrl-C to stop). If you are using a Mac, you must have installed XQuartz (and restarted your computer) for this to work.
 
-If your cluster has the slurm-spank-x11 plugin installed, you can ensure X11 forwarding within interactive jobs by using the `--x11` option for `srun` with the command `srun --x11 --pty bash`.
+![](fig/relion.png)
 
 We will now have a live demo for more interactive options on Milton.
 

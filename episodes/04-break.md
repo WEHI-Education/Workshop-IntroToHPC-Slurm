@@ -1,8 +1,10 @@
 ---
-title: Part 1 Break
+title: Lunch Break
 teaching: 0
 exercises: 0
 break: 10
 ---
 
-Take a break. If you can, move around and look at something away from your screen to give your eyes a rest.
+Take a 30-minutes lunch break. 
+
+Make sure you move around and look at something away from your screen to give your eyes a rest.
