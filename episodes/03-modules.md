@@ -24,6 +24,8 @@ On Milton, many softwares are installed but need to be loaded before you can run
 - software incompatibilities
 - versioning
 - dependencies
+- reducing duplication
+- making use of configured and/or optimised software
 
 Software incompatibility is a major headache for programmers. Sometimes the
 presence (or absence) of a software package will break others that depend on
@@ -47,7 +49,9 @@ particular version of another software package).
 Environment modules are the solution to these problems. A _module_ is a
 self-contained description of a software package -- it contains the
 settings required to run a software package and, usually, encodes required
-dependencies on other software packages.
+dependencies on other software packages. HPC facilities will often have their
+own optimised versions of some software, os modules also make it easier to use
+these versions.
 
 The `module` command is used to interact with environment
 modules. An additional subcommand is usually added to the command to specify
@@ -59,10 +63,10 @@ pages with `man module`.
 
 To see available software modules, use `module avail`:
 
+```bash
+module avail
 ```
-$ module avail
-```
-```
+```output
 ------------------------------------------ /stornext/System/data/modulefiles/tools -------------------------------------------
 apptainer/1.0.0            go/1.19.4                    mpich-slurm/3.4.1                   openmpi/4.1.1-slurm
 apptainer/1.1.0            go/1.20.2                    mpich-slurm/3.4.2                   openMPI/4.1.4
@@ -104,10 +108,10 @@ You can use the `module list` command to see which modules you currently have
 loaded in your environment. If you have no modules loaded, you will see a
 message telling you so
 
+```bash
+module list
 ```
-$ module list
-```
-```
+```output
 No Modulefiles Currently Loaded.
 ```
 
@@ -121,16 +125,24 @@ Initially, Python 3 is not loaded. We can test this by using the `which`
 command. `which` looks for programs the same way that Bash does, so we can use
 it to tell us where a particular piece of software is stored.
 
+```bash
+which python3
 ```
-$ which python3
+```output
 /usr/bin/python3
+```
+```bash
 python3 --version
+```
+```output
 Python 3.6.8
 ```
 
-We can look at the available `Python 3` on Milton
+We can look at the available `python` modules on Milton
+```bash
+module avail python
 ```
-$ module av python
+```output
 ---------------------------------------- /stornext/System/data/modulefiles/bioinf/its ----------------------------------------
 python/2.7.18  python/3.5.3        python/3.7.0   python/3.8.3  python/3.9.5   python/3.11.2
 python/3.5.1   python/3.6.5-intel  python/3.7.13  python/3.8.8  python/3.10.4
@@ -138,33 +150,39 @@ python/3.5.1   python/3.6.5-intel  python/3.7.13  python/3.8.8  python/3.10.4
 
 Now, we can load the `python 3.11.2` command with `module load`:
 
+```bash
+module load python/3.11.2
+python3 --version
 ```
-$ module load python/3.11.2
-$ python3 --version
+```output
 Python 3.11.2
 ```
 
 Using `module unload` “un-loads” a module along with its dependencies. If we wanted to unload everything at once, we could run `module purge` (unloads everything).
 
-Now, if you try to load a different version of Python 3, you will get an error.
+Now, if you already have a Python module loaded, and you try to load a different version of Python 3, you will get an error.
 
-```
+```bash
 module load python/3.8.8
+```
+```output
 Loading python/3.8.8
   ERROR: Module cannot be loaded due to a conflict.
     HINT: Might try "module unload python" first.
 ```
 You will need to `module switch` to Python 3.8.8 instead of `module load`.
-```
+```bash
 module switch  python/3.8.8
 module list
+```
+```output
 Currently Loaded Modulefiles:
  1) python/3.8.8
 ```
 
 ::: challenge
 
-Exercise: What does `module whatis Python` do?
+Exercise: What does `module whatis python` do?
 
 :::::: solution
 
@@ -175,12 +193,15 @@ Print information of modulefile(s)
 
 ::: challenge
 
-Exercise: What does `module show Python` do?
+Exercise: What does `module show python` do?
 
 :::::: solution
 
 Show the changes loading the module does to your environment
+```bash
+module show python
 ```
+```output
 -------------------------------------------------------------------
 /stornext/System/data/modulefiles/bioinf/its/python/3.8.8:
 
@@ -201,7 +222,7 @@ prepend-path    LD_LIBRARY_PATH /stornext/System/data/apps/python/python-3.8.8/l
 ::::::
 :::
 
-## What is $PATH?
+## What is `$PATH`?
 
 `$PATH` is a special environment variable that controls where a UNIX system looks for software. Specifically `$PATH` is a list of directories (separated by `:`) that the OS searches through for a command before giving up and telling us it can't find it. As with all environment variables we can print it out using `echo`.
 
@@ -226,6 +247,6 @@ The login nodes are a _shared resource_. All users access a login node in order 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
 - Load software with `module load softwareName`.
-- Unload software with `module unload`
+- Unload software with `module unload` or `module purge`.
 - The module system handles software versioning and package conflicts for you automatically.
 ::::::::::::::::::::::::::::::::::::::::::::::::
