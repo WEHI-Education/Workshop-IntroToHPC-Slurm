@@ -73,6 +73,7 @@ hostname
 Run the script. Does it execute on the cluster or just our login node?
 
 :::::: solution
+
 ```bash
 bash example-job.sh
 ```
@@ -146,12 +147,14 @@ And cat the file to see output.
 What is the hostname of your job?
 
 :::::: solution
+
 ```bash
 cat Slurm-11783863.out
 ```
 ```output
 This script is running on sml-n02.hpc.wehi.edu.au
 ```
+
 ::::::
 :::
 
@@ -173,19 +176,20 @@ JobID           JobName      NCPUS     ReqMem  Timelimit  Partition
 11783909     example-j+          2        10M 2-00:00:00    regular
 ```
 
-More on Slurm commands in later. 
+ 
 
 We can change the resource specification of the job by two ways:
 
 
-Adding extra options to the sbatch command
+Adding extra options to the `sbatch` command
 
-``` 
+```bash
 sbatch --job-name hello-world --mem 1G --cpus-per-task 1 --time 1:00:00 example-job.sh
 ```
+
 Modifying the submission script
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name hello-world
 #SBATCH --mem 1G
@@ -197,7 +201,7 @@ hostname
     
 Submit the job and monitor its status:
     
-```
+```bash
 $ sbatch example-job.sh
 Submitted batch job 11785584
 $ squeue -u $USER
@@ -245,7 +249,7 @@ In summary, the **main parts of a _SLURM_ submission script**
 
   This is to set the amount of resources required for the job. 
   
-  ```
+  ```bash
   #SBATCH --job-name=TestJob
   #SBATCH --time=00:10:00
   #SBATCH --ntasks=1
@@ -257,15 +261,15 @@ In summary, the **main parts of a _SLURM_ submission script**
 
   Load all the modules that the project depends on to execute. For example, if you are working on a python project, you’d definitely require the python module to run your code.
   
-```bash
-module load python
-```
+  ```bash
+  module load python
+  ```
   
 4. **Job Steps** 
 
   Specify the list of tasks to be carried out.
 
-  ```
+  ```bash
   echo "Start process"
   hostname
   sleep 30
@@ -280,7 +284,7 @@ All the next exercises will use scripts saved in the exercise folder which you s
 
 List then run job1.sh script in the batch system. What is the output?
 Is there an error? How to fix it?
-```
+```bash
 #!/bin/bash
 #SBATCH -t 00:01:00 
 
@@ -288,7 +292,6 @@ echo -n "This script is running on "
 sleep 80 # time in seconds
 hostname
 ```
-:::
 
 :::::: solution
 
@@ -309,7 +312,9 @@ sleep 70 # time in seconds
 hostname
 ```
 Try running again.
+
 ::::::
+:::
 
 
 Resource requests are typically binding. If you exceed them, your job will be killed. 
@@ -336,8 +341,6 @@ echo -n "This script is running on "
 hostname
 ```
 
-:::::::::::::
-
 :::::: solution
 
 When submitting to Slurm, you get an error
@@ -362,8 +365,9 @@ echo -n "This script is running on "
 hostname
 ```
 Try running again.
-::::::
 
+::::::
+:::
 
 ::: challenge
 
@@ -371,42 +375,39 @@ Try running again.
 
 Make alignment job (`job3.sh`) work.
 
-:::
-
 :::::: solution
 
 Add the correct Slurm directives to the start of the script
-```
+```bash
 #SBATCH --job-name=Bowtie-test.Slurm
 #SBATCH --ntasks=1
 #SBATCH -t 0:15:00
 #SBATCH --mem 20G
 ```
 ::::::
+:::
 
 ::: challenge
 
 ### Exercise 6: Run job3.sh again and monitor progress on the node .
 
-
 Run `job3.sh` again and monitor progress on the node. You can do this by
 sshing to the node and running `top`.
-
-:::
 
 :::::: solution
 Run the job
 get which node it is running on from `squeue -u $USER`
 ssh into the node 
 use `top -u $USER`
-::::::
 
+::::::
+:::
 
 ## Cancelling a Job
 
 Sometimes we'll make a mistake and need to cancel a job. This can be done with the `scancel` command. Let's submit a job and then cancel it using its job number.
 
-```
+```bash
 sbatch example-jobwithsleep.sh
 Submitted batch job 11785772
 $ squeue -u $USER
@@ -448,13 +449,13 @@ squeue -u $USER
 ```
 Cancel the jobs
 
-```
+```bash
 $ scancel -u $USER
 ```
 
 Recheck the queue
 
-```
+```bash
 $ squeue -u $USER
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 ```
@@ -462,7 +463,7 @@ $ squeue -u $USER
 And the queue is empty.
 
 ::::::
-
+:::
 
 You can check how busy the queue is through the [Milton dashboards](http://dashboards.hpc.wehi.edu.au/d/main/main?orgId=1)
 
@@ -471,7 +472,7 @@ You can check how busy the queue is through the [Milton dashboards](http://dashb
 You can use `--mail-type` and `--mail-user` to set SLURM to send you emails when certain events occurs, e.g. BEGIN, END, FAIL, REQUEUE, ALL 
 
 
-```
+```bash
 #SBATCH --mail-type BEGIN
 #SBATCH --mail-user iskander.j@wehi.edu.au
 ```
@@ -495,7 +496,7 @@ For example, running the following
 
 `sbatch --error=/vast/scratch/users/%u/Slurm%j_%N_%x.err --output=/vast/scratch/users/%u/Slurm%j_%N_%x.out job1.sh`
 will write error to `Slurm12345678_sml-n01_job1.sh.err` and output to `Slurm12345678_sml-n01_job1.sh.out`
-in the directory `/vast/scratch/users/<username>`, i.e. is the following will be created:
+in the directory `/vast/scratch/users/<username>`, i.e. the following will be created:
 
 * a standard output file `/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.out` and 
 * an error files `/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.err`.
@@ -511,3 +512,4 @@ in the directory `/vast/scratch/users/<username>`, i.e. is the following will be
 - Setting up job resources is a challenge and you might not get the first time
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
+
