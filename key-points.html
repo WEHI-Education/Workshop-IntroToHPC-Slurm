@@ -220,7 +220,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05-slurm.html">5. Introducing SLURM</a>
+        <a href="05-slurm.html">5. Introducing Slurm</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -268,7 +268,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="09-commands.html">9. SLURM Commands</a>
+        <a href="09-commands.html">9. Slurm Commands</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -280,7 +280,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="10-interactive.html">10. Interactive SLURM Job</a>
+        <a href="10-interactive.html">10. Interactive Slurm Jobs</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -345,17 +345,17 @@
 <section id="01-introduction"><h2 class="section-heading"><a href="01-introduction.html">What is a HPC?</a></h2>
 <hr class="half-width">
 <ul>
-<li>High Performance Computing (HPC) typically involves connecting to
-very large computing systems that provides a high computational
+<li>Using High Performance Computing (HPC) typically involves connecting
+to very large computing systems that provides a high computational
 power.</li>
 <li>These systems can be used to do work that would either be impossible
 or much slower on smaller systems.</li>
 <li>HPC resources are shared by multiple users.</li>
 <li>The resources found on independent compute nodes can vary in volume
-and type (amount of RAM, processor architecture, availability of network
-mounted file systems, etc.).</li>
-<li>The standard method of interacting with such systems is via a
-command line interface.</li>
+and type (amount of RAM, processor architecture, availability of shared
+filesystems, etc.).</li>
+<li>The standard method of interacting with HPC systems is via a command
+line interface.</li>
 </ul></section><section id="02-milton"><h2 class="section-heading"><a href="02-milton.html">Accessing Milton</a></h2>
 <hr class="half-width">
 <ul>
@@ -363,7 +363,7 @@ command line interface.</li>
 nodes.</li>
 <li>Files saved on one node are available on all nodes.</li>
 <li>Milton has multiple different file systems that have different
-policies.</li>
+policies and characteristics.</li>
 <li>Throughout a research project, research data may move between file
 systems according to backup and retention requirements, and to improve
 performance.</li>
@@ -371,12 +371,12 @@ performance.</li>
 <hr class="half-width">
 <ul>
 <li>Load software with <code>module load softwareName</code>.</li>
-<li>Unload software with <code>module unload</code>
-</li>
+<li>Unload software with <code>module unload</code> or
+<code>module purge</code>.</li>
 <li>The module system handles software versioning and package conflicts
 for you automatically.</li>
 </ul></section><section id="04-break"><h2 class="section-heading"><a href="04-break.html">Lunch Break</a></h2>
-<hr class="half-width"></section><section id="05-slurm"><h2 class="section-heading"><a href="05-slurm.html">Introducing SLURM</a></h2>
+<hr class="half-width"></section><section id="05-slurm"><h2 class="section-heading"><a href="05-slurm.html">Introducing Slurm</a></h2>
 <hr class="half-width">
 <ul>
 <li>The scheduler handles how compute resources are shared between
@@ -384,8 +384,9 @@ users.</li>
 <li>A job is just a shell script.</li>
 <li>Request <em>slightly</em> more resources than you will need.</li>
 <li>Backfilling improves system utilisation and maximises job
-throughput</li>
-<li>Milton SLURM has multiple partitions with different specification
+throughput. You can take advantage of backfilling by requesting only
+what you need.</li>
+<li>Milton Slurm has multiple partitions with different specification
 that fit the different types of jobs.</li>
 </ul></section><section id="06-submit"><h2 class="section-heading"><a href="06-submit.html">Submitting a Job</a></h2>
 <hr class="half-width">
@@ -393,32 +394,38 @@ that fit the different types of jobs.</li>
 <li>
 <code>sbatch</code> is used to submit the job</li>
 <li>
-<code>squeue</code> is used to list jobs in the SLURM queue</li>
+<code>squeue</code> is used to list jobs in the Slurm queue
+<ul>
+<li>passing the <code>-u &lt;username&gt;</code> option will show jobs
+for just that user.</li>
+</ul>
+</li>
 <li>
 <code>sacct</code> is used to show job details</li>
 <li>
-<code>#SBATCH</code> is used in submission scripts to set SLURM
-directives</li>
+<code>#SBATCH</code> directives are used in submission scripts to
+set Slurm directives</li>
 <li>Setting up job resources is a challenge and you might not get the
 first time</li>
 </ul></section><section id="07-evaluate"><h2 class="section-heading"><a href="07-evaluate.html">Evaluating Jobs</a></h2>
 <hr class="half-width">
 <ul>
 <li>Use <code>seff</code> to evaluate completed jobs</li>
-<li>SLURM Environment variables are handy to use in your script</li>
+<li>Slurm Environment variables are handy to use in your script</li>
 </ul></section><section id="08-break"><h2 class="section-heading"><a href="08-break.html">Break</a></h2>
-<hr class="half-width"></section><section id="09-commands"><h2 class="section-heading"><a href="09-commands.html">SLURM Commands</a></h2>
+<hr class="half-width"></section><section id="09-commands"><h2 class="section-heading"><a href="09-commands.html">Slurm Commands</a></h2>
 <hr class="half-width">
 <ul>
-<li>SLURM commands are handy to view information about queued jobs,
+<li>Slurm commands are handy to view information about queued jobs,
 nodes and partitions</li>
-<li>You will commonly uses <code>sbatch</code>, <code>squeue</code>,
+<li>You will commonly use <code>sbatch</code>, <code>squeue</code>,
 <code>salloc</code>, <code>sinfo</code> and <code>sacct</code>
 </li>
-</ul></section><section id="10-interactive"><h2 class="section-heading"><a href="10-interactive.html">Interactive SLURM Job</a></h2>
+</ul></section><section id="10-interactive"><h2 class="section-heading"><a href="10-interactive.html">Interactive Slurm Jobs</a></h2>
 <hr class="half-width">
 <ul>
-<li>Use <code>salloc</code> to start a new interactive SLURM job.</li>
+<li>Use <code>salloc</code> to start a new interactive Slurm job on
+Milton.</li>
 <li>Use <code>--x11</code> with <code>salloc</code> to run remote
 graphics in your interactive job.</li>
 </ul></section>

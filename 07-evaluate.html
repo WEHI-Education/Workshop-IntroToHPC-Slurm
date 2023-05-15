@@ -173,7 +173,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05-slurm.html">5. Introducing SLURM</a>
+        <a href="05-slurm.html">5. Introducing Slurm</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -202,7 +202,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#evaluating-your-job">Evaluating your Job</a></li>
-<li><a href="#slurm-environment-variables">SLURM Environment Variables</a></li>
+<li><a href="#slurm-environment-variables">Slurm Environment Variables</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -221,7 +221,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="09-commands.html">9. SLURM Commands</a>
+        <a href="09-commands.html">9. Slurm Commands</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -230,7 +230,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="10-interactive.html">10. Interactive SLURM Job</a>
+        <a href="10-interactive.html">10. Interactive Slurm Jobs</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -315,7 +315,7 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Explain SLURM env variables.</li>
+<ul><li>Explain Slurm environment variables.</li>
 <li>Demonstrate how to evaluate jobs and make use of multiple threads
 options.</li>
 </ul></div>
@@ -328,17 +328,21 @@ options.</li>
 <hr class="half-width"><p>After a job has completed, you will need to evaluate how efficient it
 was, if it ran successfully, or investigate why it failed.</p>
 <p>The <code>seff</code> command provides a summary of any job.</p>
-<pre><code>seff &lt;jobid&gt;</code></pre>
-<div id="challenge1" class="callout challenge">
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seff</span> <span class="op">&lt;</span>jobid<span class="op">&gt;</span></span></code></pre>
+</div>
+<div id="discussion1" class="callout discussion">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="exercise-1-run-and-evaluate-job4.sh-." class="callout-inner">
-<h3 class="callout-title">Exercise 1: Run and evaluate job4.sh .<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Exercise 1: Run and evaluate job4.sh .<a class="anchor" aria-label="anchor" href="#discussion1"></a>
 </h3>
 <div class="callout-content">
-<p>job4.sh is similar to job3.sh with only the bowtie2 command. Try
-submitting it. Is there an error? How to fix it?</p>
+<p>job4.sh is similar to job3.sh with only the <code>bowtie2</code>
+command. Try submitting it. Is there an error? How to fix it?</p>
 <p>And after it completed successfully, evaluate the job.</p>
 </div>
 </div>
@@ -350,11 +354,18 @@ submitting it. Is there an error? How to fix it?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The jobs completes fast but not successfully</p>
-<pre><code>seff 11793501
-Job ID: 11793501
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seff</span> 11793501</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Job ID: 11793501
 Cluster: milton
 User/Group: iskander.j/allstaff
 State: OUT_OF_MEMORY (exit code 0)
@@ -365,26 +376,41 @@ CPU Efficiency: 50.00% of 00:00:02 core-walltime
 Job Wall-clock time: 00:00:01
 Memory Utilized: 0.00 MB (estimated maximum)
 Memory Efficiency: 0.00% of 20.00 MB (10.00 MB/core)</code></pre>
+</div>
 <p>Also, checking output</p>
-<pre><code>$ cat slurm-11793501.out
-.........................&lt;other output&gt;
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> Slurm-11793501.out</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>.........................&lt;other output&gt;
 slurmstepd: error: Detected 1 oom_kill event in StepId=11793501.batch. Some of the step tasks have been OOM Killed.</code></pre>
-<p>This shows that the memory given was not enough, increase memory and
-try again until job finishes successfully.</p>
-<pre><code><span><span class="co">#SBATCH --job-name=Bowtie-test.slurm</span></span>
-<span><span class="co">#SBATCH --ntasks=1</span></span>
-<span><span class="co">#SBATCH -t 0:15:00</span></span>
-<span><span class="co">#SBATCH --mem 1G</span></span></code></pre>
+</div>
+<p>This shows that the job was “OOM Killed”. OOM is an abbreviation of
+<strong>O</strong>ut <strong>O</strong>f <strong>M</strong>emory,
+meaning the memory requested was not enough, increase memory and try
+again until job finishes successfully.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --job-name=Bowtie-test.Slurm</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=1</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 0:15:00</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem 1G</span></span></code></pre>
 </div>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+</div>
+<div id="discussion2" class="callout discussion">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="exercise-2-run-and-evaluate-job4.sh-." class="callout-inner">
-<h3 class="callout-title">Exercise 2: Run and evaluate job4.sh .<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Exercise 2: Run and evaluate job4.sh .<a class="anchor" aria-label="anchor" href="#discussion2"></a>
 </h3>
 <div class="callout-content">
 <p>Now that the job works fine can we make it faster.</p>
@@ -398,22 +424,26 @@ try again until job finishes successfully.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Investigate whether bowtie2 can make use of multiple threads to
 accelerate run. Some tools does.</p>
-<pre><code><span><span class="va">bowtie2</span> <span class="op">-</span><span class="op">-</span><span class="va">help</span></span></code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2</span> <span class="at">--help</span></span></code></pre>
+</div>
 <p>Indeed bowtie, has a <code>-p</code> option that specifies number of
-threads to use. Update script to use 6 threads and also increase
+threads to use. Update the script to use 6 threads and also increase
 cpus-per-tasks to reflect the increase in threads.</p>
 </div>
 </div>
 </div>
 </div>
-</section><section id="slurm-environment-variables"><h2 class="section-heading">SLURM Environment Variables<a class="anchor" aria-label="anchor" href="#slurm-environment-variables"></a>
+</section><section id="slurm-environment-variables"><h2 class="section-heading">Slurm Environment Variables<a class="anchor" aria-label="anchor" href="#slurm-environment-variables"></a>
 </h2>
-<hr class="half-width"><p>Slurm passes information about the running job e.g what is it’s
-working directory, or what nodes were allocated for it, to the job via
+<hr class="half-width"><p>Slurm passes information about the running job e.g what its working
+directory, or what nodes were allocated for it, to the job via
 environmental variables. In addition to being available to your job,
 these are also used by programs to set options like number of threads to
 run based on the cpus available.</p>
@@ -433,15 +463,15 @@ allocated</li>
 allocated</li>
 <li>
 <code>$SLURM_NTASKS</code>: number of tasks assigned to job</li>
-</ul><div id="challenge3" class="callout challenge">
+</ul><div id="discussion3" class="callout discussion">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<div id="exercise-3-run-job5.sh-." class="callout-inner">
-<h3 class="callout-title">Exercise 3: Run job5.sh .<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<div id="exercise-3-run-job5.sh." class="callout-inner">
+<h3 class="callout-title">Exercise 3: Run job5.sh.<a class="anchor" aria-label="anchor" href="#discussion3"></a>
 </h3>
 <div class="callout-content">
-<p>Can we make use on of SLURM env variable in job4.sh?</p>
+<p>Can we make use on of Slurm environment variables in job4.sh?</p>
 </div>
 </div>
 </div>
@@ -452,10 +482,10 @@ allocated</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
-<p>use $SLURM_CPUS_PER_TASK with -p option instead of setting a
-number.</p>
+<p>use <code>$SLURM_CPUS_PER_TASK</code> with <code>-p</code> option
+instead of setting a number.</p>
 </div>
 </div>
 </div>
@@ -472,7 +502,7 @@ compute node, using <code>top</code>, <code>iotop</code> and
 </h3>
 <div class="callout-content">
 <ul><li>Use <code>seff</code> to evaluate completed jobs</li>
-<li>SLURM Environment variables are handy to use in your script</li>
+<li>Slurm Environment variables are handy to use in your script</li>
 </ul></div>
 </div>
 </div>

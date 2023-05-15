@@ -218,7 +218,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05-slurm.html">5. Introducing SLURM</a>
+        <a href="05-slurm.html">5. Introducing Slurm</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -266,7 +266,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="09-commands.html">9. SLURM Commands</a>
+        <a href="09-commands.html">9. Slurm Commands</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -278,7 +278,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="10-interactive.html">10. Interactive SLURM Job</a>
+        <a href="10-interactive.html">10. Interactive Slurm Jobs</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -385,23 +385,25 @@ Computing.</p>
 </h2>
 <hr class="half-width">
 <div class="section level3">
-<h3 id="what-is-a-hpc">What is a HPC?<a class="anchor" aria-label="anchor" href="#what-is-a-hpc"></a>
+<h3 id="what-is-cluster-computing">What is cluster computing?<a class="anchor" aria-label="anchor" href="#what-is-cluster-computing"></a>
+</h3>
+<p>Cluster computing refers to two or more computers that are networked
+together to provide solutions as required.</p>
+<p>A cluster of computers joins computational powers of the individual
+computers (called “compute nodes”) to provide a more combined
+computational power.</p>
+</div>
+<div class="section level3">
+<h3 id="what-is-a-hpc-cluster">What is a HPC cluster?<a class="anchor" aria-label="anchor" href="#what-is-a-hpc-cluster"></a>
 </h3>
 <p>HPC stands for High Performance Computing, which is the ability to
 process data and perform complex calculations at high speeds.</p>
-</div>
-<div class="section level3">
-<h3 id="what-is-a-cluster-computing">What is a cluster computing?<a class="anchor" aria-label="anchor" href="#what-is-a-cluster-computing"></a>
-</h3>
-<p>Cluster computing refers to two or more computers that are networked
-together to provide solutions as required. A cluster of computers joins
-computational powers of the compute nodes to provide a more combined
-computational power.</p>
 <p>In its simplest structure, HPC clusters are intended to utilize
-parallel processors to apply more computing force for the solution of a
-problem. HPC clusters typically have a large number of computers called
-<code>nodes</code> and, they share a file system, and use a high-speed
-network for communication.</p>
+parallel processors to apply more computing force to solve a problem.
+HPC clusters are a kind of compute clusters that typically have a large
+number of compute nodes, which share a file system designed for parallel
+reading and writing, and use a high-speed network for communication with
+each other.</p>
 </div>
 <div class="section level3">
 <h3 id="what-is-a-supercomputer">What is a supercomputer?<a class="anchor" aria-label="anchor" href="#what-is-a-supercomputer"></a>
@@ -419,19 +421,23 @@ tasks in parallel.</p>
 <h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout1"></a>
 </h3>
 <div class="callout-content">
-<p><code>supercomputers</code>, <code>clusters</code> and
-<code>high-performance computing</code> are often used
+<p><code>supercomputers</code> and
+<code>high-performance computers</code> are often used
 interchangeably.</p>
 </div>
 </div>
 </div>
 </div>
-</section><section id="how-is-supercomputing-measured"><h2 class="section-heading">How is supercomputing measured?<a class="anchor" aria-label="anchor" href="#how-is-supercomputing-measured"></a>
+</section><section id="how-is-supercomputing-performance-measured"><h2 class="section-heading">How is supercomputing performance measured?<a class="anchor" aria-label="anchor" href="#how-is-supercomputing-performance-measured"></a>
 </h2>
 <hr class="half-width">
-<p>The most popular benchmark is the <a href="https://www.top500.org/project/linpack/" class="external-link">LINPACK benchmark</a>)
-which is used for the [TOP500](<a href="https://www.top500.org/lists/top500" class="external-link uri">https://www.top500.org/lists/top500</a>. It uses the number
-of floating point operations per second (FLOPS) as the metric.</p>
+<p>The most popular benchmark is the <a href="https://www.top500.org/project/linpack/" class="external-link">LINPACK benchmark</a>
+which is used for the <a href="https://www.top500.org/lists/top500" class="external-link">TOP500</a>. The LINPACK
+benchmark solves a very large system of equations on all its compute
+resources. It uses the number of floating point operations per second
+(FLOPS) as the metric. The <a href="https://www.top500.org/lists/green500/" class="external-link">GREEN500</a> ranking has
+also risen in popularity as it ranks HPC systems based on FLOPS per Watt
+of power (higher the better).</p>
 </section><section id="when-to-use-a-hpc-cluster"><h2 class="section-heading">When to use a HPC cluster?<a class="anchor" aria-label="anchor" href="#when-to-use-a-hpc-cluster"></a>
 </h2>
 <hr class="half-width">
@@ -455,6 +461,12 @@ computer – analyzing these larger datasets will probably crash it. In
 this research problem, the calculations required might be impossible to
 parallelize, but a computer with <strong>more memory</strong> would be
 required to analyze the much larger future data set.</li>
+<li>A drug discovery researcher would like to know how a specific
+protein binds to a drug. This requires a simulation that looks like it
+would <strong>take months to simulate on their laptop</strong>! Instead,
+they choose to leverage the large number of computers on HPC and their
+fast network to perform this simulation that take a few hours of real
+time.</li>
 </ul>
 </blockquote>
 <p>In these cases, access to <strong>more</strong> (and
@@ -473,7 +485,19 @@ parallelism;</li>
 <li>To make use of the large memory available;</li>
 <li>When solutions require backups for future use. HPC facilities are
 reliable and regularly backed up.</li>
-</ul></section><section id="what-is-milton"><h2 class="section-heading">What is Milton?<a class="anchor" aria-label="anchor" href="#what-is-milton"></a>
+</ul></section><section id="how-to-interact-with-hpc-clusters"><h2 class="section-heading">How to interact with HPC clusters?<a class="anchor" aria-label="anchor" href="#how-to-interact-with-hpc-clusters"></a>
+</h2>
+<hr class="half-width">
+<p>Researchers usually interact with HPC clusters by connecting remotely
+to the HPC cluster via the Linux command line. This is because of its
+low cost and setup as well as most research HPC software being written
+for the Linux command line. Microsoft Windows HPC facilities exist, but
+usually serve specific niches like corporate finance.</p>
+<p>However, graphical interfaces have become popular and have helped
+lower the barrier to learning how to use HPC. <a href="https://openondemand.org/" class="external-link">Open OnDemand</a> being the most
+popular example of software that helps users interact with HPC
+graphically.</p>
+</section><section id="what-is-milton"><h2 class="section-heading">What is Milton?<a class="anchor" aria-label="anchor" href="#what-is-milton"></a>
 </h2>
 <hr class="half-width">
 <figure><img src="../fig/milton.png" class="figure mx-auto d-block"></figure><p>In 2016, WEHI purchased an on-premise HPC cluster called Milton,
@@ -491,17 +515,17 @@ Intel processors.</p>
 </h3>
 <div class="callout-content">
 <ul>
-<li>High Performance Computing (HPC) typically involves connecting to
-very large computing systems that provides a high computational
+<li>Using High Performance Computing (HPC) typically involves connecting
+to very large computing systems that provides a high computational
 power.</li>
 <li>These systems can be used to do work that would either be impossible
 or much slower on smaller systems.</li>
 <li>HPC resources are shared by multiple users.</li>
 <li>The resources found on independent compute nodes can vary in volume
-and type (amount of RAM, processor architecture, availability of network
-mounted file systems, etc.).</li>
-<li>The standard method of interacting with such systems is via a
-command line interface.</li>
+and type (amount of RAM, processor architecture, availability of shared
+filesystems, etc.).</li>
+<li>The standard method of interacting with HPC systems is via a command
+line interface.</li>
 </ul>
 </div>
 </div>
@@ -558,16 +582,17 @@ many computer nodes in addition to the file systems.</p>
 <li>Physical cores</li>
 <li>Memory</li>
 <li>Local storage</li>
+<li>Maybe GPU(s)</li>
 </ul>
-<figure><img src="../fig/node_anatomy.png" alt="" class="figure mx-auto d-block"><figcaption>Node</figcaption></figure>
+<figure><img src="../fig/node_anatomy.png" alt="" class="figure mx-auto d-block"><figcaption>Node diagram</figcaption></figure>
 </div>
 </section><section id="connect-to-milton"><h2 class="section-heading">Connect to Milton<a class="anchor" aria-label="anchor" href="#connect-to-milton"></a>
 </h2>
 <hr class="half-width">
 <p>The first step in using a cluster is to establish a connection from
-your laptop to the cluster.</p>
-<p>You need a Windows Command Prompt or MacOS Terminal, to connect to a
-login node and access the command line (CLI).</p>
+your laptop to the cluster. You need a Windows Command Prompt or macOS
+Terminal, to connect to a login node and access the command line
+interface (CLI).</p>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -576,8 +601,8 @@ login node and access the command line (CLI).</p>
 <h3 class="callout-title">Exercise 1: Can you login to Milton?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
 </h3>
 <div class="callout-content">
-<p>If not in WEHI, make sure you are on the VPN. Open your terminal and
-login to vc7-shared.</p>
+<p>If not in WEHI, make sure you are on the VPN. While on a WEHI device,
+open your terminal and login to vc7-shared.</p>
 <p>More details are available <a href="https://wehieduau.sharepoint.com/sites/rc2/SitePages/using-milton.aspx#ssh-(command-line)-sessions-(slurm)" class="external-link">here</a>.</p>
 </div>
 </div>
@@ -589,7 +614,7 @@ login to vc7-shared.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>For Mac OSX users
@@ -605,7 +630,7 @@ client</a>.</li>
 </ul>
 </li>
 <li>You can also use <a href="https://ondemand.hpc.wehi.edu.au/pun/sys/shell/ssh/slurm-login.hpc.wehi.edu.au" class="external-link">Cluster
-Access on OpenOnDemand</a>
+Access on Open OnDemand</a>
 </li>
 </ul>
 </div>
@@ -621,8 +646,8 @@ remote system using the terminal.</p>
 </h2>
 <hr class="half-width">
 <figure><img src="../fig/M_FS.png" alt="" class="figure mx-auto d-block"><figcaption>Milton File Systems</figcaption></figure><figure><img src="../fig/FSdetails.png" alt="" class="figure mx-auto d-block"><figcaption>Managed Versus UnManaged File Systems</figcaption></figure><div class="section level3">
-<h3 id="how-data-is-moved-between-file-systems-according-to-project-requirements">How data is moved between file systems according to project
-requirements?<a class="anchor" aria-label="anchor" href="#how-data-is-moved-between-file-systems-according-to-project-requirements"></a>
+<h3 id="how-data-should-be-moved-between-file-systems-according-to-project-requirements">How data should be moved between file systems according to project
+requirements?<a class="anchor" aria-label="anchor" href="#how-data-should-be-moved-between-file-systems-according-to-project-requirements"></a>
 </h3>
 <p><br><br></p>
 <figure><img src="../fig/dataretention.png" alt="" class="figure mx-auto d-block"><figcaption>Case 1: Data from external collaborators and needs
@@ -633,7 +658,7 @@ delete on-completion constraint</figcaption></figure>
 </section><section id="looking-around-your-home"><h2 class="section-heading">Looking Around Your Home<a class="anchor" aria-label="anchor" href="#looking-around-your-home"></a>
 </h2>
 <hr class="half-width">
-<p>We will now run through some linux commands to look around the login
+<p>We will now revise some linux commands to look around the login
 node.</p>
 <div id="challenge2" class="callout challenge">
 <div class="callout-square">
@@ -655,7 +680,7 @@ node<a class="anchor" aria-label="anchor" href="#challenge2"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <pre><code>$ hostname
 vc7-shared.hpc.wehi.edu.au</code></pre>
@@ -684,14 +709,22 @@ in.<a class="anchor" aria-label="anchor" href="#challenge3"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Run <code>pwd</code> (<strong>p</strong>rint the
 <strong>w</strong>orking <strong>d</strong>irectory.)</p>
-<pre><code>$ pwd
-/home/users/allstaff/&lt;username&gt;</code></pre>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>/home/users/allstaff/&lt;username&gt;</code></pre>
+</div>
 <p>Instead of <code>&lt;username&gt;</code>, your username will appear.
-This is your HOME directory ($HOME)</p>
+This is your HOME directory (<code>$HOME</code>)</p>
 </div>
 </div>
 </div>
@@ -716,9 +749,13 @@ Home directory<a class="anchor" aria-label="anchor" href="#challenge4"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
-<pre><code>$ ls</code></pre>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
+</div>
 <p>will print a list of files/directories in the directory.</p>
 </div>
 </div>
@@ -746,11 +783,15 @@ to current directory,</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
-<pre><code>cd &lt;dir&gt;
-cp -r  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .
-ls</code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="op">&lt;</span>dir<span class="op">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span>  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -774,11 +815,19 @@ ls</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
-<pre><code>$ exit</code></pre>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span></code></pre>
+</div>
 <p>or</p>
-<pre><code>$ logout</code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">logout</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -798,7 +847,7 @@ guide</a> or watch the recording of the workshops <a href="https://wehieduau.sha
 nodes.</li>
 <li>Files saved on one node are available on all nodes.</li>
 <li>Milton has multiple different file systems that have different
-policies.</li>
+policies and characteristics.</li>
 <li>Throughout a research project, research data may move between file
 systems according to backup and retention requirements, and to improve
 performance.</li>
@@ -855,6 +904,8 @@ you can run it.</p>
 <li>software incompatibilities</li>
 <li>versioning</li>
 <li>dependencies</li>
+<li>reducing duplication</li>
+<li>making use of configured and/or optimised software</li>
 </ul>
 <p>Software incompatibility is a major headache for programmers.
 Sometimes the presence (or absence) of a software package will break
@@ -876,7 +927,9 @@ particular version) depends on having access to another software package
 <p>Environment modules are the solution to these problems. A
 <em>module</em> is a self-contained description of a software package –
 it contains the settings required to run a software package and,
-usually, encodes required dependencies on other software packages.</p>
+usually, encodes required dependencies on other software packages. HPC
+facilities will often have their own optimised versions of some
+software, so modules also make it easier to use these versions.</p>
 <p>The <code>module</code> command is used to interact with environment
 modules. An additional subcommand is usually added to the command to
 specify what you want to do. For a list of subcommands you can use
@@ -887,8 +940,15 @@ you can access the full help on the <em>man</em> pages with
 <h3 id="listing-available-modules">Listing Available Modules<a class="anchor" aria-label="anchor" href="#listing-available-modules"></a>
 </h3>
 <p>To see available software modules, use <code>module avail</code>:</p>
-<pre><code>$ module avail</code></pre>
-<pre><code>------------------------------------------ /stornext/System/data/modulefiles/tools -------------------------------------------
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>------------------------------------------ /stornext/System/data/modulefiles/tools -------------------------------------------
 apptainer/1.0.0            go/1.19.4                    mpich-slurm/3.4.1                   openmpi/4.1.1-slurm
 apptainer/1.1.0            go/1.20.2                    mpich-slurm/3.4.2                   openMPI/4.1.4
 aspera/3.5.4               groovy/4.0.0                 mpich/3.3                           openSSL/1.0.2r
@@ -922,14 +982,23 @@ feh/3.6.3                  mariadb-connector-c/3.3.4    openjdk/17.0.2          
 fftw/3.3.9                 maven/3.3.9                  openjdk/18.0.2                      tar/1.34
 fio/3.16                   maven/3.9.1                  openMPI-slurm/4.1.0                 tcpdump/4.9.2</code></pre>
 </div>
+</div>
 <div class="section level3">
 <h3 id="listing-currently-loaded-modules">Listing Currently Loaded Modules<a class="anchor" aria-label="anchor" href="#listing-currently-loaded-modules"></a>
 </h3>
 <p>You can use the <code>module list</code> command to see which modules
 you currently have loaded in your environment. If you have no modules
 loaded, you will see a message telling you so</p>
-<pre><code>$ module list</code></pre>
-<pre><code>No Modulefiles Currently Loaded.</code></pre>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> list</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>No Modulefiles Currently Loaded.</code></pre>
+</div>
 </div>
 <div class="section level3">
 <h3 id="loading-and-unloading-software">Loading and Unloading Software<a class="anchor" aria-label="anchor" href="#loading-and-unloading-software"></a>
@@ -940,42 +1009,91 @@ example we will use Python 3.</p>
 <code>which</code> command. <code>which</code> looks for programs the
 same way that Bash does, so we can use it to tell us where a particular
 piece of software is stored.</p>
-<pre><code>$ which python3
-/usr/bin/python3
-python3 --version
-Python 3.6.8</code></pre>
-<p>We can look at the available <code>Python 3</code> on Milton</p>
-<pre><code>$ module av python
----------------------------------------- /stornext/System/data/modulefiles/bioinf/its ----------------------------------------
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> python3</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>/usr/bin/python3</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Python 3.6.8</code></pre>
+</div>
+<p>We can look at the available <code>python</code> modules on
+Milton</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail python</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>---------------------------------------- /stornext/System/data/modulefiles/bioinf/its ----------------------------------------
 python/2.7.18  python/3.5.3        python/3.7.0   python/3.8.3  python/3.9.5   python/3.11.2
 python/3.5.1   python/3.6.5-intel  python/3.7.13  python/3.8.8  python/3.10.4</code></pre>
+</div>
 <p>Now, we can load the <code>python 3.11.2</code> command with
 <code>module load</code>:</p>
-<pre><code>$ module load python/3.11.2
-$ python3 --version
-Python 3.11.2</code></pre>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python/3.11.2</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Python 3.11.2</code></pre>
+</div>
 <p>Using <code>module unload</code> “un-loads” a module along with its
 dependencies. If we wanted to unload everything at once, we could run
 <code>module purge</code> (unloads everything).</p>
-<p>Now, if you try to load a different version of Python 3, you will get
-an error.</p>
-<pre><code>module load python/3.8.8
-Loading python/3.8.8
+<p>Now, if you already have a Python module loaded, and you try to load
+a different version of Python 3, you will get an error.</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python/3.8.8</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Loading python/3.8.8
   ERROR: Module cannot be loaded due to a conflict.
     HINT: Might try "module unload python" first.</code></pre>
+</div>
 <p>You will need to <code>module switch</code> to Python 3.8.8 instead
 of <code>module load</code>.</p>
-<pre><code>module switch  python/3.8.8
-module list
-Currently Loaded Modulefiles:
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> switch  python/3.8.8</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> list</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Currently Loaded Modulefiles:
  1) python/3.8.8</code></pre>
+</div>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-1-what-does-module-whatis-python-do" class="callout-inner">
 <h3 class="callout-title">Exercise 1: What does
-<code>module whatis Python</code> do?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<code>module whatis python</code> do?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
 </h3>
 <div class="callout-content">
 
@@ -1002,7 +1120,7 @@ Currently Loaded Modulefiles:
 </div>
 <div id="exercise-2-what-does-module-show-python-do" class="callout-inner">
 <h3 class="callout-title">Exercise 2: What does
-<code>module show Python</code> do?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<code>module show python</code> do?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
 </h3>
 <div class="callout-content">
 
@@ -1019,7 +1137,15 @@ Currently Loaded Modulefiles:
 <div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Show the changes loading the module does to your environment</p>
-<pre><code>-------------------------------------------------------------------
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> show python</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>-------------------------------------------------------------------
 /stornext/System/data/modulefiles/bioinf/its/python/3.8.8:
 
 module-whatis   {Python is a widely used high-level, general-purpose, interpreted, dynamic programming language. (v3.8.8)}
@@ -1039,7 +1165,8 @@ prepend-path    LD_LIBRARY_PATH /stornext/System/data/apps/python/python-3.8.8/l
 </div>
 </div>
 </div>
-</section><section id="what-is-path"><h2 class="section-heading">What is $PATH?<a class="anchor" aria-label="anchor" href="#what-is-path"></a>
+</div>
+</section><section id="what-is-path"><h2 class="section-heading">What is <code>$PATH</code>?<a class="anchor" aria-label="anchor" href="#what-is-path"></a>
 </h2>
 <hr class="half-width">
 <p><code>$PATH</code> is a special environment variable that controls
@@ -1084,8 +1211,8 @@ everyone.</p>
 <div class="callout-content">
 <ul>
 <li>Load software with <code>module load softwareName</code>.</li>
-<li>Unload software with <code>module unload</code>
-</li>
+<li>Unload software with <code>module unload</code> or
+<code>module purge</code>.</li>
 <li>The module system handles software versioning and package conflicts
 for you automatically.</li>
 </ul>
@@ -1107,7 +1234,7 @@ any links that you are not going to use.
         </div>
 <p>Take a 30-minutes lunch break.</p>
 <p>Make sure you move around and look at something away from your screen
-to give your eyes a rest.</p></section><section id="aio-05-slurm"><p>Content from <a href="05-slurm.html">Introducing SLURM</a></p>
+to give your eyes a rest.</p></section><section id="aio-05-slurm"><p>Content from <a href="05-slurm.html">Introducing Slurm</a></p>
 <hr>
 <p> Last updated on 2023-05-15 | 
         
@@ -1136,7 +1263,7 @@ to give your eyes a rest.</p></section><section id="aio-05-slurm"><p>Content fro
 <h3 class="card-title">Objectives</h3>
 <ul>
 <li>Explain what is a scheduler</li>
-<li>Explain how does Milton SLURM works</li>
+<li>Explain how Milton’s Slurm works</li>
 <li>Identify the essential options to set for a job</li>
 </ul>
 </div>
@@ -1157,61 +1284,61 @@ to wait for a while in a queue to get in to a popular restaurant, then
 you may now understand why sometimes your job do not start instantly as
 in your laptop.</p>
 <figure><img src="../fig/restaurant_queue_manager.svg" alt="" class="figure mx-auto d-block"><figcaption>Compare a job scheduler to a waiter in a
-restaurant</figcaption></figure><p>Milton uses a scheduler (batch system) called SLURM. WEHI has 3500
-physical cores, 44TB of memory, 58 GPUs and 90 nodes connected to the
-SLURM.</p>
+restaurant</figcaption></figure><p>Milton uses a scheduler (batch system) called Slurm. WEHI has 3500
+physical cores, 44TB of memory, 58 GPUs and 90 nodes accessible by
+Slurm.</p>
 <p>The user describes the work to be done and resources required in a
 script or at the command line, then submits the script to the batch
 system. The work is scheduled when resources are available and
 consistent with policy set by administrators.</p>
-</section><section id="slurm"><h2 class="section-heading">SLURM<a class="anchor" aria-label="anchor" href="#slurm"></a>
+</section><section id="slurm"><h2 class="section-heading">Slurm<a class="anchor" aria-label="anchor" href="#slurm"></a>
 </h2>
 <hr class="half-width">
 <div class="section level3">
 <h3 id="simple-linux-utility-for-resource-management">
-<a href="https://slurm.schedmd.com/documentation.html" class="external-link">Simple Linux
+<a href="https://Slurm.schedmd.com/documentation.html" class="external-link">Simple Linux
 Utility for Resource Management</a><a class="anchor" aria-label="anchor" href="#simple-linux-utility-for-resource-management"></a>
 </h3>
-<p>SLURM development has been a joint effort of many companies and
+<p>Slurm development has been a joint effort of many companies and
 organizations around the world. Over 200 individuals have contributed to
-SLURM. Its development is led by <a href="https://www.schedmd.com/" class="external-link">SchedMD</a>. It’s staff of developers
-and support personnel maintain the canonical SLURM releases, and are
-responsible for the majority of the development work for each new SLURM
-release. SLURM’s design is very modular with about 100 optional
-plugins.</p>
-<p>It is used at Spartan, Massive, Pawsey, Peter Mac and Milton.</p>
-<figure><img src="../fig/SLURMImg.gif" alt="" class="figure mx-auto d-block"><figcaption>SLURM</figcaption></figure>
+Slurm. Its development is lead by <a href="https://www.schedmd.com/" class="external-link">SchedMD</a>. Its staff of developers and
+support personnel maintain the canonical Slurm releases, and are
+responsible for the majority of the development work for each new Slurm
+release. Slurm’s design is very modular with about 100 optional plugins.
+It is used at Spartan, Massive, Pawsey, Peter Mac and Milton, as well as
+HPC facilities world-wide.</p>
+<figure><img src="../fig/SlurmImg.gif" alt="" class="figure mx-auto d-block"><figcaption>Slurm architecture diagram</figcaption></figure>
 </div>
 <div class="section level3">
 <h3 id="fair-share">Fair Share<a class="anchor" aria-label="anchor" href="#fair-share"></a>
 </h3>
-<p>A cluster is a shared environment, when there is more work than
-resources available there needs to be a mechanism to resolve contention.
-Policies ensure that everyone has a “fair share” of the resources.</p>
-<p>Milton uses a <a href="https://slurm.schedmd.com/priority_multifactor.html#mfjppintro" class="external-link">multifactor
+<p>A cluster is a shared environment and when there is more work than
+resources available, there needs to be a mechanism to resolve
+contention. Policies ensure that everyone has a “fair share” of the
+resources.</p>
+<p>Milton uses a <a href="https://Slurm.schedmd.com/priority_multifactor.html#mfjppintro" class="external-link">multifactor
 job priority policy</a>. It uses nine factors that influence job
 priority.</p>
 <p>It is set such that:</p>
 <ul>
 <li>age: as the length of time a job has been waiting in the queue
 increases, the job priority increases.</li>
-<li>job size: the number of nodes or CPUs a job is allocated,</li>
+<li>job size: the more resources (CPUs, GPUs, and/or memory), the higher
+priority.</li>
 <li>fair-share: the difference between the portion of the computing
 resource that has been requested and the amount of resources that has
-been consumed, i.e. the more resources your jobs are already using, the
+been consumed, i.e. the more resources your jobs have already used, the
 lower the priority of your next jobs.</li>
-<li>Resources requested: the more resources (cpus, gpus and memory)
-requested, the higher the priority.</li>
 </ul>
-<p>In addition no single user can have more than 8% of total CPUs or
-memory, which is <strong>450 cpus</strong> and <strong>3TB
+<p>In addition, no single user can have more than 8% of total CPUs or
+memory, which is <strong>450 CPUs</strong> and <strong>3TB
 memory</strong>.</p>
 </div>
 <div class="section level3">
 <h3 id="backfilling">Backfilling<a class="anchor" aria-label="anchor" href="#backfilling"></a>
 </h3>
-<p>Milton uses a backfilling algorithm to improve system utilisation and
-maximise job throughput.</p>
+<p>Milton uses a back-filling algorithm to improve system utilisation
+and maximise job throughput.</p>
 <p>When more resource intensive jobs are running it is possible that
 gaps ends up in the resource allocation. To fill these gaps a best
 effort is made for low-resource jobs to slot into these spaces.</p>
@@ -1226,13 +1353,15 @@ core jobs will run before the second 8 core job.</p>
 </ul>
 <p>Without back filling, Job 2 will block the queue and Job 3 will have
 to wait until Job 2 is completed. With back filling, when Job 1 has been
-allocated and Job 2 pending for resources, SLURM will look through the
-queue, searching for jobs that are small enough to fill the idle
-node.</p>
+allocated and Job 2 pending for resources, Slurm will look through the
+queue, searching for jobs that are small enough to fill the idle node.
+In this example, this means that Job 3 will start before Job 2 to
+“back-fill” the 4 CPUs that will be available for 5 hours while Job 1 is
+running.</p>
 <figure><img src="../fig/backfill.png" alt="" class="figure mx-auto d-block"><figcaption>Backfilling Algorithm</figcaption></figure>
 </div>
 <div class="section level3">
-<h3 id="slurm-partitions">SLURM Partitions<a class="anchor" aria-label="anchor" href="#slurm-partitions"></a>
+<h3 id="slurm-partitions">Slurm Partitions<a class="anchor" aria-label="anchor" href="#slurm-partitions"></a>
 </h3>
 <p>Partitions in Slurm group nodes into logical (possibly overlapping)
 sets. A partition configuration defines job limits or access controls
@@ -1252,12 +1381,12 @@ restrictions.</p>
 </colgroup>
 <thead><tr class="header">
 <th align="center">Partition</th>
-<th align="center">Use</th>
+<th align="center">Purpose</th>
 <th align="center">Max submitted jobs/user</th>
-<th align="center">Max CPUs</th>
-<th align="center">Max mem (GB)</th>
-<th align="center">Max wall time</th>
-<th align="center">GPUs</th>
+<th align="center">Max CPUs/user</th>
+<th align="center">Max mem (GB)/user</th>
+<th align="center">Max wall time/job</th>
+<th align="center">Max GPUs/user</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -1343,8 +1472,9 @@ users.</li>
 <li>A job is just a shell script.</li>
 <li>Request <em>slightly</em> more resources than you will need.</li>
 <li>Backfilling improves system utilisation and maximises job
-throughput</li>
-<li>Milton SLURM has multiple partitions with different specification
+throughput. You can take advantage of backfilling by requesting only
+what you need.</li>
+<li>Milton Slurm has multiple partitions with different specification
 that fit the different types of jobs.</li>
 </ul>
 </div>
@@ -1417,11 +1547,11 @@ specification</li>
 <h3 id="preparing-a-job-script">Preparing a job script<a class="anchor" aria-label="anchor" href="#preparing-a-job-script"></a>
 </h3>
 <p>In this case, the job we want to run is a shell script – essentially
-a text file containing a list of UNIX commands to be executed in a
+a text file containing a list of Linux commands to be executed in a
 sequential manner.</p>
 <p>Our first shell script will have three parts:</p>
 <ul>
-<li>On the very first line, add <code>/bin/bash</code>. The
+<li>On the very first line, add <code>#!/bin/bash</code>. The
 <code>#!</code> (pronounced “hash-bang” or “shebang”) tells the computer
 what program is meant to process the contents of this file. In this
 case, we are telling it that the commands that follow are written for
@@ -1439,10 +1569,18 @@ character.</li>
 <li>On the last line, we’ll invoke the <code>hostname</code> command,
 which will print the name of the machine the script is run on.</li>
 </ul>
-<pre><code>$ nano example-job.sh</code></pre>
-<pre><code>#!/bin/bash
-echo -n "This script is running on "
-hostname</code></pre>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> example-job.sh</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
+</div>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -1463,12 +1601,20 @@ node?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<pre><code>$ bash example-job.sh
-This script is running on slurm-login01.hpc.wehi.edu.au</code></pre>
-<p><code>slurm-login01.hpc.wehi.edu.au</code> may change depending on
-which node you sshed into to run the script.</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> example-job.sh</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>This script is running on Slurm-login01.hpc.wehi.edu.au</code></pre>
+</div>
+<p><code>Slurm-login01.hpc.wehi.edu.au</code> may change depending on
+which node you ssh’ed into to run the script.</p>
 </div>
 </div>
 </div>
@@ -1484,8 +1630,16 @@ the compute nodes, we need the scheduler to queue up
 command. This creates a <em>job</em> which will run the <em>script</em>
 when <em>dispatched</em> to a compute node which the queuing system has
 identified as being available to perform the work.</p>
-<pre><code>$ sbatch example-job.sh
-Submitted batch job 11783863</code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> example-job.sh</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Submitted batch job 11783863</code></pre>
+</div>
 <p>And that’s all we need to do to submit a job. Our work is done – now
 the scheduler takes over and tries to run the job for us.</p>
 </div>
@@ -1495,16 +1649,25 @@ the scheduler takes over and tries to run the job for us.</p>
 <p>While the job is waiting to run, it goes into a list of jobs called
 the <em>queue</em>. To check on our job’s status, we check the queue
 using the command <code>squeue -u $USER</code>.</p>
-<pre><code>$ squeue -u $USER
-     JOBID    PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>     JOBID    PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
     11783909   regular example- iskander  R       0:06      1 sml-n02</code></pre>
-<p>ST is status and can be R (RUNNING), PD (PENDING), CA (CANCELLED). If
-the job is stuck in pending, REASON column will reflect the reason,
-which can be any of the following.</p>
+</div>
+<p>ST is short for status and can be R (RUNNING), PD (PENDING), CA
+(CANCELLED), or CG (COMPLETING). If the job is stuck in pending, REASON
+column will reflect the reason, which can be one of the following:</p>
 <ul>
 <li>Priority: There are higher priority jobs than yours</li>
 <li>Resources: Job is waiting for resources</li>
-<li>Dependency: Job is waiting for a dependend job to complete</li>
+<li>Dependency: This job is dependent on another and it is waiting for
+that other job to complete</li>
 <li>QOSMaxCpuPerUserLimit: User has used CPUs limit of partition
 already</li>
 <li>QOSMaxMemPerUserLimit: User has used memory limit of partition
@@ -1527,11 +1690,11 @@ file.</p>
 </div>
 <div id="exercise-2-get-output-of-running-example-job.sh-in-slurm" class="callout-inner">
 <h3 class="callout-title">Exercise 2: Get output of running
-example-job.sh in SLURM<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+example-job.sh in Slurm<a class="anchor" aria-label="anchor" href="#challenge2"></a>
 </h3>
 <div class="callout-content">
 <p>List files in your currrent working directory and look for a file
-<code>slurm-11783909.out</code>, <code>11783909</code> will change
+<code>Slurm-11783909.out</code>, <code>11783909</code> will change
 according to your job id. And cat the file to see output.</p>
 <p>What is the hostname of your job?</p>
 </div>
@@ -1544,10 +1707,18 @@ according to your job id. And cat the file to see output.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<pre><code>$ cat slurm-11783863.out
-This script is running on sml-n02.hpc.wehi.edu.au</code></pre>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> Slurm-11783863.out</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>This script is running on sml-n02.hpc.wehi.edu.au</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1557,35 +1728,55 @@ This script is running on sml-n02.hpc.wehi.edu.au</code></pre>
 <h3 id="customising-a-job">Customising a Job<a class="anchor" aria-label="anchor" href="#customising-a-job"></a>
 </h3>
 <p>The job we just ran used all of the scheduler’s default options. In a
-real-world scenario, that’s probably not what we want. The default
-options represent a reasonable minimum. Chances are, we will need more
-cores, more memory, more time, among other special considerations. To
-get access to these resources we must customize our job script.</p>
+real-world scenario, that’s probably not what we want. Chances are, we
+will need more cores, more memory, more/less time, among other special
+considerations. To get access to these resources we must customize our
+job script.</p>
 <p>The default parameters on Milton is 2 CPU, 10MB Ram, 48-hours
 time-limit and runs on the regular partition</p>
-<p>You can get details of the job using <code>sacct</code> command.</p>
-<pre><code>$ sacct -j 11783909 -ojobid,jobname,ncpus,reqmem,timelimit,partition -X
-JobID           JobName      NCPUS     ReqMem  Timelimit  Partition
+<p>After your job has completed, you can get details of the job using
+<code>sacct</code> command.</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sacct</span> <span class="at">-j</span> 11783909 <span class="at">-ojobid,jobname,ncpus,reqmem,timelimit,partition</span> <span class="at">-X</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>JobID           JobName      NCPUS     ReqMem  Timelimit  Partition
 ------------ ---------- ---------- ---------- ---------- ----------
 11783909     example-j+          2        10M 2-00:00:00    regular</code></pre>
-<p>More on SLURM commands in later.</p>
+</div>
 <p>We can change the resource specification of the job by two ways:</p>
-<p>Adding extra options to the sbatch command</p>
-<pre><code>sbatch --job-name hello-world --mem 1G --cpus-per-task 1 --time 1:00:00 example-job.sh</code></pre>
+<p>Adding extra options to the <code>sbatch</code> command</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> <span class="at">--job-name</span> hello-world <span class="at">--mem</span> 1G <span class="at">--cpus-per-task</span> 1 <span class="at">--time</span> 1:00:00 example-job.sh</span></code></pre>
+</div>
 <p>Modifying the submission script</p>
-<pre><code>#!/bin/bash
-#SBATCH --job-name hello-world
-#SBATCH --mem 1G
-#SBATCH --cpus-per-task 1
-#SBATCH  --time 1:00:00
-echo -n "This script is running on "
-hostname</code></pre>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --job-name hello-world</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem 1G</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH  --time 1:00:00</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
+</div>
 <p>Submit the job and monitor its status:</p>
-<pre><code>$ sbatch example-job.sh
-Submitted batch job 11785584
-$ squeue -u $USER
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-          11785584   regular hello-wo iskander  R       0:01      1 sml-n20</code></pre>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sbatch example-job.sh</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitted</span> batch job 11785584</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>          <span class="ex">11785584</span>   regular hello-wo iskander  R       0:01      1 sml-n20</span></code></pre>
+</div>
 <p>Comments in UNIX shell scripts (denoted by <code>#</code>) are
 typically ignored, but there are exceptions. Schedulers like SLURM have
 a special comment used to denote special scheduler-specific options.
@@ -1594,8 +1785,9 @@ special comment is <code>#SBATCH</code>. Anything following the
 <code>#SBATCH</code> comment is interpreted as an instruction to the
 scheduler. These SBATCH commands are also know as
 <code>SBATCH directives</code>.</p>
-<p><strong>Remember</strong> SLURM directives must be at the top of the
-script, no command can come before them, nor in between them.</p>
+<p><strong>Remember</strong> Slurm directives must be at the top of the
+script, below the “hash bang”. No command can come before them, nor in
+between them.</p>
 </div>
 <div class="section level3">
 <h3 id="resource-requests">Resource Requests<a class="anchor" aria-label="anchor" href="#resource-requests"></a>
@@ -1645,27 +1837,50 @@ you have requested, and it will still run. It’s best if your requests
 accurately reflect your job’s requirements.</p>
 <p>In summary, the <strong>main parts of a <em>SLURM</em> submission
 script</strong></p>
-<p>1- <strong>#! line</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>#! line</strong>:</li>
+</ol>
 <p>This must be the first line of your SBATCH/Slurm script.</p>
 <p><code>#!/bin/bash</code></p>
-<p>2-<strong>Resource Request</strong>:</p>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<strong>Resource Request</strong>:</li>
+</ol>
 <p>This is to set the amount of resources required for the job.</p>
-<pre><code><span><span class="co">#SBATCH --job-name=TestJob</span></span>
-<span><span class="co">#SBATCH --time=00:10:00</span></span>
-<span><span class="co">#SBATCH --ntasks=1</span></span>
-<span><span class="co">#SBATCH --cpus-per-task=1</span></span>
-<span><span class="co">#SBATCH --mem=500M</span></span></code></pre>
-<p>3- <strong>Dependencies</strong>:</p>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --job-name=TestJob</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --time=00:10:00</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=1</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task=1</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem=500M</span></span></code></pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<strong>Dependencies</strong>:</li>
+</ol>
 <p>Load all the modules that the project depends on to execute. For
 example, if you are working on a python project, you’d definitely
 require the python module to run your code.</p>
-<pre><code>module load python</code></pre>
-<p>4- <strong>Job Steps</strong></p>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python</span></code></pre>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Job Steps</strong></li>
+</ol>
 <p>Specify the list of tasks to be carried out.</p>
-<pre><code>echo "Start process"
-hostname
-sleep 30
-echo "End"</code></pre>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Start process"</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 30</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"End"</span></span></code></pre>
+</div>
 <p>All the next exercises will use scripts saved in the exercise folder
 which you should have moved to your current directory.</p>
 <div id="challenge3" class="callout challenge">
@@ -1676,14 +1891,18 @@ which you should have moved to your current directory.</p>
 <h3 class="callout-title">Exercise 3: Setting appropriate wall-time<a class="anchor" aria-label="anchor" href="#challenge3"></a>
 </h3>
 <div class="callout-content">
-<p>List then run job1.sh script in the batch system? What is the output?
+<p>List then run job1.sh script in the batch system. What is the output?
 Is there an error? How to fix it?</p>
-<pre><code>#!/bin/bash
-#SBATCH -t 00:01:00 
-
-echo -n "This script is running on "
-sleep 80 # time in seconds
-hostname</code></pre>
+<div class="codewrapper sourceCode" id="cb19">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:00 </span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 80 <span class="co"># time in seconds</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1694,18 +1913,30 @@ hostname</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>After 1 minute the job ends and the output is similar to this</p>
-<pre><code>cat slurm-11792811.out 
-This script is running on slurmstepd: error: *** JOB 11792811 ON sml-n24 CANCELLED AT 2023-05-13T20:41:10 DUE TO TIME LIMIT ***</code></pre>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> Slurm-11792811.out </span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>This script is running on Slurmstepd: error: *** JOB 11792811 ON sml-n24 CANCELLED AT 2023-05-13T20:41:10 DUE TO TIME LIMIT ***</code></pre>
+</div>
 <p>To fix it, change the script to</p>
-<pre><code>#!/bin/bash
-#SBATCH -t 00:01:20 # timeout in HH:MM
-
-echo -n "This script is running on "
-sleep 70 # time in seconds
-hostname</code></pre>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:20 # timeout in HH:MM</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 70 <span class="co"># time in seconds</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
+</div>
 <p>Try running again.</p>
 </div>
 </div>
@@ -1719,7 +1950,7 @@ Strict adherence to resource requests allows the scheduler to find the
 best possible place for your jobs. Even more importantly, it ensures
 that another user cannot use more resources than they’ve been given. If
 another user messes up and accidentally attempts to use all of the cores
-or memory on a node, SLURM will either restrain their job to the
+or memory on a node, Slurm will either restrain their job to the
 requested resources or kill the job outright. Other jobs on the node
 will be unaffected. This means that one user cannot mess up the
 experience of others, the only jobs affected by a mistake in scheduling
@@ -1729,21 +1960,25 @@ will be their own.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-4-setting-appropriate-slurm-directives" class="callout-inner">
-<h3 class="callout-title">Exercise 4: Setting appropriate SLURM
+<h3 class="callout-title">Exercise 4: Setting appropriate Slurm
 directives<a class="anchor" aria-label="anchor" href="#challenge4"></a>
 </h3>
 <div class="callout-content">
-<p>List then run Exercises/job2.sh script in the batch system? What is
-the output? Is there an error? How to fix it?</p>
-<pre><code>#!/bin/bash
-#SBATCH -t 00:01:00
-#SBATCH --gres gpu:P100:1
-#SBATCH  --mem 1G
-#SBATCH --cpus-per-task 1
-
-#This is  a job that needs GPUs
-echo -n "This script is running on "
-hostname</code></pre>
+<p>List then run Exercises/job2.sh script in the batch system. What is
+the output? Is there an error? How can you fix it?</p>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:00</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --gres gpu:P100:1</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH  --mem 1G</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#This is  a job that needs GPUs</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1754,25 +1989,36 @@ hostname</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
-<p>When submitting to SLURM, you get an error</p>
-<pre><code>$ sbatch job2.sh
-sbatch: error: Batch job submission failed: Requested node configuration is not available
-</code></pre>
+<p>When submitting to Slurm, you get an error</p>
+<div class="codewrapper sourceCode" id="cb24">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job2.sh</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>sbatch: error: Batch job submission failed: Requested node configuration is not available</code></pre>
+</div>
 <p>This is because a GPU was requested without specifying the correct
-GPU queue, so regular queue was used which has no GPUs. To fix it,
-change the script to</p>
-<pre><code>#!/bin/bash
-#SBATCH -t 00:01:00
-#SBATCH -p gpuq
-#SBATCH --gres gpu:P100:1
-#SBATCH  --mem 1G
-#SBATCH --cpus-per-task 1
-
-#This is  a job that needs GPUs
-echo -n "This script is running on "
-hostname</code></pre>
+GPU partition, so the regular partition was used which has no GPUs. To
+fix it, change the script to</p>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:00</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -p gpuq</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --gres gpu:P100:1</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH  --mem 1G</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#This is  a job that needs GPUs</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
+</div>
 <p>Try running again.</p>
 </div>
 </div>
@@ -1782,12 +2028,11 @@ hostname</code></pre>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-5-make-alignment-job-job3.sh-work." class="callout-inner">
-<h3 class="callout-title">Exercise 5: Make alignment job (job3.sh)
-work.<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<div id="exercise-5" class="callout-inner">
+<h3 class="callout-title">Exercise 5<a class="anchor" aria-label="anchor" href="#challenge5"></a>
 </h3>
 <div class="callout-content">
-
+<p>Make alignment job (<code>job3.sh</code>) work.</p>
 </div>
 </div>
 </div>
@@ -1798,13 +2043,17 @@ work.<a class="anchor" aria-label="anchor" href="#challenge5"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
-<p>Add the correct SLURM directives to the start of the script</p>
-<pre><code><span><span class="co">#SBATCH --job-name=Bowtie-test.slurm</span></span>
-<span><span class="co">#SBATCH --ntasks=1</span></span>
-<span><span class="co">#SBATCH -t 0:15:00</span></span>
-<span><span class="co">#SBATCH --mem 20G</span></span></code></pre>
+<p>Add the correct Slurm directives to the start of the script</p>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --job-name=Bowtie-test.Slurm</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=1</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 0:15:00</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem 20G</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1818,7 +2067,8 @@ work.<a class="anchor" aria-label="anchor" href="#challenge5"></a>
 progress on the node .<a class="anchor" aria-label="anchor" href="#challenge6"></a>
 </h3>
 <div class="callout-content">
-
+<p>Run <code>job3.sh</code> again and monitor progress on the node. You
+can do this by sshing to the node and running <code>top</code>.</p>
 </div>
 </div>
 </div>
@@ -1829,7 +2079,7 @@ progress on the node .<a class="anchor" aria-label="anchor" href="#challenge6"><
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>Run the job get which node it is running on from
 <code>squeue -u $USER</code> ssh into the node use
@@ -1845,15 +2095,19 @@ progress on the node .<a class="anchor" aria-label="anchor" href="#challenge6"><
 <p>Sometimes we’ll make a mistake and need to cancel a job. This can be
 done with the <code>scancel</code> command. Let’s submit a job and then
 cancel it using its job number.</p>
-<pre><code>sbatch example-jobwithsleep.sh
-Submitted batch job 11785772
-$ squeue -u $USER
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-          11785772   regular example- iskander  R       0:10      1 sml-n20
-$ scancel 11785772
-$ squeue -u $USER
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-$</code></pre>
+<div class="codewrapper sourceCode" id="cb28">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> example-jobwithsleep.sh</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitted</span> batch job 11785772</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>          <span class="ex">11785772</span>   regular example- iskander  R       0:10      1 sml-n20</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> scancel 11785772</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code></pre>
+</div>
 <p>We can also cancel all of our jobs at once using the -u option. This
 will delete all jobs for a specific user (in this case, yourself). Note
 that you can only delete your own jobs.</p>
@@ -1862,9 +2116,9 @@ that you can only delete your own jobs.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-7-submit-multiple-jobs-and-then-cancelling-them-all." class="callout-inner">
+<div id="exercise-7-submit-multiple-jobs-and-then-cancel-them-all." class="callout-inner">
 <h3 class="callout-title">Exercise 7: Submit multiple jobs and then
-cancelling them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a>
+cancel them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a>
 </h3>
 <div class="callout-content">
 
@@ -1878,24 +2132,44 @@ cancelling them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
-<pre><code>$ sbatch job1.sh
-$ sbatch job1.sh
-$ sbatch job1.sh
-$ sbatch job1.sh</code></pre>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span></code></pre>
+</div>
 <p>Check what you have in the queue</p>
-<pre><code>squeue -u $USER
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+<div class="codewrapper sourceCode" id="cb30">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
           11792908   regular  job1.sh iskander  R       0:13      1 sml-n23
           11792909   regular  job1.sh iskander  R       0:13      1 sml-n23
           11792906   regular  job1.sh iskander  R       0:16      1 sml-n23
           11792907   regular  job1.sh iskander  R       0:16      1 sml-n23</code></pre>
+</div>
 <p>Cancel the jobs</p>
-<pre><code>$ scancel -u $USER</code></pre>
+<div class="codewrapper sourceCode" id="cb32">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> scancel <span class="at">-u</span> <span class="va">$USER</span></span></code></pre>
+</div>
 <p>Recheck the queue</p>
-<pre><code>$ squeue -u $USER
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)</code></pre>
+<div class="codewrapper sourceCode" id="cb33">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span></code></pre>
+</div>
 <p>And the queue is empty.</p>
 </div>
 </div>
@@ -1903,17 +2177,21 @@ $ sbatch job1.sh</code></pre>
 </div>
 <p>You can check how busy the queue is through the <a href="http://dashboards.hpc.wehi.edu.au/d/main/main?orgId=1" class="external-link">Milton
 dashboards</a></p>
-</section><section id="slurm-event-notification"><h2 class="section-heading">SLURM Event notification<a class="anchor" aria-label="anchor" href="#slurm-event-notification"></a>
+</section><section id="slurm-event-notification"><h2 class="section-heading">Slurm Event notification<a class="anchor" aria-label="anchor" href="#slurm-event-notification"></a>
 </h2>
 <hr class="half-width">
 <p>You can use <code>--mail-type</code> and <code>--mail-user</code> to
 set SLURM to send you emails when certain events occurs, e.g. BEGIN,
 END, FAIL, REQUEUE, ALL</p>
-<pre><code><span><span class="co">#SBATCH --mail-type BEGIN</span></span>
-<span><span class="co">#SBATCH --mail-user iskander.j@wehi.edu.au</span></span></code></pre>
-<p>Adding the above two lines to a submission script will make SLURM
+<div class="codewrapper sourceCode" id="cb34">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mail-type </span><span class="re">BEGIN</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mail-user iskander.j@wehi.edu.au</span></span></code></pre>
+</div>
+<p>Adding the above two lines to a submission script will make Slurm
 send me an email when my job starts running.</p>
-</section><section id="slurm-output-files"><h2 class="section-heading">SLURM Output files<a class="anchor" aria-label="anchor" href="#slurm-output-files"></a>
+</section><section id="slurm-output-files"><h2 class="section-heading">Slurm Output files<a class="anchor" aria-label="anchor" href="#slurm-output-files"></a>
 </h2>
 <hr class="half-width">
 <p>By default both standard output and standard error are directed to a
@@ -1938,9 +2216,12 @@ standard output file.</li>
 <li>%u User name</li>
 <li>%x Job name</li>
 </ul>
-<p>For example, running the following
-<code>sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh</code>
-will create these files</p>
+<p>For example, running the following</p>
+<p><code>sbatch --error=/vast/scratch/users/%u/Slurm%j_%N_%x.err --output=/vast/scratch/users/%u/Slurm%j_%N_%x.out job1.sh</code>
+will write error to <code>Slurm12345678_sml-n01_job1.sh.err</code> and
+output to <code>Slurm12345678_sml-n01_job1.sh.out</code> in the
+directory <code>/vast/scratch/users/&lt;username&gt;</code>, i.e. the
+following will be created:</p>
 <ul>
 <li>a standard output file
 <code>/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.out</code>
@@ -1960,12 +2241,17 @@ and</li>
 <li>
 <code>sbatch</code> is used to submit the job</li>
 <li>
-<code>squeue</code> is used to list jobs in the SLURM queue</li>
+<code>squeue</code> is used to list jobs in the Slurm queue
+<ul>
+<li>passing the <code>-u &lt;username&gt;</code> option will show jobs
+for just that user.</li>
+</ul>
+</li>
 <li>
 <code>sacct</code> is used to show job details</li>
 <li>
-<code>#SBATCH</code> is used in submission scripts to set SLURM
-directives</li>
+<code>#SBATCH</code> directives are used in submission scripts to
+set Slurm directives</li>
 <li>Setting up job resources is a challenge and you might not get the
 first time</li>
 </ul>
@@ -2004,7 +2290,7 @@ any links that you are not going to use.
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain SLURM env variables.</li>
+<li>Explain Slurm environment variables.</li>
 <li>Demonstrate how to evaluate jobs and make use of multiple threads
 options.</li>
 </ul>
@@ -2019,17 +2305,21 @@ options.</li>
 <p>After a job has completed, you will need to evaluate how efficient it
 was, if it ran successfully, or investigate why it failed.</p>
 <p>The <code>seff</code> command provides a summary of any job.</p>
-<pre><code>seff &lt;jobid&gt;</code></pre>
-<div id="challenge1" class="callout challenge">
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seff</span> <span class="op">&lt;</span>jobid<span class="op">&gt;</span></span></code></pre>
+</div>
+<div id="discussion1" class="callout discussion">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="exercise-1-run-and-evaluate-job4.sh-." class="callout-inner">
-<h3 class="callout-title">Exercise 1: Run and evaluate job4.sh .<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Exercise 1: Run and evaluate job4.sh .<a class="anchor" aria-label="anchor" href="#discussion1"></a>
 </h3>
 <div class="callout-content">
-<p>job4.sh is similar to job3.sh with only the bowtie2 command. Try
-submitting it. Is there an error? How to fix it?</p>
+<p>job4.sh is similar to job3.sh with only the <code>bowtie2</code>
+command. Try submitting it. Is there an error? How to fix it?</p>
 <p>And after it completed successfully, evaluate the job.</p>
 </div>
 </div>
@@ -2041,11 +2331,18 @@ submitting it. Is there an error? How to fix it?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The jobs completes fast but not successfully</p>
-<pre><code>seff 11793501
-Job ID: 11793501
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seff</span> 11793501</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Job ID: 11793501
 Cluster: milton
 User/Group: iskander.j/allstaff
 State: OUT_OF_MEMORY (exit code 0)
@@ -2056,26 +2353,41 @@ CPU Efficiency: 50.00% of 00:00:02 core-walltime
 Job Wall-clock time: 00:00:01
 Memory Utilized: 0.00 MB (estimated maximum)
 Memory Efficiency: 0.00% of 20.00 MB (10.00 MB/core)</code></pre>
+</div>
 <p>Also, checking output</p>
-<pre><code>$ cat slurm-11793501.out
-.........................&lt;other output&gt;
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> Slurm-11793501.out</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>.........................&lt;other output&gt;
 slurmstepd: error: Detected 1 oom_kill event in StepId=11793501.batch. Some of the step tasks have been OOM Killed.</code></pre>
-<p>This shows that the memory given was not enough, increase memory and
-try again until job finishes successfully.</p>
-<pre><code><span><span class="co">#SBATCH --job-name=Bowtie-test.slurm</span></span>
-<span><span class="co">#SBATCH --ntasks=1</span></span>
-<span><span class="co">#SBATCH -t 0:15:00</span></span>
-<span><span class="co">#SBATCH --mem 1G</span></span></code></pre>
+</div>
+<p>This shows that the job was “OOM Killed”. OOM is an abbreviation of
+<strong>O</strong>ut <strong>O</strong>f <strong>M</strong>emory,
+meaning the memory requested was not enough, increase memory and try
+again until job finishes successfully.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --job-name=Bowtie-test.Slurm</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=1</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 0:15:00</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem 1G</span></span></code></pre>
 </div>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+</div>
+<div id="discussion2" class="callout discussion">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="exercise-2-run-and-evaluate-job4.sh-." class="callout-inner">
-<h3 class="callout-title">Exercise 2: Run and evaluate job4.sh .<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Exercise 2: Run and evaluate job4.sh .<a class="anchor" aria-label="anchor" href="#discussion2"></a>
 </h3>
 <div class="callout-content">
 <p>Now that the job works fine can we make it faster.</p>
@@ -2089,23 +2401,27 @@ try again until job finishes successfully.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Investigate whether bowtie2 can make use of multiple threads to
 accelerate run. Some tools does.</p>
-<pre><code><span><span class="va">bowtie2</span> <span class="op">-</span><span class="op">-</span><span class="va">help</span></span></code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2</span> <span class="at">--help</span></span></code></pre>
+</div>
 <p>Indeed bowtie, has a <code>-p</code> option that specifies number of
-threads to use. Update script to use 6 threads and also increase
+threads to use. Update the script to use 6 threads and also increase
 cpus-per-tasks to reflect the increase in threads.</p>
 </div>
 </div>
 </div>
 </div>
-</section><section id="slurm-environment-variables"><h2 class="section-heading">SLURM Environment Variables<a class="anchor" aria-label="anchor" href="#slurm-environment-variables"></a>
+</section><section id="slurm-environment-variables"><h2 class="section-heading">Slurm Environment Variables<a class="anchor" aria-label="anchor" href="#slurm-environment-variables"></a>
 </h2>
 <hr class="half-width">
-<p>Slurm passes information about the running job e.g what is it’s
-working directory, or what nodes were allocated for it, to the job via
+<p>Slurm passes information about the running job e.g what its working
+directory, or what nodes were allocated for it, to the job via
 environmental variables. In addition to being available to your job,
 these are also used by programs to set options like number of threads to
 run based on the cpus available.</p>
@@ -2127,15 +2443,15 @@ allocated</li>
 <li>
 <code>$SLURM_NTASKS</code>: number of tasks assigned to job</li>
 </ul>
-<div id="challenge3" class="callout challenge">
+<div id="discussion3" class="callout discussion">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<div id="exercise-3-run-job5.sh-." class="callout-inner">
-<h3 class="callout-title">Exercise 3: Run job5.sh .<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<div id="exercise-3-run-job5.sh." class="callout-inner">
+<h3 class="callout-title">Exercise 3: Run job5.sh.<a class="anchor" aria-label="anchor" href="#discussion3"></a>
 </h3>
 <div class="callout-content">
-<p>Can we make use on of SLURM env variable in job4.sh?</p>
+<p>Can we make use on of Slurm environment variables in job4.sh?</p>
 </div>
 </div>
 </div>
@@ -2146,10 +2462,10 @@ allocated</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
-<p>use $SLURM_CPUS_PER_TASK with -p option instead of setting a
-number.</p>
+<p>use <code>$SLURM_CPUS_PER_TASK</code> with <code>-p</code> option
+instead of setting a number.</p>
 </div>
 </div>
 </div>
@@ -2167,7 +2483,7 @@ compute node, using <code>top</code>, <code>iotop</code> and
 <div class="callout-content">
 <ul>
 <li>Use <code>seff</code> to evaluate completed jobs</li>
-<li>SLURM Environment variables are handy to use in your script</li>
+<li>Slurm Environment variables are handy to use in your script</li>
 </ul>
 </div>
 </div>
@@ -2186,9 +2502,9 @@ any links that you are not going to use.
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 <p>Take a 30-minutes break. If you can, move around and look at
-something away from your screen to give your eyes a rest.</p></section><section id="aio-09-commands"><p>Content from <a href="09-commands.html">SLURM Commands</a></p>
+something away from your screen to give your eyes a rest.</p></section><section id="aio-09-commands"><p>Content from <a href="09-commands.html">Slurm Commands</a></p>
 <hr>
-<p> Last updated on 2023-05-14 | 
+<p> Last updated on 2023-05-15 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/09-commands.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 22 minutes </p>
@@ -2203,7 +2519,7 @@ something away from your screen to give your eyes a rest.</p></section><section 
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How to use SLURM commands?</li>
+<li>How to use Slurm commands?</li>
 </ul>
 </div>
 </div>
@@ -2213,8 +2529,8 @@ something away from your screen to give your eyes a rest.</p></section><section 
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain how to use the other SLURM commands?</li>
-<li>Demonstrate different options for SLURM commands like
+<li>Explain how to use the other Slurm commands?</li>
+<li>Demonstrate different options for Slurm commands like
 <code>squeue</code> and <code>sinfo</code>.</li>
 </ul>
 </div>
@@ -2222,7 +2538,7 @@ something away from your screen to give your eyes a rest.</p></section><section 
 </div>
 </div>
 </div>
-<section id="slurm-commands-summary"><h2 class="section-heading">SLURM Commands Summary<a class="anchor" aria-label="anchor" href="#slurm-commands-summary"></a>
+<section id="slurm-commands-summary"><h2 class="section-heading">Slurm Commands Summary<a class="anchor" aria-label="anchor" href="#slurm-commands-summary"></a>
 </h2>
 <hr class="half-width">
 <table class="table">
@@ -2260,8 +2576,8 @@ something away from your screen to give your eyes a rest.</p></section><section 
 <td>Get all queued job details for specified user</td>
 </tr>
 <tr class="odd">
-<td><code>scancel</code></td>
-<td>Job delete</td>
+<td><code>scancel &lt;jobid&gt;</code></td>
+<td>Cancel job</td>
 </tr>
 <tr class="even">
 <td><code>sinfo</code></td>
@@ -2272,29 +2588,37 @@ something away from your screen to give your eyes a rest.</p></section><section 
 <td>View list of nodes</td>
 </tr>
 <tr class="even">
-<td><code>scontrol</code></td>
-<td>View and modify configuration and state</td>
+<td><code>sinfo -s</code></td>
+<td>Provides nodes’ state information in each partitions</td>
 </tr>
 <tr class="odd">
-<td><code>sinfo -s</code></td>
-<td>Provides summary information the partitions</td>
+<td><code>sinfo -p &lt;partition&gt;</code></td>
+<td>Provides nodes’ state information in the specified partition</td>
 </tr>
 <tr class="even">
-<td><code>sinfo -p &lt;partition&gt;</code></td>
-<td>Provides information about the specified partition</td>
+<td><code>scontrol show job &lt;jobid&gt;</code></td>
+<td>View detailed job information</td>
+</tr>
+<tr class="odd">
+<td><code>scontrol show partition &lt;partition&gt;</code></td>
+<td>View detailed partition information</td>
 </tr>
 </tbody>
 </table>
-<div id="challenge1" class="callout challenge">
+<div id="discussion1" class="callout discussion">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="exercise-1-sinfo-with-options" class="callout-inner">
-<h3 class="callout-title">Exercise 1: sinfo with options<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Exercise 1: sinfo with options<a class="anchor" aria-label="anchor" href="#discussion1"></a>
 </h3>
 <div class="callout-content">
 <p>What output does the following command produce?</p>
-<p><code>sinfo -p gpuq -s</code></p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sinfo</span> <span class="at">-p</span> gpuq <span class="at">-s</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -2305,26 +2629,34 @@ something away from your screen to give your eyes a rest.</p></section><section 
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Provides summary information of only the specified partition</p>
-<pre><code>PARTITION AVAIL  TIMELIMIT   NODES(A/I/O/T) NODELIST
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>PARTITION AVAIL  TIMELIMIT   NODES(A/I/O/T) NODELIST
 gpuq         up 2-00:00:00        2/10/0/12 gpu-a30-n[01-07],gpu-p100-n[01-05]</code></pre>
 </div>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+</div>
+<div id="discussion2" class="callout discussion">
 <div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="exercise-2-sinfo-with-options" class="callout-inner">
-<h3 class="callout-title">Exercise 2: sinfo with options<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Exercise 2: sinfo with options<a class="anchor" aria-label="anchor" href="#discussion2"></a>
 </h3>
 <div class="callout-content">
 <p>What output does the following command produce?</p>
-<p><code>sinfo -p gpuq -n sml-n02</code></p>
-<p>Is there something missing in the output? How can we fix it</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sinfo</span> <span class="at">-p</span> gpuq <span class="at">-n</span> sml-n02</span></code></pre>
+</div>
+<p>Is there something missing in the output? How can we fix it?</p>
 </div>
 </div>
 </div>
@@ -2335,34 +2667,51 @@ gpuq         up 2-00:00:00        2/10/0/12 gpu-a30-n[01-07],gpu-p100-n[01-05]</
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Provides information of the specified node in the specified
 partition</p>
-<pre><code>PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 gpuq         up 2-00:00:00      0    n/a</code></pre>
+</div>
 <p>The results says that node is not available, this is because there is
-no node called sml-n02 in the regular partition. To fix it, we can
-either change the partition to <code>regular</code> or the node to
-something like <code>gpu-a30-n01</code></p>
-<pre><code>sinfo -p regular -n sml-n02
-PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
+no node called <code>sml-n02</code> in the regular partition. To fix it,
+we can either change the partition to <code>regular</code> or the node
+to something like <code>gpu-a30-n01</code></p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sinfo</span> <span class="at">-p</span> regular <span class="at">-n</span> sml-n02</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 regular*     up 2-00:00:00      1    mix sml-n02</code></pre>
 </div>
 </div>
 </div>
 </div>
-<div id="challenge3" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-3-squeue-with-formatting-option-." class="callout-inner">
-<h3 class="callout-title">Exercise 3: squeue with formatting option
-.<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<div id="discussion3" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<div id="exercise-3-squeue-with-formatting-option." class="callout-inner">
+<h3 class="callout-title">Exercise 3: squeue with formatting
+option.<a class="anchor" aria-label="anchor" href="#discussion3"></a>
 </h3>
 <div class="callout-content">
-<p>What output does the following command produce?</p>
-<p><code>squeue --format "%.18i %.9P %.8j %.8u %.8T %.10M %.6C %.13l %.7D %.14r %.12m %.18N %.8Q"</code></p>
+<p>What output does the following command produce? Hint: check
+<code>man squeue</code></p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">--format</span> <span class="st">"%.18i %.9P %.8j %.8u %.8T %.10M %.6C %.13l %.7D %.14r %.12m %.18N %.8Q"</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -2373,9 +2722,12 @@ regular*     up 2-00:00:00      1    mix sml-n02</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<pre><code>JOBID      PARTITION   NAME    USER    STATE       TIME    CPUS    TIME_LIMIT    NODES      REASON        MIN_MEMORY        NODELIST      PRIORITY
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>JOBID      PARTITION   NAME    USER    STATE       TIME    CPUS    TIME_LIMIT    NODES      REASON        MIN_MEMORY        NODELIST      PRIORITY
 11774748      gpuq    guppy    luo.q  PENDING       0:00     20    2-00:00:00       1 QOSMaxNodePerU         400G                        2060
 11774747      gpuq    guppy    luo.q  PENDING       0:00     20    2-00:00:00       1 QOSMaxNodePerU         400G                        2060
 11774746      gpuq    guppy    luo.q  PENDING       0:00     20    2-00:00:00       1 QOSMaxNodePerU         400G                        2060
@@ -2386,17 +2738,22 @@ regular*     up 2-00:00:00      1    mix sml-n02</code></pre>
 </div>
 </div>
 </div>
-<div id="challenge4" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-4-sinfo-with-formatting-option-." class="callout-inner">
-<h3 class="callout-title">Exercise 4: sinfo with formatting option
-.<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<div id="discussion4" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<div id="exercise-4-sinfo-with-formatting-option." class="callout-inner">
+<h3 class="callout-title">Exercise 4: sinfo with formatting option.<a class="anchor" aria-label="anchor" href="#discussion4"></a>
 </h3>
 <div class="callout-content">
-<p>What output does the following command produce?</p>
-<p><code>sinfo --Node --Format "NodeList:21,Partition:11,StateLong:.11,CPUS:.5,Memory:.9,AllocMem:.9,Features:.20,CpusState:.14,GresUsed:.15"</code></p>
+<p>What output does the following command produce? Hint: you’ll want to
+check the man page again!</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sinfo</span> <span class="at">--Node</span> <span class="at">--Format</span> <span class="st">"NodeList:21,Partition:11,StateLong:.11,CPUS:.5,Memory:.9,AllocMem:.9,Features:.20,CpusState:.14,GresUsed:.15"</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -2407,10 +2764,12 @@ regular*     up 2-00:00:00      1    mix sml-n02</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
-<pre><code>
-NODELIST             PARTITION        STATE CPUS   MEMORY ALLOCMEM      AVAIL_FEATURES CPUS(A/I/O/T)      GRES_USED
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>NODELIST             PARTITION        STATE CPUS   MEMORY ALLOCMEM      AVAIL_FEATURES CPUS(A/I/O/T)      GRES_USED
 cl-n01               bigmem            idle  192  3093716        0   Cooperlake,AVX512   0/192/0/192          gpu:0
 gpu-a10-n01          gpuq_intera       idle   48   256215        0GPU,Icelake,A10,AVX5     0/48/0/48.     gpu:A10:0
 gpu-a30-n01          gpuq             mixed   96   511362   409600GPU,Icelake,A30,AVX5    20/76/0/96.     gpu:A30:1 
@@ -2426,6 +2785,7 @@ gpu-a100-n03         gpuq_large       mixed   96  1027457   819200GPU,Icelake,A1
 </div>
 </div>
 </div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -2435,9 +2795,9 @@ gpu-a100-n03         gpuq_large       mixed   96  1027457   819200GPU,Icelake,A1
 </h3>
 <div class="callout-content">
 <ul>
-<li>SLURM commands are handy to view information about queued jobs,
+<li>Slurm commands are handy to view information about queued jobs,
 nodes and partitions</li>
-<li>You will commonly uses <code>sbatch</code>, <code>squeue</code>,
+<li>You will commonly use <code>sbatch</code>, <code>squeue</code>,
 <code>salloc</code>, <code>sinfo</code> and <code>sacct</code>
 </li>
 </ul>
@@ -2448,7 +2808,7 @@ nodes and partitions</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
-</section></section><section id="aio-10-interactive"><p>Content from <a href="10-interactive.html">Interactive SLURM Job</a></p>
+</section></section><section id="aio-10-interactive"><p>Content from <a href="10-interactive.html">Interactive Slurm Jobs</a></p>
 <hr>
 <p> Last updated on 2023-05-15 | 
         
@@ -2465,7 +2825,7 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How to start and exit an interactive SLURM job?</li>
+<li>How to start and exit an interactive Slurm job?</li>
 </ul>
 </div>
 </div>
@@ -2488,58 +2848,90 @@ any links that you are not going to use.
 <p>Up to this point, we’ve focused on running jobs in batch mode. There
 are frequently tasks that need to be done interactively. Creating an
 entire job script might be overkill, but the amount of resources
-required is too much for a login node to handle. To solve this, SLURM
+required is too much for a login node to handle. To solve this, Slurm
 provides the ability to start an interactive session.</p>
 <p>Interactive sessions are <strong>commonly used</strong> for:</p>
 <ul>
 <li>Data management, eg. organising files, truncation and recall of
-files, downloading datasets</li>
+files, downloading datasets.</li>
 <li>Software/workflow preparation/testing, eg. developing/debugging
-scripts, downloading/building software</li>
-<li>Interactive data analysis</li>
-<li>Long-running processes such as workflow managers or simple web
-services.</li>
-<li>Rapid analysis cycles</li>
+scripts, downloading/building software.</li>
+<li>Interactive data analysis.</li>
+<li>Rapid analysis cycles.</li>
 <li>Running n application with a GUI.</li>
 </ul>
 <p>On Milton, you can easily start an interactive job with
 <code>salloc</code>.</p>
-<pre><code>salloc --time 1:00:00 --cpus-per-task 1 --mem 1G  -p interactive</code></pre>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc</span> <span class="at">--time</span> 1:00:00 <span class="at">--cpus-per-task</span> 1 <span class="at">--mem</span> 1G  <span class="at">-p</span> interactive</span></code></pre>
+</div>
 <figure><img src="../fig/salloc_ex.png" alt="" class="figure mx-auto d-block"><figcaption>salloc command example</figcaption></figure><p>You will be presented with a bash prompt. Note that the prompt will
-change to reflect your new location (sml-n02 in the example), which is
-the compute node we are logged on. You can also verify this with
-hostname.</p>
-<p><strong>Remember</strong> that, you may have to wait resources,
+change to reflect your new location (<code>sml-n02</code> in the
+example), which is the compute node we are logged onto. You can also
+verify this with hostname.</p>
+<p><strong>Remember</strong> that, you may have to wait for resources,
 depending on the status of the queue you are requesting. We have
 designed the interactive partition to provide high availability, but
 only one job per user.</p>
 <p>The interactive job will be cancelled and removed from the queue, if
 your terminal session is terminated or closed, and/or internet
-connection is lost (connection with the slurm node lost). That’s why it
-is recommended to use <code>screen</code> or <code>tmux</code>. When you
-have finished your task, please remember to close the session using
-<code>exit</code> or <code>^D</code>. You can also cancel the session
-using <code>scancel</code>. If you need more resources you can run
-interactive sessions in queues other than <code>interactive</code>.</p>
+connection is lost (connection with the slurm node lost). It is
+recommended to use <code>screen</code> or <code>tmux</code></p>
+<p>When you have finished your task, please remember to close the
+session using <code>exit</code> or <code>Ctrl-D</code>.</p>
+<p>You can also cancel the session using <code>scancel</code>.</p>
+<p>If you need more resources you can run interactive sessions in the
+other partitions.</p>
+<div id="callout1" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="these-instructions-are-specific-milton" class="callout-inner">
+<h3 class="callout-title">These instructions are specific Milton!<a class="anchor" aria-label="anchor" href="#callout1"></a>
+</h3>
+<div class="callout-content">
+<p><code>salloc</code> is setup slightly differently to its default
+behaviour. Not all HPC facilities have Slurm to start interactive jobs
+like in Milton! Be aware of this when using the command at other
+facilities.</p>
+</div>
+</div>
+</div>
 </section><section id="creating-remote-graphics"><h2 class="section-heading">Creating remote graphics<a class="anchor" aria-label="anchor" href="#creating-remote-graphics"></a>
 </h2>
 <hr class="half-width">
 <p>To see graphical output inside your jobs, you need to use <em>X11
 forwarding</em>. To connect with this feature enabled, use the
-<code>-Y</code>/<code>-X</code> option when you login to the login nodes
-or vc7-shared.</p>
+<code>-Y</code> option when you login to the login nodes or
+vc7-shared.</p>
 <pre><code>ssh -Y vc7-shared</code></pre>
 <p>To use it in an interactive session add it to <code>--x11</code> to
 your <code>salloc</code> command</p>
-<pre><code>$ salloc --time 1:00:00 --cpus-per-task 1 --mem 1G  -p interactive --x11
-salloc: Pending job allocation 11803274
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc</span> <span class="at">--time</span> 1:00:00 <span class="at">--cpus-per-task</span> 1 <span class="at">--mem</span> 1G  <span class="at">-p</span> interactive <span class="at">--x11</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>salloc: Pending job allocation 11803274
 salloc: job 11803274 queued and waiting for resources
 salloc: job 11803274 has been allocated resources
 salloc: Granted job allocation 11803274
-salloc: Nodes sml-n03 are ready for job
-
-$ module load relion
-Loading Relion 3.1.3 using CUDA 11.2
+salloc: Nodes sml-n03 are ready for job</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load relion</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Loading Relion 3.1.3 using CUDA 11.2
 Using MotionCor2 1.5.0 at /stornext/System/data/nvidia/motioncor2/motioncor2-1.5.0cu11.2/bin/motioncor2
 No matching version of Gctf exists for CUDA 11.2
 Using CTFFIND 4.1.14 at /stornext/System/data/nvidia/ctffind/ctffind-4.1.14/bin/ctffind
@@ -2551,10 +2943,14 @@ Using CTFFIND 4.1.14 at /stornext/System/data/nvidia/ctffind/ctffind-4.1.14/bin/
 
 
 Loading relion/3.1.3-cu11.2
-  Loading requirement: cuda/11.2 mpich-slurm/3.4.2
-$ relion</code></pre>
-<figure><img src="../fig/relion.png" class="figure mx-auto d-block"></figure><p><br></p>
-<p>We will now have a live demo for more interactive options on
+  Loading requirement: cuda/11.2 mpich-slurm/3.4.2</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">relion</span></span></code></pre>
+</div>
+<figure><img src="../fig/relion.png" class="figure mx-auto d-block"></figure><p>We will now have a live demo for more interactive options on
 Milton.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
@@ -2565,7 +2961,8 @@ Milton.</p>
 </h3>
 <div class="callout-content">
 <ul>
-<li>Use <code>salloc</code> to start a new interactive SLURM job.</li>
+<li>Use <code>salloc</code> to start a new interactive Slurm job on
+Milton.</li>
 <li>Use <code>--x11</code> with <code>salloc</code> to run remote
 graphics in your interactive job.</li>
 </ul>

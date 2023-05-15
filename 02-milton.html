@@ -187,7 +187,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05-slurm.html">5. Introducing SLURM</a>
+        <a href="05-slurm.html">5. Introducing Slurm</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -223,7 +223,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="09-commands.html">9. SLURM Commands</a>
+        <a href="09-commands.html">9. Slurm Commands</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -232,7 +232,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="10-interactive.html">10. Interactive SLURM Job</a>
+        <a href="10-interactive.html">10. Interactive Slurm Jobs</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -333,13 +333,14 @@ many computer nodes in addition to the file systems.</p>
 <ul><li>Physical cores</li>
 <li>Memory</li>
 <li>Local storage</li>
-</ul><figure><img src="fig/node_anatomy.png" alt="" class="figure mx-auto d-block"><figcaption>Node</figcaption></figure></div>
+<li>Maybe GPU(s)</li>
+</ul><figure><img src="fig/node_anatomy.png" alt="" class="figure mx-auto d-block"><figcaption>Node diagram</figcaption></figure></div>
 </section><section id="connect-to-milton"><h2 class="section-heading">Connect to Milton<a class="anchor" aria-label="anchor" href="#connect-to-milton"></a>
 </h2>
 <hr class="half-width"><p>The first step in using a cluster is to establish a connection from
-your laptop to the cluster.</p>
-<p>You need a Windows Command Prompt or MacOS Terminal, to connect to a
-login node and access the command line (CLI).</p>
+your laptop to the cluster. You need a Windows Command Prompt or macOS
+Terminal, to connect to a login node and access the command line
+interface (CLI).</p>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -348,8 +349,8 @@ login node and access the command line (CLI).</p>
 <h3 class="callout-title">Exercise 1: Can you login to Milton?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
 </h3>
 <div class="callout-content">
-<p>If not in WEHI, make sure you are on the VPN. Open your terminal and
-login to vc7-shared.</p>
+<p>If not in WEHI, make sure you are on the VPN. While on a WEHI device,
+open your terminal and login to vc7-shared.</p>
 <p>More details are available <a href="https://wehieduau.sharepoint.com/sites/rc2/SitePages/using-milton.aspx#ssh-(command-line)-sessions-(slurm)" class="external-link">here</a>.</p>
 </div>
 </div>
@@ -361,7 +362,7 @@ login to vc7-shared.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul><li>For Mac OSX users
 <ul><li><code>ssh vc7-shared</code></li>
@@ -372,7 +373,7 @@ login to vc7-shared.</p>
 client</a>.</li>
 </ul></li>
 <li>You can also use <a href="https://ondemand.hpc.wehi.edu.au/pun/sys/shell/ssh/slurm-login.hpc.wehi.edu.au" class="external-link">Cluster
-Access on OpenOnDemand</a>
+Access on Open OnDemand</a>
 </li>
 </ul></div>
 </div>
@@ -386,8 +387,8 @@ remote system using the terminal.</p>
 <figure><img src="fig/ssh-vc7.png" alt="" class="figure mx-auto d-block"><figcaption>Login to vc7-shared</figcaption></figure></section><section id="milton-file-systems"><h2 class="section-heading">Milton File Systems<a class="anchor" aria-label="anchor" href="#milton-file-systems"></a>
 </h2>
 <hr class="half-width"><figure><img src="fig/M_FS.png" alt="" class="figure mx-auto d-block"><figcaption>Milton File Systems</figcaption></figure><figure><img src="fig/FSdetails.png" alt="" class="figure mx-auto d-block"><figcaption>Managed Versus UnManaged File Systems</figcaption></figure><div class="section level3">
-<h3 id="how-data-is-moved-between-file-systems-according-to-project-requirements">How data is moved between file systems according to project
-requirements?<a class="anchor" aria-label="anchor" href="#how-data-is-moved-between-file-systems-according-to-project-requirements"></a></h3>
+<h3 id="how-data-should-be-moved-between-file-systems-according-to-project-requirements">How data should be moved between file systems according to project
+requirements?<a class="anchor" aria-label="anchor" href="#how-data-should-be-moved-between-file-systems-according-to-project-requirements"></a></h3>
 <p><br><br></p>
 <figure><img src="fig/dataretention.png" alt="" class="figure mx-auto d-block"><figcaption>Case 1: Data from external collaborators and needs
 long term retention</figcaption></figure><p><br><br></p>
@@ -395,7 +396,7 @@ long term retention</figcaption></figure><p><br><br></p>
 delete on-completion constraint</figcaption></figure></div>
 </section><section id="looking-around-your-home"><h2 class="section-heading">Looking Around Your Home<a class="anchor" aria-label="anchor" href="#looking-around-your-home"></a>
 </h2>
-<hr class="half-width"><p>We will now run through some linux commands to look around the login
+<hr class="half-width"><p>We will now revise some linux commands to look around the login
 node.</p>
 <div id="challenge2" class="callout challenge">
 <div class="callout-square">
@@ -417,7 +418,7 @@ node<a class="anchor" aria-label="anchor" href="#challenge2"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <pre><code>$ hostname
 vc7-shared.hpc.wehi.edu.au</code></pre>
@@ -446,14 +447,22 @@ in.<a class="anchor" aria-label="anchor" href="#challenge3"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Run <code>pwd</code> (<strong>p</strong>rint the
 <strong>w</strong>orking <strong>d</strong>irectory.)</p>
-<pre><code>$ pwd
-/home/users/allstaff/&lt;username&gt;</code></pre>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>/home/users/allstaff/&lt;username&gt;</code></pre>
+</div>
 <p>Instead of <code>&lt;username&gt;</code>, your username will appear.
-This is your HOME directory ($HOME)</p>
+This is your HOME directory (<code>$HOME</code>)</p>
 </div>
 </div>
 </div>
@@ -478,9 +487,13 @@ Home directory<a class="anchor" aria-label="anchor" href="#challenge4"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
-<pre><code>$ ls</code></pre>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
+</div>
 <p>will print a list of files/directories in the directory.</p>
 </div>
 </div>
@@ -508,11 +521,15 @@ to current directory,</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
-<pre><code>cd &lt;dir&gt;
-cp -r  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .
-ls</code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="op">&lt;</span>dir<span class="op">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span>  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -536,11 +553,19 @@ ls</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
-<pre><code>$ exit</code></pre>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span></code></pre>
+</div>
 <p>or</p>
-<pre><code>$ logout</code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">logout</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -559,7 +584,7 @@ guide</a> or watch the recording of the workshops <a href="https://wehieduau.sha
 nodes.</li>
 <li>Files saved on one node are available on all nodes.</li>
 <li>Milton has multiple different file systems that have different
-policies.</li>
+policies and characteristics.</li>
 <li>Throughout a research project, research data may move between file
 systems according to backup and retention requirements, and to improve
 performance.</li>

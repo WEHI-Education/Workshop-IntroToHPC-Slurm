@@ -149,8 +149,9 @@
       <div class="accordion-body">
         <ul><li><a href="#introduction">Introduction</a></li>
 <li><a href="#defining-common-terms">Defining common terms</a></li>
-<li><a href="#how-is-supercomputing-measured">How is supercomputing measured?</a></li>
+<li><a href="#how-is-supercomputing-performance-measured">How is supercomputing performance measured?</a></li>
 <li><a href="#when-to-use-a-hpc-cluster">When to use a HPC cluster?</a></li>
+<li><a href="#how-to-interact-with-hpc-clusters">How to interact with HPC clusters?</a></li>
 <li><a href="#what-is-milton">What is Milton?</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -188,7 +189,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05-slurm.html">5. Introducing SLURM</a>
+        <a href="05-slurm.html">5. Introducing Slurm</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -224,7 +225,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="09-commands.html">9. SLURM Commands</a>
+        <a href="09-commands.html">9. Slurm Commands</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -233,7 +234,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="10-interactive.html">10. Interactive SLURM Job</a>
+        <a href="10-interactive.html">10. Interactive Slurm Jobs</a>
     </div><!--/div.accordion-header-->
         
   </div><!--/div.accordion-item-->
@@ -332,21 +333,23 @@ Computing.</p>
 </section><section id="defining-common-terms"><h2 class="section-heading">Defining common terms<a class="anchor" aria-label="anchor" href="#defining-common-terms"></a>
 </h2>
 <hr class="half-width"><div class="section level3">
-<h3 id="what-is-a-hpc">What is a HPC?<a class="anchor" aria-label="anchor" href="#what-is-a-hpc"></a></h3>
-<p>HPC stands for High Performance Computing, which is the ability to
-process data and perform complex calculations at high speeds.</p>
+<h3 id="what-is-cluster-computing">What is cluster computing?<a class="anchor" aria-label="anchor" href="#what-is-cluster-computing"></a></h3>
+<p>Cluster computing refers to two or more computers that are networked
+together to provide solutions as required.</p>
+<p>A cluster of computers joins computational powers of the individual
+computers (called “compute nodes”) to provide a more combined
+computational power.</p>
 </div>
 <div class="section level3">
-<h3 id="what-is-a-cluster-computing">What is a cluster computing?<a class="anchor" aria-label="anchor" href="#what-is-a-cluster-computing"></a></h3>
-<p>Cluster computing refers to two or more computers that are networked
-together to provide solutions as required. A cluster of computers joins
-computational powers of the compute nodes to provide a more combined
-computational power.</p>
+<h3 id="what-is-a-hpc-cluster">What is a HPC cluster?<a class="anchor" aria-label="anchor" href="#what-is-a-hpc-cluster"></a></h3>
+<p>HPC stands for High Performance Computing, which is the ability to
+process data and perform complex calculations at high speeds.</p>
 <p>In its simplest structure, HPC clusters are intended to utilize
-parallel processors to apply more computing force for the solution of a
-problem. HPC clusters typically have a large number of computers called
-<code>nodes</code> and, they share a file system, and use a high-speed
-network for communication.</p>
+parallel processors to apply more computing force to solve a problem.
+HPC clusters are a kind of compute clusters that typically have a large
+number of compute nodes, which share a file system designed for parallel
+reading and writing, and use a high-speed network for communication with
+each other.</p>
 </div>
 <div class="section level3">
 <h3 id="what-is-a-supercomputer">What is a supercomputer?<a class="anchor" aria-label="anchor" href="#what-is-a-supercomputer"></a></h3>
@@ -363,18 +366,22 @@ tasks in parallel.</p>
 <h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout1"></a>
 </h3>
 <div class="callout-content">
-<p><code>supercomputers</code>, <code>clusters</code> and
-<code>high-performance computing</code> are often used
+<p><code>supercomputers</code> and
+<code>high-performance computers</code> are often used
 interchangeably.</p>
 </div>
 </div>
 </div>
 </div>
-</section><section id="how-is-supercomputing-measured"><h2 class="section-heading">How is supercomputing measured?<a class="anchor" aria-label="anchor" href="#how-is-supercomputing-measured"></a>
+</section><section id="how-is-supercomputing-performance-measured"><h2 class="section-heading">How is supercomputing performance measured?<a class="anchor" aria-label="anchor" href="#how-is-supercomputing-performance-measured"></a>
 </h2>
-<hr class="half-width"><p>The most popular benchmark is the <a href="https://www.top500.org/project/linpack/" class="external-link">LINPACK benchmark</a>)
-which is used for the [TOP500](<a href="https://www.top500.org/lists/top500" class="external-link uri">https://www.top500.org/lists/top500</a>. It uses the number
-of floating point operations per second (FLOPS) as the metric.</p>
+<hr class="half-width"><p>The most popular benchmark is the <a href="https://www.top500.org/project/linpack/" class="external-link">LINPACK benchmark</a>
+which is used for the <a href="https://www.top500.org/lists/top500" class="external-link">TOP500</a>. The LINPACK
+benchmark solves a very large system of equations on all its compute
+resources. It uses the number of floating point operations per second
+(FLOPS) as the metric. The <a href="https://www.top500.org/lists/green500/" class="external-link">GREEN500</a> ranking has
+also risen in popularity as it ranks HPC systems based on FLOPS per Watt
+of power (higher the better).</p>
 </section><section id="when-to-use-a-hpc-cluster"><h2 class="section-heading">When to use a HPC cluster?<a class="anchor" aria-label="anchor" href="#when-to-use-a-hpc-cluster"></a>
 </h2>
 <hr class="half-width"><p>Frequently, research problems that use computing can outgrow the
@@ -396,6 +403,12 @@ computer – analyzing these larger datasets will probably crash it. In
 this research problem, the calculations required might be impossible to
 parallelize, but a computer with <strong>more memory</strong> would be
 required to analyze the much larger future data set.</li>
+<li>A drug discovery researcher would like to know how a specific
+protein binds to a drug. This requires a simulation that looks like it
+would <strong>take months to simulate on their laptop</strong>! Instead,
+they choose to leverage the large number of computers on HPC and their
+fast network to perform this simulation that take a few hours of real
+time.</li>
 </ul></blockquote>
 <p>In these cases, access to <strong>more</strong> (and
 <strong>larger</strong>) computers is needed. Those computers should be
@@ -412,7 +425,18 @@ parallelism;</li>
 <li>To make use of the large memory available;</li>
 <li>When solutions require backups for future use. HPC facilities are
 reliable and regularly backed up.</li>
-</ul></section><section id="what-is-milton"><h2 class="section-heading">What is Milton?<a class="anchor" aria-label="anchor" href="#what-is-milton"></a>
+</ul></section><section id="how-to-interact-with-hpc-clusters"><h2 class="section-heading">How to interact with HPC clusters?<a class="anchor" aria-label="anchor" href="#how-to-interact-with-hpc-clusters"></a>
+</h2>
+<hr class="half-width"><p>Researchers usually interact with HPC clusters by connecting remotely
+to the HPC cluster via the Linux command line. This is because of its
+low cost and setup as well as most research HPC software being written
+for the Linux command line. Microsoft Windows HPC facilities exist, but
+usually serve specific niches like corporate finance.</p>
+<p>However, graphical interfaces have become popular and have helped
+lower the barrier to learning how to use HPC. <a href="https://openondemand.org/" class="external-link">Open OnDemand</a> being the most
+popular example of software that helps users interact with HPC
+graphically.</p>
+</section><section id="what-is-milton"><h2 class="section-heading">What is Milton?<a class="anchor" aria-label="anchor" href="#what-is-milton"></a>
 </h2>
 <hr class="half-width"><figure><img src="fig/milton.png" class="figure mx-auto d-block"></figure><p>In 2016, WEHI purchased an on-premise HPC cluster called Milton,
 Milton includes &gt;4500-cores (2 hyperthreads per core), &gt;60TB
@@ -428,17 +452,17 @@ Intel processors.</p>
 <h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
-<ul><li>High Performance Computing (HPC) typically involves connecting to
-very large computing systems that provides a high computational
+<ul><li>Using High Performance Computing (HPC) typically involves connecting
+to very large computing systems that provides a high computational
 power.</li>
 <li>These systems can be used to do work that would either be impossible
 or much slower on smaller systems.</li>
 <li>HPC resources are shared by multiple users.</li>
 <li>The resources found on independent compute nodes can vary in volume
-and type (amount of RAM, processor architecture, availability of network
-mounted file systems, etc.).</li>
-<li>The standard method of interacting with such systems is via a
-command line interface.</li>
+and type (amount of RAM, processor architecture, availability of shared
+filesystems, etc.).</li>
+<li>The standard method of interacting with HPC systems is via a command
+line interface.</li>
 </ul></div>
 </div>
 </div>
