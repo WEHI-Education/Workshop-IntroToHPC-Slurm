@@ -43,18 +43,9 @@ salloc --time 1:00:00 --cpus-per-task 1 --mem 1G  -p interactive
 You will be presented with a bash prompt. Note that the prompt will change to reflect your new location (sml-n02 in the example), which is the compute node we are logged on. You can also verify this with hostname.
 
 
+**Remember** that, you may have to wait resources, depending on the status of the queue you are requesting. We have designed the interactive partition to provide high availability, but only one job per user. 
 
-
-**Remember** that, you may have to wait resources, depending on the status of the queue you are requesting. We have design the interactive partition to provide high availability, but only one job per user.
-
-The interactive job will be cancelled and removed from the queue, if your terminal session is terminated or closed, and/or internet connection is lost (connection with the slurm node lost). It is recommended to use `screen` or `tmux`
-
-
-When you have finished your task, please remember to close the session using `exit` or `^D`.
-
-You can also cancel the session usig `scancel`.
-
-If you need more resources you can run interactive sessions in the other queues.
+The interactive job will be cancelled and removed from the queue, if your terminal session is terminated or closed, and/or internet connection is lost (connection with the slurm node lost). That's why it is recommended to use `screen` or `tmux`. When you have finished your task, please remember to close the session using `exit` or `^D`. You can also cancel the session using `scancel`. If you need more resources you can run interactive sessions in queues other than `interactive`.
 
 
 ## Creating remote graphics
@@ -89,10 +80,10 @@ Loading relion/3.1.3-cu11.2
   Loading requirement: cuda/11.2 mpich-slurm/3.4.2
 $ relion
 ```
-![](fig/relion.png)
-To demonstrate what happens when you create a graphics window on the remote node, use the xeyes command. A relatively adorable pair of eyes should pop up (press Ctrl-C to stop). If you are using a Mac, you must have installed XQuartz (and restarted your computer) for this to work.
 
-If your cluster has the slurm-spank-x11 plugin installed, you can ensure X11 forwarding within interactive jobs by using the --x11 option for srun with the command srun --x11 --pty bash.
+![](fig/relion.png)
+
+<br />
 
 We will now have a live demo for more interactive options on Milton.
 

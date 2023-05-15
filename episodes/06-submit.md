@@ -1,7 +1,7 @@
 ---
 title: "Submitting a Job"
 teaching: 40
-exercises: 2
+exercises: 7
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -35,7 +35,7 @@ Basic steps are:
   * Check script and command output
   * Evaluate your job
   
-In this episode we will focus on the first 4 steps.
+In this episode, we will focus on the first 4 steps.
 
 ### Preparing a job script
 
@@ -114,7 +114,7 @@ $ squeue -u $USER
 ```
 
 ST is status and can be R (RUNNING), PD (PENDING), CA (CANCELLED).
-If the job is stuck in pending, REASON column will reflect the reason.
+If the job is stuck in pending, REASON column will reflect the reason, which can be any of the following.
 
 * Priority: There are higher priority jobs than yours
 * Resources: Job is waiting for resources
@@ -124,9 +124,7 @@ If the job is stuck in pending, REASON column will reflect the reason.
 
 ### Where's the Output?
 On the login node, this script printed output to the terminal -- but now, when the job has finished, nothing was printed to the terminal.
-Cluster job output is typically redirected to a file in the directory you launched it from. 
-
-By default, the output file is called _slurm-<jobid>.out_
+Cluster job output is typically redirected to a file in the directory you launched it from. By default, the output file is called `slurm-<jobid>.out`
 
 Use `ls` to find and `cat` to read the file.
 
@@ -167,35 +165,33 @@ More on SLURM commands in later.
 
 We can change the resource specification of the job by two ways:
 
-1- Adding extra options to the sbatch command
+Adding extra options to the sbatch command
+``` 
+sbatch --job-name hello-world --mem 1G --cpus-per-task 1 --time 1:00:00 example-job.sh
+```
+Modifying the submission script
 
-  ```
-  sbatch --job-name hello-world --mem 1G --cpus-per-task 1 --time >>1:00:00 example-job.sh
-  ```
-2- Modifying the submission script
-
-    ```
-    #!/bin/bash
-    #SBATCH --job-name hello-world
-    #SBATCH --mem 1G
-    #SBATCH --cpus-per-task 1
-    #SBATCH  --time 1:00:00
-    echo -n "This script is running on "
-    hostname
-    ```
+```
+#!/bin/bash
+#SBATCH --job-name hello-world
+#SBATCH --mem 1G
+#SBATCH --cpus-per-task 1
+#SBATCH  --time 1:00:00
+echo -n "This script is running on "
+hostname
+```
     
-
 Submit the job and monitor its status:
     
-    ```
-    $ sbatch example-job.sh
-    Submitted batch job 11785584
-    $ squeue -u $USER
-                 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-              11785584   regular hello-wo iskander  R       0:01      1 sml-n20
-    ```
+```
+$ sbatch example-job.sh
+Submitted batch job 11785584
+$ squeue -u $USER
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          11785584   regular hello-wo iskander  R       0:01      1 sml-n20
+```
 
-Comments in UNIX shell scripts (denoted by `#`) are typically ignored, but there are exceptions. For instance, the special `#!` comment at the beginning of scripts specifies what program should be used to run it. Schedulers like SLURM also have a special comment used to denote special scheduler-specific options. Though these comments differ from scheduler to scheduler, SLURM's special comment is `#SBATCH`. Anything following the `#SBATCH` comment is interpreted as an instruction to the scheduler.
+Comments in UNIX shell scripts (denoted by `#`) are typically ignored, but there are exceptions. Schedulers like SLURM have a special comment used to denote special scheduler-specific options. Though these comments differ from scheduler to scheduler, SLURM's special comment is `#SBATCH`. Anything following the `#SBATCH` comment is interpreted as an instruction to the scheduler. These SBATCH commands are also know as `SBATCH directives`.
 
 **Remember** SLURM directives must be at the top of the script, no command can come before them, nor in between them.
 
@@ -205,37 +201,32 @@ One thing that is absolutely critical when working on an HPC system is specifyin
 
 The following are several key resource requests:
 
-* --ntasks or -n : Number of tasks (used for distributed processing, e.g. MPI workers). There is also --ntasks-per-node. default = 1		
-* --time or or -t : Time (wall-time) required for a job to run. The <days> part can be omitted. default = 48 hours on the regular queue
-* --mem : Memory requested per node in MiB. Add G to specify GiB (e.g. 10G). There is also --mem-per-cpu. default = 10M
-* --nodes or -N: Number of nodes your job needs to run on. Note that if you set ntasks to a number greater than what one machine can offer, Slurm will set this value automatically. default = 1 
-* --cpus-per-task  or	-c	Number of CPUs for each task. Use this for threads/cores in single-node jobs.
-* partition: the partition (queue) in which your job is placed. default = regular
-* gres: special resources such as GPUs. To specify gpus, use gpu:<type>:<number>, for example, gres=gpu:P100:1, and **you must specify the correct queue (gpuq or gpuq_large)**
+* `--time` or `-t` : Time (wall-time) required for a job to run. The <days> part can be omitted. default = 48 hours on the regular queue
+* `--mem`: Memory requested per node in MiB. Add G to specify GiB (e.g. 10G). There is also `--mem-per-cpu`. default = 10M
+* `--nodes` or `-N`: Number of nodes your job needs to run on. default = 1 
+* `--cpus-per-task`  or	`-c`	Number of CPUs for each task. Use this for threads/cores in single-node jobs.
+* `--partition` or `-p`: the partition in which your job is placed. default = regular
+* `--ntasks` or `-n` : Number of tasks (u`sed for distributed processing, e.g. MPI workers). There is also `--ntasks-per-node`. default = 1		
+* `--gres`: special resources such as GPUs. To specify gpus, use gpu:<type>:<number>, for example, gres=gpu:P100:1, and **you must specify the correct queue (gpuq or gpuq_large)**
 
 Note that just _requesting_ these resources does not make your job run faster, nor does it necessarily mean that you will consume all of these resources. It only means that these are made available to you. Your job may end up using less
-memory, or less time, or fewer nodes than you have requested, and it will still run.
+memory, or less time, or fewer nodes than you have requested, and it will still run. It's best if your requests accurately reflect your job's requirements. 
 
-It's best if your requests accurately reflect your job's requirements. We'll talk more about how to make sure that you're using resources effectively in a later episode of this lesson.
-
-**Main parts of a _SLURM_ submission script**
+In summary, the **main parts of a _SLURM_ submission script**
 
 1- **#! line**: 
   
   This must be the first line of your SBATCH/Slurm script.
   
-  ```
-  #!/bin/bash
-  ```
+  `#!/bin/bash`
   
 2-**Resource Request**:
 
-  This section is used to set the amount of resources required for the job. This informs Slurm about the name of the job, output filename, amount of RAM, Nos. of CPUs, nodes, tasks, time, and other parameters to be used for processing the job. These SBATCH commands are also know as SBATCH directives 
+  This is to set the amount of resources required for the job. 
   
   ```
   #SBATCH --job-name=TestJob
-  #SBATCH --output=TestJob.out
-  #SBATCH --time=1-00:10:00
+  #SBATCH --time=00:10:00
   #SBATCH --ntasks=1
   #SBATCH --cpus-per-task=1
   #SBATCH --mem=500M
@@ -243,7 +234,7 @@ It's best if your requests accurately reflect your job's requirements. We'll tal
   
 3- **Dependencies**: 
 
-  Load all the software that the project depends on to execute. For example, if you are working on a python project, you’d definitely require the python software or module to interpret and run your code.
+  Load all the modules that the project depends on to execute. For example, if you are working on a python project, you’d definitely require the python module to run your code.
   
   ```
   module load python
@@ -259,19 +250,20 @@ It's best if your requests accurately reflect your job's requirements. We'll tal
   sleep 30
   echo "End"
   ```
+All the next exercises will use scripts saved in the exercise folder which you should have moved to your current directory.
 
 ::: challenge
 
 ### Exercise 3: Setting appropriate wall-time
 
-List then run Exercises/job1.sh script in the batch system? What is the output?
+List then run job1.sh script in the batch system? What is the output?
 Is there an error? How to fix it?
 ```
 #!/bin/bash
 #SBATCH -t 00:01:00 
 
 echo -n "This script is running on "
-sleep 70 # time in seconds
+sleep 80 # time in seconds
 hostname
 ```
 
@@ -325,7 +317,7 @@ When submitting to SLURM, you get an error
 ```
 $ sbatch job2.sh
 sbatch: error: Batch job submission failed: Requested node configuration is not available
-## Cancelling a Job
+
 ```
 
 This is because a GPU was requested without specifying the correct GPU queue, so regular queue was used which has no GPUs. To fix it, change the script to 
@@ -345,8 +337,37 @@ Try running again.
 ::::::
 :::
 
-$ sbatch job2.sh
-sbatch: error: Batch job submission failed: Requested node configuration is not available
+
+
+
+::: challenge
+
+### Exercise 5: Make alignment job (job3.sh) work.
+:::::: solution
+Add the correct SLURM directives to the start of the script
+```
+#SBATCH --job-name=Bowtie-test.slurm
+#SBATCH --ntasks=1
+#SBATCH -t 0:15:00
+#SBATCH --mem 20G
+```
+::::::
+:::
+
+::: challenge
+
+### Exercise 6: Run job3.sh again and monitor progress on the node .
+
+
+:::::: solution
+Run the job
+get which node it is running on from `squeue -u $USER`
+ssh into the node 
+use `top -u $USER`
+::::::
+:::
+
+
 ## Cancelling a Job
 
 Sometimes we'll make a mistake and need to cancel a job. This can be done with the `scancel` command. Let's submit a job and then cancel it using its job number.
@@ -369,34 +390,7 @@ Try submitting multiple jobs and then cancelling them all.
 
 ::: challenge
 
-### Exercise 5: Make alignment job (job3.sh) work.
-:::::: solution
-Add the correct SLURM directives to the start of the script
-```
-#SBATCH --job-name=Bowtie-test.slurm
-#SBATCH --ntasks=1
-#SBATCH -t 0:15:00
-#SBATCH --mem 20G
-```
-::::::
-:::
-
-::: challenge
-
-### Exercise 3: Run job3.sh again and monitor progress on the node .
-
-
-:::::: solution
-Run the job
-get which node it is running on from `squeue -u $USER`
-ssh into the node 
-use `top -u $USER`
-::::::
-:::
-
-::: challenge
-
-### Exercise 5: Submit multiple jobs and then cancelling them all.
+### Exercise 7: Submit multiple jobs and then cancelling them all.
 :::::: solution
 ```
 $ sbatch job1.sh
@@ -404,7 +398,7 @@ $ sbatch job1.sh
 $ sbatch job1.sh
 $ sbatch job1.sh
 ```
-Check what you have in the queueu
+Check what you have in the queue
 
 ```
 squeue -u $USER
@@ -433,11 +427,11 @@ And the queue is empty.
 :::
 
 
-You can check how bust the queue is through the [Milton dashboards](http://dashboards.hpc.wehi.edu.au/d/main/main?orgId=1)
+You can check how busy the queue is through the [Milton dashboards](http://dashboards.hpc.wehi.edu.au/d/main/main?orgId=1)
 
 ## SLURM Event notification
 
-You can use `--mail-type` and `--mail-user` to set SLURM to send you emails when certain evenmts occurs, e.g. BEGIN, END, FAIL, REQUEUE, ALL 
+You can use `--mail-type` and `--mail-user` to set SLURM to send you emails when certain events occurs, e.g. BEGIN, END, FAIL, REQUEUE, ALL 
 
 ```
 #SBATCH --mail-type BEGIN
@@ -447,11 +441,7 @@ Adding the above two lines to a submission script will make SLURM send me an ema
 
 ## SLURM Output files
 
-By default both standard output and standard error are directed to a file of the name "slurm-%j.out", where the "%j" is replaced with the job id. The file will be saved in the submission directory as we saw before.
-on the first node of the job allocation. Other than the batch script itself, Slurm does no movement of user files.
-
-
-You can choose where the output files is saved and also separate standard output from standard error using `--output` and `--error`
+By default both standard output and standard error are directed to a file of the name "slurm-%j.out", where the "%j" is replaced with the job id. The file will be saved in the submission directory as we saw before. You can choose where the output files is saved and also separate standard output from standard error using `--output` and `--error`
 
 * `--output` can be used to change the standard output filename and location.
 * `--error` can be used to specify where the standard output file shall be saved. If not specified, it will be directed to the standard output file.
@@ -464,7 +454,10 @@ In the file names you can use:
 * %x Job name
 
 For example, running the following 
-`sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh`
+`sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh` will create these files
+
+* a standard output file `/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.out` and 
+* an error files `/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.err`.
 
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
