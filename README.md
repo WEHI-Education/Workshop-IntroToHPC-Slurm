@@ -24,9 +24,9 @@ provided to help guide planning and decision-makingguidence on how to make use o
 3. [Accessing Environment Modules](episodes/03-modules.md) (15 minutes)
 4. [Introducing Slurm](episodes/05-slurm.md) (20 minutes)
 5. [Submitting a Job](episodes/06-submit.md) (30 minutes)
-6. [Evaluating a Job](episodes/07-evaluate.md) (40 minutes)
-7. [Slurm Commands](episodes/08-commands.md) (20  minutes)
-8. [Interactive Jobs](episodes/09-interactive.md) (20  minutes)
+6. [Evaluating a Job](episodes/07-evaluate.md) (20 minutes)
+7. [Slurm Commands](episodes/09-commands.md) (15  minutes)
+8. [Interactive Jobs](episodes/10-interactive.md) (15  minutes)
 
 
 
