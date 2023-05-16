@@ -78,10 +78,10 @@ Run the script. Does it execute on the cluster or just our login node?
 bash example-job.sh
 ```
 ```output
-This script is running on Slurm-login01.hpc.wehi.edu.au
+This script is running on slurm-login01.hpc.wehi.edu.au
 ```
 
-`Slurm-login01.hpc.wehi.edu.au` may change depending on which node you ssh'ed into to run the script.
+`slurm-login01.hpc.wehi.edu.au` may change depending on which node you ssh'ed into to run the script.
 
 ::::::
 :::
@@ -92,12 +92,13 @@ This script ran on the login node, but we want to take advantage of the compute 
 
 To submit this task to the scheduler, we use the `sbatch` command.
 This creates a _job_ which will run the _script_ when _dispatched_ to
-a compute node which the queuing system has identified as being
+a compute node. The queuing system identified which compute nose is
 available to perform the work.
 
 ```bash
 sbatch example-job.sh
 ```
+
 ```output
 Submitted batch job 11783863
 ```
@@ -105,7 +106,7 @@ Submitted batch job 11783863
 And that's all we need to do to submit a job. Our work is done -- now the
 scheduler takes over and tries to run the job for us. 
 
-### Monitor your batch job
+## Monitor your batch job
 
 While the job is waiting
 to run, it goes into a list of jobs called the _queue_. To check on our job's
@@ -130,7 +131,7 @@ If the job is stuck in pending, REASON column will reflect the reason, which can
 * QOSMaxCpuPerUserLimit: User has used CPUs limit of partition already
 * QOSMaxMemPerUserLimit: User has used memory limit of partition already
 
-### Where's the Output?
+## Where's the Output?
 On the login node, this script printed output to the terminal -- but now, when the job has finished, nothing was printed to the terminal.
 Cluster job output is typically redirected to a file in the directory you launched it from. By default, the output file is called `slurm-<jobid>.out`
 
@@ -149,7 +150,7 @@ What is the hostname of your job?
 :::::: solution
 
 ```bash
-cat Slurm-11783863.out
+cat slurm-11783863.out
 ```
 ```output
 This script is running on sml-n02.hpc.wehi.edu.au
@@ -159,7 +160,7 @@ This script is running on sml-n02.hpc.wehi.edu.au
 :::
 
 
-### Customising a Job
+## Customising a Job
 
 The job we just ran used all of the scheduler's default options. In a real-world scenario, that's probably not what we want. Chances are, we will need more cores, more memory, more/less time, among other special considerations. To get access to these resources we must customize our job script.
 
@@ -207,15 +208,16 @@ Submitted batch job 11785584
 $ squeue -u $USER
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
           11785584   regular hello-wo iskander  R       0:01      1 sml-n20
+
 ```
 
 
-Comments in UNIX shell scripts (denoted by `#`) are typically ignored, but there are exceptions. Schedulers like SLURM have a special comment used to denote special scheduler-specific options. Though these comments differ from scheduler to scheduler, SLURM's special comment is `#SBATCH`. Anything following the `#SBATCH` comment is interpreted as an instruction to the scheduler. These SBATCH commands are also know as `SBATCH directives`.
+Comments in shell scripts (denoted by `#`) are typically ignored, but there are exceptions. Schedulers like SLURM have a special comment used to denote special scheduler-specific options. Though these comments differ from scheduler to scheduler, SLURM's special comment is `#SBATCH`. Anything following the `#SBATCH` comment is interpreted as an instruction to the scheduler. These SBATCH commands are also know as `SBATCH directives`.
 
 
 **Remember** Slurm directives must be at the top of the script, below the "hash bang". No command can come before them, nor in between them.
 
-### Resource Requests
+## Resource Requests
 
 One thing that is absolutely critical when working on an HPC system is specifying the resources required to run a job. This allows the scheduler to find the right time and place to schedule our job. As we have seen before, if you do not specify requirements, you will be stuck with default resources, which is probably not what you want.
 
@@ -227,8 +229,8 @@ The following are several key resource requests:
 * `--nodes` or `-N`: Number of nodes your job needs to run on. default = 1 
 * `--cpus-per-task`  or	`-c`	Number of CPUs for each task. Use this for threads/cores in single-node jobs.
 * `--partition` or `-p`: the partition in which your job is placed. default = regular
-* `--ntasks` or `-n` : Number of tasks (u`sed for distributed processing, e.g. MPI workers). There is also `--ntasks-per-node`. default = 1		
-* `--gres`: special resources such as GPUs. To specify gpus, use gpu:<type>:<number>, for example, gres=gpu:P100:1, and **you must specify the correct queue (gpuq or gpuq_large)**
+* `--ntasks` or `-n` : Number of tasks (used for distributed processing, e.g. MPI workers). There is also `--ntasks-per-node`. default = 1		
+* `--gres`: special resources such as GPUs. To specify gpus, use gpu:<type>:<number>, for example, `gres=gpu:P100:1`, and **you must specify the correct queue (gpuq or gpuq_large)**
 
 
 Note that just _requesting_ these resources does not make your job run faster, nor does it necessarily mean that you will consume all of these resources. It only means that these are made available to you. Your job may end up using less
@@ -238,14 +240,14 @@ memory, or less time, or fewer nodes than you have requested, and it will still 
 In summary, the **main parts of a _SLURM_ submission script**
 
 
-1. **#! line**: 
+**1. #! line**: 
   
   This must be the first line of your SBATCH/Slurm script.
  
   `#!/bin/bash`
 
   
-2. **Resource Request**:
+**2. Resource Request**:
 
   This is to set the amount of resources required for the job. 
   
@@ -257,22 +259,16 @@ In summary, the **main parts of a _SLURM_ submission script**
   #SBATCH --mem=500M
   ```
   
-3. **Dependencies**: 
-
-  Load all the modules that the project depends on to execute. For example, if you are working on a python project, you’d definitely require the python module to run your code.
   
+**3. Job Steps** 
+
+  Specify the list of tasks to be carried out. It may include an initial load of all the modules that the project depends on to execute. For example, if you are working on a python project, you’d definitely require the python module to run your code.
   ```bash
   module load python
-  ```
-  
-4. **Job Steps** 
-
-  Specify the list of tasks to be carried out.
-
-  ```bash
   echo "Start process"
   hostname
   sleep 30
+  python myscript.py
   echo "End"
   ```
 All the next exercises will use scripts saved in the exercise folder which you should have moved to your current directory.
@@ -297,7 +293,7 @@ hostname
 
 After 1 minute the job ends and the output is similar to this
 ```bash
-cat Slurm-11792811.out 
+cat slurm-11792811.out 
 ```
 ```output
 This script is running on Slurmstepd: error: *** JOB 11792811 ON sml-n24 CANCELLED AT 2023-05-13T20:41:10 DUE TO TIME LIMIT ***
@@ -327,7 +323,7 @@ The job was killed for exceeding the amount of resources it requested. Although 
 
 ### Exercise 4: Setting appropriate Slurm directives
 
-List then run Exercises/job2.sh script in the batch system. What is the output?
+List then run job2.sh script in the batch system. What is the output?
 Is there an error? How can you fix it?
 ```bash
 #!/bin/bash
@@ -395,13 +391,17 @@ Run `job3.sh` again and monitor progress on the node. You can do this by
 sshing to the node and running `top`.
 
 :::::: solution
-Run the job
-get which node it is running on from `squeue -u $USER`
-ssh into the node 
-use `top -u $USER`
+
+* Run the job
+* Get which node it is running on from `squeue -u $USER`
+* ssh into the node 
+* use `top -u $USER`
 
 ::::::
 :::
+
+We can have a live-demo on how to monitor a running job on the compute node, using `top`, `iotop` and `nvtop` for GPU nodes
+
 
 ## Cancelling a Job
 
@@ -487,20 +487,33 @@ By default both standard output and standard error are directed to a file of the
 
 In the file names you can use:
 
-* %j for Job Id
-* %N for Host name
-* %u User name
-* %x Job name
+* %j for job id
+* %N for host name
+* %u for user name
+* %x for job name
 
 For example, running the following 
 
-`sbatch --error=/vast/scratch/users/%u/Slurm%j_%N_%x.err --output=/vast/scratch/users/%u/Slurm%j_%N_%x.out job1.sh`
-will write error to `Slurm12345678_sml-n01_job1.sh.err` and output to `Slurm12345678_sml-n01_job1.sh.out`
+`sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh`
+will write error to `slurm12345678_sml-n01_job1.sh.err` and output to `slurm12345678_sml-n01_job1.sh.out`
 in the directory `/vast/scratch/users/<username>`, i.e. the following will be created:
 
 * a standard output file `/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.out` and 
 * an error files `/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.err`.
 
+## Bonus QoS and preemption
+
+
+Before we move to our next lesson, let's breiflt talk about the [bonus QoS](https://wehieduau.sharepoint.com/sites/rc2/SitePages/SLURM-partitions.aspx#slurm-bonus-qos%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B).  We have discussed before the limits of each partition. So what if you have run many jobs and hit the limit on the regular partition but when you look at the [dashboards](http://dashboards.hpc.wehi.edu.au/d/s/slurm?orgId=1&refresh=10s) you observe that there are still free resources that can be used?
+
+**Can you make use of them as long as _no one else needs them_?**
+Yes you can!
+
+You can use `--qos=bonus`.
+
+This will run your job in a preemptive mode, which means other users can terminate your job, if Slurm couldn't find other resources for their jobs and they are using the normal QoS.
+
+This is useful for jobs that can be resumed or restart is not an issue.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
