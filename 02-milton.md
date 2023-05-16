@@ -20,7 +20,7 @@ exercises: 6
 
 ## Milton Cluster
 
-Milton is linux-based cluster, that is made up of two login nodes and many computer nodes in addition to the file systems.
+Milton is a linux-based cluster, that is made up of two login nodes and many computer nodes in addition to the file systems.
 
 ### What is a nodes made up of?
 
@@ -61,7 +61,9 @@ More details are available [here](https://wehieduau.sharepoint.com/sites/rc2/Sit
 :::
 
 
-You will be asked for your password. Watch out: the characters you type after
+You will be asked for your password. 
+
+**Watch out:** the characters you type after
 the password prompt are not displayed on the screen. Normal output will resume
 once you press `Enter`.
 
@@ -100,10 +102,15 @@ We will now revise some linux commands to look around the login node.
 Get node name where you are logged into
 
 :::::: solution
-```
+
+```bash
 $ hostname
+```
+
+```output
 vc7-shared.hpc.wehi.edu.au
 ```
+
 So, we're definitely on the remote machine.
 ::::::
 
@@ -115,9 +122,11 @@ So, we're definitely on the remote machine.
 
 :::::: solution
 Run `pwd`  (**p**rint the **w**orking **d**irectory.)
+
 ```bash
 pwd
 ```
+
 ```output
 /home/users/allstaff/<username>
 ```
