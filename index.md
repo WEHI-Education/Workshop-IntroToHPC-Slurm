@@ -11,6 +11,7 @@ This course is for scientists who have no experience with high performance compu
 This course will be delivered mostly using live-coding demonstrations and exercises. The entire workshop is delivered in approximately 3 1-hour chunks with breaks in between. 
 
 This course is maintained by [WEHI Research computing](mailto:research.computing@wehi.edu.au)
+
 * Julie Iskander [@jIskCoder](https://github.com/jIskCoder)
 * Edward Yang [@edoyango](https://github.com/edoyango)
 * Michael Milton [@multimeric](https://github.com/multimeric) 
