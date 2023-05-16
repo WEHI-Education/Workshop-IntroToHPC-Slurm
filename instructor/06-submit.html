@@ -192,9 +192,14 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#running-a-batch-job">Running a Batch Job</a></li>
+<li><a href="#monitor-your-batch-job">Monitor your batch job</a></li>
+<li><a href="#wheres-the-output">Where’s the Output?</a></li>
+<li><a href="#customising-a-job">Customising a Job</a></li>
+<li><a href="#resource-requests">Resource Requests</a></li>
 <li><a href="#cancelling-a-job">Cancelling a Job</a></li>
 <li><a href="#slurm-event-notification">Slurm Event notification</a></li>
 <li><a href="#slurm-output-files">Slurm Output files</a></li>
+<li><a href="#bonus-qos-and-preemption">Bonus QoS and preemption</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -288,7 +293,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Submitting a Job</h1>
-        <p> Last updated on 2023-05-15 | 
+        <p> Last updated on 2023-05-16 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/06-submit.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -397,7 +402,7 @@ node?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -407,9 +412,9 @@ node?</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>This script is running on Slurm-login01.hpc.wehi.edu.au</code></pre>
+<pre class="output" tabindex="0"><code>This script is running on slurm-login01.hpc.wehi.edu.au</code></pre>
 </div>
-<p><code>Slurm-login01.hpc.wehi.edu.au</code> may change depending on
+<p><code>slurm-login01.hpc.wehi.edu.au</code> may change depending on
 which node you ssh’ed into to run the script.</p>
 </div>
 </div>
@@ -423,8 +428,8 @@ the compute nodes, we need the scheduler to queue up
 <h3 id="submit-a-batch-job">Submit a batch job<a class="anchor" aria-label="anchor" href="#submit-a-batch-job"></a></h3>
 <p>To submit this task to the scheduler, we use the <code>sbatch</code>
 command. This creates a <em>job</em> which will run the <em>script</em>
-when <em>dispatched</em> to a compute node which the queuing system has
-identified as being available to perform the work.</p>
+when <em>dispatched</em> to a compute node. The queuing system
+identified which compute nose is available to perform the work.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -438,9 +443,9 @@ identified as being available to perform the work.</p>
 <p>And that’s all we need to do to submit a job. Our work is done – now
 the scheduler takes over and tries to run the job for us.</p>
 </div>
-<div class="section level3">
-<h3 id="monitor-your-batch-job">Monitor your batch job<a class="anchor" aria-label="anchor" href="#monitor-your-batch-job"></a></h3>
-<p>While the job is waiting to run, it goes into a list of jobs called
+</section><section id="monitor-your-batch-job"><h2 class="section-heading">Monitor your batch job<a class="anchor" aria-label="anchor" href="#monitor-your-batch-job"></a>
+</h2>
+<hr class="half-width"><p>While the job is waiting to run, it goes into a list of jobs called
 the <em>queue</em>. To check on our job’s status, we check the queue
 using the command <code>squeue -u $USER</code>.</p>
 <div class="codewrapper sourceCode" id="cb7">
@@ -465,10 +470,9 @@ that other job to complete</li>
 already</li>
 <li>QOSMaxMemPerUserLimit: User has used memory limit of partition
 already</li>
-</ul></div>
-<div class="section level3">
-<h3 id="wheres-the-output">Where’s the Output?<a class="anchor" aria-label="anchor" href="#wheres-the-output"></a></h3>
-<p>On the login node, this script printed output to the terminal – but
+</ul></section><section id="wheres-the-output"><h2 class="section-heading">Where’s the Output?<a class="anchor" aria-label="anchor" href="#wheres-the-output"></a>
+</h2>
+<hr class="half-width"><p>On the login node, this script printed output to the terminal – but
 now, when the job has finished, nothing was printed to the terminal.
 Cluster job output is typically redirected to a file in the directory
 you launched it from. By default, the output file is called
@@ -498,12 +502,12 @@ according to your job id. And cat the file to see output.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> Slurm-11783863.out</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> slurm-11783863.out</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -514,10 +518,9 @@ according to your job id. And cat the file to see output.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section level3">
-<h3 id="customising-a-job">Customising a Job<a class="anchor" aria-label="anchor" href="#customising-a-job"></a></h3>
-<p>The job we just ran used all of the scheduler’s default options. In a
+</section><section id="customising-a-job"><h2 class="section-heading">Customising a Job<a class="anchor" aria-label="anchor" href="#customising-a-job"></a>
+</h2>
+<hr class="half-width"><p>The job we just ran used all of the scheduler’s default options. In a
 real-world scenario, that’s probably not what we want. Chances are, we
 will need more cores, more memory, more/less time, among other special
 considerations. To get access to these resources we must customize our
@@ -567,21 +570,19 @@ time-limit and runs on the regular partition</p>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>          <span class="ex">11785584</span>   regular hello-wo iskander  R       0:01      1 sml-n20</span></code></pre>
 </div>
-<p>Comments in UNIX shell scripts (denoted by <code>#</code>) are
-typically ignored, but there are exceptions. Schedulers like SLURM have
-a special comment used to denote special scheduler-specific options.
-Though these comments differ from scheduler to scheduler, SLURM’s
-special comment is <code>#SBATCH</code>. Anything following the
-<code>#SBATCH</code> comment is interpreted as an instruction to the
-scheduler. These SBATCH commands are also know as
-<code>SBATCH directives</code>.</p>
+<p>Comments in shell scripts (denoted by <code>#</code>) are typically
+ignored, but there are exceptions. Schedulers like SLURM have a special
+comment used to denote special scheduler-specific options. Though these
+comments differ from scheduler to scheduler, SLURM’s special comment is
+<code>#SBATCH</code>. Anything following the <code>#SBATCH</code>
+comment is interpreted as an instruction to the scheduler. These SBATCH
+commands are also know as <code>SBATCH directives</code>.</p>
 <p><strong>Remember</strong> Slurm directives must be at the top of the
 script, below the “hash bang”. No command can come before them, nor in
 between them.</p>
-</div>
-<div class="section level3">
-<h3 id="resource-requests">Resource Requests<a class="anchor" aria-label="anchor" href="#resource-requests"></a></h3>
-<p>One thing that is absolutely critical when working on an HPC system
+</section><section id="resource-requests"><h2 class="section-heading">Resource Requests<a class="anchor" aria-label="anchor" href="#resource-requests"></a>
+</h2>
+<hr class="half-width"><p>One thing that is absolutely critical when working on an HPC system
 is specifying the resources required to run a job. This allows the
 scheduler to find the right time and place to schedule our job. As we
 have seen before, if you do not specify requirements, you will be stuck
@@ -605,14 +606,14 @@ each task. Use this for threads/cores in single-node jobs.</li>
 <code>--partition</code> or <code>-p</code>: the partition in which
 your job is placed. default = regular</li>
 <li>
-<code>--ntasks</code> or <code>-n</code> : Number of tasks
-(u<code>sed for distributed processing, e.g. MPI workers). There is also</code>–ntasks-per-node`.
-default = 1<br></li>
+<code>--ntasks</code> or <code>-n</code> : Number of tasks (used for
+distributed processing, e.g. MPI workers). There is also
+<code>--ntasks-per-node</code>. default = 1<br></li>
 <li>
 <code>--gres</code>: special resources such as GPUs. To specify
-gpus, use gpu:<type>:<number>, for example, gres=gpu:P100:1, and
-<strong>you must specify the correct queue (gpuq or
-gpuq_large)</strong></number></type></li>
+gpus, use gpu:<type>:<number>, for example,
+<code>gres=gpu:P100:1</code>, and <strong>you must specify the correct
+queue (gpuq or gpuq_large)</strong></number></type></li>
 </ul><p>Note that just <em>requesting</em> these resources does not make your
 job run faster, nor does it necessarily mean that you will consume all
 of these resources. It only means that these are made available to you.
@@ -621,13 +622,11 @@ you have requested, and it will still run. It’s best if your requests
 accurately reflect your job’s requirements.</p>
 <p>In summary, the <strong>main parts of a <em>SLURM</em> submission
 script</strong></p>
-<ol style="list-style-type: decimal"><li>
-<strong>#! line</strong>:</li>
-</ol><p>This must be the first line of your SBATCH/Slurm script.</p>
+<p><strong>1. #! line</strong>:</p>
+<p>This must be the first line of your SBATCH/Slurm script.</p>
 <p><code>#!/bin/bash</code></p>
-<ol start="2" style="list-style-type: decimal"><li>
-<strong>Resource Request</strong>:</li>
-</ol><p>This is to set the amount of resources required for the job.</p>
+<p><strong>2. Resource Request</strong>:</p>
+<p>This is to set the amount of resources required for the job.</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -637,27 +636,13 @@ script</strong></p>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task=1</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem=500M</span></span></code></pre>
 </div>
-<ol start="3" style="list-style-type: decimal"><li>
-<strong>Dependencies</strong>:</li>
-</ol><p>Load all the modules that the project depends on to execute. For
-example, if you are working on a python project, you’d definitely
-require the python module to run your code.</p>
-<div class="codewrapper sourceCode" id="cb17">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python</span></code></pre>
-</div>
-<ol start="4" style="list-style-type: decimal"><li><strong>Job Steps</strong></li>
-</ol><p>Specify the list of tasks to be carried out.</p>
-<div class="codewrapper sourceCode" id="cb18">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Start process"</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 30</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"End"</span></span></code></pre>
-</div>
-<p>All the next exercises will use scripts saved in the exercise folder
+<p><strong>3. Job Steps</strong></p>
+<p>Specify the list of tasks to be carried out. It may include an
+initial load of all the modules that the project depends on to execute.
+For example, if you are working on a python project, you’d definitely
+require the python module to run your code.
+<code>bash   module load python   echo "Start process"   hostname   sleep 30   python myscript.py   echo "End"</code>
+All the next exercises will use scripts saved in the exercise folder
 which you should have moved to your current directory.</p>
 <div id="challenge3" class="callout challenge">
 <div class="callout-square">
@@ -669,15 +654,15 @@ which you should have moved to your current directory.</p>
 <div class="callout-content">
 <p>List then run job1.sh script in the batch system. What is the output?
 Is there an error? How to fix it?</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:00 </span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 80 <span class="co"># time in seconds</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:00 </span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 80 <span class="co"># time in seconds</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -689,13 +674,13 @@ Is there an error? How to fix it?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>After 1 minute the job ends and the output is similar to this</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> Slurm-11792811.out </span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> slurm-11792811.out </span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -703,15 +688,15 @@ Is there an error? How to fix it?</p>
 <pre class="output" tabindex="0"><code>This script is running on Slurmstepd: error: *** JOB 11792811 ON sml-n24 CANCELLED AT 2023-05-13T20:41:10 DUE TO TIME LIMIT ***</code></pre>
 </div>
 <p>To fix it, change the script to</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:20 # timeout in HH:MM</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 70 <span class="co"># time in seconds</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:20 # timeout in HH:MM</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 70 <span class="co"># time in seconds</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
 </div>
 <p>Try running again.</p>
 </div>
@@ -740,20 +725,20 @@ will be their own.</p>
 directives<a class="anchor" aria-label="anchor" href="#challenge4"></a>
 </h3>
 <div class="callout-content">
-<p>List then run Exercises/job2.sh script in the batch system. What is
-the output? Is there an error? How can you fix it?</p>
-<div class="codewrapper sourceCode" id="cb23">
+<p>List then run job2.sh script in the batch system. What is the output?
+Is there an error? How can you fix it?</p>
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:00</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --gres gpu:P100:1</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH  --mem 1G</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#This is  a job that needs GPUs</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:00</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --gres gpu:P100:1</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH  --mem 1G</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#This is  a job that needs GPUs</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -765,13 +750,13 @@ the output? Is there an error? How can you fix it?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>When submitting to Slurm, you get an error</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job2.sh</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job2.sh</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -781,19 +766,19 @@ the output? Is there an error? How can you fix it?</p>
 <p>This is because a GPU was requested without specifying the correct
 GPU partition, so the regular partition was used which has no GPUs. To
 fix it, change the script to</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:00</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -p gpuq</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --gres gpu:P100:1</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH  --mem 1G</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#This is  a job that needs GPUs</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 00:01:00</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -p gpuq</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --gres gpu:P100:1</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH  --mem 1G</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co">#This is  a job that needs GPUs</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
 </div>
 <p>Try running again.</p>
 </div>
@@ -819,16 +804,16 @@ fix it, change the script to</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>Add the correct Slurm directives to the start of the script</p>
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --job-name=Bowtie-test.Slurm</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=1</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 0:15:00</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem 20G</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --job-name=Bowtie-test.Slurm</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=1</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH -t 0:15:00</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem 20G</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -855,33 +840,39 @@ can do this by sshing to the node and running <code>top</code>.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
-<p>Run the job get which node it is running on from
-<code>squeue -u $USER</code> ssh into the node use
-<code>top -u $USER</code></p>
+<ul><li>Run the job</li>
+<li>Get which node it is running on from
+<code>squeue -u $USER</code>
+</li>
+<li>ssh into the node</li>
+<li>use <code>top -u $USER</code>
+</li>
+</ul></div>
 </div>
 </div>
 </div>
-</div>
-</div>
+<p>We can have a live-demo on how to monitor a running job on the
+compute node, using <code>top</code>, <code>iotop</code> and
+<code>nvtop</code> for GPU nodes</p>
 </section><section id="cancelling-a-job"><h2 class="section-heading">Cancelling a Job<a class="anchor" aria-label="anchor" href="#cancelling-a-job"></a>
 </h2>
 <hr class="half-width"><p>Sometimes we’ll make a mistake and need to cancel a job. This can be
 done with the <code>scancel</code> command. Let’s submit a job and then
 cancel it using its job number.</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> example-jobwithsleep.sh</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitted</span> batch job 11785772</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>          <span class="ex">11785772</span>   regular example- iskander  R       0:10      1 sml-n20</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> scancel 11785772</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> example-jobwithsleep.sh</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitted</span> batch job 11785772</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>          <span class="ex">11785772</span>   regular example- iskander  R       0:10      1 sml-n20</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> scancel 11785772</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code></pre>
 </div>
 <p>We can also cancel all of our jobs at once using the -u option. This
 will delete all jobs for a specific user (in this case, yourself). Note
@@ -907,21 +898,21 @@ cancel them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb29">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job1.sh</span></code></pre>
 </div>
 <p>Check what you have in the queue</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -933,17 +924,17 @@ cancel them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a>
           11792907   regular  job1.sh iskander  R       0:16      1 sml-n23</code></pre>
 </div>
 <p>Cancel the jobs</p>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> scancel <span class="at">-u</span> <span class="va">$USER</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> scancel <span class="at">-u</span> <span class="va">$USER</span></span></code></pre>
 </div>
 <p>Recheck the queue</p>
-<div class="codewrapper sourceCode" id="cb33">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> squeue <span class="at">-u</span> <span class="va">$USER</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>             <span class="ex">JOBID</span> PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="er">(</span><span class="ex">REASON</span><span class="kw">)</span></span></code></pre>
 </div>
 <p>And the queue is empty.</p>
 </div>
@@ -957,11 +948,11 @@ dashboards</a></p>
 <hr class="half-width"><p>You can use <code>--mail-type</code> and <code>--mail-user</code> to
 set SLURM to send you emails when certain events occurs, e.g. BEGIN,
 END, FAIL, REQUEUE, ALL</p>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mail-type </span><span class="re">BEGIN</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mail-user iskander.j@wehi.edu.au</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mail-type </span><span class="re">BEGIN</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mail-user iskander.j@wehi.edu.au</span></span></code></pre>
 </div>
 <p>Adding the above two lines to a submission script will make Slurm
 send me an email when my job starts running.</p>
@@ -981,14 +972,14 @@ filename and location.</li>
 output file shall be saved. If not specified, it will be directed to the
 standard output file.</li>
 </ul><p>In the file names you can use:</p>
-<ul><li>%j for Job Id</li>
-<li>%N for Host name</li>
-<li>%u User name</li>
-<li>%x Job name</li>
+<ul><li>%j for job id</li>
+<li>%N for host name</li>
+<li>%u for user name</li>
+<li>%x for job name</li>
 </ul><p>For example, running the following</p>
-<p><code>sbatch --error=/vast/scratch/users/%u/Slurm%j_%N_%x.err --output=/vast/scratch/users/%u/Slurm%j_%N_%x.out job1.sh</code>
-will write error to <code>Slurm12345678_sml-n01_job1.sh.err</code> and
-output to <code>Slurm12345678_sml-n01_job1.sh.out</code> in the
+<p><code>sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh</code>
+will write error to <code>slurm12345678_sml-n01_job1.sh.err</code> and
+output to <code>slurm12345678_sml-n01_job1.sh.out</code> in the
 directory <code>/vast/scratch/users/&lt;username&gt;</code>, i.e. the
 following will be created:</p>
 <ul><li>a standard output file
@@ -996,7 +987,22 @@ following will be created:</p>
 and</li>
 <li>an error files
 <code>/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.err</code>.</li>
-</ul><div id="keypoints1" class="callout keypoints">
+</ul></section><section id="bonus-qos-and-preemption"><h2 class="section-heading">Bonus QoS and preemption<a class="anchor" aria-label="anchor" href="#bonus-qos-and-preemption"></a>
+</h2>
+<hr class="half-width"><p>Before we move to our next lesson, let’s breiflt talk about the <a href="https://wehieduau.sharepoint.com/sites/rc2/SitePages/SLURM-partitions.aspx#slurm-bonus-qos%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B" class="external-link">bonus
+QoS</a>. We have discussed before the limits of each partition. So what
+if you have run many jobs and hit the limit on the regular partition but
+when you look at the <a href="http://dashboards.hpc.wehi.edu.au/d/s/slurm?orgId=1&amp;refresh=10s" class="external-link">dashboards</a>
+you observe that there are still free resources that can be used?</p>
+<p><strong>Can you make use of them as long as <em>no one else needs
+them</em>?</strong> Yes you can!</p>
+<p>You can use <code>--qos=bonus</code>.</p>
+<p>This will run your job in a preemptive mode, which means other users
+can terminate your job, if Slurm couldn’t find other resources for their
+jobs and they are using the normal QoS.</p>
+<p>This is useful for jobs that can be resumed or restart is not an
+issue.</p>
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -1078,7 +1084,7 @@ any links that you are not going to use.
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/06-submit.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/06-submit.html",
   "dateCreated": "2023-05-16",
-  "dateModified": "2023-05-15",
+  "dateModified": "2023-05-16",
   "datePublished": "2023-05-16"
 }
 

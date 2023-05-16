@@ -149,7 +149,6 @@
       <div class="accordion-body">
         <ul><li><a href="#introduction">Introduction</a></li>
 <li><a href="#defining-common-terms">Defining common terms</a></li>
-<li><a href="#how-is-supercomputing-performance-measured">How is supercomputing performance measured?</a></li>
 <li><a href="#when-to-use-a-hpc-cluster">When to use a HPC cluster?</a></li>
 <li><a href="#how-to-interact-with-hpc-clusters">How to interact with HPC clusters?</a></li>
 <li><a href="#what-is-milton">What is Milton?</a></li>
@@ -291,7 +290,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>What is a HPC?</h1>
-        <p> Last updated on 2023-05-15 | 
+        <p> Last updated on 2023-05-16 | 
         
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/01-introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -339,7 +338,9 @@ together to provide solutions as required.</p>
 <p>A cluster of computers joins computational powers of the individual
 computers (called “compute nodes”) to provide a more combined
 computational power.</p>
-</div>
+<figure><img src="fig/cluster.png" alt="" class="figure mx-auto d-block"><figcaption>Cluster Computing by Trevor Dsouza from
+<a href="https://thenounproject.com/browse/icons/term/cluster-computing/" target="_blank" title="Cluster Computing Icons" class="external-link">Noun
+Project</a></figcaption></figure></div>
 <div class="section level3">
 <h3 id="what-is-a-hpc-cluster">What is a HPC cluster?<a class="anchor" aria-label="anchor" href="#what-is-a-hpc-cluster"></a></h3>
 <p>HPC stands for High Performance Computing, which is the ability to
@@ -373,15 +374,16 @@ interchangeably.</p>
 </div>
 </div>
 </div>
-</section><section id="how-is-supercomputing-performance-measured"><h2 class="section-heading">How is supercomputing performance measured?<a class="anchor" aria-label="anchor" href="#how-is-supercomputing-performance-measured"></a>
-</h2>
-<hr class="half-width"><p>The most popular benchmark is the <a href="https://www.top500.org/project/linpack/" class="external-link">LINPACK benchmark</a>
+<div class="section level3">
+<h3 id="how-is-supercomputing-performance-measured">How is supercomputing performance measured?<a class="anchor" aria-label="anchor" href="#how-is-supercomputing-performance-measured"></a></h3>
+<p>The most popular benchmark is the <a href="https://www.top500.org/project/linpack/" class="external-link">LINPACK benchmark</a>
 which is used for the <a href="https://www.top500.org/lists/top500" class="external-link">TOP500</a>. The LINPACK
-benchmark solves a very large system of equations on all its compute
-resources. It uses the number of floating point operations per second
-(FLOPS) as the metric. The <a href="https://www.top500.org/lists/green500/" class="external-link">GREEN500</a> ranking has
+benchmark reflect the performance of a dedicated system for solving a
+dense system of linear equations. It uses the number of floating point
+operations per second (FLOPS) as the metric. The <a href="https://www.top500.org/lists/green500/" class="external-link">GREEN500</a> ranking has
 also risen in popularity as it ranks HPC systems based on FLOPS per Watt
 of power (higher the better).</p>
+</div>
 </section><section id="when-to-use-a-hpc-cluster"><h2 class="section-heading">When to use a HPC cluster?<a class="anchor" aria-label="anchor" href="#when-to-use-a-hpc-cluster"></a>
 </h2>
 <hr class="half-width"><p>Frequently, research problems that use computing can outgrow the
@@ -403,12 +405,6 @@ computer – analyzing these larger datasets will probably crash it. In
 this research problem, the calculations required might be impossible to
 parallelize, but a computer with <strong>more memory</strong> would be
 required to analyze the much larger future data set.</li>
-<li>A drug discovery researcher would like to know how a specific
-protein binds to a drug. This requires a simulation that looks like it
-would <strong>take months to simulate on their laptop</strong>! Instead,
-they choose to leverage the large number of computers on HPC and their
-fast network to perform this simulation that take a few hours of real
-time.</li>
 </ul></blockquote>
 <p>In these cases, access to <strong>more</strong> (and
 <strong>larger</strong>) computers is needed. Those computers should be
@@ -523,7 +519,7 @@ any links that you are not going to use.
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/01-introduction.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/01-introduction.html",
   "dateCreated": "2023-05-16",
-  "dateModified": "2023-05-15",
+  "dateModified": "2023-05-16",
   "datePublished": "2023-05-16"
 }
 
