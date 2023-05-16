@@ -122,7 +122,6 @@ Can we make use on of Slurm environment variables in job4.sh?
 use `$SLURM_CPUS_PER_TASK` with `-p` option instead of setting a number.
 ::::::
 
-We can have a live-demo on how to monitor a running job on the compute node, using `top`, `iotop` and `nvtop` for GPU nodes
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 

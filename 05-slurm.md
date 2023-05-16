@@ -75,7 +75,7 @@ With back filling, when Job 1 has been allocated and Job 2 pending for resources
 
 ![Backfilling Algorithm](fig/backfill.png)
 
-### Slurm Partitions
+## Slurm Partitions
 
 Partitions in Slurm group nodes into logical (possibly overlapping) sets. A partition configuration defines job limits or access controls for a group of nodes. Slurm allocates resources to jobs within the selected partition by taking into consideration the resources you request for your job and the partition's available resources and restrictions.
 
@@ -91,7 +91,7 @@ Partitions in Slurm group nodes into logical (possibly overlapping) sets. A part
 
 ---
 
-### The main parameters to set for any job script
+## The main parameters to set for any job script
 
 * time: the maximum time for the job execution.
 * cpus: number of CPUs

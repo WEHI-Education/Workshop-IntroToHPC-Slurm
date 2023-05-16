@@ -24,8 +24,6 @@ On Milton, many softwares are installed but need to be loaded before you can run
 - software incompatibilities
 - versioning
 - dependencies
-- reducing duplication
-- making use of configured and/or optimised software
 
 Software incompatibility is a major headache for programmers. Sometimes the
 presence (or absence) of a software package will break others that depend on
@@ -52,6 +50,8 @@ settings required to run a software package and, usually, encodes required
 dependencies on other software packages. HPC facilities will often have their
 own optimised versions of some software, so modules also make it easier to use
 these versions.
+
+## `module` command
 
 The `module` command is used to interact with environment
 modules. An additional subcommand is usually added to the command to specify

@@ -29,6 +29,8 @@ Cluster computing refers to two or more computers that are networked together to
 
 A cluster of computers joins computational powers of the individual computers (called "compute nodes") to provide a more combined computational power.
 
+![Cluster Computing by Trevor Dsouza from <a href="https://thenounproject.com/browse/icons/term/cluster-computing/" target="_blank" title="Cluster Computing Icons">Noun Project</a> ](fig/cluster.png)
+
 ### What is a HPC cluster?
 HPC stands for High Performance Computing, which is the ability to process data and perform complex calculations at high speeds. 
 
@@ -38,13 +40,15 @@ In its simplest structure, HPC clusters are intended to utilize parallel process
 ### What is a supercomputer?
 Supercomputer used to refer to any single computer system that has exceptional processing power for its time. But recently, it refers to the best-known types of HPC solutions. A supercomputer contains thousands of compute nodes that work together to complete one or more tasks in parallel. 
 
+
+
 ::: callout
 `supercomputers` and `high-performance computers` are often used interchangeably.
 ::: 
 
 
-## How is supercomputing performance measured?
-The most popular benchmark is the [LINPACK benchmark](https://www.top500.org/project/linpack/) which is used for the [TOP500](https://www.top500.org/lists/top500). The LINPACK benchmark solves a very large system of equations on all its compute resources. It uses the number of floating point operations per second (FLOPS) as the metric. The [GREEN500](https://www.top500.org/lists/green500/) ranking has also risen in popularity as it ranks HPC systems based on FLOPS per Watt of power (higher the better).
+### How is supercomputing performance measured?
+The most popular benchmark is the [LINPACK benchmark](https://www.top500.org/project/linpack/) which is used for the [TOP500](https://www.top500.org/lists/top500). The LINPACK benchmark reflect the performance of a dedicated system for solving a dense system of linear equations. It uses the number of floating point operations per second (FLOPS) as the metric. The [GREEN500](https://www.top500.org/lists/green500/) ranking has also risen in popularity as it ranks HPC systems based on FLOPS per Watt of power (higher the better).
 
 ## When to use a HPC cluster? 
 Frequently, research problems that use computing can outgrow the capabilities
@@ -64,11 +68,7 @@ of the desktop or laptop computer where they started, such as the following exam
   problem, the calculations required might be impossible to parallelize, but a
   computer with __more memory__ would be required to analyze the much larger
   future data set.
->* A drug discovery researcher would like to know how a specific protein binds
-  to a drug. This requires a simulation that looks like it would
-  __take months to simulate on their laptop__! Instead, they choose to leverage
-  the large number of computers on HPC and their fast network to perform this
-  simulation that take a few hours of real time.
+
 
 In these cases, access to **more** (and **larger**) computers is needed. Those
 computers should be usable at the same time, __solving many researchers'
