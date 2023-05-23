@@ -78,11 +78,11 @@
   Introduction to HPC and SLURM
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 42%" class="percentage">
-    42%
+<aside class="col-md-12 lesson-progress"><div style="width: 43%" class="percentage">
+    43%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 42%" aria-valuenow="42" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 43%" aria-valuenow="43" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -381,12 +381,12 @@ which will print the name of the machine the script is run on.</li>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre>
 </div>
-<div id="challenge1" class="callout challenge">
+<div id="exercise-1-run-example-job.sh" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-1-run-example-job.sh" class="callout-inner">
-<h3 class="callout-title">Exercise 1: Run example-job.sh<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Exercise 1: Run example-job.sh<a class="anchor" aria-label="anchor" href="#exercise-1-run-example-job.sh"></a>
 </h3>
 <div class="callout-content">
 <p>Run the script. Does it execute on the cluster or just our login
@@ -478,13 +478,13 @@ you launched it from. By default, the output file is called
 <code>slurm-&lt;jobid&gt;.out</code></p>
 <p>Use <code>ls</code> to find and <code>cat</code> to read the
 file.</p>
-<div id="challenge2" class="callout challenge">
+<div id="exercise-2-get-output-of-running-example-job.sh-in-slurm" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-2-get-output-of-running-example-job.sh-in-slurm" class="callout-inner">
 <h3 class="callout-title">Exercise 2: Get output of running
-example-job.sh in Slurm<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+example-job.sh in Slurm<a class="anchor" aria-label="anchor" href="#exercise-2-get-output-of-running-example-job.sh-in-slurm"></a>
 </h3>
 <div class="callout-content">
 <p>List files in your currrent working directory and look for a file
@@ -643,12 +643,12 @@ require the python module to run your code.
 <code>bash   module load python   echo "Start process"   hostname   sleep 30   python myscript.py   echo "End"</code>
 All the next exercises will use scripts saved in the exercise folder
 which you should have moved to your current directory.</p>
-<div id="challenge3" class="callout challenge">
+<div id="exercise-3-setting-appropriate-wall-time" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-3-setting-appropriate-wall-time" class="callout-inner">
-<h3 class="callout-title">Exercise 3: Setting appropriate wall-time<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Exercise 3: Setting appropriate wall-time<a class="anchor" aria-label="anchor" href="#exercise-3-setting-appropriate-wall-time"></a>
 </h3>
 <div class="callout-content">
 <p>List then run job1.sh script in the batch system. What is the output?
@@ -715,13 +715,13 @@ requested resources or kill the job outright. Other jobs on the node
 will be unaffected. This means that one user cannot mess up the
 experience of others, the only jobs affected by a mistake in scheduling
 will be their own.</p>
-<div id="challenge4" class="callout challenge">
+<div id="exercise-4-setting-appropriate-slurm-directives" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-4-setting-appropriate-slurm-directives" class="callout-inner">
 <h3 class="callout-title">Exercise 4: Setting appropriate Slurm
-directives<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+directives<a class="anchor" aria-label="anchor" href="#exercise-4-setting-appropriate-slurm-directives"></a>
 </h3>
 <div class="callout-content">
 <p>List then run job2.sh script in the batch system. What is the output?
@@ -784,12 +784,12 @@ fix it, change the script to</p>
 </div>
 </div>
 </div>
-<div id="challenge5" class="callout challenge">
+<div id="exercise-5" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-5" class="callout-inner">
-<h3 class="callout-title">Exercise 5<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<h3 class="callout-title">Exercise 5<a class="anchor" aria-label="anchor" href="#exercise-5"></a>
 </h3>
 <div class="callout-content">
 <p>Make alignment job (<code>job3.sh</code>) work.</p>
@@ -818,13 +818,13 @@ fix it, change the script to</p>
 </div>
 </div>
 </div>
-<div id="challenge6" class="callout challenge">
+<div id="exercise-6-run-job3.sh-again-and-monitor-progress-on-the-node-." class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-6-run-job3.sh-again-and-monitor-progress-on-the-node-." class="callout-inner">
 <h3 class="callout-title">Exercise 6: Run job3.sh again and monitor
-progress on the node .<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+progress on the node .<a class="anchor" aria-label="anchor" href="#exercise-6-run-job3.sh-again-and-monitor-progress-on-the-node-."></a>
 </h3>
 <div class="callout-content">
 <p>Run <code>job3.sh</code> again and monitor progress on the node. You
@@ -877,13 +877,13 @@ cancel it using its job number.</p>
 will delete all jobs for a specific user (in this case, yourself). Note
 that you can only delete your own jobs.</p>
 <p>Try submitting multiple jobs and then cancelling them all.</p>
-<div id="challenge7" class="callout challenge">
+<div id="exercise-7-submit-multiple-jobs-and-then-cancel-them-all." class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-7-submit-multiple-jobs-and-then-cancel-them-all." class="callout-inner">
 <h3 class="callout-title">Exercise 7: Submit multiple jobs and then
-cancel them all.<a class="anchor" aria-label="anchor" href="#challenge7"></a>
+cancel them all.<a class="anchor" aria-label="anchor" href="#exercise-7-submit-multiple-jobs-and-then-cancel-them-all."></a>
 </h3>
 <div class="callout-content">
 
@@ -1060,7 +1060,7 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -1084,7 +1084,7 @@ any links that you are not going to use.
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/06-submit.html",
   "dateCreated": "2023-05-16",
   "dateModified": "2023-05-16",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>
