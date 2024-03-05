@@ -351,9 +351,10 @@ scripts, downloading/building software.</li>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc</span> <span class="at">--time</span> 1:00:00 <span class="at">--cpus-per-task</span> 1 <span class="at">--mem</span> 1G  <span class="at">-p</span> interactive</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">salloc</span> <span class="at">--time</span> 1:00:00 <span class="at">--cpus-per-task</span> 1 <span class="at">--mem</span> 1G  <span class="at">-p</span> interactive</span></code></pre>
 </div>
-<figure><img src="../fig/salloc_ex.png" alt="" class="figure mx-auto d-block"><figcaption>salloc command example</figcaption></figure><p>You will be presented with a bash prompt. Note that the prompt will
+<figure><img src="../fig/salloc_ex.png" alt="salloc command example" class="figure mx-auto d-block"><div class="figcaption">salloc command example</div>
+</figure><p>You will be presented with a bash prompt. Note that the prompt will
 change to reflect your new location (<code>sml-n02</code> in the
 example), which is the compute node we are logged onto. You can also
 verify this with hostname.</p>
@@ -370,13 +371,12 @@ session using <code>exit</code> or <code>Ctrl-D</code>.</p>
 <p>You can also cancel the session using <code>scancel</code>.</p>
 <p>If you need more resources you can run interactive sessions in the
 other partitions.</p>
-<div id="these-instructions-are-specific-milton" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="these-instructions-are-specific-milton" class="callout-inner">
-<h3 class="callout-title">These instructions are specific Milton!<a class="anchor" aria-label="anchor" href="#these-instructions-are-specific-milton"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="these-instructions-are-specific-milton">These instructions are specific Milton!<a class="anchor" aria-label="anchor" href="#these-instructions-are-specific-milton"></a></h3>
 <div class="callout-content">
 <p><code>salloc</code> is setup slightly differently to its default
 behaviour. Not all HPC facilities have Slurm to start interactive jobs
@@ -397,7 +397,7 @@ your <code>salloc</code> command</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc</span> <span class="at">--time</span> 1:00:00 <span class="at">--cpus-per-task</span> 1 <span class="at">--mem</span> 1G  <span class="at">-p</span> interactive <span class="at">--x11</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">salloc</span> <span class="at">--time</span> 1:00:00 <span class="at">--cpus-per-task</span> 1 <span class="at">--mem</span> 1G  <span class="at">-p</span> interactive <span class="at">--x11</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -411,7 +411,7 @@ salloc: Nodes sml-n03 are ready for job</code></pre>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load relion</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">module</span> load relion</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -433,7 +433,7 @@ Loading relion/3.1.3-cu11.2
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">relion</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">relion</span></span></code></pre>
 </div>
 <figure><img src="../fig/relion.png" class="figure mx-auto d-block"></figure><p>We will now have a live demo for more interactive options on
 Milton.</p>
@@ -515,7 +515,7 @@ any links that you are not going to use.
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/10-interactive.html",
   "dateCreated": "2023-05-16",
   "dateModified": "2023-05-15",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

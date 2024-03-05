@@ -345,7 +345,8 @@ and many computer nodes in addition to the file systems.</p>
 <li>Memory</li>
 <li>Local storage</li>
 <li>Maybe GPU(s)</li>
-</ul><figure><img src="../fig/node_anatomy.png" alt="" class="figure mx-auto d-block"><figcaption>Node diagram</figcaption></figure></div>
+</ul><figure><img src="../fig/node_anatomy.png" alt="Node diagram" class="figure mx-auto d-block"><div class="figcaption">Node diagram</div>
+</figure></div>
 </section><section id="connect-to-milton"><h2 class="section-heading">Connect to Milton<a class="anchor" aria-label="anchor" href="#connect-to-milton"></a>
 </h2>
 <hr class="half-width"><p>The first step in using a cluster is to establish a connection from
@@ -394,16 +395,21 @@ password prompt are not displayed on the screen. Normal output will
 resume once you press <code>Enter</code>.</p>
 <p>You will notice that the prompt changed when you logged into the
 remote system using the terminal.</p>
-<figure><img src="../fig/ssh-vc7.png" alt="" class="figure mx-auto d-block"><figcaption>Login to vc7-shared</figcaption></figure></section><section id="milton-file-systems"><h2 class="section-heading">Milton File Systems<a class="anchor" aria-label="anchor" href="#milton-file-systems"></a>
+<figure><img src="../fig/ssh-vc7.png" alt="Login to vc7-shared" class="figure mx-auto d-block"><div class="figcaption">Login to vc7-shared</div>
+</figure></section><section id="milton-file-systems"><h2 class="section-heading">Milton File Systems<a class="anchor" aria-label="anchor" href="#milton-file-systems"></a>
 </h2>
-<hr class="half-width"><figure><img src="../fig/M_FS.png" alt="" class="figure mx-auto d-block"><figcaption>Milton File Systems</figcaption></figure><figure><img src="../fig/FSdetails.png" alt="" class="figure mx-auto d-block"><figcaption>Managed Versus UnManaged File Systems</figcaption></figure><div class="section level3">
+<hr class="half-width"><figure><img src="../fig/M_FS.png" alt="Milton File Systems" class="figure mx-auto d-block"><div class="figcaption">Milton File Systems</div>
+</figure><figure><img src="../fig/FSdetails.png" alt="Managed Versus UnManaged File Systems" class="figure mx-auto d-block"><div class="figcaption">Managed Versus UnManaged File Systems</div>
+</figure><div class="section level3">
 <h3 id="how-data-should-be-moved-between-file-systems-according-to-project-requirements">How data should be moved between file systems according to project
 requirements?<a class="anchor" aria-label="anchor" href="#how-data-should-be-moved-between-file-systems-according-to-project-requirements"></a></h3>
 <p><br><br></p>
-<figure><img src="../fig/dataretention.png" alt="" class="figure mx-auto d-block"><figcaption>Case 1: Data from external collaborators and needs
-long term retention</figcaption></figure><p><br><br></p>
-<figure><img src="../fig/datadelete.png" alt="" class="figure mx-auto d-block"><figcaption>Case 2: Data from publicly available source, or with
-delete on-completion constraint</figcaption></figure></div>
+<figure><img src="../fig/dataretention.png" alt="Case 1: Data from external collaborators and needs long term retention" class="figure mx-auto d-block"><div class="figcaption">Case 1: Data from external collaborators and
+needs long term retention</div>
+</figure><p><br><br></p>
+<figure><img src="../fig/datadelete.png" alt="Case 2: Data from publicly available source, or with delete on-completion constraint" class="figure mx-auto d-block"><div class="figcaption">Case 2: Data from publicly available source, or
+with delete on-completion constraint</div>
+</figure></div>
 </section><section id="looking-around-your-home"><h2 class="section-heading">Looking Around Your Home<a class="anchor" aria-label="anchor" href="#looking-around-your-home"></a>
 </h2>
 <hr class="half-width"><p>We will now revise some linux commands to look around the login
@@ -431,7 +437,7 @@ node<a class="anchor" aria-label="anchor" href="#exercise-2check-the-name-of-the
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> hostname</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> hostname</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -468,7 +474,7 @@ in.<a class="anchor" aria-label="anchor" href="#exercise-3-find-out-which-direct
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -504,7 +510,7 @@ Home directory<a class="anchor" aria-label="anchor" href="#exercise-4-list-all-f
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
 </div>
 <p>will print a list of files/directories in the directory.</p>
 </div>
@@ -536,9 +542,9 @@ to current directory,</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="op">&lt;</span>dir<span class="op">&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span>  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="bu">cd</span> <span class="op">&lt;</span>dir<span class="op">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span>  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -566,13 +572,13 @@ to current directory,</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="bu">exit</span></span></code></pre>
 </div>
 <p>or</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">logout</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="bu">logout</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -662,7 +668,7 @@ any links that you are not going to use.
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/02-milton.html",
   "dateCreated": "2023-05-16",
   "dateModified": "2023-05-16",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>
