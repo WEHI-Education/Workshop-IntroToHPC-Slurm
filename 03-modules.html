@@ -46,7 +46,7 @@
             </li>
           </ul></li>
       </div>
-      
+
       <div class="dropdown" id="instructor-dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
           <i aria-hidden="true" class="icon" data-feather="eye"></i> Learner View <i data-feather="chevron-down"></i>
@@ -170,7 +170,7 @@
                 </div><!--/div.accordion-flush-->
               </div><!--div.sidenav-view-selector -->
             </div><!--/div.col -->
-      
+
             <hr></div><!--/div.mobile-row -->
 
           <div class="accordion accordion-flush" id="accordionFlush11">
@@ -189,7 +189,7 @@
     <div class="accordion-header" id="flush-heading1">
         <a href="index.html">Summary and Setup</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -198,7 +198,7 @@
     <div class="accordion-header" id="flush-heading2">
         <a href="01-introduction.html">1. What is a HPC?</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -207,7 +207,7 @@
     <div class="accordion-header" id="flush-heading3">
         <a href="02-milton.html">2. Accessing Milton</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -221,7 +221,7 @@
         </span>
       </button>
     </div><!--/div.accordion-header-->
-        
+
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#why-do-we-need-environment-modules">Why do we need Environment Modules?</a></li>
@@ -229,7 +229,7 @@
 <li><a href="#what-is-path">What is <code>$PATH</code>?</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -238,7 +238,7 @@
     <div class="accordion-header" id="flush-heading5">
         <a href="04-break.html">4. Lunch Break</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -247,7 +247,7 @@
     <div class="accordion-header" id="flush-heading6">
         <a href="05-slurm.html">5. Introducing Slurm</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -256,7 +256,7 @@
     <div class="accordion-header" id="flush-heading7">
         <a href="06-submit.html">6. Submitting a Job</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -265,7 +265,7 @@
     <div class="accordion-header" id="flush-heading8">
         <a href="07-evaluate.html">7. Evaluating Jobs</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -274,7 +274,7 @@
     <div class="accordion-header" id="flush-heading9">
         <a href="08-break.html">8. Break</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -283,7 +283,7 @@
     <div class="accordion-header" id="flush-heading10">
         <a href="09-commands.html">9. Slurm Commands</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -292,7 +292,7 @@
     <div class="accordion-header" id="flush-heading11">
         <a href="10-interactive.html">10. Interactive Slurm Jobs</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -324,10 +324,10 @@
               </div>
             </div>
             <hr class="half-width resources"><a href="aio.html">See all in one page</a>
-            
+
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
-            
+
             </div>
           </div><!-- /div.accordion -->
         </div><!-- /div.sidebar-inner -->
@@ -348,18 +348,18 @@
           Previous: Accessing Milton
         </a>
         <a class="chapter-link float-end" href="04-break.html" rel="next">
-          Next: Lunch Break... 
+          Next: Lunch Break...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Environment Modules</h1>
         <p>Last updated on 2023-05-16 |
-        
+
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/03-modules.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-        
-        
-        
+
+
+
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -391,8 +391,8 @@ loads or unloads packages.</li>
 </div>
 <p>On Milton, many softwares are installed but need to be loaded before
 you can run it.</p>
-<section id="why-do-we-need-environment-modules"><h2 class="section-heading">Why do we need Environment Modules?<a class="anchor" aria-label="anchor" href="#why-do-we-need-environment-modules"></a>
-</h2>
+<section><h2 class="section-heading" id="why-do-we-need-environment-modules">Why do we need Environment Modules?<a class="anchor" aria-label="anchor" href="#why-do-we-need-environment-modules"></a>
+<a class="anchor" aria-label="anchor" href="#why-do-we-need-environment-modules"></a></h2>
 <hr class="half-width"><ul><li>software incompatibilities</li>
 <li>versioning</li>
 <li>dependencies</li>
@@ -419,9 +419,9 @@ it contains the settings required to run a software package and,
 usually, encodes required dependencies on other software packages. HPC
 facilities will often have their own optimised versions of some
 software, so modules also make it easier to use these versions.</p>
-</section><section id="module-command"><h2 class="section-heading">
+</section><section><h2 class="section-heading" id="module-command">
 <code>module</code> command<a class="anchor" aria-label="anchor" href="#module-command"></a>
-</h2>
+<a class="anchor" aria-label="anchor" href="#module-command"></a></h2>
 <hr class="half-width"><p>The <code>module</code> command is used to interact with environment
 modules. An additional subcommand is usually added to the command to
 specify what you want to do. For a list of subcommands you can use
@@ -651,8 +651,8 @@ prepend-path    LD_LIBRARY_PATH /stornext/System/data/apps/python/python-3.8.8/l
 </div>
 </div>
 </div>
-</section><section id="what-is-path"><h2 class="section-heading">What is <code>$PATH</code>?<a class="anchor" aria-label="anchor" href="#what-is-path"></a>
-</h2>
+</section><section><h2 class="section-heading" id="what-is-path">What is <code>$PATH</code>?<a class="anchor" aria-label="anchor" href="#what-is-path"></a>
+<a class="anchor" aria-label="anchor" href="#what-is-path"></a></h2>
 <hr class="half-width"><p><code>$PATH</code> is a special environment variable that controls
 where a UNIX system looks for software. Specifically <code>$PATH</code>
 is a list of directories (separated by <code>:</code>) that the OS
@@ -701,9 +701,9 @@ for you automatically.</li>
 </ul></div>
 </div>
 </div>
-<!-- 
+<!--
 Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use. 
+any links that you are not going to use.
  -->
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
@@ -717,7 +717,7 @@ any links that you are not going to use.
           Previous: Accessing Milton
         </a>
         <a class="chapter-link float-end" href="04-break.html" rel="next">
-          Next: Lunch Break... 
+          Next: Lunch Break...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -728,18 +728,18 @@ any links that you are not going to use.
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
-        
+
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/03-modules.md" class="external-link">Edit on GitHub</a>
-        
+
 	
         | <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:iskander.j@wehi.edu.au">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
-        
+
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
-        
+
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
 			</div>
@@ -764,7 +764,7 @@ any links that you are not going to use.
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/03-modules.html",
   "dateCreated": "2023-05-16",
   "dateModified": "2023-05-16",
-  "datePublished": "2024-07-02"
+  "datePublished": "2024-07-09"
 }
 
   </script><script>
