@@ -42,17 +42,17 @@ You need a Windows Command Prompt or macOS Terminal, to connect to a login node 
 
 ### Exercise 1: Can you login to Milton?
 
-If not in WEHI, make sure you are on the VPN. While on a WEHI device, open your terminal and login to vc7-shared.
+If not in WEHI, make sure you are on the VPN. While on a WEHI device, open your terminal and login to slurm-login.
 
 More details are available [here](https://wehieduau.sharepoint.com/sites/rc2/SitePages/using-milton.aspx#ssh-(command-line)-sessions-(slurm)).
 
 :::::: solution
 * For Mac OSX users
-   * `ssh vc7-shared`
+   * `ssh slurm-login`
    * Type your password
 
 * For MS-Windows users
-   * Download and install the free [PuTTY client](https://putty.org).
+   * Download and install the free [GitBash app](https://gitforwindows.org/).
 
 * You can also use [Cluster Access on Open OnDemand](https://ondemand.hpc.wehi.edu.au/pun/sys/shell/ssh/slurm-login.hpc.wehi.edu.au)
 
@@ -69,9 +69,12 @@ once you press `Enter`.
 
 You will notice that the prompt changed when you logged into the remote system using the terminal. 
 
-![Login to vc7-shared](fig/ssh-vc7.png)
+![Login to slurm-login](fig/ssh-slurm-login.png)
 
 ## Milton File Systems
+
+Updated capacities: VAST Projects 400TB, VAST Scratch 550TB
+Updated deletion policy: VAST Scratch 30 days
 
 ![Milton File Systems](fig/M_FS.png)
 
@@ -108,7 +111,7 @@ $ hostname
 ```
 
 ```output
-vc7-shared.hpc.wehi.edu.au
+slurm-login.hpc.wehi.edu.au
 ```
 
 So, we're definitely on the remote machine.
