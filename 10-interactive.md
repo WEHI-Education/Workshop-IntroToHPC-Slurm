@@ -61,9 +61,9 @@ the command at other facilities.
 :::::::::::
 
 ## Creating remote graphics
-To see graphical output inside your jobs, you need to use _X11 forwarding_. To connect with this feature enabled, use the `-Y` option when you login to the login nodes or vc7-shared.  
+To see graphical output inside your jobs, you need to use _X11 forwarding_. To connect with this feature enabled, use the `-Y` option when you login to the login nodes or slurm-login.  
 ```
-ssh -Y vc7-shared
+ssh -Y slurm-login
 ```
 
 To use it in an interactive session add it to `--x11` to your `salloc` command
@@ -83,10 +83,9 @@ salloc: Nodes sml-n03 are ready for job
 module load relion
 ```
 ```output
-Loading Relion 3.1.3 using CUDA 11.2
-Using MotionCor2 1.5.0 at /stornext/System/data/nvidia/motioncor2/motioncor2-1.5.0cu11.2/bin/motioncor2
-No matching version of Gctf exists for CUDA 11.2
-Using CTFFIND 4.1.14 at /stornext/System/data/nvidia/ctffind/ctffind-4.1.14/bin/ctffind
+Loading Relion 4.0.1 using CUDA 12.1
+Using MotionCor2 1.6.4 at /stornext/System/data/software/rhel/9/base/structbio/motioncor2/1.6.4_CUDA12.1/bin/motioncor2
+Using CTFFIND 4.1.14 at /stornext/System/data/software/rhel/9/base/structbio/ctffind/4.1.14/bin/ctffind
 
         WARNING: verify that the area where Relion will be used
         is not over its storage quota. If Relion is unable to write
@@ -94,8 +93,9 @@ Using CTFFIND 4.1.14 at /stornext/System/data/nvidia/ctffind/ctffind-4.1.14/bin/
         pipeline star files.
 
 
-Loading relion/3.1.3-cu11.2
-  Loading requirement: cuda/11.2 mpich-slurm/3.4.2
+Loading relion/4.0.1_CUDA12.1
+  Loading requirement: CUDA/12.1 openmpi/4.1.6
+
 ```
 ```bash
 relion
