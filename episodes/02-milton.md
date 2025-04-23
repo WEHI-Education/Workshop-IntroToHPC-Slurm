@@ -73,9 +73,6 @@ You will notice that the prompt changed when you logged into the remote system u
 
 ## Milton File Systems
 
-Updated capacities: VAST Projects 400TB, VAST Scratch 550TB
-Updated deletion policy: VAST Scratch 30 days
-
 ![Milton File Systems](fig/M_FS.png)
 
 
