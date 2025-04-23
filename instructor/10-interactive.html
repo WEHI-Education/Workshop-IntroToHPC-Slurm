@@ -353,7 +353,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Interactive Slurm Jobs</h1>
-        <p>Last updated on 2023-05-15 |
+        <p>Last updated on 2025-04-23 |
 
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/10-interactive.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -445,8 +445,8 @@ facilities.</p>
 <hr class="half-width"><p>To see graphical output inside your jobs, you need to use <em>X11
 forwarding</em>. To connect with this feature enabled, use the
 <code>-Y</code> option when you login to the login nodes or
-vc7-shared.</p>
-<pre><code>ssh -Y vc7-shared</code></pre>
+slurm-login.</p>
+<pre><code>ssh -Y slurm-login</code></pre>
 <p>To use it in an interactive session add it to <code>--x11</code> to
 your <code>salloc</code> command</p>
 <div class="codewrapper sourceCode" id="cb3">
@@ -471,10 +471,9 @@ salloc: Nodes sml-n03 are ready for job</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>Loading Relion 3.1.3 using CUDA 11.2
-Using MotionCor2 1.5.0 at /stornext/System/data/nvidia/motioncor2/motioncor2-1.5.0cu11.2/bin/motioncor2
-No matching version of Gctf exists for CUDA 11.2
-Using CTFFIND 4.1.14 at /stornext/System/data/nvidia/ctffind/ctffind-4.1.14/bin/ctffind
+<pre class="output" tabindex="0"><code>Loading Relion 4.0.1 using CUDA 12.1
+Using MotionCor2 1.6.4 at /stornext/System/data/software/rhel/9/base/structbio/motioncor2/1.6.4_CUDA12.1/bin/motioncor2
+Using CTFFIND 4.1.14 at /stornext/System/data/software/rhel/9/base/structbio/ctffind/4.1.14/bin/ctffind
 
         WARNING: verify that the area where Relion will be used
         is not over its storage quota. If Relion is unable to write
@@ -482,8 +481,9 @@ Using CTFFIND 4.1.14 at /stornext/System/data/nvidia/ctffind/ctffind-4.1.14/bin/
         pipeline star files.
 
 
-Loading relion/3.1.3-cu11.2
-  Loading requirement: cuda/11.2 mpich-slurm/3.4.2</code></pre>
+Loading relion/4.0.1_CUDA12.1
+  Loading requirement: CUDA/12.1 openmpi/4.1.6
+</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -568,7 +568,7 @@ any links that you are not going to use.
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/10-interactive.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/10-interactive.html",
   "dateCreated": "2025-04-23",
-  "dateModified": "2023-05-15",
+  "dateModified": "2025-04-23",
   "datePublished": "2025-04-23"
 }
 
