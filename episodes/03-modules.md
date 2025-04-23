@@ -67,39 +67,48 @@ To see available software modules, use `module avail`:
 module avail
 ```
 ```output
------------------------------------------- /stornext/System/data/modulefiles/tools -------------------------------------------
-apptainer/1.0.0            go/1.19.4                    mpich-slurm/3.4.1                   openmpi/4.1.1-slurm
-apptainer/1.1.0            go/1.20.2                    mpich-slurm/3.4.2                   openMPI/4.1.4
-aspera/3.5.4               groovy/4.0.0                 mpich/3.3                           openSSL/1.0.2r
-aspera/3.9.1               gzip/1.10                    mpich/3.3.2                         openSSL/1.1.1b
-aspera/3.9.6               hdf5-mpich/1.10.5_3.3        ncftp/3.2.6                         openSSL/1.1.1g
-awscli/1.16py2.7           hpl/2.3                      netcdf_c/4.9.2                      openSSL/1.1.1k
-awscli/1.16py3.7           icewm/2.8.0                  nextflow-tw-agent/0.5.0             openSSL/1.1.1n
-awscli/1.22.89             iftop/1.0                    nextflow/22.04.5                    owncloud-client/2.3.3
-awscli/2.1.25              ImageMagick/6.9.11-22        nextflow/22.10.4                    pandoc/2.14.2
-awscli/2.5.2               ImageMagick/7.0.9-5          nf-core/2.7.2                       pandoc/2.19.2
-axel/2.17.10               intel-ipp/2019.5.281         ninja/1.10.0                        pgsql/15.1
-bazel/0.26.1               intel-mkl/2019.3.199         nmap-ncat/7.91                      pigz/2.6
-bazel/1.2.1                intel-mpi/2019.3.199         nodejs/10.24.1                      pmix/2.2.5
-binutils/2.35.2-gcc-4.8.5  intel-tbb/2019.3.199         nodejs/16.19.0                      pmix/3.2.3
-binutils/2.35.2-gcc-9.1.0  intel_mkl_2019/2019.5.075    nodejs/17.9.1                       pmix/4.2.3
-cluster-utils/18.08.1      intel_mpi_2019/2019.5.075    ocl-icd/2.3.1                       poetry/latest
-cmake/3.25.1               ior-slurm/3.2.1mpich3.3      octave/6.4.0-gcc11.1.0              proj/4.9.3
-CUnit/2.1-3                ior-slurm/3.2.1openMPI4.0.2  oneMKL/2022.1.0.223                 proj/6.3.2
-curl/7.65.0                ior/3.2.1mpio4.0.1           openBLAS/0.3.6-gcc-9.1.0            proj/9.1.0
-depot_tools/6c7b829        iozone/3.491                 openBLAS/0.3.21-gcc-11.1.0          qpdf/10.0.1
-dotnet/2.1.809             julia/0.6.4                  openBLAS/0.3.21-gcc-11.1.0-skylake  quarto/1.1.189
-dotnet/3.1.412             julia/1.0.1                  openBLAS/0.3.23-gcc-11.3.0          rclone/1.55.0
-dotnet/6.0.408             julia/1.5.3                  openCV/2.4.13.6                     rstudio_singularity/1.0.0
-doublecmd/0.9.10.gtk2      julia/1.8.5                  openCV/4.2.0                        slurm-contribs/20.11.5
-dua-cli/2.17.8             libaio/0.3.111               openjdk/1.8.0                       snakemake/7.12.0
-dua-cli/2.19.0             libiconv/1.16                openjdk/13.0.2                      sqlite/3.38.5
-duckdb/0.6.1               lz4/1.9.3                    openjdk/14.0.2                      sqlite/3.40.0
-elbencho/1.7-1cu10.1       mariadb-client/10.11.2       openjdk/15.0.2                      sqlite/3.40.1
-evince/3.28.2              mariadb-connector-c/3.1.11   openjdk/16.0.1                      stornext/1.1
-feh/3.6.3                  mariadb-connector-c/3.3.4    openjdk/17.0.2                      stubl/0.0.10
-fftw/3.3.9                 maven/3.3.9                  openjdk/18.0.2                      tar/1.34
-fio/3.16                   maven/3.9.1                  openMPI-slurm/4.1.0                 tcpdump/4.9.2
+--------------------------------------------------------------- /stornext/System/data/modulefiles/rhel/9/base/bioinf ----------------------------------------------------------------
+bcftools/1.19         canu/2.2              deeptools/3.5.5  gatk/4.6.0.0   IGV/2.18.0        nanopolish/0.14.0   plink/1.9          spaceranger/3.1.1  ucsc-tools/362  
+bcftools/1.20         cellranger-arc/2.0.2  diamond/2.1.10   gridss/2.13.2  MACS2/2.2.9.1     ncbi-blast/2.16.0   plink2/2.00        spaceranger/3.1.2  varscan/2.4.6   
+bcftools/1.21         cellranger/8.0.1      dorado/0.6.0     hisat2/2.2.1   MACS3/3.0.1       nf-core/2.14.1      salmon/1.10.2      sra-toolkit/3.1.0  
+bcl-convert/3.10.5    cellranger/9.0.0      dorado/0.7.3     homer/4.11     mageck/0.5.9.5    nix/fix             samtools/1.19.2    STAR/2.7.11b       
+bcl2fastq/2.20.0.422  cellsnp-lite/1.2.3    dorado/0.9.0     homer/5.1      meme/5.5.6        nix/latest          samtools/1.20      subread/2.0.6      
+bedtools/2.31.1       cutadapt/4.8          ensembl-vep/112  htslib/1.19.1  minimap2/2.28     picard-tools/3.1.1  samtools/1.21      trimgalore/0.6.10  
+bowtie2/2.5.3         cutadapt/4.9          fastqc/0.12.1    htslib/1.20    MMseqs2/16-747c6  picard-tools/3.2.0  seqmonk/1.48.1     trimmomatic/0.39   
+bwa/0.7.17            deeptools/3.5.1       gatk/4.2.5.0     htslib/1.21    MultiQC/1.24      picard-tools/3.3.0  spaceranger/2.1.1  ucsc-tools/331     
+
+--------------------------------------------------------------- /stornext/System/data/modulefiles/rhel/9/base/nvidia ----------------------------------------------------------------
+CUDA/11.8  CUDA/12.1  CUDA/12.3  CUDA/12.4  cuDNN/8.9.7.29-11  cuDNN/8.9.7.29-12  nvtop/3.1.0  TensorRT/8.6.1.6-11  TensorRT/8.6.1.6-12  
+
+-------------------------------------------------------------- /stornext/System/data/modulefiles/rhel/9/base/structbio --------------------------------------------------------------
+alphafold/2.3.2         AreTomo/3.0.0_CUDA12.1  CryoPROS/1.0          DESRES/2023-4       gromacs/2024.2_CUDA12.4    patchdock/1.3             relion/5.0_CUDA12.1                 
+alphafold/3.0.0         autodock/4.2.6          cryosamba/1.0         dials/3.9.0         H5toXDS/1.1.0              phenix/1.21.2-5419        rosetta/3.14                        
+alphafold/3.0.1         autoPROC/20240710       ctffind/4.1.14        dssp/4.4.11         haddock3/2024.10.0b7       PRosettaC/d53ed49         RoseTTAFold-All-Atom/1.3-nosignalp  
+AlphaLink/1.0           bsoft/2.1.3             ctffind/4.1.14-MKL    EMAN2/2.99.47       IMOD/5.0.2                 pyem/0.63                 spIsoNet/1.0                        
+Amber/24                ccp4/7.1                ctffind/5.0.5         EMReady/2.0         motioncor2/1.6.4_CUDA11.8  pymol/2.5.0               topaz/0.2.5a                        
+AreTomo/1.1.2_CUDA11.8  ccp4/8.0                dalilite/5.0.1        EPU_Group_AFIS/0.3  motioncor2/1.6.4_CUDA12.1  pymol/3.0.0               warp/2.0.0                          
+AreTomo/1.1.2_CUDA12.1  chimerax/1.9            dectris-neggia/1.2.0  FastFold/0.2.0      motioncor3/1.0.1_CUDA11.8  relion/4.0.1_CUDA12.1     XDS/20240630                        
+AreTomo/1.3.4_CUDA11.8  crYOLO/1.9.9            deepEMhancer/0.16     gromacs/2024.2      motioncor3/1.0.1_CUDA12.1  relion/5.0-beta_CUDA12.1  xdsgui/20231229                     
+
+---------------------------------------------------------------- /stornext/System/data/modulefiles/rhel/9/base/tools ----------------------------------------------------------------
+7zip/24.08                 evince/3.28.2          JAGS/4.3.2                   nextflow/24.04.2             oras/1.2.0                   R/4.1.3               squashfuse/0.5.0      
+apptainer/1.2.5            fftw/3.3.10            jobstats/1.0.0               nextflow/24.10.5             owncloud-client/5.3.1.14018  R/4.2.3               stornext/1.1          
+apptainer/1.2.5-compat     flexiblas/3.4.2        julia/1.10.4                 ninja/1.11.1                 pandoc/3.2                   R/4.3.3               tar/1.35              
+apptainer/1.3.3            gcc/14.2               jupyter/6.5.7                nmap/7.94                    parallel/20240722            R/4.4.1               texlive/2023          
+apptainer/1.3.5            gcloud-sdk/496.0.0     jupyter/latest               nodejs/20.16.0               pcre2/10.42                  R/4.4.2               texlive/2024          
+awscli/2.3.1               gdal/3.9.0             libjpeg-turbo/3.0.2          omero-py/5.19.6              perl/5.40.0                  R/4.5.0               turbovnc/3.1.1        
+blis/0.9.0-omp-intel       geos/3.12.1            libpng/1.6.43                oneMKL/2024.0.0.49673        perl/5.40.0-threads          R/flexiblas/4.3.3     uv/0.5.31             
+blis/0.9.0-pt-intel        git/2.46.0             libtiff/4.6.0                openbabel/2.4.0              pgsql/15.1                   R/flexiblas/4.4.1     uv/0.6.12             
+blis/0.9.0-serial-generic  glpk/4.65              mariadb-connector-c/3.3.10   openBLAS/0.3.26-haswell      pigz/2.8                     R/flexiblas/4.4.2     vast-trino/420        
+blis/0.9.0-serial-intel    glpk/5.0               mediaflux-data-mover/1.2.11  openBLAS/0.3.26-omp-haswell  postgresql/16.4              R/flexiblas/4.5.0     virtualgl/3.1.1       
+boost/1.72.0               gnuplot/6.0.1          micromamba/latest            openBLAS/0.3.26-pt-haswell   proj/9.4.0                   rc-tools/1.0          virtualgl/3.1.2       
+boost/1.79.0               go/1.13.15             miniconda3/latest            openBLAS/0.3.26-serial       protobuf-c/1.5.0             rclone/1.67.0         websockify/0.11.0     
+boost/1.84.0               go/1.21.6              miniwdl/1.12.1               openCV/4.10.0                protobuf/3.14.0              rsync/3.3.0           xdotool/3.20211022.1  
+bzip2/1.0.8                GraphicsMagick/1.3.45  netcdf/4.9.2                 openjdk/18.0.2               protobuf/3.28.1              singularity/4.1.3     Xvfb/1.20.11          
+cairo/1.19.0               hdf5/1.12.3            nextflow-tw-agent/0.5.0      openjdk/21.0.2               python/3.11.8                singularity/4.1.5     xz/5.4.6              
+cmake/3.30.2               hdf5/1.14.4-3          nextflow-tw-cli/0.8.0        openjdk/22.0.2               python/3.12.4                snakemake/8.11.3      zlib/1.3.1            
+curl/8.6.0                 icewm/3.6.0            nextflow/22.10.4             openmpi/4.1.6                python/3.13.0                spack/0.21.2          
+dua-cli/2.29.0             ImageMagick/7.1.1      nextflow/23.10.0             openssl/3.2.1                quarto/1.4.554               squashfs-tools/1.3.1  
 ```
 
 ### Listing Currently Loaded Modules
@@ -135,7 +144,7 @@ which python3
 python3 --version
 ```
 ```output
-Python 3.6.8
+Python 3.9.21
 ```
 
 We can look at the available `python` modules on Milton
@@ -143,19 +152,18 @@ We can look at the available `python` modules on Milton
 module avail python
 ```
 ```output
----------------------------------------- /stornext/System/data/modulefiles/bioinf/its ----------------------------------------
-python/2.7.18  python/3.5.3        python/3.7.0   python/3.8.3  python/3.9.5   python/3.11.2
-python/3.5.1   python/3.6.5-intel  python/3.7.13  python/3.8.8  python/3.10.4
+---------------------------------------------------------------- /stornext/System/data/modulefiles/rhel/9/base/tools ----------------------------------------------------------------
+python/3.11.8  python/3.12.4  python/3.13.0  
 ```
 
-Now, we can load the `python 3.11.2` command with `module load`:
+Now, we can load the `python 3.11.8` command with `module load`:
 
 ```bash
-module load python/3.11.2
+module load python/3.11.8
 python3 --version
 ```
 ```output
-Python 3.11.2
+Python 3.11.8
 ```
 
 Using `module unload` “un-loads” a module along with its dependencies. If we wanted to unload everything at once, we could run `module purge` (unloads everything).
@@ -163,21 +171,21 @@ Using `module unload` “un-loads” a module along with its dependencies. If we
 Now, if you already have a Python module loaded, and you try to load a different version of Python 3, you will get an error.
 
 ```bash
-module load python/3.8.8
+module load python/3.12.4
 ```
 ```output
-Loading python/3.8.8
+Loading python/3.12.4
   ERROR: Module cannot be loaded due to a conflict.
     HINT: Might try "module unload python" first.
 ```
-You will need to `module switch` to Python 3.8.8 instead of `module load`.
+You will need to `module switch` to Python 3.12.4 instead of `module load`.
 ```bash
-module switch  python/3.8.8
+module switch  python/3.12.4
 module list
 ```
 ```output
 Currently Loaded Modulefiles:
- 1) python/3.8.8
+ 1) python/3.12.4
 ```
 
 ::: challenge
@@ -204,20 +212,17 @@ module show python
 ```
 ```output
 -------------------------------------------------------------------
-/stornext/System/data/modulefiles/bioinf/its/python/3.8.8:
+/stornext/System/data/modulefiles/rhel/9/base/tools/python/3.11.8:
 
-module-whatis   {Python is a widely used high-level, general-purpose, interpreted, dynamic programming language. (v3.8.8)}
+module-whatis   {a widely used high-level, general-purpose, interpreted, dynamic programming language. (v3.11.8)}
 conflict        python
-conflict        caffe2
-conflict        anaconda2
-conflict        anaconda3
-conflict        CUDA8/caffe2
 unsetenv        PYTHONHOME
-setenv          PYTHON_INCLUDE_DIR /stornext/System/data/apps/python/python-3.8.8/include/python3.8
-prepend-path    PATH /stornext/System/data/apps/python/python-3.8.8/bin
-prepend-path    CPATH /stornext/System/data/apps/python/python-3.8.8/include/python3.8
-prepend-path    MANPATH :/stornext/System/data/apps/python/python-3.8.8/share/man
-prepend-path    LD_LIBRARY_PATH /stornext/System/data/apps/python/python-3.8.8/lib
+setenv          PYTHON_INCLUDE_DIR /stornext/System/data/software/rhel/9/base/tools/python/3.11.8/include/python3.11
+prepend-path    PATH /stornext/System/data/software/rhel/9/base/tools/python/3.11.8/bin
+prepend-path    CPATH /stornext/System/data/software/rhel/9/base/tools/python/3.11.8/include/python3.11
+prepend-path    MANPATH :/stornext/System/data/software/rhel/9/base/tools/python/3.11.8/share/man
+prepend-path    LD_LIBRARY_PATH /stornext/System/data/software/rhel/9/base/tools/python/3.11.8/lib
+-------------------------------------------------------------------
 ```
 
 ::::::
