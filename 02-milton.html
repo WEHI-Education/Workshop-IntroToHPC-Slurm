@@ -355,7 +355,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Accessing Milton</h1>
-        <p>Last updated on 2023-05-16 |
+        <p>Last updated on 2025-04-23 |
 
         <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/02-milton.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -414,7 +414,7 @@ interface (CLI).</p>
 <h3 class="callout-title">Exercise 1: Can you login to Milton?</h3>
 <div class="callout-content">
 <p>If not in WEHI, make sure you are on the VPN. While on a WEHI device,
-open your terminal and login to vc7-shared.</p>
+open your terminal and login to slurm-login.</p>
 <p>More details are available <a href="https://wehieduau.sharepoint.com/sites/rc2/SitePages/using-milton.aspx#ssh-(command-line)-sessions-(slurm)" class="external-link">here</a>.</p>
 </div>
 </div>
@@ -424,15 +424,14 @@ open your terminal and login to vc7-shared.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul><li>For Mac OSX users
-<ul><li><code>ssh vc7-shared</code></li>
+<ul><li><code>ssh slurm-login</code></li>
 <li>Type your password</li>
 </ul></li>
 <li>For MS-Windows users
-<ul><li>Download and install the free <a href="https://putty.org" class="external-link">PuTTY
-client</a>.</li>
+<ul><li>Download and install the free <a href="https://gitforwindows.org/" class="external-link">GitBash app</a>.</li>
 </ul></li>
 <li>You can also use <a href="https://ondemand.hpc.wehi.edu.au/pun/sys/shell/ssh/slurm-login.hpc.wehi.edu.au" class="external-link">Cluster
 Access on Open OnDemand</a>
@@ -447,9 +446,11 @@ password prompt are not displayed on the screen. Normal output will
 resume once you press <code>Enter</code>.</p>
 <p>You will notice that the prompt changed when you logged into the
 remote system using the terminal.</p>
-<figure><img src="fig/ssh-vc7.png" alt="Login to vc7-shared" class="figure mx-auto d-block"><div class="figcaption">Login to vc7-shared</div>
+<figure><img src="fig/ssh-slurm-login.png" alt="Login to slurm-login" class="figure mx-auto d-block"><div class="figcaption">Login to slurm-login</div>
 </figure></section><section><h2 class="section-heading" id="milton-file-systems">Milton File Systems<a class="anchor" aria-label="anchor" href="#milton-file-systems"></a></h2>
-<hr class="half-width"><figure><img src="fig/M_FS.png" alt="Milton File Systems" class="figure mx-auto d-block"><div class="figcaption">Milton File Systems</div>
+<hr class="half-width"><p>Updated capacities: VAST Projects 400TB, VAST Scratch 550TB Updated
+deletion policy: VAST Scratch 30 days</p>
+<figure><img src="fig/M_FS.png" alt="Milton File Systems" class="figure mx-auto d-block"><div class="figcaption">Milton File Systems</div>
 </figure><figure><img src="fig/FSdetails.png" alt="Managed Versus UnManaged File Systems" class="figure mx-auto d-block"><div class="figcaption">Managed Versus UnManaged File Systems</div>
 </figure><div class="section level3">
 <h3 id="how-data-should-be-moved-between-file-systems-according-to-project-requirements">How data should be moved between file systems according to project
@@ -480,7 +481,7 @@ node.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -490,7 +491,7 @@ node.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code><span><span class="va">vc7</span><span class="op">-</span><span class="va">shared.hpc.wehi.edu.au</span></span></code></pre>
+<pre class="output" tabindex="0"><code><span><span class="va">slurm</span><span class="op">-</span><span class="va">login.hpc.wehi.edu.au</span></span></code></pre>
 </div>
 <p>So, we’re definitely on the remote machine.</p>
 </div>
@@ -513,7 +514,7 @@ node.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Run <code>pwd</code> (<strong>p</strong>rint the
 <strong>w</strong>orking <strong>d</strong>irectory.)</p>
@@ -549,7 +550,7 @@ This is your HOME directory (<code>$HOME</code>)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -579,7 +580,7 @@ to current directory,</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -608,7 +609,7 @@ to current directory,</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -706,9 +707,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/02-milton.html",
   "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/02-milton.html",
-  "dateCreated": "2025-02-07",
-  "dateModified": "2023-05-16",
-  "datePublished": "2025-04-22"
+  "dateCreated": "2025-04-23",
+  "dateModified": "2025-04-23",
+  "datePublished": "2025-04-23"
 }
 
   </script><script>
