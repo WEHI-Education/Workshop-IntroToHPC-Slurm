@@ -108,11 +108,11 @@
   Introduction to HPC and SLURM
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 19%" class="percentage">
-    19%
+<aside class="col-md-12 lesson-progress"><div style="width: 17%" class="percentage">
+    17%
   </div>
   <div class="progress wehi">
-    <div class="progress-bar wehi" role="progressbar" style="width: 19%" aria-valuenow="19" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar wehi" role="progressbar" style="width: 17%" aria-valuenow="17" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -236,7 +236,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-break.html">4. Lunch Break</a>
+        <a href="05-slurm.html">4. Introducing Slurm</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -245,7 +245,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05-slurm.html">5. Introducing Slurm</a>
+        <a href="06-submit.html">5. Submitting a Job</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -254,7 +254,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06-submit.html">6. Submitting a Job</a>
+        <a href="07-break.html">6. Lunch Break</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -263,7 +263,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="07-evaluate.html">7. Evaluating Jobs</a>
+        <a href="08-evaluate.html">7. Evaluating Jobs</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -272,7 +272,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="08-break.html">8. Break</a>
+        <a href="09-commands.html">8. Slurm Commands</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -281,16 +281,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="09-commands.html">9. Slurm Commands</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush11">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading11">
-        <a href="10-interactive.html">10. Interactive Slurm Jobs</a>
+        <a href="10-interactive.html">9. Interactive Slurm Jobs</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -339,7 +330,7 @@
   <div class="col-xl-8 col-lg-12 primary-content">
     <nav class="lesson-content mx-md-4" aria-label="Previous and Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/02-milton.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="../instructor/04-break.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="../instructor/05-slurm.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -347,8 +338,8 @@
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Accessing Milton
         </a>
-        <a class="chapter-link float-end" href="../instructor/04-break.html" rel="next">
-          Next: Lunch Break...
+        <a class="chapter-link float-end" href="../instructor/05-slurm.html" rel="next">
+          Next: Introducing Slurm...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -356,7 +347,7 @@
         <h1>Environment Modules</h1>
         <p>Last updated on 2025-04-23 |
 
-        <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/03-modules.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/edit/main/episodes/03-modules.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
 
 
@@ -601,7 +592,7 @@ of <code>module load</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Print information of modulefile(s)</p>
 </div>
@@ -625,7 +616,7 @@ of <code>module load</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Show the changes loading the module does to your environment</p>
 <div class="codewrapper sourceCode" id="cb17">
@@ -708,7 +699,7 @@ any links that you are not going to use.
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/02-milton.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="../instructor/04-break.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="../instructor/05-slurm.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -716,8 +707,8 @@ any links that you are not going to use.
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Accessing Milton
         </a>
-        <a class="chapter-link float-end" href="../instructor/04-break.html" rel="next">
-          Next: Lunch Break...
+        <a class="chapter-link float-end" href="../instructor/05-slurm.html" rel="next">
+          Next: Introducing Slurm...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -729,12 +720,12 @@ any links that you are not going to use.
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
 
-        <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/episodes/03-modules.md" class="external-link">Edit on GitHub</a>
+        <a href="https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/edit/main/episodes/03-modules.md" class="external-link">Edit on GitHub</a>
 
 	
-        | <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
-        | <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/" class="external-link">Source</a></p>
-				<p><a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:iskander.j@wehi.edu.au">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+        | <a href="https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
+        | <a href="https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/" class="external-link">Source</a></p>
+				<p><a href="https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:iskander.j@wehi.edu.au">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
 
@@ -753,15 +744,15 @@ any links that you are not going to use.
     {
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
-  "@id": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html",
+  "@id": "https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html",
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "hpc, cluster, scheduling, batch, SLURM, parallel, lesson, The Carpentries",
+  "keywords": "hpc, cluster, scheduling, batch, SLURM, parallel",
   "name": "Environment Modules",
   "creativeWorkStatus": "active",
-  "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html",
-  "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html",
+  "url": "https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html",
+  "identifier": "https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html",
   "dateCreated": "2025-04-24",
   "dateModified": "2025-04-23",
   "datePublished": "2025-04-24"

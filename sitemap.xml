@@ -1,159 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/01-introduction.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/01-introduction.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/02-milton.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/02-milton.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/03-modules.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/03-modules.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/04-break.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/04-break.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/05-slurm.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/05-slurm.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/06-submit.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/06-submit.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/07-evaluate.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/07-break.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/07-monitor.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/07-evaluate.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/08-break.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/07-monitor.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/09-commands.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/08-break.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/09-evaluate.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/08-evaluate.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/10-commands.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/09-commands.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/10-interactive.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/09-evaluate.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/11-interactive.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/10-commands.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/404.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/10-interactive.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/CODE_OF_CONDUCT.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/11-interactive.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/LICENSE.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/404.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/aio.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/episode_example.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/images.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/aio.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/index.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/episode_example.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/01-introduction.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/images.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/02-milton.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/index.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/01-introduction.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/04-break.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/02-milton.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/05-slurm.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/03-modules.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/06-submit.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/04-break.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/07-evaluate.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/05-slurm.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/07-monitor.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/06-submit.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/08-break.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/07-break.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/09-commands.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/07-evaluate.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/09-evaluate.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/07-monitor.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/10-commands.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/08-break.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/10-interactive.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/08-evaluate.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/11-interactive.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/09-commands.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/404.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/09-evaluate.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/10-commands.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/LICENSE.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/10-interactive.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/aio.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/11-interactive.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/episode_example.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/404.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/images.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/index.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/instructor-notes.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/aio.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/introduction.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/episode_example.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/key-points.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/images.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/profiles.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/index.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor/reference.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/instructor-notes.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/introduction.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/introduction.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/key-points.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/key-points.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/profiles.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/profiles.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/reference.html</loc>
   </url>
   <url>
-    <loc>https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/reference.html</loc>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/reference.html</loc>
   </url>
 </urlset>

@@ -235,7 +235,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-break.html">4. Lunch Break</a>
+        <a href="05-slurm.html">4. Introducing Slurm</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -244,7 +244,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05-slurm.html">5. Introducing Slurm</a>
+        <a href="06-submit.html">5. Submitting a Job</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -253,7 +253,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06-submit.html">6. Submitting a Job</a>
+        <a href="07-break.html">6. Lunch Break</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -262,7 +262,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="07-evaluate.html">7. Evaluating Jobs</a>
+        <a href="08-evaluate.html">7. Evaluating Jobs</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -271,7 +271,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="08-break.html">8. Break</a>
+        <a href="09-commands.html">8. Slurm Commands</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -280,16 +280,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="09-commands.html">9. Slurm Commands</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush11">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading11">
-        <a href="10-interactive.html">10. Interactive Slurm Jobs</a>
+        <a href="10-interactive.html">9. Interactive Slurm Jobs</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -383,9 +374,18 @@ page</a> as a refresher to Linux commands</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  --></section><section id="setup"><section><h2 class="section-heading" id="excercise-sets">Excercise Sets<a class="anchor" aria-label="anchor" href="#excercise-sets"></a></h2>
-<hr class="half-width"><p>Copy exercise files to your directory</p>
-<pre><code>cd &lt;dir&gt;
-cp -r  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .</code></pre>
+<hr class="half-width"><p>Download the exercise files to your home directory.</p>
+<pre><code># Go to HOME dir
+cd ~
+
+# Download the demo.tar.gz file
+curl -L -o demo.tar.gz https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/raw/main/episodes/src/demo.tar.gz
+
+# Decompress the tar.gz file
+tar -xzvf demo.tar.gz
+
+# Clean up the downloaded tar.gz file
+rm demo.tar.gz</code></pre>
 </section><section><h2 class="section-heading" id="software-setup">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a></h2>
 <hr class="half-width"><div id="details" class="callout discussion">
 <div class="callout-square">
@@ -407,9 +407,10 @@ sending an email to <a href="mailto:support@wehi.edu.au">support@wehi.edu.au</a>
   Windows
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<p>Use <a href="https://putty.org/" class="external-link">PuTTY</a> or <a href="https://mobaxterm.mobatek.net/" class="external-link">MobiXterm</a></p>
+<p>Use <a href="https://gitforwindows.org/" class="external-link">GitBash</a> (also available
+from the WEHI Managed Software Centre)</p>
 </div>
 </div>
 </div>
@@ -421,7 +422,7 @@ sending an email to <a href="mailto:support@wehi.edu.au">support@wehi.edu.au</a>
   MacOS
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Use Terminal.app</p>
 </div>
@@ -435,7 +436,7 @@ sending an email to <a href="mailto:support@wehi.edu.au">support@wehi.edu.au</a>
   Linux
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Use Terminal</p>
 </div>
@@ -461,12 +462,12 @@ any links that you are not going to use.
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
 
-        <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/edit/main/index.md" class="external-link">Edit on GitHub</a>
+        <a href="https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/edit/main/index.md" class="external-link">Edit on GitHub</a>
 
 	
-        | <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
-        | <a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/" class="external-link">Source</a></p>
-				<p><a href="https://github.com/WEHI-ResearchComputing/Workshop-IntroToHPC-Slurm/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:iskander.j@wehi.edu.au">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+        | <a href="https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
+        | <a href="https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/" class="external-link">Source</a></p>
+				<p><a href="https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:iskander.j@wehi.edu.au">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
 
@@ -485,15 +486,15 @@ any links that you are not going to use.
     {
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
-  "@id": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/index.html",
+  "@id": "https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/index.html",
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "hpc, cluster, scheduling, batch, SLURM, parallel, lesson, The Carpentries",
+  "keywords": "hpc, cluster, scheduling, batch, SLURM, parallel",
   "name": "Introduction to HPC and SLURM",
   "creativeWorkStatus": "active",
-  "url": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/index.html",
-  "identifier": "https://WEHI-ResearchComputing.github.io/Workshop-IntroToHPC-Slurm/index.html",
+  "url": "https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/index.html",
+  "identifier": "https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/index.html",
   "dateCreated": "2025-04-24",
   "dateModified": "2025-04-24",
   "datePublished": "2025-04-24"
