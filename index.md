@@ -13,7 +13,7 @@ This course will be delivered mostly using live-coding demonstrations and exerci
 This course is maintained by [WEHI Research computing](mailto:research.computing@wehi.edu.au)
 
 * Julie Iskander [@jIskCoder](https://github.com/jIskCoder)
-* Edward Yang [@edoyango](https://github.com/edoyango)
+* Adam Taranto [@eAdamtaranto](https://github.com/Adamtaranto)
 * Michael Milton [@multimeric](https://github.com/multimeric) 
 
 ## Course Prerequisites
