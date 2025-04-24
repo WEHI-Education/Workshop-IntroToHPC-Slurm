@@ -7,10 +7,20 @@ title: Setup
 ## Excercise Sets
 
 
-Copy exercise files to your directory
+Download the exercise files to your home directory.
+
 ```
-cd <dir>
-cp -r  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .
+# Go to HOME dir
+cd ~
+
+# Download the demo.tar.gz file
+curl -L -o demo.tar.gz https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/raw/main/episodes/src/demo.tar.gz
+
+# Decompress the tar.gz file
+tar -xzvf demo.tar.gz
+
+# Clean up the downloaded tar.gz file
+rm demo.tar.gz
 ```
 
 
@@ -28,7 +38,7 @@ You can request access, if you do not already have via sending an email to [supp
 
 ### Windows
 
-Use [PuTTY](https://putty.org/) or [MobiXterm](https://mobaxterm.mobatek.net/)
+Use [GitBash](https://gitforwindows.org/) (also available from the WEHI Managed Software Centre)
 
 :::::::::::::::::::::::::
 

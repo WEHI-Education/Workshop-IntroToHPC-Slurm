@@ -40,7 +40,7 @@ The user describes the work to be done and resources required in a script or at 
 Slurm development has been a joint effort of many companies and organizations around the world. Over 200 individuals have contributed to Slurm. Its development is lead by [SchedMD](https://www.schedmd.com/). Its staff of developers and support personnel maintain the canonical Slurm releases, and are responsible for the majority of the development work for each new Slurm release. Slurm's design is very modular with about 100 optional plugins.
 It is used at Spartan, Massive, Pawsey, Peter Mac and Milton, as well as HPC facilities world-wide.
 
-![Slurm architecture diagram](fig/SlurmImg.gif)
+![Slurm architecture diagram](fig/SLURMImg.gif)
 
 
 ### Fair Share

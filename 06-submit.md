@@ -465,7 +465,23 @@ And the queue is empty.
 ::::::
 :::
 
-You can check how busy the queue is through the [Milton dashboards](http://dashboards.hpc.wehi.edu.au/d/main/main?orgId=1)
+You can check how busy the queue is through the [Milton dashboards](http://dashboards.hpc.wehi.edu.au/d/main/main?orgId=1) or by using the `sinfo` tool.
+
+
+```bash
+# Check stations of nodes by partition
+sinfo -s
+```
+```output
+PARTITION        AVAIL  TIMELIMIT   NODES(A/I/O/T) NODELIST
+interactive         up 1-00:00:00          7/2/0/9 il-n[01-03],med-n[01-03],sml-n[01-03]
+regular*            up 2-00:00:00       57/26/0/83 il-n[01-20],lrg-n[02-04],med-n[02-38],sml-n[02-24]
+long                up 14-00:00:0       56/24/0/80 il-n[01-20],med-n[02-38],sml-n[02-24]
+bigmem              up 2-00:00:00          4/2/0/6 cl-n01,lrg-n[01-02],med-n[02-04]
+datamover           up 7-00:00:00          1/2/0/3 dm-n[01-03]
+gpuq                up 2-00:00:00        5/10/0/15 gpu-a30-n[01-07],gpu-a100-n[01-03],gpu-p100-n[01-05]
+gpuq_interactive    up   12:00:00          1/0/0/1 gpu-a10-n01
+```
 
 ## Slurm Event notification
 
@@ -494,9 +510,14 @@ In the file names you can use:
 
 For example, running the following 
 
-`sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh`
+```bash
+sbatch --error=/vast/scratch/users/%u/slurm%j_%N_%x.err --output=/vast/scratch/users/%u/slurm%j_%N_%x.out job1.sh
+```
+
 will write error to `slurm12345678_sml-n01_job1.sh.err` and output to `slurm12345678_sml-n01_job1.sh.out`
-in the directory `/vast/scratch/users/<username>`, i.e. the following will be created:
+in the directory `/vast/scratch/users/<username>`  
+
+i.e. the following will be created:
 
 * a standard output file `/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.out` and 
 * an error files `/vast/scratch/users/iskander.j/slurm11795785_sml-n21_job1.sh.err`.
