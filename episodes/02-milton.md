@@ -154,15 +154,24 @@ will print a list of files/directories in the directory.
 
 ### Exercise 5: Copy Exercise examples to your vast scratch or home directory
 
-copy exercise examples from `/stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm` to current directory,
+Copy exercise examples from Github to current directory,
 
 
 
 :::::: solution
 
 ```bash
-cd <dir>
-cp -r  /stornext/System/data/apps/sample-scripts/Workshop-IntroToHPC-Slurm .
+# Go to HOME dir
+cd ~
+
+# Download the demo.tar.gz file
+curl -L -o demo.tar.gz https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/raw/main/episodes/src/demo.tar.gz
+
+# Decompress the tar.gz file
+tar -xzvf demo.tar.gz
+
+# Clean up the downloaded tar.gz file
+rm demo.tar.gz
 ls
 ```
 
