@@ -92,6 +92,37 @@ You will notice that the prompt changed when you logged into the remote system u
 
 ![Case 2: Data from publicly available source, or with delete on-completion constraint](fig/datadelete.png)
 
+
+
+
+::: challenge
+
+### Check your available storage
+
+Use `module av` to search for and load the `stornext` module. Load it and run the `mrquota` tool to view your available storage.
+
+:::::: solution
+
+```bash
+$ module load stornext/1.1
+$ mrquota
+```
+
+```output
+--------- Vast Quota ---------
+       3.365 / 50.000 TB       
+   741240 / 10000000 Inodes   
+--------- Home Quota ---------
+       18.00 / 20.00 GB       
+------------------------------
+```
+
+::::::
+
+Looks like my home dir is nearly full!
+:::
+
+
 ## Looking Around Your Home
 
 We will now revise some linux commands to look around the login node.
