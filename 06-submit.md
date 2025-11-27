@@ -92,7 +92,7 @@ This script ran on the login node, but we want to take advantage of the compute 
 
 To submit this task to the scheduler, we use the `sbatch` command.
 This creates a _job_ which will run the _script_ when _dispatched_ to
-a compute node. The queuing system identified which compute nose is
+a compute node. The queuing system identified which compute node is
 available to perform the work.
 
 ```bash
