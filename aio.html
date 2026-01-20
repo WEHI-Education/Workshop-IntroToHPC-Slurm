@@ -1226,7 +1226,7 @@ of <code>module load</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Print information of modulefile(s)</p>
 </div>
@@ -1251,7 +1251,7 @@ of <code>module load</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Show the changes loading the module does to your environment</p>
 <div class="codewrapper sourceCode" id="cb17">
@@ -1483,7 +1483,7 @@ restrictions.</p>
 <col width="16%">
 <col width="9%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="center">Partition</th>
 <th align="center">Purpose</th>
 <th align="center">Max submitted jobs/user</th>
@@ -1493,7 +1493,7 @@ restrictions.</p>
 <th align="center">Max GPUs/user</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="center">interactive</td>
 <td align="center">interactive jobs</td>
 <td align="center">1</td>
@@ -1502,7 +1502,7 @@ restrictions.</p>
 <td align="center">24 hours</td>
 <td align="center">0</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="center">regular</td>
 <td align="center">most of the batch work</td>
 <td align="center">5000</td>
@@ -1511,7 +1511,7 @@ restrictions.</p>
 <td align="center">48 hours</td>
 <td align="center">0</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="center">long</td>
 <td align="center">long-running jobs</td>
 <td align="center"></td>
@@ -1520,7 +1520,7 @@ restrictions.</p>
 <td align="center">14-days</td>
 <td align="center">0</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="center">gpuq</td>
 <td align="center">jobs that require GPUs</td>
 <td align="center"></td>
@@ -1529,7 +1529,7 @@ restrictions.</p>
 <td align="center">48 hours</td>
 <td align="center">8 A30 GPUs and 1 A100 GPU on 2 nodes</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="center">bigmem</td>
 <td align="center">jobs that require large amounts of memory</td>
 <td align="center">500</td>
@@ -1689,7 +1689,7 @@ node?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1791,7 +1791,7 @@ according to your job id. And cat the file to see output.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1968,7 +1968,7 @@ Is there an error? How to fix it?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>After 1 minute the job ends and the output is similar to this</p>
 <div class="codewrapper sourceCode" id="cb18">
@@ -2042,7 +2042,7 @@ Is there an error? How can you fix it?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>When submitting to Slurm, you get an error</p>
 <div class="codewrapper sourceCode" id="cb22">
@@ -2094,7 +2094,7 @@ fix it, change the script to</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Add the correct Slurm directives to the start of the script</p>
 <div class="codewrapper sourceCode" id="cb25">
@@ -2128,7 +2128,7 @@ can do this by sshing to the node and running <code>top</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <ul>
 <li>Run the job</li>
@@ -2187,7 +2187,7 @@ cancel them all.</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2429,7 +2429,7 @@ command. Try submitting it. Is there an error? How to fix it?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The jobs completes fast but not successfully</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -2497,7 +2497,7 @@ again until job finishes successfully.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Investigate whether bowtie2 can make use of multiple threads to
 accelerate run. Some tools does.</p>
@@ -2556,7 +2556,7 @@ allocated</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>use <code>$SLURM_CPUS_PER_TASK</code> with <code>-p</code> option
 instead of setting a number.</p>
@@ -2625,60 +2625,60 @@ any links that you are not going to use.
 <col width="41%">
 <col width="58%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Command</th>
 <th>Action</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>sbatch &lt;script&gt;</code></td>
 <td>Submit a batch script</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>sacct</code></td>
 <td>Display job details (accounting data)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>sacctmgr</code></td>
 <td>View account information</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>squeue</code></td>
 <td>View information of jobs currently in queue</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>squeue -j &lt;jobid&gt;</code></td>
 <td>Get specific job details, job should be in the queue</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>squeue -u &lt;userid&gt;</code></td>
 <td>Get all queued job details for specified user</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>scancel &lt;jobid&gt;</code></td>
 <td>Cancel job</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>sinfo</code></td>
 <td>View information about nodes and partitions</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>sinfo -N</code></td>
 <td>View list of nodes</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>sinfo -s</code></td>
 <td>Provides nodes’ state information in each partitions</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>sinfo -p &lt;partition&gt;</code></td>
 <td>Provides nodes’ state information in the specified partition</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>scontrol show job &lt;jobid&gt;</code></td>
 <td>View detailed job information</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>scontrol show partition &lt;partition&gt;</code></td>
 <td>View detailed partition information</td>
 </tr>
@@ -2706,7 +2706,7 @@ any links that you are not going to use.
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Provides summary information of only the specified partition</p>
 <div class="codewrapper">
@@ -2742,7 +2742,7 @@ gpuq         up 2-00:00:00        2/10/0/12 gpu-a30-n[01-07],gpu-p100-n[01-05]</
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Provides information of the specified node in the specified
 partition</p>
@@ -2795,7 +2795,7 @@ option.</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2835,7 +2835,7 @@ check the man page again!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3066,10 +3066,10 @@ any links that you are not going to use.
 		</div>
 		<div class="col-md-6">
 
-        <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors.</p>
+        <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.18.3" class="external-link">sandpaper (0.18.3)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/melbournebioinformatics/uom-varnish/tree/main" class="external-link">varnish (1.0.7)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.18.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
