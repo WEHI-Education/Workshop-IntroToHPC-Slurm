@@ -2,7 +2,7 @@
 site: sandpaper::sandpaper_site
 ---
 
-This lesson is created using [The Carpentries Workbench][workbench] and is based on [Introduction to High-Performance Compting](https://carpentries-incubator.github.io/hpc-intro/). It has been customised to fit users of WEHI Milton.
+This lesson is created using [The Carpentries Workbench][workbench] and is based on [Introduction to High-Performance Computing](https://carpentries-incubator.github.io/hpc-intro/). It has been customised to fit users of WEHI Milton.
 
 Some of the examples used in this lesson are based on [material](https://github.com/UoM-ResPlat-DevOps/SpartanBioinformatics) developed by Lev Lafayette from Research Platform Services at the University of Melbourne.
 
