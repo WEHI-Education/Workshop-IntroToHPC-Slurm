@@ -20,9 +20,9 @@ exercises: 6
 
 ## Milton Cluster
 
-Milton is a linux-based cluster, that is made up of two login nodes and many computer nodes in addition to the file systems.
+Milton is a linux-based cluster, that is made up of two login nodes and many compute nodes in addition to the file systems.
 
-### What is a nodes made up of?
+### What is a node made up of?
 
 * Physical cores
 * Memory

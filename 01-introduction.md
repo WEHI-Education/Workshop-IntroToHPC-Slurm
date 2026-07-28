@@ -74,7 +74,7 @@ In these cases, access to **more** (and **larger**) computers is needed. Those
 computers should be usable at the same time, __solving many researchers'
 problems in parallel__.
 
-Therefore, HPCs are userful when you have:
+Therefore, HPCs are useful when you have:
 
 * A program that can be recompiled or reconfigured to use optimized numerical libraries that are available on HPC systems but not on your own system;
 * You have a parallel problem, e.g. you have a single application that needs to be rerun many times with different parameters;
