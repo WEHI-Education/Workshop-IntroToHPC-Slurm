@@ -348,7 +348,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Submitting a Job</h1>
-        <p>Last updated on 2025-11-27 |
+        <p>Last updated on 2026-08-26 |
 
         <a href="https://github.com/WEHI-Education/Workshop-IntroToHPC-Slurm/edit/main/episodes/06-submit.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -572,7 +572,7 @@ real-world scenario, that’s probably not what we want. Chances are, we
 will need more cores, more memory, more/less time, among other special
 considerations. To get access to these resources we must customize our
 job script.</p>
-<p>The default parameters on Milton is 2 CPU, 10MB Ram, 48-hours
+<p>The default parameters on Milton is 2 CPU, 1GB RAM, 48-hours
 time-limit and runs on the regular partition</p>
 <p>After your job has completed, you can get details of the job using
 <code>sacct</code> command.</p>
@@ -586,14 +586,14 @@ time-limit and runs on the regular partition</p>
 </h3>
 <pre class="output" tabindex="0"><code>JobID           JobName      NCPUS     ReqMem  Timelimit  Partition
 ------------ ---------- ---------- ---------- ---------- ----------
-11783909     example-j+          2        10M 2-00:00:00    regular</code></pre>
+11783909     example-j+          2        1G 2-00:00:00    regular</code></pre>
 </div>
 <p>We can change the resource specification of the job by two ways:</p>
 <p>Adding extra options to the <code>sbatch</code> command</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="ex">sbatch</span> <span class="at">--job-name</span> hello-world <span class="at">--mem</span> 1G <span class="at">--cpus-per-task</span> 1 <span class="at">--time</span> 1:00:00 example-job.sh</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="ex">sbatch</span> <span class="at">--job-name</span> hello-world <span class="at">--mem</span> 2G <span class="at">--cpus-per-task</span> 1 <span class="at">--time</span> 1:00:00 example-job.sh</span></code></pre>
 </div>
 <p>Modifying the submission script</p>
 <div class="codewrapper sourceCode" id="cb14">
@@ -601,7 +601,7 @@ time-limit and runs on the regular partition</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a><span class="co">#SBATCH --job-name hello-world</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1" aria-label="code-block-14-3"></a><span class="co">#SBATCH --mem 1G</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1" aria-label="code-block-14-3"></a><span class="co">#SBATCH --mem 2G</span></span>
 <span id="cb14-4"><a href="#cb14-4" tabindex="-1" aria-label="code-block-14-4"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
 <span id="cb14-5"><a href="#cb14-5" tabindex="-1" aria-label="code-block-14-5"></a><span class="co">#SBATCH  --time 1:00:00</span></span>
 <span id="cb14-6"><a href="#cb14-6" tabindex="-1" aria-label="code-block-14-6"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
@@ -707,7 +707,7 @@ Is there an error? How to fix it?</p>
 <span id="cb17-2"><a href="#cb17-2" tabindex="-1" aria-label="code-block-17-2"></a><span class="co">#SBATCH -t 00:01:00 </span></span>
 <span id="cb17-3"><a href="#cb17-3" tabindex="-1" aria-label="code-block-17-3"></a></span>
 <span id="cb17-4"><a href="#cb17-4" tabindex="-1" aria-label="code-block-17-4"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1" aria-label="code-block-17-5"></a><span class="fu">sleep</span> 80 <span class="co"># time in seconds</span></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1" aria-label="code-block-17-5"></a><span class="fu">sleep</span> 360 <span class="co"># time in seconds</span></span>
 <span id="cb17-6"><a href="#cb17-6" tabindex="-1" aria-label="code-block-17-6"></a><span class="fu">hostname</span></span></code></pre>
 </div>
 </div>
@@ -736,10 +736,10 @@ Is there an error? How to fix it?</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1" aria-label="code-block-20-2"></a><span class="co">#SBATCH -t 00:01:20 # timeout in HH:MM</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1" aria-label="code-block-20-2"></a><span class="co">#SBATCH -t 00:01:30 # timeout in HH:MM</span></span>
 <span id="cb20-3"><a href="#cb20-3" tabindex="-1" aria-label="code-block-20-3"></a></span>
 <span id="cb20-4"><a href="#cb20-4" tabindex="-1" aria-label="code-block-20-4"></a><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"This script is running on "</span></span>
-<span id="cb20-5"><a href="#cb20-5" tabindex="-1" aria-label="code-block-20-5"></a><span class="fu">sleep</span> 70 <span class="co"># time in seconds</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1" aria-label="code-block-20-5"></a><span class="fu">sleep</span> 30 <span class="co"># time in seconds</span></span>
 <span id="cb20-6"><a href="#cb20-6" tabindex="-1" aria-label="code-block-20-6"></a><span class="fu">hostname</span></span></code></pre>
 </div>
 <p>Try running again.</p>
@@ -777,7 +777,7 @@ Is there an error? How can you fix it?</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1" aria-label="code-block-21-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb21-2"><a href="#cb21-2" tabindex="-1" aria-label="code-block-21-2"></a><span class="co">#SBATCH -t 00:01:00</span></span>
 <span id="cb21-3"><a href="#cb21-3" tabindex="-1" aria-label="code-block-21-3"></a><span class="co">#SBATCH --gres gpu:P100:1</span></span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1" aria-label="code-block-21-4"></a><span class="co">#SBATCH  --mem 1G</span></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1" aria-label="code-block-21-4"></a><span class="co">#SBATCH --mem 1G</span></span>
 <span id="cb21-5"><a href="#cb21-5" tabindex="-1" aria-label="code-block-21-5"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
 <span id="cb21-6"><a href="#cb21-6" tabindex="-1" aria-label="code-block-21-6"></a></span>
 <span id="cb21-7"><a href="#cb21-7" tabindex="-1" aria-label="code-block-21-7"></a><span class="co">#This is  a job that needs GPUs</span></span>
@@ -815,7 +815,7 @@ fix it, change the script to</p>
 <span id="cb24-2"><a href="#cb24-2" tabindex="-1" aria-label="code-block-24-2"></a><span class="co">#SBATCH -t 00:01:00</span></span>
 <span id="cb24-3"><a href="#cb24-3" tabindex="-1" aria-label="code-block-24-3"></a><span class="co">#SBATCH -p gpuq</span></span>
 <span id="cb24-4"><a href="#cb24-4" tabindex="-1" aria-label="code-block-24-4"></a><span class="co">#SBATCH --gres gpu:P100:1</span></span>
-<span id="cb24-5"><a href="#cb24-5" tabindex="-1" aria-label="code-block-24-5"></a><span class="co">#SBATCH  --mem 1G</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1" aria-label="code-block-24-5"></a><span class="co">#SBATCH --mem 1G</span></span>
 <span id="cb24-6"><a href="#cb24-6" tabindex="-1" aria-label="code-block-24-6"></a><span class="co">#SBATCH --cpus-per-task 1</span></span>
 <span id="cb24-7"><a href="#cb24-7" tabindex="-1" aria-label="code-block-24-7"></a></span>
 <span id="cb24-8"><a href="#cb24-8" tabindex="-1" aria-label="code-block-24-8"></a><span class="co">#This is  a job that needs GPUs</span></span>
@@ -1143,9 +1143,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/06-submit.html",
   "identifier": "https://WEHI-Education.github.io/Workshop-IntroToHPC-Slurm/instructor/06-submit.html",
-  "dateCreated": "2026-07-28",
-  "dateModified": "2025-11-27",
-  "datePublished": "2026-08-25"
+  "dateCreated": "2026-08-26",
+  "dateModified": "2026-08-26",
+  "datePublished": "2026-08-26"
 }
 
   </script><script>
