@@ -84,8 +84,9 @@ Partitions in Slurm group nodes into logical (possibly overlapping) sets. A part
 |:---------:|:------------:|:---------:|:------------:|:---------:|:------------:|:------:|
 | interactive | interactive jobs | 1 | 16 | 64| 24 hours | 0|
 | regular	| most of the batch work | 5000 | 454 | 3000 | 48 hours | 0|
-|long	| long-running jobs |  | 96 | 500 | 14-days | 0|
-| gpuq | jobs that require GPUs | | 192 | 1000 | 48 hours | 8 A30 GPUs and 1 A100 GPU on 2 nodes |
+| long	| long-running jobs |  | 96 | 500 | 14-days | 0|
+| gpuq | jobs that require GPUs | | 192 | 1000 | 48 hours | 8 x A30 GPUs and 1 x A100 GPU on 2 nodes |
+| gpuq_interactive | interactive jobs that require GPUs | 1 | 12 | 62 | 10 hours | 1 x A10 |
 | bigmem | jobs that require large amounts of memory | 500 | 128 | 1400| 48 hours| 0|
 
 ---

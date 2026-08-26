@@ -164,7 +164,7 @@ This script is running on sml-n02.hpc.wehi.edu.au
 
 The job we just ran used all of the scheduler's default options. In a real-world scenario, that's probably not what we want. Chances are, we will need more cores, more memory, more/less time, among other special considerations. To get access to these resources we must customize our job script.
 
-The default parameters on Milton is 2 CPU, 10MB Ram, 48-hours time-limit and runs on the regular partition
+The default parameters on Milton is 2 CPU, 1GB RAM, 48-hours time-limit and runs on the regular partition
 
 After your job has completed, you can get details of the job using `sacct` command.
 
@@ -174,7 +174,7 @@ sacct -j 11783909 -ojobid,jobname,ncpus,reqmem,timelimit,partition -X
 ```output
 JobID           JobName      NCPUS     ReqMem  Timelimit  Partition
 ------------ ---------- ---------- ---------- ---------- ----------
-11783909     example-j+          2        10M 2-00:00:00    regular
+11783909     example-j+          2        1G 2-00:00:00    regular
 ```
 
  
@@ -185,7 +185,7 @@ We can change the resource specification of the job by two ways:
 Adding extra options to the `sbatch` command
 
 ```bash
-sbatch --job-name hello-world --mem 1G --cpus-per-task 1 --time 1:00:00 example-job.sh
+sbatch --job-name hello-world --mem 2G --cpus-per-task 1 --time 1:00:00 example-job.sh
 ```
 
 Modifying the submission script
@@ -193,7 +193,7 @@ Modifying the submission script
 ```bash
 #!/bin/bash
 #SBATCH --job-name hello-world
-#SBATCH --mem 1G
+#SBATCH --mem 2G
 #SBATCH --cpus-per-task 1
 #SBATCH  --time 1:00:00
 echo -n "This script is running on "
@@ -285,7 +285,7 @@ Is there an error? How to fix it?
 #SBATCH -t 00:01:00 
 
 echo -n "This script is running on "
-sleep 80 # time in seconds
+sleep 360 # time in seconds
 hostname
 ```
 
@@ -301,10 +301,10 @@ This script is running on Slurmstepd: error: *** JOB 11792811 ON sml-n24 CANCELL
 To fix it, change the script to 
 ```bash
 #!/bin/bash
-#SBATCH -t 00:01:20 # timeout in HH:MM
+#SBATCH -t 00:01:30 # timeout in HH:MM
 
 echo -n "This script is running on "
-sleep 70 # time in seconds
+sleep 30 # time in seconds
 hostname
 ```
 Try running again.
@@ -329,7 +329,7 @@ Is there an error? How can you fix it?
 #!/bin/bash
 #SBATCH -t 00:01:00
 #SBATCH --gres gpu:P100:1
-#SBATCH  --mem 1G
+#SBATCH --mem 1G
 #SBATCH --cpus-per-task 1
 
 #This is  a job that needs GPUs
@@ -353,7 +353,7 @@ This is because a GPU was requested without specifying the correct GPU partition
 #SBATCH -t 00:01:00
 #SBATCH -p gpuq
 #SBATCH --gres gpu:P100:1
-#SBATCH  --mem 1G
+#SBATCH --mem 1G
 #SBATCH --cpus-per-task 1
 
 #This is  a job that needs GPUs
